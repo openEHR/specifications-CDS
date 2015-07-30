@@ -8,8 +8,8 @@
 <meta name="description" content="openEHR Guideline Definition Language (GDL)">
 <meta name="keywords" content="decision support, GDL, archetype">
 <title>Guideline Definition Language (GDL)</title>
-<link rel="stylesheet" href="../../../spec-publish-asciidoc/resources/css/openehr.css">
-<link rel="stylesheet" href="../../../spec-publish-asciidoc/resources/css/pygments-default.css">
+<link rel="stylesheet" href="../../resources/css/openehr.css">
+<link rel="stylesheet" href="../../resources/css/pygments-default.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -111,7 +111,7 @@
 <div class="sectionbody">
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../../../spec-publish-asciidoc/resources/images/openehr_logo_large.png" alt="openEHR logo">
+<img src="../../resources/images/openehr_logo_large.png" alt="openEHR logo">
 </div>
 </div>
 </div>
@@ -162,7 +162,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Licence</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../../../spec-publish-asciidoc/resources/images/cc-by-nd-88x31.png" alt="image"></span> Creative Commons Attribution-NoDerivs 3.0 Unported. <a href="https://creativecommons.org/licenses/by-nd/3.0/" class="bare">https://creativecommons.org/licenses/by-nd/3.0/</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../../resources/images/cc-by-nd-88x31.png" alt="image"></span> Creative Commons Attribution-NoDerivs 3.0 Unported. <a href="https://creativecommons.org/licenses/by-nd/3.0/" class="bare">https://creativecommons.org/licenses/by-nd/3.0/</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
@@ -316,33 +316,33 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin">(GUIDE) &lt;
-    gdl_version = &lt;&quot;0.1&quot;&gt;
-    id = &lt;&quot;CHA2DS2VASc_Score_calculation.v1-Revised function&quot;&gt;
-    concept = &lt;&quot;gt0036&quot;&gt;
-    language = (LANGUAGE) &lt;
-        original_language = &lt;[ISO_639-1::en]&gt;
-    &gt;
-    description = (RESOURCE_DESCRIPTION) &lt;
-        details = &lt;
-            [&quot;en&quot;] = (RESOURCE_DESCRIPTION_ITEM) &lt;
-                copyright = &lt;&quot;&quot;&gt;
-                keywords = &lt;&quot;Atrial Fibrillation&quot;, &quot;Stroke&quot;, &quot;CHA2DS2-VASc&quot;&gt;
-                misuse = &lt;&quot;&quot;&gt;
-                purpose = &lt;&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;&gt;
-                use = &lt;&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;&gt;
-            &gt;
-        &gt;
-        lifecycle_state = &lt;&quot;Author draft&quot;&gt;
-        original_author = &lt;
-            [&quot;date&quot;] = &lt;&quot;2012/12/03&quot;&gt;
-            [&quot;email&quot;] = &lt;&quot;rong.chen@cambio.se&quot;&gt;
-            [&quot;name&quot;] = &lt;&quot;Rong Chen&quot;&gt;
-            [&quot;organisation&quot;] = &lt;&quot;Cambio Healthcare Systems&quot;&gt;
-        &gt;
-        other_contributors = &lt;&quot;Carlos Valladares&quot;,...&gt;
-    &gt;
-&gt;</code></pre>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">(</span><span class="tok-nc">GUIDE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">gdl_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;0.1&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2VASc_Score_calculation.v1-Revised function&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">concept</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0036&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">language</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">LANGUAGE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
+    <span class="tok-p">&gt;</span>
+    <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RESOURCE_DESCRIPTION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">details</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RESOURCE_DESCRIPTION_ITEM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">copyright</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">keywords</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial Fibrillation&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;Stroke&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CHA2DS2-VASc&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">misuse</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">purpose</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">use</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-nc">lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Author draft&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">original_author</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;date&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2012/12/03&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;email&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;rong.chen@cambio.se&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;name&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Rong Chen&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;organisation&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-nc">other_contributors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Carlos Valladares&quot;</span><span class="tok-p">,...&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1991,7 +1991,7 @@ int integer() :
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-30 09:28:02 CEST
+Last updated 2015-07-30 08:54:54 BST
 </div>
 </div>
 </body>
