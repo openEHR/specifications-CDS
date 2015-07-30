@@ -1,0 +1,28 @@
+= Implementation
+
+== Drools
+GDL is technology independent, so it can be implemented using different rule engines. We’ve chosen JBoss Drools, an open source technology, to develop our first implementation of GDL execution engine. Drools allows us to refer directly to our Java objects inside the rules. It provides support for a powerful expression language (MVEL) and has proven robust and efficient enough for our purposes. Our drools module will be able to translate our GDL language into Drools Rule Language (DRL).
+
+.The following list summarizes the considerations for the drools-based implementation:
+* Each rule in GDL will generate a new rule in DRL
+* Each rule will have as a title the guide id and the GT code (rule "CHADSVAS_Score.v1/gt0028")
+* Priority will be mapped to salience in DRL language
+* All rules will have a no-loop attribute, to disable the execution loops inside one rule
+* Current time variable will have to be defined using the DvDateTime class
+* All elements used inside the expressions will be checked for definition prior to execution
+* Modification of the elements will use the modify method to propagate the changes inside the knowledge base
+* General definition section: Drools does not support declaration of elements outside the rule’s scope. Each one of the elements had to be declared inside each rule.
+* Preconditions: there is no support for this type of conditions. All preconditions will be copied inside each one of the rules.
+
+== GDL Editor
+An authoring tool for GDL is released as open-source software for the community.  The GDL editor is a multiplatform desktop application and will allow users to create, edit and run GDL files. We implemented in the editor a feature capable of generating forms based on the archetype elements defined in the GDL. These forms can be used to take input from the user and trigger the rules. More information about this tool can be found in the GDL Editor Manual.
+
+The home page of GDL Editor on GitHub is https://github.com/openEHR/gdl-tools.
+
+The software binary download page is here: http://sourceforge.net/projects/gdl-editor.
+
+== Appendix A: Grammar
+
+----
+include::javacc/expression.jj[]
+----

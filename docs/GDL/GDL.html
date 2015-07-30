@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="description" content="openEHR Guideline Definition Language (GDL)">
+<meta name="keywords" content="decision support, GDL, archetype">
+<title>Guideline Definition Language (GDL)</title>
+<link rel="stylesheet" href="../../../spec-publish-asciidoc/resources/css/openehr.css">
+<link rel="stylesheet" href="../../../spec-publish-asciidoc/resources/css/pygments-default.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel0">
+<li><a href="#_guideline_definition_language_gdl">Guideline Definition Language (GDL)</a>
+<ul class="sectlevel1">
+<li><a href="#_amendment_record">Amendment Record</a></li>
+<li><a href="#_acknowledgements">Acknowledgements</a>
+<ul class="sectlevel2">
+<li><a href="#_trademarks">Trademarks</a></li>
+</ul>
+</li>
+<li><a href="#_preface">1. Preface</a>
+<ul class="sectlevel2">
+<li><a href="#_purpose">1.1. Purpose</a></li>
+<li><a href="#_status">1.2. Status</a></li>
+</ul>
+</li>
+<li><a href="#_overview">2. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_background">2.1. Background</a></li>
+<li><a href="#_purpose_2">2.2. Purpose</a></li>
+<li><a href="#_scope">2.3. Scope</a></li>
+<li><a href="#_related_documents">2.4. Related Documents</a></li>
+<li><a href="#_an_example">2.5. An Example</a></li>
+</ul>
+</li>
+<li><a href="#_design">3. Design</a>
+<ul class="sectlevel2">
+<li><a href="#_requirements">3.1. Requirements</a>
+<ul class="sectlevel3">
+<li><a href="#_clinical_information_models">3.1.1. Clinical information models</a></li>
+<li><a href="#_natural_language_support">3.1.2. Natural language support</a></li>
+<li><a href="#_reference_terminology_support">3.1.3. Reference terminology support</a></li>
+<li><a href="#_identification_and_meta_data">3.1.4. Identification and meta-data</a></li>
+<li><a href="#_rule_execution">3.1.5. Rule Execution</a></li>
+</ul>
+</li>
+<li><a href="#_guide_object_model">3.2. Guide Object Model</a>
+<ul class="sectlevel3">
+<li><a href="#_design_background">3.2.1. Design background</a></li>
+<li><a href="#_packages_structure">3.2.2. Packages Structure</a></li>
+</ul>
+</li>
+<li><a href="#_guide_package">3.3. Guide Package</a>
+<ul class="sectlevel3">
+<li><a href="#_overview_2">3.3.1. Overview</a></li>
+<li><a href="#_class_definitions">3.3.2. Class Definitions</a>
+<ul class="sectlevel4">
+<li><a href="#_guide">GUIDE</a></li>
+<li><a href="#_guide_definition">GUIDE_DEFINITION</a></li>
+<li><a href="#_archetype_binding">ARCHETYPE_BINDING</a></li>
+<li><a href="#_element_binding">ELEMENT_BINDING</a></li>
+<li><a href="#_rule">RULE</a></li>
+</ul>
+</li>
+<li><a href="#_syntax_specification">3.3.3. Syntax Specification</a></li>
+</ul>
+</li>
+<li><a href="#_expressions_package">3.4. Expressions Package</a>
+<ul class="sectlevel3">
+<li><a href="#_overview_3">3.4.1. Overview</a></li>
+<li><a href="#_class_definitions_2">3.4.2. Class Definitions</a>
+<ul class="sectlevel4">
+<li><a href="#_expression_item">EXPRESSION_ITEM</a></li>
+<li><a href="#_unary_expression">UNARY_EXPRESSION</a></li>
+<li><a href="#_binary_expression">BINARY_EXPRESSION</a></li>
+<li><a href="#_assignment_expression">ASSIGNMENT_EXPRESSION</a></li>
+<li><a href="#_functional_expression">FUNCTIONAL_EXPRESSION</a></li>
+<li><a href="#_operator_kind">OPERATOR_KIND</a></li>
+</ul>
+</li>
+<li><a href="#_syntax_specification_2">3.4.3. Syntax Specification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_implementation">4. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#_drools">4.1. Drools</a></li>
+<li><a href="#_gdl_editor">4.2. GDL Editor</a></li>
+<li><a href="#_appendix_a_grammar">4.3. Appendix A: Grammar</a></li>
+</ul>
+</li>
+<li><a href="#_references">References</a>
+<ul class="sectlevel2">
+<li><a href="#_openehr_resources">openEHR Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../../../spec-publish-asciidoc/resources/images/openehr_logo_large.png" alt="openEHR logo">
+</div>
+</div>
+</div>
+</div>
+<h1 id="_guideline_definition_language_gdl" class="sect0">Guideline Definition Language (GDL)</h1>
+<div class="openblock partintro">
+<div class="content">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><strong>Issuer</strong>: <a href="http://www.openehr.org/programs/specification/">openEHR Specification Program</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Revision</strong>: <a href="#latest_issue">[latest_issue]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Date</strong>: <a href="#latest_issue_date">[latest_issue_date]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: TRIAL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><p class="tableblock"><strong>Keywords</strong>: decision support, GDL, archetype</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="diagrams/openehr_block_diagram.png" alt="openEHR components" width="60%">
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2013 - 2015 The openEHR Foundation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><a href="http://www.openehr.org/">The openEHR Foundation</a> is an independent, non-profit community organisation, facilitating the sharing of health records by consumers and clinicians via open-source, standards-based implementations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Licence</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../../../spec-publish-asciidoc/resources/images/cc-by-nd-88x31.png" alt="image"></span> Creative Commons Attribution-NoDerivs 3.0 Unported. <a href="https://creativecommons.org/licenses/by-nd/3.0/" class="bare">https://creativecommons.org/licenses/by-nd/3.0/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Issues: <a href="https://openehr.atlassian.net/browse/SPECPR/" class="bare">https://openehr.atlassian.net/browse/SPECPR/</a><br>
+ Web: <a href="http://www.openehr.org/" class="bare">http://www.openehr.org/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_amendment_record">Amendment Record</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9%;">
+<col style="width: 54%;">
+<col style="width: 18%;">
+<col style="width: 18%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial Writing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rong Chen<br>
+ Iago Corbal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>29 July 2015</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_acknowledgements">Acknowledgements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The work reported in this paper has been funded in by the following organisations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cambio Healthcare Systems, Sweden.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_trademarks">Trademarks</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>'openEHR' is a trademark of the openEHR Foundation</p>
+</li>
+<li>
+<p>'Java' is a registered trademark of Oracle Corporation</p>
+</li>
+<li>
+<p>'Microsoft' and '.Net' are trademarks of the Microsoft Corporation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_preface">1. Preface</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose">1.1. Purpose</h3>
+<div class="paragraph">
+<p>This document describes the syntax of the openEHR Guideline Definition Language (GDL).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_status">1.2. Status</h3>
+<div class="paragraph">
+<p>This specification is in the Trial state. The development version of this document can be found at <a href="http://www.openehr.org/releases/CDS/dev/GDL.html" class="bare">http://www.openehr.org/releases/CDS/dev/GDL.html</a>.</p>
+</div>
+<div class="paragraph">
+<p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
+</div>
+<div class="paragraph tbd">
+<p><strong>TBD</strong>: (example To Be Determined paragraph)</p>
+</div>
+<div class="paragraph">
+<p>Users are encouraged to comment on and/or advise on these paragraphs as well as the main content.  Feedback should be provided either on the <a href="http://lists.openehr.org/mailman/listinfo/openehr-technical_lists.openehr.org">technical mailing list</a>, or on the <a href="https://openehr.atlassian.net/browse/SPECPR/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel">specifications issue tracker</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview">2. Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_background">2.1. Background</h3>
+<div class="paragraph">
+<p>Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_purpose_2">2.2. Purpose</h3>
+<div class="paragraph">
+<p>This document contains the design specifications of the Guideline Definition Language (GDL). GDL is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope">2.3. Scope</h3>
+<div class="paragraph">
+<p>The scope of the GDL is to express clinical logic as production rules. Discrete GDL rules, each containing if-then statements, can be combined together as building blocks to support single decision making and more complex decision making process. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_related_documents">2.4. Related Documents</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>openEHR Reference Model Data Types Information Model (1.0.2)</p>
+</li>
+<li>
+<p>openEHR Reference Model Data Structures Information Model (1.0.2)</p>
+</li>
+<li>
+<p>openEHR Reference Model EHR Information Model (1.0.2)</p>
+</li>
+<li>
+<p>openEHR Reference Model Common Information Model (1.0.2)</p>
+</li>
+<li>
+<p>openEHR Archetype Model Archetype Object Model (AOM) (1.0.2)</p>
+</li>
+<li>
+<p>openEHR Archetype Model Archetype Definition Language (ADL) (1.0.2)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_an_example">2.5. An Example</h3>
+<div class="paragraph">
+<p>The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical instrument for stroke risk stratification in atrial fibrillation. The definitions for the GDL reserved words used here can be found on the later chapters. The meta-data in the GDL header is based on the openEHR’s ADL Description Section. The following GDL source code illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.</p>
+</div>
+<div class="paragraph">
+<p>Guide or guideline is used as a short name for a GDL guideline document in the remaining of the document.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="odin">(GUIDE) &lt;
+    gdl_version = &lt;&quot;0.1&quot;&gt;
+    id = &lt;&quot;CHA2DS2VASc_Score_calculation.v1-Revised function&quot;&gt;
+    concept = &lt;&quot;gt0036&quot;&gt;
+    language = (LANGUAGE) &lt;
+        original_language = &lt;[ISO_639-1::en]&gt;
+    &gt;
+    description = (RESOURCE_DESCRIPTION) &lt;
+        details = &lt;
+            [&quot;en&quot;] = (RESOURCE_DESCRIPTION_ITEM) &lt;
+                copyright = &lt;&quot;&quot;&gt;
+                keywords = &lt;&quot;Atrial Fibrillation&quot;, &quot;Stroke&quot;, &quot;CHA2DS2-VASc&quot;&gt;
+                misuse = &lt;&quot;&quot;&gt;
+                purpose = &lt;&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;&gt;
+                use = &lt;&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;&gt;
+            &gt;
+        &gt;
+        lifecycle_state = &lt;&quot;Author draft&quot;&gt;
+        original_author = &lt;
+            [&quot;date&quot;] = &lt;&quot;2012/12/03&quot;&gt;
+            [&quot;email&quot;] = &lt;&quot;rong.chen@cambio.se&quot;&gt;
+            [&quot;name&quot;] = &lt;&quot;Rong Chen&quot;&gt;
+            [&quot;organisation&quot;] = &lt;&quot;Cambio Healthcare Systems&quot;&gt;
+        &gt;
+        other_contributors = &lt;&quot;Carlos Valladares&quot;,...&gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following block illustrates the archetype_binding within the guide_definition section, which binds data elements from the archetypes to variables used by GDL rules.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>definition = (GUIDE_DEFINITION) &lt;
+    archetype_bindings = &lt;
+        [1] = (ARCHETYPE_BINDING) &lt;
+            archetype_id = &lt;"openEHR-EHR-EVALUATION.problem-diagnosis.v1"&gt;
+            domain = &lt;"EHR"&gt;
+            elements = &lt;
+                ["gt0107"] = (ELEMENT_BINDING) &lt;
+                    path = &lt;"/data[at0001]/items[at0002.1]"&gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Within guide_definition, it is possible to define a set of conditions that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the definition section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the term_bindings section.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>definition = (GUIDE_DEFINITION) &lt;
+    archetype_bindings = &lt;
+        [1] = (ARCHETYPE_BINDING) &lt;
+            archetype_id = &lt;"openEHR-EHR-EVALUATION.problem-diagnosis.v1"&gt;
+            domain = &lt;"EHR"&gt;
+            elements = &lt;
+                ["gt0107"] = (ELEMENT_BINDING) &lt;
+                    path = &lt;"/data[at0001]/items[at0002.1]"&gt;
+                &gt;
+            &gt;
+            predicates = &lt;"/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|",...&gt;
+            template_id = &lt;"diagnosis_chadvas_icd10"&gt;
+        &gt;
+    &gt;
+    pre_conditions = &lt;"$gt0107!=null",...&gt;
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The rule section makes exclusive use of the locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt code, with which its natural language-dependent name and description are indexed in the term_definitions section. Also a priority can be assigned to ensure execution order of the rules. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the DV_ORDINALs inside a CHA2DS2-VASc score archetype, the rule gt0026 ("Calculate total score") sums up all the values and sets the total score in CHA2DS2-VASc score archetype.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>rules = &lt;
+    ["gt0018"] = (RULE) &lt;
+        when = &lt;"$gt0108!=null",...&gt;
+        then = &lt;"$gt0014=1|local::at0031|Present|",...&gt;
+        priority = <b class="conum">(11)</b>
+    &gt;
+    ["gt0019"] = (RULE) &lt;
+        when = &lt;"$gt0109!=null",...&gt;
+        then = &lt;"$gt0010=1|local::at0034|Present|",...&gt;
+        priority = <b class="conum">(9)</b>
+    &gt;
+    ["gt0026"] = (RULE) &lt;
+        then = &lt;"$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)",...&gt;
+        priority = <b class="conum">(1)</b>
+    &gt;
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally we have the ontology section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>term_definitions = &lt;
+    ["en"] = (TERM_DEFINITION) &lt;
+        terms = &lt;
+            ["gt0003"] = (TERM) &lt;
+                text = &lt;"Diagnosis"&gt;
+            &gt;
+            ["gt0014"] = (TERM) &lt;
+                text = &lt;"Hypertension"&gt;
+            &gt;
+            ["gt0102"] = (TERM) &lt;
+                text = &lt;"Diabetes"&gt;
+            &gt;
+            ["gt0105"] = (TERM) &lt;
+                text = &lt;"Atrial fibrillation"&gt;
+            &gt;
+            ["gt0018"] = (TERM) &lt;
+                text = &lt;"Set hypertension"&gt;
+            &gt;
+            ["gt0019"] = (TERM) &lt;
+                text = &lt;"Set diabetes"&gt;
+            &gt;
+            ["gt0026"] = (TERM) &lt;
+                text = &lt;"Calculate total score"&gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in term_bindings. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>term_definitions = &lt;
+    ["ICD10"] = (TERM_BINDING) &lt;
+        bindings = &lt;
+            ["gt0105"] = (BINDING) &lt;
+                codes = &lt;[ICD10::I48],...&gt;
+                uri = &lt;""&gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design">3. Design</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_requirements">3.1. Requirements</h3>
+<div class="paragraph">
+<p>This chapter describes detailed formal requirements of the GDL.</p>
+</div>
+<div class="sect3">
+<h4 id="_clinical_information_models">3.1.1. Clinical information models</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>It shall be possible to express clinical logic using archetypes both as input and output of the rule execution.</p>
+</li>
+<li>
+<p>The rule language shall support archetypes based on different reference information models.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_natural_language_support">3.1.2. Natural language support</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>It shall be possible to author meta-data of the rules in any natural language.</p>
+</li>
+<li>
+<p>The rule expressions shall be independent of any natural language.</p>
+</li>
+<li>
+<p>The name of individual rules shall be independent of any natural language.</p>
+</li>
+<li>
+<p>It shall be possible to add multiple language translations without changing the logical definitions in the rules.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reference_terminology_support">3.1.3. Reference terminology support</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>It shall be possible to bind a locally defined term in the guideline to a single concept defined by one or several external reference terminologies.</p>
+</li>
+<li>
+<p>It shall be possible to bind a locally defined term in the guideline to multiple concepts defined by external reference terminologies.</p>
+</li>
+<li>
+<p>It shall be possible to bind a locally defined term in the guideline to terminology ref-sets defined externally.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identification_and_meta_data">3.1.4. Identification and meta-data</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Each rule shall be uniquely identified for a given name space.</p>
+</li>
+<li>
+<p>Each rule shall have explicit version information as part of the rule identification.</p>
+</li>
+<li>
+<p>There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rule_execution">3.1.5. Rule Execution</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>It shall be possible to chain the execution of several CDS rules in order to support complex decision making process.</p>
+</li>
+<li>
+<p>It shall be possible to reuse the CDS rules in different decision support applications in different clinical context.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guide_object_model">3.2. Guide Object Model</h3>
+<div class="sect3">
+<h4 id="_design_background">3.2.1. Design background</h4>
+<div class="paragraph">
+<p>openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_packages_structure">3.2.2. Packages Structure</h4>
+<div class="paragraph">
+<p>The Guide Object Model, the object model of the GDL, consists of two packages, the guide package and the expressions package described in detail through the next two sections.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guide_package">3.3. Guide Package</h3>
+<div class="sect3">
+<h4 id="_overview_2">3.3.1. Overview</h4>
+<div class="paragraph">
+<p>The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="diagrams/gdl-relational-model.png" alt="Figure 1 – The Guide Package">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_class_definitions">3.3.2. Class Definitions</h4>
+<div class="sect4">
+<h5 id="_guide">GUIDE</h5>
+<div class="paragraph">
+<p>Main class of a discrete guide, which defines archetype bindings, rules and meta-information.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gdl_version: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version of the GDL the guide is written in.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identification of this guide</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">concept: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The normative meaning of the guide as whole. Expressed as a local guide code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">language: Language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Natural language resources of this guide. It includes an original language and optional list of translations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description: RESOURCE_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resources description of this guide including authorship, use/misuse, life-cycle and references.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">definition: GUIDE_DEFINITION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The main definition part of the guide. It consists of archetype bindings and rule definitions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ontology: GUIDE_ONTOLOGY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ontology of the guide.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_guide_definition">GUIDE_DEFINITION</h5>
+<div class="paragraph">
+<p>The definition of the guide includes a list of archetype bindings and a list of rule definitions.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">archetype_bindings: List&lt;ARCHETYPE_BINDING&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of archetype bindings, which define specific elements to be used by rules.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rules: Map&lt;String, Rule&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Map of rules indexed by local gt codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pre_conditions: List&lt;EXPRESSION_ITEM&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of pre-conditions to be met before the guide should be executed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_archetype_binding">ARCHETYPE_BINDING</h5>
+<div class="paragraph">
+<p>The binding of list of elements from a selected archetype or template to local gt codes</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">archetype_id: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the archetype, from where the list of elements is selected.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">template_id: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of an optional template to be used for selecting elements.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">domain: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The space in which the rule variables reside. The value can either be “EHR” meaning the value is retrieved from the EHR, or “CDS: meaning the value is derived in the CDS engine. When missing, the assumption is either “EHR” or “CDS”.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements: Map&lt;String, ELEMENT_BINDING&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Map of element binding indexed by local gt codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">predicate_statements: List&lt;EXPRESSION_ITEM&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_element_binding">ELEMENT_BINDING</h5>
+<div class="paragraph">
+<p>The binding between a specific element in an archetype and a local variable in the guide.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The local gt code of this element</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">path: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path to reach this element in the archetype.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_rule">RULE</h5>
+<div class="paragraph">
+<p>A single rule defined in a guide</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The local gt code of this element</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">when_statements: List&lt;EXPRESSION_ITEM&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of expressions to be evaluated before the rule can be fired.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">then_statements: List&lt;ASSIGNMENT_EXPRESSION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of expressions to generate output of the rule.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_syntax_specification">3.3.3. Syntax Specification</h4>
+<div class="paragraph">
+<p>The grammar and lexical specification for the standard GDL is entirely based on dADL and driven by the guide object model.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expressions_package">3.4. Expressions Package</h3>
+<div class="sect3">
+<h4 id="_overview_3">3.4.1. Overview</h4>
+<div class="paragraph">
+<p>The overview of the expressions package is illustrated by figure 2.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="diagrams/expression-relational-model.png" alt="Figure 2 – The Expression Package">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_class_definitions_2">3.4.2. Class Definitions</h4>
+<div class="sect4">
+<h5 id="_expression_item">EXPRESSION_ITEM</h5>
+<div class="paragraph">
+<p>Abstract model of an expression item in the rule.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_unary_expression">UNARY_EXPRESSION</h5>
+<div class="paragraph">
+<p>Abstract model of an expression item in the rule.
+Inherit EXPRESSION_ITEM</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">operand: EXPRESSION_ITEM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operand of this unary expression.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">operator: OPERATOR_KIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operator of this unary expression.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_binary_expression">BINARY_EXPRESSION</h5>
+<div class="paragraph">
+<p>Concrete model of a binary expression item.
+Inherit EXPRESSION_ITEM</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">left: EXPRESSION_ITEM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The left operand of this binary expression.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">right: EXPRESSION_ITEM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The right operand of this binary expression.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">operator: OPERATOR_KIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operator of this binary expression.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_assignment_expression">ASSIGNMENT_EXPRESSION</h5>
+<div class="paragraph">
+<p>Concrete model of an assignment expression.
+Inherit EXPRESSION_ITEM</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">variable: String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The gt code of the variable to assign the value to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assignment: EXPRESSION_ITEM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The expression item, from which the value is derived from.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_functional_expression">FUNCTIONAL_EXPRESSION</h5>
+<div class="paragraph">
+<p>Concrete expression models a function.
+Inherit EXPRESSION_ITEM</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attributes</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">function: Kind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The kind of function used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">items: List&lt;EXPRESSION_ITEM&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of parameters to the function.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_operator_kind">OPERATOR_KIND</h5>
+<div class="paragraph">
+<p>Enumeration containing all the operators used.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Addition</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtraction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multiplication</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Division</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exponent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">And</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;&amp;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Or</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">||Logical</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">==</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unequal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">!=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8656;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assignment</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terminological reasoning</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Is a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">is_a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terminological reasoning</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>FUNCTION_KIND</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Max</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the maximum value of an element.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the minimum value of an element.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_syntax_specification_2">3.4.3. Syntax Specification</h4>
+<div class="paragraph">
+<p>The grammar and lexical specification for the expressions used by GDL is loosely based on the assertion syntax in the ADL specification. This grammar is implemented using javaCC specifications in the Java programming environment.
+The full source code of the java GDL parser can be found below.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementation">4. Implementation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_drools">4.1. Drools</h3>
+<div class="paragraph">
+<p>GDL is technology independent, so it can be implemented using different rule engines. We’ve chosen JBoss Drools, an open source technology, to develop our first implementation of GDL execution engine. Drools allows us to refer directly to our Java objects inside the rules. It provides support for a powerful expression language (MVEL) and has proven robust and efficient enough for our purposes. Our drools module will be able to translate our GDL language into Drools Rule Language (DRL).</p>
+</div>
+<div class="ulist">
+<div class="title">The following list summarizes the considerations for the drools-based implementation:</div>
+<ul>
+<li>
+<p>Each rule in GDL will generate a new rule in DRL</p>
+</li>
+<li>
+<p>Each rule will have as a title the guide id and the GT code (rule "CHADSVAS_Score.v1/gt0028")</p>
+</li>
+<li>
+<p>Priority will be mapped to salience in DRL language</p>
+</li>
+<li>
+<p>All rules will have a no-loop attribute, to disable the execution loops inside one rule</p>
+</li>
+<li>
+<p>Current time variable will have to be defined using the DvDateTime class</p>
+</li>
+<li>
+<p>All elements used inside the expressions will be checked for definition prior to execution</p>
+</li>
+<li>
+<p>Modification of the elements will use the modify method to propagate the changes inside the knowledge base</p>
+</li>
+<li>
+<p>General definition section: Drools does not support declaration of elements outside the rule’s scope. Each one of the elements had to be declared inside each rule.</p>
+</li>
+<li>
+<p>Preconditions: there is no support for this type of conditions. All preconditions will be copied inside each one of the rules.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gdl_editor">4.2. GDL Editor</h3>
+<div class="paragraph">
+<p>An authoring tool for GDL is released as open-source software for the community.  The GDL editor is a multiplatform desktop application and will allow users to create, edit and run GDL files. We implemented in the editor a feature capable of generating forms based on the archetype elements defined in the GDL. These forms can be used to take input from the user and trigger the rules. More information about this tool can be found in the GDL Editor Manual.</p>
+</div>
+<div class="paragraph">
+<p>The home page of GDL Editor on GitHub is <a href="https://github.com/openEHR/gdl-tools" class="bare">https://github.com/openEHR/gdl-tools</a>.</p>
+</div>
+<div class="paragraph">
+<p>The software binary download page is here: <a href="http://sourceforge.net/projects/gdl-editor" class="bare">http://sourceforge.net/projects/gdl-editor</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_appendix_a_grammar">4.3. Appendix A: Grammar</h3>
+<div class="listingblock">
+<div class="content">
+<pre> /**
+ * Expression parser
+ *
+ * @author rong.chen
+ */
+options
+{
+  JDK_VERSION = "1.5";
+
+  LOOKAHEAD= 1;
+  DEBUG_PARSER = false;
+  DEBUG_TOKEN_MANAGER = false;
+  DEBUG_LOOKAHEAD = false;
+  UNICODE_INPUT = true;
+
+  static = false;
+}
+
+PARSER_BEGIN(ExpressionParser)
+package se.cambio.cds.gdl.parser;
+import java.io.*;
+import java.util.*;
+import se.cambio.cds.gdl.model.expression.*;
+import org.openehr.rm.datatypes.text.CodePhrase;
+import org.openehr.rm.datatypes.quantity.*;
+import org.openehr.rm.datatypes.basic.DataValue;
+
+public class ExpressionParser
+{
+  private static final String CHARSET = "UTF-8";
+
+  /* =========================  public interface ======================== */
+  /* execute the parsing */
+  public List &lt; ExpressionItem &gt; parseBooleanExpressions() throws ParseException
+  {
+    return expressions();
+  }
+
+  public List &lt; ExpressionItem &gt; parseArithmeticExpressions() throws ParseException
+  {
+    return expressions();
+  }
+
+  public ExpressionItem parse() throws ParseException
+  {
+    return expression_item();
+  }
+
+  /* re-initial the parser */
+  public void reInit(File file) throws IOException
+  {
+    ReInit(new FileInputStream(file), CHARSET);
+  }
+
+  /* re-initial the parser */
+  public void reInit(InputStream input) throws IOException
+  {
+    ReInit(new BufferedInputStream(input));
+  }
+
+  public static void main(String args []) throws ParseException
+  {}
+}
+
+PARSER_END(ExpressionParser)
+
+&lt;* &gt;
+SKIP : /* WHITE SPACE */
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+&lt;* &gt;
+SPECIAL_TOKEN : /* COMMENTS */
+{
+  &lt; SINGLE_LINE_COMMENT : "--" (~[ "\n", "\r" ])* &gt;
+}
+
+&lt;* &gt;
+TOKEN : /* SYMBOLS - common */
+{
+  &lt; SYM_MINUS : "-" &gt;
+| &lt; SYM_PLUS : "+" &gt;
+| &lt; SYM_STAR : "*" &gt;
+| &lt; SYM_SLASH : "/" &gt;
+| &lt; SYM_CARET : "^" &gt;
+| &lt; SYM_DOT : "." &gt;
+| &lt; SYM_SEMICOLON : ";" &gt;
+| &lt; SYM_COMMA : "," &gt;
+| &lt; SYM_TWO_COLONS : "::" &gt;
+| &lt; SYM_COLON : ":" &gt;
+| &lt; SYM_EXCLAMATION : "!" &gt;
+| &lt; SYM_L_PARENTHESIS : "(" &gt;
+| &lt; SYM_R_PARENTHESIS : ")" &gt;
+| &lt; SYM_DOLLAR : "$" &gt;
+| &lt; SYM_QUESTION : "?" &gt;
+| &lt; SYM_L_BRACKET : "[" &gt;
+| &lt; SYM_R_BRACKET : "]" &gt;
+| &lt; SYM_INTERVAL_DELIM : "|" &gt;
+| &lt; SYM_EQ : "==" &gt;
+| &lt; SYM_GE : "&gt;=" &gt;
+| &lt; SYM_LE : "&lt;=" &gt;
+| &lt; SYM_LT : "&lt;" &gt;
+| &lt; SYM_GT : "&gt;" &gt;
+| &lt; SYM_NE : "!=" &gt;
+| &lt; SYM_NOT : "not" &gt;
+| &lt; SYM_AND :
+    "and"
+  | "&amp;&amp;" &gt;
+| &lt; SYM_OR :
+    "or"
+  | "||" &gt;
+| &lt; SYM_FALSE : "false" &gt;
+| &lt; SYM_TRUE : "true" &gt;
+| &lt; SYM_NULL : "null" &gt;
+| &lt; SYM_IS_A : "is_a" &gt;
+| &lt; SYM_IS_NOT_A : "!is_a" &gt;
+| &lt; SYM_FOR_ALL : "for_all" &gt;
+| &lt; SYM_MAX : "max" &gt;
+| &lt; SYM_MIN : "min" &gt;
+| &lt; SYM_CURRENT_DATETIME : "currentDateTime" &gt;
+| &lt; SYM_ASSIGNMENT : "=" &gt;
+| &lt; SYM_MODULO : "\\" &gt;
+| &lt; SYM_DIV : "//" &gt;
+| &lt; SYM_ELLIPSIS : ".." &gt;
+| &lt; SYM_LIST_CONTINUE : "..." &gt;
+}
+
+&lt;* &gt;
+TOKEN :
+{
+  &lt; #V_LOCAL_CODE_CORE : "g" [ "c", "t" ] ([ "0"-"9", "." ])+ [ "0"-"9" ] &gt;
+| &lt; V_LOCAL_CODE : &lt; V_LOCAL_CODE_CORE &gt; &gt;
+| &lt; V_QUANTITY :
+    (
+      &lt; V_REAL &gt;
+    | &lt; V_INTEGER &gt;
+    )
+    "," ([ "a"-"z", "A"-"Z", "µ", "°", "%", "*", "0"-"9", "[", "]", "/" ])+
+        ([ "a"-"z", "A"-"Z", "µ", "°", "%", "*","0"-"9", "[", "]", "/" ])*
+        ([ "a"-"z", "A"-"Z", "µ", "°", "%", "*","0"-"9", "[", "]"])* &gt;
+| &lt; V_PROPORTION :
+    (
+      &lt; V_REAL &gt;
+    | &lt; V_INTEGER &gt;
+    )
+    ","
+    (
+      &lt; V_REAL &gt;
+    | &lt; V_INTEGER &gt;
+    )
+    ","
+    (["0"-"4"]) &gt;
+| &lt; V_INTEGER :
+    (&lt; DIG &gt;)+
+  |
+    "(-" (&lt; DIG &gt;)+ ")"
+  |
+    (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "," (&lt; DIG &gt;)
+      {
+        3
+      }
+    )+ &gt;
+|
+  &lt; V_ISO8601_DURATION: ("-")? "P"((&lt;DIG&gt;)+["y","Y"])?((&lt;DIG&gt;)+["m","M"])?((&lt;DIG&gt;)+["w","W"])?
+  ((&lt;DIG&gt;)+["d","D"])?("T"((&lt;DIG&gt;)+["h","H"])?((&lt;DIG&gt;)+["m","M"])?
+  ((&lt;DIG&gt;)+["s","S"])?)?&gt;
+|
+  &lt; V_ISO8601_DURATION_CONSTRAINT_PATTERN: "P"(["y","Y"])?(["m","M"])?
+  (["w","W"])?(["d","D"])?"T"(["h","H"])?(["m","M"])?(["s","S"])?
+  |"P"(["y","Y"])?(["m","M"])?(["w","W"])?(["d","D"])?&gt;
+|
+  &lt; V_DATE: (["0"-"9"]){4} "-" ( "0"["1"-"9"] | "1"["0"-"2"] ) "-"
+            ( "0"["1"-"9"] | ["1"-"2"]["0"-"9"]|"3"["0"-"1"] ) &gt;
+|
+  &lt; V_HHMM_TIME: &lt;HOUR_MINUTE&gt; &gt;
+|
+  &lt; V_HHMMSS_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &gt;
+|
+  &lt; V_HHMMSSss_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &lt;MILLI_SECOND&gt; &gt;
+|
+  &lt; V_HHMMSSZ_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &lt;TIME_ZONE&gt; &gt;
+|
+  &lt; V_HHMMSSssZ_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &lt;MILLI_SECOND&gt; &lt;TIME_ZONE&gt; &gt;
+|
+  &lt; V_TIME: &lt;HOUR_MINUTE&gt; &lt;SECOND&gt; &gt;
+|
+
+  &lt; V_DATE_TIME_MS: &lt;DATE_TIME&gt; &lt;MILLI_SECOND&gt; &gt;
+|
+  &lt; V_DATE_TIME_Z: "("&lt;DATE_TIME&gt; &lt;TIME_ZONE&gt; ")" &gt;
+|
+  &lt; V_DATE_TIME: "("&lt;DATE_TIME&gt; ")" &gt;
+|
+   &lt; V_DATE_TIME_MSZ: &lt;DATE_TIME&gt; &lt;MILLI_SECOND&gt; &lt;TIME_ZONE&gt; &gt;
+|
+   &lt; #DATE_TIME: &lt;V_DATE&gt;"T"&lt;V_TIME&gt;&gt;
+|  &lt; #TIME_ZONE: ["-","+"](["0"-"9"]){2}":"(["0"-"9"]){2} | "Z" &gt;
+|
+  &lt; #SECOND: ":" ["0"-"5"]["0"-"9"] &gt;
+|
+  &lt; #MILLI_SECOND: "."(["0"-"9"]){2, 3} &gt;
+|
+  &lt; #HOUR_MINUTE: ["0"-"9"]["0"-"9"] ":" ["0"-"5"]["0"-"9"] &gt;
+| &lt; V_CODE_PHRASE : "[" (&lt; LET_DIG_DUDSLR &gt;)+ "::" (&lt; LET_DIG_DUDS &gt;)+ "]" &gt;
+| &lt; V_CODE_PHRASE_RAW : (&lt; LET_DIG_DUDSLR &gt;)+ "::" (&lt; LET_DIG_DUDS &gt;)+ &gt;
+| &lt; V_ORDINAL : &lt; V_INTEGER &gt; "|" &lt; V_CODE_PHRASE_RAW &gt; &lt; V_LABEL &gt; &gt;
+| &lt; V_ATTRIBUTE_IDENTIFIER : [ "a"-"z" ] (&lt; LET_DIG_U &gt;)* &gt;
+| &lt; V_LABEL : "|" (~[ "|" ])* "|" &gt;
+| &lt; V_REAL :
+    (&lt; DIG &gt;)+ "./" ~[ ".", "0"-"9" ]
+  | (&lt; DIG &gt;)+ "." (&lt; DIG &gt;)* [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)+
+  | (&lt; DIG &gt;)* "." (&lt; DIG &gt;)+
+    (
+      [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)+
+    )?
+  | "(-" (&lt; DIG &gt;)* "." (&lt; DIG &gt;)+
+    (
+      [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)+
+    )? ")"
+  | (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )+
+    "./" ~[ ".", "0"-"9" ]
+  | (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )*
+    "."
+    (
+      (&lt; DIG &gt;)
+      {
+        1, 3
+      }
+      (
+        "_" (&lt; DIG &gt;)
+        {
+          3
+        }
+      )*
+    )?
+    [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )*
+  |
+    (
+      (&lt; DIG &gt;)
+      {
+        1, 3
+      }
+      (
+        "_" (&lt; DIG &gt;)
+        {
+          3
+        }
+      )*
+    )?
+    "." (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )*
+    (
+      [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)
+      {
+        1, 3
+      }
+      (
+        "_" (&lt; DIG &gt;)
+        {
+          3
+        }
+      )*
+    )? &gt;
+| &lt; V_STRING :
+    "'"
+    (
+      (
+        "\\\"" (~[ "\'", "\n", "\\" ])*
+      )
+    |
+      (
+        "\\\\" (~[ "\'", "\n", "\\" ])*
+      )
+    |
+      (
+        "\n" ([ "\r", " ", "\t" ])*
+      )
+    | (~[ "\\", "\n", "\'" ])*
+    )*
+    "'" &gt;
+}
+
+&lt;* &gt;
+TOKEN : /* LOCAL TOKENS */
+{
+  &lt; #DIG : [ "0"-"9" ] &gt;
+| &lt; #LET_DIG : [ "a"-"z", "A"-"Z", "0"-"9" ] &gt;
+| &lt; #LET_DIG_DD :
+    &lt; LET_DIG &gt;
+  | "."
+  | "_"
+  | "-" &gt;
+| &lt; #LET_DIG_U :
+    &lt; LET_DIG &gt;
+  | "_" &gt;
+| &lt; #LET_DIG_DU :
+    &lt; LET_DIG_U &gt;
+  | "-" &gt;
+| &lt; #LET_DIG_DUDS :
+    &lt; LET_DIG_DU &gt;
+  | "."
+  | "\\" &gt;
+| &lt; #LET_DIG_DUDSLR :
+    &lt; LET_DIG_DUDS &gt;
+  | "("
+  | ")" &gt;
+| &lt; V_LOCAL_TERM_CODE_REF : "[" &lt; LET_DIG &gt; (&lt; LET_DIG_DD &gt;)* "]" &gt;
+| &lt; #PATH_SEGMENT : &lt; V_ATTRIBUTE_IDENTIFIER &gt; (&lt; V_LOCAL_TERM_CODE_REF &gt;)? &gt;
+| &lt; V_ABSOLUTE_PATH : &lt; SYM_SLASH &gt; &lt; PATH_SEGMENT &gt; (&lt; SYM_SLASH &gt; &lt; PATH_SEGMENT &gt;)* &gt;
+}
+
+List &lt; ExpressionItem &gt; expressions() :
+{
+  List &lt; ExpressionItem &gt; items = new ArrayList &lt; ExpressionItem &gt; ();
+  ExpressionItem item = null;
+}
+{
+  item = expression_item()
+  {
+    items.add(item);
+  }
+  (
+    LOOKAHEAD(2)
+    &lt; SYM_COMMA &gt; item = expression_item()
+    {
+      items.add(item);
+    }
+  )*
+  {
+    return items;
+  }
+}
+
+ExpressionItem expression_item() :
+{
+  ExpressionItem item = null;
+}
+{
+  (
+    LOOKAHEAD(4)
+    item = expression_node()
+  | LOOKAHEAD(4)
+    item = expression_leaf()
+  )
+  {
+    return item;
+  }
+  {
+    return item;
+  }
+}
+
+CodePhrase code_phrase() :
+{
+  Token t;
+  String lang = null;
+  String langTerm = null;
+  String langCode = null;
+}
+{
+  t = &lt; V_CODE_PHRASE &gt;
+  {
+    lang = t.image;
+    int i = lang.indexOf("::");
+    langTerm = lang.substring(1, i);
+    langCode = lang.substring(i + 2, lang.length() - 1);
+  }
+  {
+    return new CodePhrase(langTerm, langCode);
+  }
+}
+
+CodePhrase code_phrase_raw() :
+{
+  Token t;
+  String lang = null;
+  String langTerm = null;
+  String langCode = null;
+}
+{
+  t = &lt; V_CODE_PHRASE_RAW &gt;
+  {
+    lang = t.image;
+    int i = lang.indexOf("::");
+    langTerm = lang.substring(0, i);
+    langCode = lang.substring(i + 2);
+  }
+  {
+    return new CodePhrase(langTerm, langCode);
+  }
+}
+
+/* ----------------------- expressions ----------------------- */
+ExpressionItem expression_node() :
+{
+  ExpressionItem ret = null;
+  ExpressionItem item = null;
+  ExpressionItem item2 = null;
+  OperatorKind op = null;
+  List&lt;AssignmentExpression&gt; assignmentExpressions = null;
+  boolean precedenceOverridden = false; // TODO
+  Token t = null;
+  String attrId = null;
+}
+{
+  (
+    (
+      &lt; SYM_FOR_ALL &gt; item = expression_leaf()
+      {
+        op = OperatorKind.FOR_ALL;
+      }
+    | &lt; SYM_MAX &gt; item = expression_leaf()
+      {
+        op = OperatorKind.MAX;
+      }
+    | &lt; SYM_MIN &gt; item = expression_leaf()
+      {
+        op = OperatorKind.MIN;
+      }
+    )
+    {
+      return new UnaryExpression(item, op);
+  	}
+  |
+    (
+      item = expression_leaf()
+      (
+        &lt; SYM_EQ &gt;
+        {
+          op = OperatorKind.EQUALITY;
+        }
+      | &lt; SYM_NE &gt;
+        {
+          op = OperatorKind.INEQUAL;
+        }
+      | &lt; SYM_LT &gt;
+        {
+          op = OperatorKind.LESS_THAN;
+        }
+      | &lt; SYM_GT &gt;
+        {
+          op = OperatorKind.GREATER_THAN;
+        }
+      | &lt; SYM_LE &gt;
+        {
+          op = OperatorKind.LESS_THAN_OR_EQUAL;
+        }
+      | &lt; SYM_GE &gt;
+        {
+          op = OperatorKind.GREATER_THAN_OR_EQUAL;
+        }
+      | &lt; SYM_PLUS &gt;
+        {
+          op = OperatorKind.ADDITION;
+        }
+      | &lt; SYM_MINUS &gt;
+        {
+          op = OperatorKind.SUBSTRATION;
+        }
+      | &lt; SYM_STAR &gt;
+        {
+          op = OperatorKind.MULTIPLICATION;
+        }
+      | &lt; SYM_SLASH &gt;
+        {
+          op = OperatorKind.DIVISION;
+        }
+      | &lt; SYM_CARET &gt;
+        {
+          op = OperatorKind.EXPONENT;
+        }
+      | &lt; SYM_AND &gt;
+        {
+          op = OperatorKind.AND;
+        }
+      | &lt; SYM_OR &gt;
+        {
+          op = OperatorKind.OR;
+        }
+      | &lt; SYM_IS_A &gt;
+        {
+          op = OperatorKind.IS_A;
+        }
+      | &lt; SYM_IS_NOT_A &gt;
+        {
+          op = OperatorKind.IS_NOT_A;
+        }
+      | LOOKAHEAD(4)
+        &lt; SYM_ASSIGNMENT &gt;
+        {
+          op = OperatorKind.ASSIGNMENT;
+        }
+        item2 = expression_leaf()
+        {
+          return new AssignmentExpression((Variable) item, item2);
+        }
+      | assignmentExpressions = assignmentExpressions()
+        {
+          return new CreateInstanceExpression((Variable) item, assignmentExpressions);
+        }
+      )
+      item2 = expression_leaf()
+      {
+        ret = new BinaryExpression(item, item2, op);
+      }
+    )
+  )
+  {
+    return ret;
+  }
+}
+
+ExpressionItem expression_leaf() :
+{
+  ExpressionItem item = null;
+  Token t = null;
+}
+{
+  (
+    &lt; SYM_L_PARENTHESIS &gt;
+    (
+      LOOKAHEAD(expression_node())
+      item = expression_node()
+    | LOOKAHEAD(variable())
+      item = variable()
+    | LOOKAHEAD(constant_expression())
+      item = constant_expression()
+    )
+    &lt; SYM_R_PARENTHESIS &gt;
+  | item = constant_expression()
+  | item = variable()
+  )
+  {
+    return item;
+  }
+}
+
+AssignmentExpression assignmentExpression() :
+{
+    ExpressionItem item = null;
+    ExpressionItem item2 = null;
+}
+{
+    (
+     item = expression_leaf()
+     &lt; SYM_ASSIGNMENT &gt;
+     item2 = expression_leaf()
+    )
+    {
+        return new AssignmentExpression((Variable) item, item2);
+    }
+}
+
+List &lt; AssignmentExpression &gt; assignmentExpressions() :
+{
+    List &lt; AssignmentExpression &gt; items = new ArrayList &lt; AssignmentExpression &gt; ();
+    AssignmentExpression item = null;
+}
+{
+    (
+     &lt; SYM_L_PARENTHESIS &gt;
+     item = assignmentExpression()
+     {
+     items.add(item);
+     }
+     (
+      LOOKAHEAD(2)
+      &lt; SYM_SEMICOLON &gt; item = assignmentExpression()
+      {
+      items.add(item);
+      }
+     )*
+     &lt; SYM_R_PARENTHESIS &gt;
+    )
+
+    {
+        return items;
+    }
+}
+
+
+ConstantExpression constant_expression() :
+{
+  Token t = null;
+  CodePhrase code = null;
+  String text = null;
+  String units = null;
+  Integer order = null;
+}
+{
+  (
+    t = &lt; V_STRING &gt;
+    {
+      String str = t.image;
+      return new StringConstant(str.substring(1, str.length() - 1));
+    }
+  | t = &lt; V_ORDINAL &gt;
+    {
+      String value = "DV_ORDINAL," + t.image;
+      DvOrdinal ordinal = (DvOrdinal) DataValue.parseValue(value);
+      return new OrdinalConstant(ordinal);
+    }
+  | t = &lt; V_REAL &gt;
+  | t = &lt; V_INTEGER &gt;
+  | t = &lt; V_PROPORTION &gt;
+  | t = &lt;V_DATE&gt;
+  | t = &lt;V_DATE_TIME_Z&gt;
+    {
+      text = t.image;
+      text = text.replace("(","");
+      text = text.replace(")","");
+      return new DateTimeConstant(text);
+     }
+  | t = &lt;V_DATE_TIME&gt;
+    {
+      text = t.image;
+      text = text.replace("(","");
+      text = text.replace(")","");
+      return new DateTimeConstant(text);
+     }
+  | t = &lt;V_TIME&gt;
+  | t = &lt;V_ISO8601_DURATION&gt;
+  | t = &lt; SYM_NULL &gt;
+  | t = &lt; SYM_TRUE &gt;
+  | t = &lt; SYM_FALSE &gt;
+  | LOOKAHEAD(2)
+    code = code_phrase_raw() [ text = label() ]
+    {
+      if (text != null)
+      {
+        return new CodedTextConstant(text, code);
+      }
+      else
+      {
+        return new CodePhraseConstant(code);
+      }
+    }
+  | t = &lt; V_QUANTITY &gt;
+    {
+      text = t.image;
+      text = text.replace("(","");
+      text = text.replace(")","");
+      DvQuantity q = new DvQuantity("m",1,0).parse(text);
+      return new QuantityConstant(q);
+    }
+  )
+  {
+    return new ConstantExpression(t.image);
+  }
+}
+
+Variable variable() :
+{
+  Variable v;
+  Token t;
+  String code = null;
+  String path = null;
+  String label = null;
+  String attribute = null;
+}
+{
+  (
+    &lt; SYM_DOLLAR &gt;
+    (
+      t = &lt; V_LOCAL_CODE &gt;
+    | t = &lt; SYM_CURRENT_DATETIME &gt;
+    )
+    {
+      code = t.image;
+    }
+    [ label = label() ]
+  | t = &lt; V_ABSOLUTE_PATH &gt;
+    {
+      path = t.image;
+    }
+  )
+  [
+    &lt; SYM_DOT &gt; t = &lt; V_ATTRIBUTE_IDENTIFIER &gt;
+    {
+      attribute = t.image;
+    }
+  ]
+  {
+    return new Variable(code, label, path, attribute);
+  }
+}
+
+String label() :
+{
+  Token t;
+  String label = null;
+}
+{
+  t = &lt; V_LABEL &gt;
+  {
+    label = t.image;
+    label = label.substring(1, label.length() - 1);
+    return label;
+  }
+}
+
+double real() :
+{
+  Token t;
+  String value = null;
+}
+{
+  t = &lt; V_REAL &gt;
+  {
+    value = t.image;
+    return Double.parseDouble(value);
+  }
+}
+
+int integer() :
+{
+  Token t;
+  String value = null;
+}
+{
+  t = &lt; V_INTEGER &gt;
+  {
+    value = t.image;
+    return Integer.parseInt(value);
+  }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references">References</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_openehr_resources">openEHR Resources</h3>
+<div class="olist bibliography">
+<ol class="bibliography">
+<li>
+<p><a id="openehr_18308"></a>[openehr_18308] The openEHR Foundation. <strong>Conformance of openEHR architecture to ISO TS 18308, "Requirements for EHR Architectures"</strong>. See <a href="http://www.openehr.org/releases/trunk/architecture/iso18308_conformance.pdf" class="bare">http://www.openehr.org/releases/trunk/architecture/iso18308_conformance.pdf</a>.</p>
+</li>
+<li>
+<p><a id="openEHR_ADL_workbench"></a>[openEHR_ADL_workbench] The openEHR Foundation. <strong>The openEHR ADL Workbench</strong>. <a href="http://www.openehr.org/downloads/ADLworkbench/home" class="bare">http://www.openehr.org/downloads/ADLworkbench/home</a> .</p>
+</li>
+<li>
+<p><a id="openehr_am_overview"></a>[openehr_am_overview] The openEHR Foundation. <strong>The openEHR Archetypes Technical Overview.</strong> See <a href="http://www.openehr.org/releases/AM/dev/Overview.html" class="bare">http://www.openehr.org/releases/AM/dev/Overview.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_am_adl"></a>[openehr_am_adl] The openEHR Foundation. <strong>Archetype Definition Language (ADL2).</strong> Available at <a href="http://www.openehr.org/releases/AM/dev/ADL2.html" class="bare">http://www.openehr.org/releases/AM/dev/ADL2.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_am_aom"></a>[openehr_am_aom] The openEHR Foundation. <strong>Archetype Object Model (AOM2).</strong> Available at <a href="http://www.openehr.org/releases/AM/dev/AOM2.html" class="bare">http://www.openehr.org/releases/AM/dev/AOM2.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_am_identification"></a>[openehr_am_identification] The openEHR Foundation. <strong>Archetype Identification specification.</strong> Available at <a href="http://www.openehr.org/releases/AM/dev/Identification.html" class="bare">http://www.openehr.org/releases/AM/dev/Identification.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_CKM"></a>[openehr_CKM] <strong>The openEHR Clinical Knowledge Manager (CKM)</strong>. See <a href="http://www.openEHR.org/ckm" class="bare">http://www.openEHR.org/ckm</a></p>
+</li>
+<li>
+<p><a id="openehr_overview"></a>[openehr_overview] The openEHR Foundation. <strong>The openEHR Architecture Overview.</strong> See <a href="http://www.openehr.org/releases/BASE/dev/architecture_overview.html" class="bare">http://www.openehr.org/releases/BASE/dev/architecture_overview.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_query_aql"></a>[openehr_query_aql] The openEHR Foundation. <strong>The openEHR Archetype Query language (AQL)</strong>. See <a href="http://www.openehr.org/releases/QUERY/dev/AQL.html" class="bare">http://www.openehr.org/releases/QUERY/dev/AQL.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_rm_data_types"></a>[openehr_rm_data_types] openEHR. <strong>Data Types Information Model.</strong> See <a href="http://www.openehr.org/releases/RM/dev/data_types.html" class="bare">http://www.openehr.org/releases/RM/dev/data_types.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_rm_data_structures"></a>[openehr_rm_data_structures] openEHR. <strong>Data Structures Information Model.</strong> See <a href="http://www.openehr.org/releases/RM/dev/data_structures.html" class="bare">http://www.openehr.org/releases/RM/dev/data_structures.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_rm_common"></a>[openehr_rm_common] openEHR. <strong>Common Information Model.</strong> See <a href="http://www.openehr.org/releases/RM/dev/common.html" class="bare">http://www.openehr.org/releases/RM/dev/common.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_rm_ehr"></a>[openehr_rm_ehr] The openEHR Foundation. <strong>The EHR Information Model</strong>. <a href="http://www.openehr.org/releases/RM/dev/ehr.html" class="bare">http://www.openehr.org/releases/RM/dev/ehr.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_rm_support"></a>[openehr_rm_support] openEHR. <strong>Support Information Model.</strong> See <a href="http://www.openehr.org/releases/RM/dev/support.html" class="bare">http://www.openehr.org/releases/RM/dev/support.html</a>.</p>
+</li>
+<li>
+<p><a id="openehr_terminology"></a>[openehr_terminology] The openEHR Foundation. <strong>The openEHR Terminology</strong> <a href="http://www.openehr.org/releases/trunk/architecture/terminology.pdf" class="bare">http://www.openehr.org/releases/trunk/architecture/terminology.pdf</a></p>
+</li>
+<li>
+<p><a id="openehr_terminology_resources"></a>[openehr_terminology_resources] The openEHR Foundation. <strong>The openEHR Terminology project (GitHub)</strong> <a href="https://github.com/openEHR/terminology" class="bare">https://github.com/openEHR/terminology</a> .</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2015-07-30 09:28:02 CEST
+</div>
+</div>
+</body>
+</html>

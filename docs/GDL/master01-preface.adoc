@@ -1,0 +1,17 @@
+= Preface
+
+== Purpose
+
+This document describes the syntax of the openEHR Guideline Definition Language (GDL).
+
+== Status
+
+This specification is in the Trial state. The development version of this document can be found at http://www.openehr.org/releases/CDS/dev/GDL.html.
+
+Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:
+[.tbd]
+*TBD*: (example To Be Determined paragraph)
+
+Users are encouraged to comment on and/or advise on these paragraphs as well as the main content.  Feedback should be provided either on the http://lists.openehr.org/mailman/listinfo/openehr-technical_lists.openehr.org[technical mailing list], or on the https://openehr.atlassian.net/browse/SPECPR/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel[specifications issue tracker].
+
+

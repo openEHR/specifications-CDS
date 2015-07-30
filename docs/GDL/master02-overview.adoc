@@ -1,0 +1,162 @@
+= Overview
+
+== Background
+Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites.
+
+== Purpose
+This document contains the design specifications of the Guideline Definition Language (GDL). GDL is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model.
+
+== Scope
+The scope of the GDL is to express clinical logic as production rules. Discrete GDL rules, each containing if-then statements, can be combined together as building blocks to support single decision making and more complex decision making process. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.
+
+== Related Documents
+* openEHR Reference Model Data Types Information Model (1.0.2)
+* openEHR Reference Model Data Structures Information Model (1.0.2)
+* openEHR Reference Model EHR Information Model (1.0.2)
+* openEHR Reference Model Common Information Model (1.0.2)
+* openEHR Archetype Model Archetype Object Model (AOM) (1.0.2)
+* openEHR Archetype Model Archetype Definition Language (ADL) (1.0.2)
+
+== An Example
+The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical instrument for stroke risk stratification in atrial fibrillation. The definitions for the GDL reserved words used here can be found on the later chapters. The meta-data in the GDL header is based on the openEHR’s ADL Description Section. The following GDL source code illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.
+
+Guide or guideline is used as a short name for a GDL guideline document in the remaining of the document.
+
+[source, odin]
+----
+(GUIDE) <
+    gdl_version = <"0.1">
+    id = <"CHA2DS2VASc_Score_calculation.v1-Revised function">
+    concept = <"gt0036">
+    language = (LANGUAGE) <
+        original_language = <[ISO_639-1::en]>
+    >
+    description = (RESOURCE_DESCRIPTION) <
+        details = <
+            ["en"] = (RESOURCE_DESCRIPTION_ITEM) <
+                copyright = <"">
+                keywords = <"Atrial Fibrillation", "Stroke", "CHA2DS2-VASc">
+                misuse = <"">
+                purpose = <"Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.">
+                use = <"Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.">
+            >
+        >
+        lifecycle_state = <"Author draft">
+        original_author = <
+            ["date"] = <"2012/12/03">
+            ["email"] = <"rong.chen@cambio.se">
+            ["name"] = <"Rong Chen">
+            ["organisation"] = <"Cambio Healthcare Systems">
+        >
+        other_contributors = <"Carlos Valladares",...>
+    >
+>
+----
+
+The following block illustrates the archetype_binding within the guide_definition section, which binds data elements from the archetypes to variables used by GDL rules.
+
+----
+definition = (GUIDE_DEFINITION) <
+    archetype_bindings = <
+        [1] = (ARCHETYPE_BINDING) <
+            archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+            domain = <"EHR">
+            elements = <
+                ["gt0107"] = (ELEMENT_BINDING) <
+                    path = <"/data[at0001]/items[at0002.1]">
+                >
+            >
+        >
+    >
+>
+----
+
+Within guide_definition, it is possible to define a set of conditions that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the definition section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the term_bindings section.
+
+----
+definition = (GUIDE_DEFINITION) <
+    archetype_bindings = <
+        [1] = (ARCHETYPE_BINDING) <
+            archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+            domain = <"EHR">
+            elements = <
+                ["gt0107"] = (ELEMENT_BINDING) <
+                    path = <"/data[at0001]/items[at0002.1]">
+                >
+            >
+            predicates = <"/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|",...>
+            template_id = <"diagnosis_chadvas_icd10">
+        >
+    >
+    pre_conditions = <"$gt0107!=null",...>
+>
+----
+
+The rule section makes exclusive use of the locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt code, with which its natural language-dependent name and description are indexed in the term_definitions section. Also a priority can be assigned to ensure execution order of the rules. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the DV_ORDINALs inside a CHA2DS2-VASc score archetype, the rule gt0026 ("Calculate total score") sums up all the values and sets the total score in CHA2DS2-VASc score archetype.
+
+
+----
+rules = <
+    ["gt0018"] = (RULE) <
+        when = <"$gt0108!=null",...>
+        then = <"$gt0014=1|local::at0031|Present|",...>
+        priority = <11>
+    >
+    ["gt0019"] = (RULE) <
+        when = <"$gt0109!=null",...>
+        then = <"$gt0010=1|local::at0034|Present|",...>
+        priority = <9>
+    >
+    ["gt0026"] = (RULE) <
+        then = <"$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)",...>
+        priority = <1>
+    >
+>
+----
+
+Finally we have the ontology section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.
+
+----
+term_definitions = <
+    ["en"] = (TERM_DEFINITION) <
+        terms = <
+            ["gt0003"] = (TERM) <
+                text = <"Diagnosis">
+            >
+            ["gt0014"] = (TERM) <
+                text = <"Hypertension">
+            >
+            ["gt0102"] = (TERM) <
+                text = <"Diabetes">
+            >
+            ["gt0105"] = (TERM) <
+                text = <"Atrial fibrillation">
+            >
+            ["gt0018"] = (TERM) <
+                text = <"Set hypertension">
+            >
+            ["gt0019"] = (TERM) <
+                text = <"Set diabetes">
+            >
+            ["gt0026"] = (TERM) <
+                text = <"Calculate total score">
+            >
+        >
+    >
+>
+----
+
+In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in term_bindings. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.
+
+----
+term_definitions = <
+    ["ICD10"] = (TERM_BINDING) <
+        bindings = <
+            ["gt0105"] = (BINDING) <
+                codes = <[ICD10::I48],...>
+                uri = <"">
+            >
+        >
+    >
+>
+----
