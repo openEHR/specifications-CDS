@@ -55,6 +55,7 @@ Guide or guideline is used as a short name for a GDL guideline document in the r
 
 The following block illustrates the archetype_binding within the guide_definition section, which binds data elements from the archetypes to variables used by GDL rules.
 
+[source, odin]
 ----
 definition = (GUIDE_DEFINITION) <
     archetype_bindings = <
@@ -73,6 +74,7 @@ definition = (GUIDE_DEFINITION) <
 
 Within guide_definition, it is possible to define a set of conditions that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the definition section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the term_bindings section.
 
+[source, odin]
 ----
 definition = (GUIDE_DEFINITION) <
     archetype_bindings = <
@@ -94,7 +96,7 @@ definition = (GUIDE_DEFINITION) <
 
 The rule section makes exclusive use of the locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt code, with which its natural language-dependent name and description are indexed in the term_definitions section. Also a priority can be assigned to ensure execution order of the rules. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the DV_ORDINALs inside a CHA2DS2-VASc score archetype, the rule gt0026 ("Calculate total score") sums up all the values and sets the total score in CHA2DS2-VASc score archetype.
 
-
+[source, odin]
 ----
 rules = <
     ["gt0018"] = (RULE) <
@@ -116,6 +118,7 @@ rules = <
 
 Finally we have the ontology section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.
 
+[source, odin]
 ----
 term_definitions = <
     ["en"] = (TERM_DEFINITION) <
@@ -148,6 +151,7 @@ term_definitions = <
 
 In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in term_bindings. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.
 
+[source, odin]
 ----
 term_definitions = <
     ["ICD10"] = (TERM_BINDING) <
