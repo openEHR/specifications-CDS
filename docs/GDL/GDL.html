@@ -8,8 +8,8 @@
 <meta name="description" content="openEHR Guideline Definition Language (GDL)">
 <meta name="keywords" content="decision support, GDL, archetype">
 <title>Guideline Definition Language (GDL)</title>
-<link rel="stylesheet" href="../../resources/css/openehr.css">
-<link rel="stylesheet" href="../../resources/css/pygments-default.css">
+<link rel="stylesheet" href="http://www.openehr.org/releases/BASE/latest/resources/css/openehr.css">
+<link rel="stylesheet" href="http://www.openehr.org/releases/BASE/latest/resources/css/pygments-default.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -111,7 +111,7 @@
 <div class="sectionbody">
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../../resources/images/openehr_logo_large.png" alt="openEHR logo">
+<img src="../../../spec-publish-asciidoc/resources/images/openehr_logo_large.png" alt="openEHR logo">
 </div>
 </div>
 </div>
@@ -162,7 +162,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Licence</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../../resources/images/cc-by-nd-88x31.png" alt="image"></span> Creative Commons Attribution-NoDerivs 3.0 Unported. <a href="https://creativecommons.org/licenses/by-nd/3.0/" class="bare">https://creativecommons.org/licenses/by-nd/3.0/</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="../../../spec-publish-asciidoc/resources/images/cc-by-nd-88x31.png" alt="image"></span> Creative Commons Attribution-NoDerivs 3.0 Unported. <a href="https://creativecommons.org/licenses/by-nd/3.0/" class="bare">https://creativecommons.org/licenses/by-nd/3.0/</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
@@ -350,19 +350,19 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>definition = (GUIDE_DEFINITION) &lt;
-    archetype_bindings = &lt;
-        [1] = (ARCHETYPE_BINDING) &lt;
-            archetype_id = &lt;"openEHR-EHR-EVALUATION.problem-diagnosis.v1"&gt;
-            domain = &lt;"EHR"&gt;
-            elements = &lt;
-                ["gt0107"] = (ELEMENT_BINDING) &lt;
-                    path = &lt;"/data[at0001]/items[at0002.1]"&gt;
-                &gt;
-            &gt;
-        &gt;
-    &gt;
-&gt;</pre>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ARCHETYPE_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ELEMENT_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -370,22 +370,22 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>definition = (GUIDE_DEFINITION) &lt;
-    archetype_bindings = &lt;
-        [1] = (ARCHETYPE_BINDING) &lt;
-            archetype_id = &lt;"openEHR-EHR-EVALUATION.problem-diagnosis.v1"&gt;
-            domain = &lt;"EHR"&gt;
-            elements = &lt;
-                ["gt0107"] = (ELEMENT_BINDING) &lt;
-                    path = &lt;"/data[at0001]/items[at0002.1]"&gt;
-                &gt;
-            &gt;
-            predicates = &lt;"/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|",...&gt;
-            template_id = &lt;"diagnosis_chadvas_icd10"&gt;
-        &gt;
-    &gt;
-    pre_conditions = &lt;"$gt0107!=null",...&gt;
-&gt;</pre>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ARCHETYPE_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ELEMENT_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-nc">predicates</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|&quot;</span><span class="tok-p">,...&gt;</span>
+            <span class="tok-nc">template_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;diagnosis_chadvas_icd10&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+    <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107!=null&quot;</span><span class="tok-p">,...&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -393,22 +393,22 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>rules = &lt;
-    ["gt0018"] = (RULE) &lt;
-        when = &lt;"$gt0108!=null",...&gt;
-        then = &lt;"$gt0014=1|local::at0031|Present|",...&gt;
-        priority = <b class="conum">(11)</b>
-    &gt;
-    ["gt0019"] = (RULE) &lt;
-        when = &lt;"$gt0109!=null",...&gt;
-        then = &lt;"$gt0010=1|local::at0034|Present|",...&gt;
-        priority = <b class="conum">(9)</b>
-    &gt;
-    ["gt0026"] = (RULE) &lt;
-        then = &lt;"$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)",...&gt;
-        priority = <b class="conum">(1)</b>
-    &gt;
-&gt;</pre>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108!=null&quot;</span><span class="tok-p">,...&gt;</span>
+        <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014=1|local::at0031|Present|&quot;</span><span class="tok-p">,...&gt;</span>
+        <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(11)</b>
+    <span class="tok-p">&gt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109!=null&quot;</span><span class="tok-p">,...&gt;</span>
+        <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0010=1|local::at0034|Present|&quot;</span><span class="tok-p">,...&gt;</span>
+        <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(9)</b>
+    <span class="tok-p">&gt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)&quot;</span><span class="tok-p">,...&gt;</span>
+        <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(1)</b>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -416,33 +416,33 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>term_definitions = &lt;
-    ["en"] = (TERM_DEFINITION) &lt;
-        terms = &lt;
-            ["gt0003"] = (TERM) &lt;
-                text = &lt;"Diagnosis"&gt;
-            &gt;
-            ["gt0014"] = (TERM) &lt;
-                text = &lt;"Hypertension"&gt;
-            &gt;
-            ["gt0102"] = (TERM) &lt;
-                text = &lt;"Diabetes"&gt;
-            &gt;
-            ["gt0105"] = (TERM) &lt;
-                text = &lt;"Atrial fibrillation"&gt;
-            &gt;
-            ["gt0018"] = (TERM) &lt;
-                text = &lt;"Set hypertension"&gt;
-            &gt;
-            ["gt0019"] = (TERM) &lt;
-                text = &lt;"Set diabetes"&gt;
-            &gt;
-            ["gt0026"] = (TERM) &lt;
-                text = &lt;"Calculate total score"&gt;
-            &gt;
-        &gt;
-    &gt;
-&gt;</pre>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">terms</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0003&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Diagnosis&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0014&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Hypertension&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0102&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Diabetes&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial fibrillation&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Set hypertension&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Set diabetes&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculate total score&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -450,16 +450,16 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>term_definitions = &lt;
-    ["ICD10"] = (TERM_BINDING) &lt;
-        bindings = &lt;
-            ["gt0105"] = (BINDING) &lt;
-                codes = &lt;[ICD10::I48],...&gt;
-                uri = &lt;""&gt;
-            &gt;
-        &gt;
-    &gt;
-&gt;</pre>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-nc">codes</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ICD10</span><span class="tok-p">::</span><span class="tok-nd">I48</span><span class="tok-p">],...&gt;</span>
+                <span class="tok-nc">uri</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
+<span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -1991,7 +1991,7 @@ int integer() :
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-07-30 08:54:54 BST
+Last updated 2015-07-30 04:54:54 BRT
 </div>
 </div>
 </body>
