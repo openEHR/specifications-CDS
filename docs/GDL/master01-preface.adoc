@@ -6,7 +6,7 @@ This document describes the syntax of the openEHR Guideline Definition Language 
 
 == Status
 
-This specification is in the Trial state. The development version of this document can be found at http://www.openehr.org/releases/CDS/latest/GDL.html.
+This specification is in the {spec_status} state. The development version of this document can be found at http://www.openehr.org/releases/CDS/latest/GDL.html.
 
 Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:
 [.tbd]
