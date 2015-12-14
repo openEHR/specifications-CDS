@@ -1,0 +1,60 @@
+//
+// ============================================ Asciidoc HEADER =============================================
+//
+:doctype: book
+:pagenums:
+:numbered!:
+// git rid of PDF 'Chapter' labs on level 1 headings
+:chapter-label:
+//
+// HTML-only attributes
+//
+:linkcss:
+:keywords: query models
+:description: openEHR Clinical Decision Support (CDS) Specifications
+:sectanchors:
+:cds_release: latest
+:jira-roadmap: https://openehr.atlassian.net/projects/SPECCDS?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=unreleased
+:jira-hist-issues: https://openehr.atlassian.net/projects/SPEC?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page&status=all
+
+image::http://www.openehr.org/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
+
+= Clinical Decision Support (CDS) Languages - {cds_release}
+
+// Use the following version for 'latest'
+ifeval::["{cds_release}" == "latest"]
+:jira-issues: https://openehr.atlassian.net/issues/?filter=10723
+[.title-para]
+{jira-roadmap}[Roadmap] | {jira-issues}[Current Issues] | {jira-hist-issues}[Change History]
+endif::[]
+
+// Use the following version for a named release
+ifeval::["{cds_release}" != "latest"]
+:jira-pr-release: https://openehr.atlassian.net/projects/SPECPR/versions/10060
+:jira-cr-release: https://openehr.atlassian.net/projects/SPECCDS/versions/10860
+[.title-para]
+{jira-pr-release}[Problems Fixed] | {jira-cr-release}[Changes Implemented] | {jira-roadmap}[Roadmap] | {jira-hist-issues}[Change History]
+endif::[]
+
+== Specifications
+
+[cols="2,5", options="header"]
+|===
+|Specification |Description
+
+|http://www.openehr.org/releases/CDS/{cds_release}/GDL.html[The openEHR Guideline Definition Language (GDL)]
+|Guideline language based on archetype/template paths.
+
+|===
+
+== Computable Expressions
+
+[cols="2,5", options="header"]
+|===
+|Resource |Description
+
+|http://www.openehr.org/releases/CDS/{cds_release}/docs/GDL/javacc/expression.jj[JavaCC file]
+|JavaCC rules for GDL.
+
+|===
+
