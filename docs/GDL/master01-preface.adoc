@@ -2,7 +2,13 @@
 
 == Purpose
 
-This document describes the syntax of the openEHR Guideline Definition Language (GDL).
+This document contains the design specifications of the Guideline Definition Language (GDL). GDL is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model.
+
+== Related Documents
+
+Prerequisite documents for reading this document include:
+
+* {openehr_rm}[openEHR Reference Model specifications].
 
 == Status
 
