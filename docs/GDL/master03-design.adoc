@@ -9,7 +9,7 @@ This chapter describes detailed formal requirements of the GDL.
 
 === Natural language support
 * It shall be possible to author meta-data of the rules in any natural language.
-* The rule expressions shall be independent of any natural language. 
+* The rule expressions shall be independent of any natural language.
 * The name of individual rules shall be independent of any natural language.
 * It shall be possible to add multiple language translations without changing the logical definitions in the rules.
 
@@ -23,14 +23,14 @@ This chapter describes detailed formal requirements of the GDL.
 * Each rule shall have explicit version information as part of the rule identification.
 * There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.
 
-=== Rule Execution 
+=== Rule Execution
 * It shall be possible to chain the execution of several CDS rules in order to support complex decision making process.
 * It shall be possible to reuse the CDS rules in different decision support applications in different clinical context.
 
 == Guide Object Model
 
 === Design background
-openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design. 
+openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.
 
 === Packages Structure
 The Guide Object Model, the object model of the GDL, consists of two packages, the guide package and the expressions package described in detail through the next two sections.
@@ -134,7 +134,7 @@ Inherit EXPRESSION_ITEM
 |Attributes     |Signature                  |Meaning
 |1..1           |left: EXPRESSION_ITEM      |The left operand of this binary expression.
 |1..1           |right: EXPRESSION_ITEM     |The right operand of this binary expression.
-|1..1           |operator: OPERATOR_KIND    |The operator of this binary expression. 
+|1..1           |operator: OPERATOR_KIND    |The operator of this binary expression.
 |===
 
 ==== ASSIGNMENT_EXPRESSION
@@ -186,11 +186,20 @@ Enumeration containing all the operators used.
 FUNCTION_KIND
 [options="header"]
 |===
-|Type   |Function
-|Max    |Use for getting the maximum value of an element.
-|Min    |Use for getting the minimum value of an element.
+|Name   |Function
+|abs    |Returns the absolute value of a double value.
+|ceil   |Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.
+|exp    |Returns Euler's number e raised to the power of a double value.
+|floor  |Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.
+|log    |Returns the natural logarithm (base e) of a double value.
+|log10  |Returns the base 10 logarithm of a double value.
+|log1p  |Returns the natural logarithm of the sum of the argument and 1.
+|round  |Returns the closest long to the argument, with ties rounding to positive infinity.
+|sqrt   |Returns the correctly rounded positive square root of a double value.
+|max    |Use for getting the maximum value of an element.
+|min    |Use for getting the minimum value of an element.
 |===
 
 === Syntax Specification
 The grammar and lexical specification for the expressions used by GDL is loosely based on the assertion syntax in the ADL specification. This grammar is implemented using javaCC specifications in the Java programming environment.
-The full source code of the java GDL parser can be found below. 
+The full source code of the java GDL parser can be found below.
