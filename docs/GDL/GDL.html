@@ -8,8 +8,8 @@
 <meta name="description" content="openEHR Guideline Definition Language (GDL)">
 <meta name="keywords" content="decision support, GDL, archetype">
 <title>Guideline Definition Language (GDL)</title>
-<link rel="stylesheet" href="../../../spec-publish-asciidoc/resources/css/openehr.css">
-<link rel="stylesheet" href="../../../spec-publish-asciidoc/resources/css/pygments-default.css">
+<link rel="stylesheet" href="https://www.openehr.org/releases/BASE/latest/resources/css/openehr.css">
+<link rel="stylesheet" href="https://www.openehr.org/releases/BASE/latest/resources/css/pygments-default.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -1051,17 +1051,53 @@ Inherit EXPRESSION_ITEM</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Name</th>
 <th class="tableblock halign-left valign-top">Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Max</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the absolute value of a double value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ceil</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns Euler&#8217;s number e raised to the power of a double value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">floor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">log</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the natural logarithm (base e) of a double value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">log10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the base 10 logarithm of a double value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">log1p</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the natural logarithm of the sum of the argument and 1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">round</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the closest long to the argument, with ties rounding to positive infinity.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sqrt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the correctly rounded positive square root of a double value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the maximum value of an element.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the minimum value of an element.</p></td>
 </tr>
 </tbody>
@@ -1914,7 +1950,7 @@ int integer() :
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-30 00:58:23 CET
+Last updated 2018-04-19 18:09:33 CEST
 </div>
 </div>
 </body>
