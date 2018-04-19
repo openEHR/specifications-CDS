@@ -17,7 +17,7 @@
 :jira-roadmap: https://openehr.atlassian.net/projects/SPECCDS?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=unreleased
 :jira-hist-issues: https://openehr.atlassian.net/projects/SPEC?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page&status=all
 
-image::http://www.openehr.org/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
+image::/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
 
 = Clinical Decision Support (CDS) Languages - {cds_release}
 
@@ -42,7 +42,7 @@ endif::[]
 |===
 |Specification |Description
 
-|http://www.openehr.org/releases/CDS/{cds_release}/GDL.html[The openEHR Guideline Definition Language (GDL)]
+|link:/releases/CDS/{cds_release}/GDL.html[The openEHR Guideline Definition Language (GDL)]
 |Guideline language based on archetype/template paths.
 
 |===
@@ -53,7 +53,7 @@ endif::[]
 |===
 |Resource |Description
 
-|http://www.openehr.org/releases/CDS/{cds_release}/docs/GDL/javacc/expression.jj[JavaCC file]
+|link:/releases/CDS/{cds_release}/docs/GDL/javacc/expression.jj[JavaCC file]
 |JavaCC rules for GDL.
 
 |===

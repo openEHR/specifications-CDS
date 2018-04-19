@@ -18,13 +18,13 @@
 :linkcss:
 :keywords: decision support, GDL, archetype
 :description: openEHR Guideline Definition Language (GDL)
-:spec_status: TRIAL
+:spec_status: STABLE
 
 //
 // ============================================ Asciidoc PREAMBLE =============================================
 //
 
-image::http://www.openehr.org/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
+image::/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
 
 = Guideline Definition Language (GDL)
 
