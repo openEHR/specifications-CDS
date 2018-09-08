@@ -29,7 +29,7 @@ image::/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR lo
 = Guideline Definition Language (GDL)
 
 include::{base_dir}/docs_common/boilerplate/full_front_block.adoc[]
-include::{base_dir}/docs_common/references/openehr_resources.adoc[]
+include::{base_dir}/docs_common/references/reference_definitions.adoc[]
 
 //
 // ============================================= Asciidoc BODY ===============================================
@@ -75,6 +75,4 @@ include::master04-implementation.adoc[leveloffset=+1]
 
 //:numbered!:
 //== References
-// include::{base_dir}/docs_common/references/publications.adoc[leveloffset=+1]
-// include::{base_dir}/docs_common/references/resources.adoc[leveloffset=+1]
 
