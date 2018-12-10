@@ -40,7 +40,7 @@ The Guide Object Model, the object model of the GDL, consists of two packages, t
 === Overview
 The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.
 
-image::diagrams/gdl-relational-model.png["Figure 1 – The Guide Package", align="center"]
+image::{diagrams_uri}/gdl-relational-model.png["Figure 1 – The Guide Package", align="center"]
 
 
 === Class Definitions
@@ -108,7 +108,7 @@ The grammar and lexical specification for the standard GDL is entirely based on 
 === Overview
 The overview of the expressions package is illustrated by figure 2.
 
-image::diagrams/expression-relational-model.png["Figure 2 – The Expression Package", align="center"]
+image::{diagrams_uri}/expression-relational-model.png["Figure 2 – The Expression Package", align="center"]
 
 === Class Definitions
 ==== EXPRESSION_ITEM
