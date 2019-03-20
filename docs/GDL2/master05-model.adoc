@@ -128,3 +128,23 @@ Enumeration containing all the operators used.
 |sum    |Use for getting the total sum of all instances of an element.
 |===
 
+== CDS Hooks Package
+
+=== Overview
+
+xxx.
+
+[.text-center]
+.`cds.cds_hooks` Package
+image::{uml_diagrams_uri}/CDS-cds.cds_hooks.svg[id=guideline_cds_hooks, align="center"]
+
+=== Class Definitions
+
+include::{uml_export_dir}/classes/cds_request.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/cds_response.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/card.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/source.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/suggestion.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/action.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/indicator_type.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/action_type.adoc[leveloffset=+1]
