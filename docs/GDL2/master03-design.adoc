@@ -1,0 +1,218 @@
+= Design
+
+== Requirements
+This chapter describes detailed formal requirements of the GDL.
+
+=== Clinical information models
+* It shall be possible to express clinical logic using standards-based clinical models such as openEHR Archetypes or HL7 FHIR Resources both as input and output of the rule execution.
+* The design shall support common data types underpinning standard clinical models.
+
+=== Natural language support
+* It shall be possible to author meta-data of the rules in any natural language.
+* The rule expressions shall be independent of any natural language.
+* The name of individual rules shall be independent of any natural language.
+* It shall be possible to add multiple language translations without changing the logical definitions in the rules.
+
+=== Reference terminology support
+* It shall be possible to bind a locally defined term in the guideline to a single concept defined by one or several external reference terminologies.
+* It shall be possible to bind a locally defined term in the guideline to multiple concepts defined by external reference terminologies.
+* It shall be possible to bind a locally defined term in the guideline to terminology ref-sets defined externally.
+
+=== Identification and meta-data
+* Each rule shall be uniquely identified for a given name space.
+* Each rule shall have explicit version information as part of the rule identification.
+* There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.
+
+=== Rule Execution
+* It shall be possible to chain the execution of several CDS rules in order to support complex decision making process.
+* It shall be possible to reuse the CDS rules in different decision support applications in different clinical context.
+
+=== Complex Output Objects
+* It shall be possible to support complex hierarchical objects as output of the rule execution.
+* It shall be possible to alter the structure of the output objects based on the rule executions.
+* It shall be possible to alter the details of the output objects based on the rule executions.
+
+=== Local variables
+* It shall be possible to use locally defined variables to hold intermediate results of the rule execution.
+* It shall be possible to use such local variables without dependent on external clinical models.
+
+== Guide Object Model
+
+=== Design background
+openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.
+
+=== Packages Structure
+The Guide Object Model, the object model of the GDL, consists of two packages, the guide package and the expressions package described in detail through the next two sections.
+
+== Guide Package
+
+=== Overview
+The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.
+
+image::{diagrams_uri}/gdl-relational-model.png["Figure 1 – The Guide Package", align="center"]
+
+
+=== Class Definitions
+
+==== GUIDE
+Main class of a discrete guide, which defines archetype bindings, rules and meta-information.
+[options="header"]
+|===
+|Attributes |Signature                         |Meaning
+|0..1       |gdl_version: String                |The version of the GDL the guide is written in.
+|1..1       |id: String                         |Identification of this guide
+|1..1       |concept: String                    |The normative meaning of the guide as whole. Expressed as a local guide code.
+|1..1       |language: Language                 |Natural language resources of this guide. It includes an original language and optional list of translations.
+|1..1       |description: RESOURCE_DESCRIPTION  |Resources description of this guide including authorship, use/misuse, life-cycle and references.
+|1..1       |definition: GUIDE_DEFINITION       |The main definition part of the guide. It consists of archetype bindings and rule definitions.
+|1..1       |ontology: GUIDE_ONTOLOGY           |The ontology of the guide.
+|===
+
+==== GUIDE_DEFINITION
+The definition of the guide includes a list of archetype bindings and a list of rule definitions.
+[options="header"]
+|===
+|Attributes |Signature                                      |Meaning
+|1..1       |archetype_bindings: List<ARCHETYPE_BINDING>    |List of archetype bindings, which define specific elements to be used by rules.
+|1..1       |rules: Map<String, Rule>                       |Map of rules indexed by local gt codes.
+|0..1       |pre_conditions: List<EXPRESSION_ITEM>          |List of pre-conditions to be met before the guide should be executed.
+|===
+
+==== ARCHETYPE_BINDING
+The binding of list of elements from a selected archetype or template to local gt codes
+[options="header"]
+|===
+|Attributes     |Signature                                      |Meaning
+|1..1           |archetype_id: String                           |The ID of the archetype, from where the list of elements is selected.
+|0..1           |template_id: String                            |The ID of an optional template to be used for selecting elements.
+|0..1           |domain: String                                 |The space in which the rule variables reside. The value can either be “EHR” meaning the value is retrieved from the EHR, or “CDS: meaning the value is derived in the CDS engine. When missing, the assumption is either “EHR” or “CDS”.
+|1..1           |Elements: Map<String, ELEMENT_BINDING>         |Map of element binding indexed by local gt codes.
+|0..1           |predicate_statements: List<EXPRESSION_ITEM>    |List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed
+|===
+
+==== ELEMENT_BINDING
+The binding between a specific element in an archetype and a local variable in the guide.
+[options="header"]
+|===
+|Attributes |Signature      |Meaning
+|1..1       |id: String     |The local gt code of this element
+|1..1       |path: String   |The path to reach this element in the archetype.
+|===
+
+==== RULE
+A single rule defined in a guide
+[options="header"]
+|===
+|Attributes     |Signature                                      |Meaning
+|1..1           |id: String                                     |The local gt code of this element
+|1..1           |when_statements: List<EXPRESSION_ITEM>         |List of expressions to be evaluated before the rule can be fired.
+|1..1           |then_statements: List<ASSIGNMENT_EXPRESSION    |List of expressions to generate output of the rule.
+|===
+
+=== Syntax Specification
+The grammar and lexical specification for the standard GDL is entirely based on dADL and driven by the guide object model.
+
+== Expressions Package
+
+=== Overview
+The overview of the expressions package is illustrated by figure 2.
+
+image::{diagrams_uri}/expression-relational-model.png["Figure 2 – The Expression Package", align="center"]
+
+=== Class Definitions
+==== EXPRESSION_ITEM
+Abstract model of an expression item in the rule.
+
+==== UNARY_EXPRESSION
+Abstract model of an expression item in the rule.
+Inherit EXPRESSION_ITEM
+
+[options="header"]
+|===
+|Attributes     |Signature                  |Meaning
+|1..1           |operand: EXPRESSION_ITEM   |The operand of this unary expression.
+|1..1           |operator: OPERATOR_KIND    |The operator of this unary expression.
+|===
+
+==== BINARY_EXPRESSION
+Concrete model of a binary expression item.
+Inherit EXPRESSION_ITEM
+
+[options="header"]
+|===
+|Attributes     |Signature                  |Meaning
+|1..1           |left: EXPRESSION_ITEM      |The left operand of this binary expression.
+|1..1           |right: EXPRESSION_ITEM     |The right operand of this binary expression.
+|1..1           |operator: OPERATOR_KIND    |The operator of this binary expression.
+|===
+
+==== ASSIGNMENT_EXPRESSION
+Concrete model of an assignment expression.
+Inherit EXPRESSION_ITEM
+[options="header"]
+|===
+|Attributes |Signature                      |Meaning
+|1..1       |variable: String               |The gt code of the variable to assign the value to.
+|1..1       |assignment: EXPRESSION_ITEM    |The expression item, from which the value is derived from.
+|===
+
+==== FUNCTIONAL_EXPRESSION
+Concrete expression models a function.
+Inherit EXPRESSION_ITEM
+
+[options="header"]
+|===
+|Attributes     |Signature                      |Meaning
+|1..1           |function: Kind                 |The kind of function used.
+|1..1           |items: List<EXPRESSION_ITEM>   |A list of parameters to the function.
+|===
+
+==== OPERATOR_KIND
+Enumeration containing all the operators used.
+
+[options="header"]
+|===
+|Type                       |Name                   |Symbol
+|Arithmetic                 |Addition               |+
+|Arithmetic                 |Subtraction            |-
+|Arithmetic                 |Multiplication         |*
+|Arithmetic                 |Division               |/
+|Arithmetic                 |Exponent               |^
+|Logical                    |And                    |&&
+|Logical                    |Or                     |\|\|
+|Logical                    |Not                    |!
+|Relational                 |Equal                  |==
+|Relational                 |Unequal                |!=
+|Relational                 |Less than              |<
+|Relational                 |Less than or equal     |<=
+|Relational                 |Greater than           |>
+|Relational                 |Greater than or equal  |>=
+|Assignment                 |Assignment             |=
+|Terminological reasoning   |Is a                   |is_a
+|Terminological reasoning   |Is not a               |!is_a
+|===
+
+FUNCTION_KIND
+[options="header"]
+|===
+|Name   |Function
+|abs    |Returns the absolute value of a double value.
+|ceil   |Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.
+|exp    |Returns Euler's number e raised to the power of a double value.
+|floor  |Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.
+|log    |Returns the natural logarithm (base e) of a double value.
+|log10  |Returns the base 10 logarithm of a double value.
+|log1p  |Returns the natural logarithm of the sum of the argument and 1.
+|round  |Returns the closest long to the argument, with ties rounding to positive infinity.
+|sqrt   |Returns the correctly rounded positive square root of a double value.
+|sin    |Returns the trigonometric sine of an angle.
+|cos    |Returns the trigonometric cosine of an angle.
+|max    |Use for getting the maximum value of an element.
+|min    |Use for getting the minimum value of an element.
+|count  |Use for getting the count of instances of an element.
+|sum    |Use for getting the total sum of all instances of an element.
+|===
+
+=== Syntax Specification
+The grammar and lexical specification for the expressions used by GDL is loosely based on the assertion syntax in the ADL specification. This grammar is implemented using javaCC specifications in the Java programming environment.
+The full source code of the java GDL parser can be found below.
