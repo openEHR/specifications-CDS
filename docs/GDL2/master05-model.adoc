@@ -1,0 +1,130 @@
+= GDL2 Object Model
+
+== Guide Package
+
+=== Overview
+
+The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.
+
+image::{diagrams_uri}/gdl-relational-model.png["Figure 1 – The Guide Package", align="center"]
+
+[.text-center]
+.`cds.guideline` Package
+image::{uml_diagrams_uri}/CDS-cds.guideline.svg[id=guideline, align="center"]
+
+=== Class Definitions
+
+include::{uml_export_dir}/classes/guideline.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/guide_definition.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/rule.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/data_binding.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/gdl_element.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/gdl_element_binding.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/gdl_template.adoc[leveloffset=+1]
+
+== Expressions Package
+
+=== Overview
+
+The overview of the expressions package is illustrated by figure 2.
+
+image::{diagrams_uri}/expression-relational-model.png["Figure 2 – The Expression Package", align="center"]
+
+=== Class Definitions
+
+==== EXPRESSION_ITEM
+Abstract model of an expression item in the rule.
+
+==== UNARY_EXPRESSION
+Abstract model of an expression item in the rule.
+Inherit EXPRESSION_ITEM
+
+[options="header"]
+|===
+|Attributes     |Signature                  |Meaning
+|1..1           |operand: EXPRESSION_ITEM   |The operand of this unary expression.
+|1..1           |operator: OPERATOR_KIND    |The operator of this unary expression.
+|===
+
+==== BINARY_EXPRESSION
+Concrete model of a binary expression item.
+Inherit EXPRESSION_ITEM
+
+[options="header"]
+|===
+|Attributes     |Signature                  |Meaning
+|1..1           |left: EXPRESSION_ITEM      |The left operand of this binary expression.
+|1..1           |right: EXPRESSION_ITEM     |The right operand of this binary expression.
+|1..1           |operator: OPERATOR_KIND    |The operator of this binary expression.
+|===
+
+==== ASSIGNMENT_EXPRESSION
+Concrete model of an assignment expression.
+Inherit EXPRESSION_ITEM
+[options="header"]
+|===
+|Attributes |Signature                      |Meaning
+|1..1       |variable: String               |The gt code of the variable to assign the value to.
+|1..1       |assignment: EXPRESSION_ITEM    |The expression item, from which the value is derived from.
+|===
+
+==== FUNCTIONAL_EXPRESSION
+
+Concrete expression models a function.
+Inherit EXPRESSION_ITEM
+
+[options="header"]
+|===
+|Attributes     |Signature                      |Meaning
+|1..1           |function: Kind                 |The kind of function used.
+|1..1           |items: List<EXPRESSION_ITEM>   |A list of parameters to the function.
+|===
+
+==== OPERATOR_KIND
+
+Enumeration containing all the operators used.
+
+[options="header"]
+|===
+|Type                       |Name                   |Symbol
+|Arithmetic                 |Addition               |+
+|Arithmetic                 |Subtraction            |-
+|Arithmetic                 |Multiplication         |*
+|Arithmetic                 |Division               |/
+|Arithmetic                 |Exponent               |^
+|Logical                    |And                    |&&
+|Logical                    |Or                     |\|\|
+|Logical                    |Not                    |!
+|Relational                 |Equal                  |==
+|Relational                 |Unequal                |!=
+|Relational                 |Less than              |<
+|Relational                 |Less than or equal     |<=
+|Relational                 |Greater than           |>
+|Relational                 |Greater than or equal  |>=
+|Assignment                 |Assignment             |=
+|Terminological reasoning   |Is a                   |is_a
+|Terminological reasoning   |Is not a               |!is_a
+|===
+
+==== FUNCTION_KIND
+
+[options="header"]
+|===
+|Name   |Function
+|abs    |Returns the absolute value of a double value.
+|ceil   |Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.
+|exp    |Returns Euler's number e raised to the power of a double value.
+|floor  |Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.
+|log    |Returns the natural logarithm (base e) of a double value.
+|log10  |Returns the base 10 logarithm of a double value.
+|log1p  |Returns the natural logarithm of the sum of the argument and 1.
+|round  |Returns the closest long to the argument, with ties rounding to positive infinity.
+|sqrt   |Returns the correctly rounded positive square root of a double value.
+|sin    |Returns the trigonometric sine of an angle.
+|cos    |Returns the trigonometric cosine of an angle.
+|max    |Use for getting the maximum value of an element.
+|min    |Use for getting the minimum value of an element.
+|count  |Use for getting the count of instances of an element.
+|sum    |Use for getting the total sum of all instances of an element.
+|===
+

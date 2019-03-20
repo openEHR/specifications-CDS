@@ -1,0 +1,11 @@
+= Design Overview
+
+openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.
+
+== Package Structure
+
+The Guide Object Model, the object model of the GDL, consists of two packages, the guide package and the expressions package described in detail through the next two sections.
+
+[.text-center]
+.`cds` Package
+image::{uml_diagrams_uri}/CDS-cds-packages.svg[id=cds_packages, align="center"]

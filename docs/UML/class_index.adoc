@@ -1,0 +1,40 @@
+
+== Component CDS
+
+=== Model org.openehr.cds
+
+==== Package cds_hooks
+
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_action_class[ACTION^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_action_type_enumeration[ACTION_TYPE^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_card_class[CARD^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_cds_request_class[CDS_REQUEST^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_cds_response_class[CDS_RESPONSE^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_indicator_type_enumeration[INDICATOR_TYPE^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_source_class[SOURCE^]
+[.xcode]
+* link:/releases/CDS/{base_release}/cds_hooks.html#_suggestion_class[SUGGESTION^]
+
+==== Package guide
+
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_data_binding_class[DATA_BINDING^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_gdl_element_class[GDL_ELEMENT^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_gdl_element_binding_class[GDL_ELEMENT_BINDING^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_gdl_template_class[GDL_TEMPLATE^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_guideline_class[GUIDELINE^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_guide_definition_class[GUIDE_DEFINITION^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guide.html#_rule_class[RULE^]

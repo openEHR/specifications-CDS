@@ -1,0 +1,38 @@
+=== GUIDE_DEFINITION Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*GUIDE_DEFINITION*
+
+h|*Description*
+2+a|The definition of the guide includes a list of archetype bindings and a list of rule definitions.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*data_bindings*: `Hash<String,DATA_BINDING>`
+a|List of archetype bindings, which define specific elements to be used by rules.
+
+h|*0..1*
+|*pre_conditions*: `List<>`
+a|List of pre-conditions to be met before the guide should be executed.
+
+h|*0..1*
+|*rules*: `Hash<String,RULE>`
+a|Map of rules indexed by local gt codes.
+
+h|*0..1*
+|*default_actions*: `List<>`
+a|
+
+h|*0..1*
+|*templates*: `Hash<String,GDL_TEMPLATE>`
+a|
+
+h|*0..1*
+|*internal_variables*: `List<>`
+a|
+|===

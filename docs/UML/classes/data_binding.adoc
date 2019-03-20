@@ -1,0 +1,41 @@
+=== DATA_BINDING Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*DATA_BINDING*
+
+h|*Description*
+2+a|The binding of list of elements from a selected archetype or template to local gt codes.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*archetype_id*: `String`
+a|The ID of the archetype, from where the list of elements is selected.
+
+h|*0..1*
+|*template_id*: `String`
+a|The ID of an optional template to be used for selecting elements.
+
+h|*0..1*
+|*domain*: `String`
+a|The space in which the rule variables reside. The value can either be:
+
+* `"EHR"`: the value is retrieved from the EHR, or
+* `"CDS"`: the value is derived in the CDS engine.
+
+If Void, the assumption is either "EHR" or "CDS".
+
+TODO: how is the above decided?
+
+h|*0..1*
+|*elements*: `Hash<String,GDL_ELEMENT>`
+a|Map of element binding indexed by local gt codes.
+
+h|*0..1*
+|*predicate_statements*: `List<>`
+a|List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.
+|===

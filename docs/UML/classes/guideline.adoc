@@ -1,0 +1,43 @@
+=== GUIDELINE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*GUIDELINE*
+
+h|*Description*
+2+a|Main class of a discrete guide, which defines archetype bindings, rules and meta-information.
+
+h|*Inherit*
+2+|`AUTHORED_RESOURCE`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*id*: `String`
+a|Identification of this guide.
+
+TODO: details
+
+h|*0..1*
+|*gdl_version*: `String`
+a|The version of the GDL the guide is written in.
+
+h|*1..1*
+|*concept*: `String`
+a|The normative meaning of the guide as whole. Expressed as a local guide code.
+
+h|*1..1*
+|*definition*: `GUIDE_DEFINITION`
+a|The main definition part of the guide. It consists of archetype bindings and rule definitions.
+
+h|*1..1*
+|*terminology*: 
+a|TBD
+
+h|*1..1*
+|*test_cases*: 
+a|TBD
+|===

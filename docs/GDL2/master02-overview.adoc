@@ -1,12 +1,15 @@
 = Overview
 
 == Background
+
 Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites.
 
 == Scope
+
 The scope of the GDL is to express clinical logic as production rules. Discrete GDL rules, each containing if-then statements, can be combined together as building blocks to support single decision making and more complex decision making process. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.
 
 == An Example
+
 The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical instrument for stroke risk stratification in atrial fibrillation. The definitions for the GDL reserved words used here can be found on the later chapters. The meta-data in the GDL header is based on the openEHR’s ADL Description Section. The following GDL source code illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.
 
 Guide or guideline is used as a short name for a GDL guideline document in the remaining of the document.

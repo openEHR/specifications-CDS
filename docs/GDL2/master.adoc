@@ -14,7 +14,7 @@ include::{ref_dir}/docs/boilerplate/book_style_settings.adoc[]
 //
 :linkcss:
 :keywords: decision support, GDL, archetype
-:description: openEHR Guideline Definition Language (GDL)
+:description: openEHR Guideline Definition Language v2 (GDL2)
 
 include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
 
@@ -24,7 +24,7 @@ include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
 
 image::{openehr_logo}["openEHR logo",align="center"]
 
-= Guideline Definition Language (GDL)
+= Guideline Definition Language v2 (GDL2)
 
 include::{ref_dir}/docs/boilerplate/full_front_block.adoc[]
 include::{ref_dir}/docs/references/reference_definitions.adoc[]
@@ -41,7 +41,19 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 == Acknowledgements
 
-The work reported in this paper has been funded in by the following organisations:
+=== Primary Author
+
+* Rong Chen MD, PhD, Cambio Heath Systems, Sweden
+
+=== Contributors
+
+This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
+
+* Thomas Beale, Ars Semantica (UK); openEHR Foundation Management Board.
+
+=== Support
+
+The work reported in this paper has been funded by the following organisations:
 
 * Cambio Healthcare Systems, Sweden.
 
@@ -60,15 +72,19 @@ The work reported in this paper has been funded in by the following organisation
 //
 // --------------------------------------------- CHAPTERS -----------------------------------------------
 //
-:numbered:
+:sectanchors:
+:sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
-include::master03-design.adoc[leveloffset=+1]
+include::master03-requirements.adoc[leveloffset=+1]
+include::master04-design.adoc[leveloffset=+1]
+include::master05-model.adoc[leveloffset=+1]
+include::master06-syntax.adoc[leveloffset=+1]
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------
 //
 
 
-//:numbered!:
+//:sectnums!:
 //== References
