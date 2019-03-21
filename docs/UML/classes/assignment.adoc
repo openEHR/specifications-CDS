@@ -1,0 +1,22 @@
+=== ASSIGNMENT Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*ASSIGNMENT*
+
+h|*Description*
+2+a|An assignment relating an expression to a variable.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*variable*: `VARIABLE`
+a|
+
+h|*1..1*
+|*expression*: `EXPRESSION_ITEM`
+a|
+|===

@@ -1,0 +1,74 @@
+=== FUNCTION_KIND Enumeration
+
+[cols="^1,3,5"]
+|===
+h|*Enumeration*
+2+^h|*FUNCTION_KIND*
+
+h|*Description*
+2+a|Enumeration of function types.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|abs
+a|Returns the absolute value of a double value.
+
+h|
+|ceil
+a|Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.
+
+h|
+|exp
+a|Returns Euler's number e raised to the power of a double value.
+
+h|
+|floor
+a|Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.
+
+h|
+|log
+a|Returns the natural logarithm (base e) of a double value.
+
+h|
+|log10
+a|Returns the base 10 logarithm of a double value.
+
+h|
+|log1p
+a|Returns the natural logarithm of the sum of the argument and 1.
+
+h|
+|round
+a|Returns the closest long to the argument, with ties rounding to positive infinity.
+
+h|
+|sqrt
+a|Returns the correctly rounded positive square root of a double value.
+
+h|
+|sin
+a|Returns the trigonometric sine of an angle.
+
+h|
+|cos
+a|Returns the trigonometric cosine of an angle.
+
+h|
+|max
+a|Maximum value of N elements.
+
+h|
+|min
+a|Minimum value of N elements.
+
+h|
+|count
+a|Count of instances of an element.
+
+h|
+|sum
+a|Total sum of N element values.
+|===

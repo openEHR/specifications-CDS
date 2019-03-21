@@ -1,0 +1,21 @@
+=== QUANTITY_CONSTANT Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*QUANTITY_CONSTANT*
+
+h|*Description*
+2+a|
+
+h|*Inherit*
+2+|`CONSTANT_EXPRESSION`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*quantity*: `DV_QUANTITY`
+a|
+|===

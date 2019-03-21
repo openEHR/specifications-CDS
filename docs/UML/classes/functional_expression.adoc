@@ -1,0 +1,25 @@
+=== FUNCTIONAL_EXPRESSION Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*FUNCTIONAL_EXPRESSION*
+
+h|*Description*
+2+a|Concrete expression in the form of a function.
+
+h|*Inherit*
+2+|`EXPRESSION_ITEM`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*items*: `List<EXPRESSION_ITEM>`
+a|Function arguments.
+
+h|*1..1*
+|*function*: `FUNCTION_KIND`
+a|The specific function.
+|===

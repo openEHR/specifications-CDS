@@ -81,30 +81,23 @@
 <li><a href="#_overview_3">5.2.1. Overview</a></li>
 <li><a href="#_class_definitions_2">5.2.2. Class Definitions</a>
 <ul class="sectlevel4">
-<li><a href="#_expression_item">5.2.2.1. EXPRESSION_ITEM</a></li>
-<li><a href="#_unary_expression">5.2.2.2. UNARY_EXPRESSION</a></li>
-<li><a href="#_binary_expression">5.2.2.3. BINARY_EXPRESSION</a></li>
-<li><a href="#_assignment_expression">5.2.2.4. ASSIGNMENT_EXPRESSION</a></li>
-<li><a href="#_functional_expression">5.2.2.5. FUNCTIONAL_EXPRESSION</a></li>
-<li><a href="#_operator_kind">5.2.2.6. OPERATOR_KIND</a></li>
-<li><a href="#_function_kind">5.2.2.7. FUNCTION_KIND</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_cds_hooks_package">5.3. CDS Hooks Package</a>
-<ul class="sectlevel3">
-<li><a href="#_overview_4">5.3.1. Overview</a></li>
-<li><a href="#_class_definitions_3">5.3.2. Class Definitions</a>
-<ul class="sectlevel4">
-<li><a href="#_cds_request_class">5.3.2.1. CDS_REQUEST Class</a></li>
-<li><a href="#_cds_response_class">5.3.2.2. CDS_RESPONSE Class</a></li>
-<li><a href="#_card_class">5.3.2.3. CARD Class</a></li>
-<li><a href="#_source_class">5.3.2.4. SOURCE Class</a></li>
-<li><a href="#_suggestion_class">5.3.2.5. SUGGESTION Class</a></li>
-<li><a href="#_action_class">5.3.2.6. ACTION Class</a></li>
-<li><a href="#_indicator_type_enumeration">5.3.2.7. INDICATOR_TYPE Enumeration</a></li>
-<li><a href="#_action_type_enumeration">5.3.2.8. ACTION_TYPE Enumeration</a></li>
+<li><a href="#_expression_item_class">5.2.2.1. EXPRESSION_ITEM Class</a></li>
+<li><a href="#_unary_expression_class">5.2.2.2. UNARY_EXPRESSION Class</a></li>
+<li><a href="#_binary_expression_class">5.2.2.3. BINARY_EXPRESSION Class</a></li>
+<li><a href="#_operator_kind_enumeration">5.2.2.4. OPERATOR_KIND Enumeration</a></li>
+<li><a href="#_functional_expression_class">5.2.2.5. FUNCTIONAL_EXPRESSION Class</a></li>
+<li><a href="#_function_kind_enumeration">5.2.2.6. FUNCTION_KIND Enumeration</a></li>
+<li><a href="#_constant_expression_class">5.2.2.7. CONSTANT_EXPRESSION Class</a></li>
+<li><a href="#_string_constant_class">5.2.2.8. STRING_CONSTANT Class</a></li>
+<li><a href="#_integer_constant_class">5.2.2.9. INTEGER_CONSTANT Class</a></li>
+<li><a href="#_date_time_constant_class">5.2.2.10. DATE_TIME_CONSTANT Class</a></li>
+<li><a href="#_code_phrase_constant_class">5.2.2.11. CODE_PHRASE_CONSTANT Class</a></li>
+<li><a href="#_coded_text_constant_class">5.2.2.12. CODED_TEXT_CONSTANT Class</a></li>
+<li><a href="#_ordinal_constant_class">5.2.2.13. ORDINAL_CONSTANT Class</a></li>
+<li><a href="#_quantity_constant_class">5.2.2.14. QUANTITY_CONSTANT Class</a></li>
+<li><a href="#_assignment_class">5.2.2.15. ASSIGNMENT Class</a></li>
+<li><a href="#_variable_class">5.2.2.16. VARIABLE Class</a></li>
+<li><a href="#_operator_kind">5.2.2.17. OPERATOR_KIND</a></li>
 </ul>
 </li>
 </ul>
@@ -645,11 +638,6 @@
 <div class="paragraph">
 <p>The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.</p>
 </div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="GDL2/diagrams/gdl-relational-model.png" alt="Figure 1 – The Guide Package">
-</div>
-</div>
 <div id="guideline" class="imageblock text-center" style="text-align: center">
 <div class="content">
 <img src="UML/diagrams/CDS-cds.guideline.svg" alt="CDS cds.guideline">
@@ -842,11 +830,6 @@
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of expressions to generate output of the rule.</p>
 </div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cards</strong>: <code>List&lt;CARD&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -1074,159 +1057,772 @@
 <div class="paragraph">
 <p>The overview of the expressions package is illustrated by figure 2.</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div id="expression" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="GDL2/diagrams/expression-relational-model.png" alt="Figure 2 – The Expression Package">
+<img src="UML/diagrams/CDS-cds.expression.svg" alt="CDS cds.expression">
 </div>
+<div class="title">Figure 3. <code>cds.expression</code> Package</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>5.2.2. Class Definitions</h4>
 <div class="sect4">
-<h5 id="_expression_item"><a class="anchor" href="#_expression_item"></a>5.2.2.1. EXPRESSION_ITEM</h5>
-<div class="paragraph">
-<p>Abstract model of an expression item in the rule.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_unary_expression"><a class="anchor" href="#_unary_expression"></a>5.2.2.2. UNARY_EXPRESSION</h5>
-<div class="paragraph">
-<p>Abstract model of an expression item in the rule.
-Inherit EXPRESSION_ITEM</p>
-</div>
+<h5 id="_expression_item_class"><a class="anchor" href="#_expression_item_class"></a>5.2.2.1. EXPRESSION_ITEM Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
+<col style="width: 11.1111%;">
 <col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 55.5556%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attributes</th>
-<th class="tableblock halign-left valign-top">Signature</th>
-<th class="tableblock halign-left valign-top">Meaning</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">operand: EXPRESSION_ITEM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The operand of this unary expression.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EXPRESSION_ITEM (abstract)</em></strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">operator: OPERATOR_KIND</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The operator of this unary expression.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_binary_expression"><a class="anchor" href="#_binary_expression"></a>5.2.2.3. BINARY_EXPRESSION</h5>
-<div class="paragraph">
-<p>Concrete model of a binary expression item.
-Inherit EXPRESSION_ITEM</p>
-</div>
+<h5 id="_unary_expression_class"><a class="anchor" href="#_unary_expression_class"></a>5.2.2.2. UNARY_EXPRESSION Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
+<col style="width: 11.1111%;">
 <col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 55.5556%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attributes</th>
-<th class="tableblock halign-left valign-top">Signature</th>
-<th class="tableblock halign-left valign-top">Meaning</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">left: EXPRESSION_ITEM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The left operand of this binary expression.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UNARY_EXPRESSION</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">right: EXPRESSION_ITEM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The right operand of this binary expression.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Concrete model of a unary operator in the rule.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">operator: OPERATOR_KIND</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The operator of this binary expression.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EXPRESSION_ITEM</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operand</strong>: <code>EXPRESSION_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator</strong>: <code>OPERATOR_KIND</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The operator type of this unary expression.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assignment_expression"><a class="anchor" href="#_assignment_expression"></a>5.2.2.4. ASSIGNMENT_EXPRESSION</h5>
-<div class="paragraph">
-<p>Concrete model of an assignment expression.
-Inherit EXPRESSION_ITEM</p>
-</div>
+<h5 id="_binary_expression_class"><a class="anchor" href="#_binary_expression_class"></a>5.2.2.3. BINARY_EXPRESSION Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
+<col style="width: 11.1111%;">
 <col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 55.5556%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attributes</th>
-<th class="tableblock halign-left valign-top">Signature</th>
-<th class="tableblock halign-left valign-top">Meaning</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">variable: String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The gt code of the variable to assign the value to.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BINARY_EXPRESSION</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">assignment: EXPRESSION_ITEM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The expression item, from which the value is derived from.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Concrete model of a binary operator in the rule.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EXPRESSION_ITEM</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>left</strong>: <code>EXPRESSION_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Left operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>right</strong>: <code>EXPRESSION_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Right operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator</strong>: <code>OPERATOR_KIND</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The operator type of this binary operator expression.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_functional_expression"><a class="anchor" href="#_functional_expression"></a>5.2.2.5. FUNCTIONAL_EXPRESSION</h5>
-<div class="paragraph">
-<p>Concrete expression models a function.
-Inherit EXPRESSION_ITEM</p>
-</div>
+<h5 id="_operator_kind_enumeration"><a class="anchor" href="#_operator_kind_enumeration"></a>5.2.2.4. OPERATOR_KIND Enumeration</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
+<col style="width: 11.1111%;">
 <col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 55.5556%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attributes</th>
-<th class="tableblock halign-left valign-top">Signature</th>
-<th class="tableblock halign-left valign-top">Meaning</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">function: Kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The kind of function used.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OPERATOR_KIND</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">items: List&lt;EXPRESSION_ITEM&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of parameters to the function.</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Enumeration of operator types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADDITION</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SUBTRACTION</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MULTIPLICATION</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DIVISION</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AND</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OR</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NOT</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EQUALITY</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INEQUALITY</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LESS_THAN</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GREATER_THAN</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LESS_THAN_OR_EQUAL</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GREATER_THAN_OR_EQUAL</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IS_A</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IS_NOT_A</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FOR_ALL</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_operator_kind"><a class="anchor" href="#_operator_kind"></a>5.2.2.6. OPERATOR_KIND</h5>
+<h5 id="_functional_expression_class"><a class="anchor" href="#_functional_expression_class"></a>5.2.2.5. FUNCTIONAL_EXPRESSION Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>FUNCTIONAL_EXPRESSION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Concrete expression in the form of a function.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EXPRESSION_ITEM</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code>List&lt;EXPRESSION_ITEM&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Function arguments.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>function</strong>: <code>FUNCTION_KIND</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The specific function.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_function_kind_enumeration"><a class="anchor" href="#_function_kind_enumeration"></a>5.2.2.6. FUNCTION_KIND Enumeration</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>FUNCTION_KIND</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Enumeration of function types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abs</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the absolute value of a double value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ceil</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exp</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns Euler&#8217;s number e raised to the power of a double value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">floor</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">log</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the natural logarithm (base e) of a double value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">log10</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the base 10 logarithm of a double value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">log1p</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the natural logarithm of the sum of the argument and 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">round</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the closest long to the argument, with ties rounding to positive infinity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sqrt</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the correctly rounded positive square root of a double value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sin</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the trigonometric sine of an angle.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cos</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns the trigonometric cosine of an angle.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Maximum value of N elements.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Minimum value of N elements.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">count</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Count of instances of an element.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sum</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Total sum of N element values.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_constant_expression_class"><a class="anchor" href="#_constant_expression_class"></a>5.2.2.7. CONSTANT_EXPRESSION Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>CONSTANT_EXPRESSION (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>EXPRESSION_ITEM</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_string_constant_class"><a class="anchor" href="#_string_constant_class"></a>5.2.2.8. STRING_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>STRING_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>string</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_integer_constant_class"><a class="anchor" href="#_integer_constant_class"></a>5.2.2.9. INTEGER_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>INTEGER_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>integer</strong>: <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_date_time_constant_class"><a class="anchor" href="#_date_time_constant_class"></a>5.2.2.10. DATE_TIME_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATE_TIME_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>date_time</strong>: <code>Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_code_phrase_constant_class"><a class="anchor" href="#_code_phrase_constant_class"></a>5.2.2.11. CODE_PHRASE_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CODE_PHRASE_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code_phrase</strong>: <code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_coded_text_constant_class"><a class="anchor" href="#_coded_text_constant_class"></a>5.2.2.12. CODED_TEXT_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CODED_TEXT_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>coded_test</strong>: <code>DV_CODED_TEXT</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_ordinal_constant_class"><a class="anchor" href="#_ordinal_constant_class"></a>5.2.2.13. ORDINAL_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ORDINAL_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ordinal</strong>: <code>DV_ORDINAL</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_quantity_constant_class"><a class="anchor" href="#_quantity_constant_class"></a>5.2.2.14. QUANTITY_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>QUANTITY_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONSTANT_EXPRESSION</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>quantity</strong>: <code>DV_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.2.2.15. ASSIGNMENT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ASSIGNMENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>An assignment relating an expression to a variable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variable</strong>: <code>VARIABLE</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EXPRESSION_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_variable_class"><a class="anchor" href="#_variable_class"></a>5.2.2.16. VARIABLE Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>attribute</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_operator_kind"><a class="anchor" href="#_operator_kind"></a>5.2.2.17. OPERATOR_KIND</h5>
 <div class="paragraph">
 <p>Enumeration containing all the operators used.</p>
 </div>
@@ -1328,416 +1924,6 @@ Inherit EXPRESSION_ITEM</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Terminological reasoning</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Is not a</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">!is_a</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_function_kind"><a class="anchor" href="#_function_kind"></a>5.2.2.7. FUNCTION_KIND</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">abs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the absolute value of a double value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ceil</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the smallest double value that is greater than or equal to the argument and is equal to a mathematical integer.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">exp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns Euler&#8217;s number e raised to the power of a double value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">floor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the largest double value that is less than or equal to the argument and is equal to a mathematical integer.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">log</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the natural logarithm (base e) of a double value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">log10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the base 10 logarithm of a double value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">log1p</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the natural logarithm of the sum of the argument and 1.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">round</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the closest long to the argument, with ties rounding to positive infinity.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sqrt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the correctly rounded positive square root of a double value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the trigonometric sine of an angle.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the trigonometric cosine of an angle.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the maximum value of an element.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the minimum value of an element.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">count</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the count of instances of an element.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sum</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use for getting the total sum of all instances of an element.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_cds_hooks_package"><a class="anchor" href="#_cds_hooks_package"></a>5.3. CDS Hooks Package</h3>
-<div class="sect3">
-<h4 id="_overview_4"><a class="anchor" href="#_overview_4"></a>5.3.1. Overview</h4>
-<div class="paragraph">
-<p>xxx.</p>
-</div>
-<div id="guideline_cds_hooks" class="imageblock text-center" style="text-align: center">
-<div class="content">
-<img src="UML/diagrams/CDS-cds.cds_hooks.svg" alt="CDS cds.cds hooks">
-</div>
-<div class="title">Figure 3. <code>cds.cds_hooks</code> Package</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_class_definitions_3"><a class="anchor" href="#_class_definitions_3"></a>5.3.2. Class Definitions</h4>
-<div class="sect4">
-<h5 id="_cds_request_class"><a class="anchor" href="#_cds_request_class"></a>5.3.2.1. CDS_REQUEST Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CDS_REQUEST</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hook_instance</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fhir_srever</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hook</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>user</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>patient</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>context</strong>: <code>List&lt;&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_cds_response_class"><a class="anchor" href="#_cds_response_class"></a>5.3.2.2. CDS_RESPONSE Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CDS_RESPONSE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cards</strong>: <code>List&lt;CARD&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_card_class"><a class="anchor" href="#_card_class"></a>5.3.2.3. CARD Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CARD</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>summary</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>detail</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>indicator</strong>: <code>INDICATOR_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code>SOURCE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>suggestions</strong>: <code>List&lt;SUGGESTION&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>links</strong>: <code>List&lt;&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_source_class"><a class="anchor" href="#_source_class"></a>5.3.2.4. SOURCE Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SOURCE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_suggestion_class"><a class="anchor" href="#_suggestion_class"></a>5.3.2.5. SUGGESTION Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SUGGESTION</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>actions</strong>: <code>List&lt;ACTION&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_action_class"><a class="anchor" href="#_action_class"></a>5.3.2.6. ACTION Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ACTION</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>description</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>resource</strong>: <code>Any</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>resource_template</strong>:</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>ACTION_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_indicator_type_enumeration"><a class="anchor" href="#_indicator_type_enumeration"></a>5.3.2.7. INDICATOR_TYPE Enumeration</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>INDICATOR_TYPE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">info</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">warning</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">critical</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_action_type_enumeration"><a class="anchor" href="#_action_type_enumeration"></a>5.3.2.8. ACTION_TYPE Enumeration</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ACTION_TYPE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">create</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">update</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
