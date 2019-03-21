@@ -32,7 +32,7 @@ If Void, the assumption is either "EHR" or "CDS".
 TODO: how is the above decided?
 
 h|*0..1*
-|*elements*: `Hash<String,GDL_ELEMENT>`
+|*elements*: `Hash<String,ELEMENT>`
 a|Map of element binding indexed by local gt codes.
 
 h|*0..1*

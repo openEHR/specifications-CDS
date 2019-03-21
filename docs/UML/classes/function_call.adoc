@@ -1,9 +1,9 @@
-=== FUNCTIONAL_EXPRESSION Class
+=== FUNCTION_CALL Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*FUNCTIONAL_EXPRESSION*
+2+^h|*FUNCTION_CALL*
 
 h|*Description*
 2+a|Concrete expression in the form of a function.

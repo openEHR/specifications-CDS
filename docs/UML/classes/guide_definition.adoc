@@ -6,7 +6,12 @@ h|*Class*
 2+^h|*GUIDE_DEFINITION*
 
 h|*Description*
-2+a|The definition of the guide includes a list of archetype bindings and a list of rule definitions.
+2+a|The definition of the guideline includes:
+
+* `_pre_conditions_`: conditions defining the applicability of this guideline to a subject;
+* `_data bindings_`: bindings to to archetypes and other sources;
+* `_rules_`: define the logic of the guideline;
+* `_template_`: defines the output reporting structure.
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,7 +22,7 @@ h|*0..1*
 a|List of archetype bindings, which define specific elements to be used by rules.
 
 h|*0..1*
-|*pre_conditions*: `List<>`
+|*pre_conditions*: `List<EXPRESSION_ITEM>`
 a|List of pre-conditions to be met before the guide should be executed.
 
 h|*0..1*
@@ -25,14 +30,14 @@ h|*0..1*
 a|Map of rules indexed by local gt codes.
 
 h|*0..1*
-|*default_actions*: `List<>`
+|*default_actions*: `List<EXPRESSION_ITEM>`
+a|TODO: explain
+
+h|*0..1*
+|*templates*: `Hash<String,TEMPLATE>`
 a|
 
 h|*0..1*
-|*templates*: `Hash<String,GDL_TEMPLATE>`
-a|
-
-h|*0..1*
-|*internal_variables*: `List<>`
+|*internal_variables*: `List<LOCAL_VARIABLE>`
 a|
 |===

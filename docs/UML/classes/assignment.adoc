@@ -6,14 +6,14 @@ h|*Class*
 2+^h|*ASSIGNMENT*
 
 h|*Description*
-2+a|An assignment relating an expression to a variable.
+2+a|An assignment statement assigning an expression to a variable.
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*variable*: `VARIABLE`
+|*variable*: `BOUND_VARIABLE`
 a|
 
 h|*1..1*

@@ -1,9 +1,9 @@
-=== CONSTANT_EXPRESSION Class
+=== CONSTANT Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_CONSTANT_EXPRESSION (abstract)_*
+2+^h|*_CONSTANT (abstract)_*
 
 h|*Description*
 2+a|
@@ -14,6 +14,10 @@ h|*Inherit*
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
+
+h|*1..1*
+|*name*: `String`
+a|
 
 h|*1..1*
 |*value*: `String`

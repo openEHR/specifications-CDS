@@ -16,9 +16,9 @@ include::{uml_export_dir}/classes/guideline.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/guide_definition.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/rule.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/data_binding.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/gdl_element.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/gdl_element_binding.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/gdl_template.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/element.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/element_binding.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/template.adoc[leveloffset=+1]
 
 == Expressions Package
 
@@ -33,14 +33,15 @@ image::{uml_diagrams_uri}/CDS-cds.expression.svg[id=expression, align="center"]
 === Class Definitions
 
 include::{uml_export_dir}/classes/expression_item.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/unary_expression.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/binary_expression.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/operator.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/unary_operator.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/binary_operator.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/operator_kind.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/functional_expression.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/function_call.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/function_kind.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/constant_expression.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/string_constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/integer_constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/date_time_constant.adoc[leveloffset=+1]
@@ -49,9 +50,10 @@ include::{uml_export_dir}/classes/coded_text_constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/ordinal_constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/quantity_constant.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/variable.adoc[leveloffset=+1]
-
+include::{uml_export_dir}/classes/bound_variable.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/local_variable.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
 
 ==== OPERATOR_KIND
 
@@ -71,7 +73,7 @@ Enumeration containing all the operators used.
 |Relational                 |Equal                  |==
 |Relational                 |Unequal                |!=
 |Relational                 |Less than              |<
-|Relational                 |Less than or equal     |<=
+|Relational                 |Less than or equal     |\<=
 |Relational                 |Greater than           |>
 |Relational                 |Greater than or equal  |>=
 |Assignment                 |Assignment             |=

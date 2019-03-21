@@ -1,15 +1,15 @@
-=== BINARY_EXPRESSION Class
+=== BINARY_OPERATOR Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*BINARY_EXPRESSION*
+2+^h|*BINARY_OPERATOR*
 
 h|*Description*
 2+a|Concrete model of a binary operator in the rule.
 
 h|*Inherit*
-2+|`EXPRESSION_ITEM`
+2+|`OPERATOR`
 
 h|*Attributes*
 ^h|*Signature*
@@ -22,8 +22,4 @@ a|Left operand.
 h|*1..1*
 |*right*: `EXPRESSION_ITEM`
 a|Right operand.
-
-h|*1..1*
-|*operator*: `OPERATOR_KIND`
-a|The operator type of this binary operator expression.
 |===

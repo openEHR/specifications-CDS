@@ -1,9 +1,9 @@
-=== GDL_ELEMENT Class
+=== ELEMENT Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*GDL_ELEMENT*
+2+^h|*ELEMENT*
 
 h|*Description*
 2+a|The binding between a specific element in an archetype and a local variable in the guide.

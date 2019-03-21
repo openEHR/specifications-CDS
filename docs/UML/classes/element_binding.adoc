@@ -1,9 +1,9 @@
-=== GDL_ELEMENT_BINDING Class
+=== ELEMENT_BINDING Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*GDL_ELEMENT_BINDING*
+2+^h|*ELEMENT_BINDING*
 
 h|*Description*
 2+a|

@@ -9,7 +9,7 @@ h|*Description*
 2+a|
 
 h|*Inherit*
-2+|`CONSTANT_EXPRESSION`
+2+|`CONSTANT`
 
 h|*Attributes*
 ^h|*Signature*

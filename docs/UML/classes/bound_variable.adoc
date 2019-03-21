@@ -1,0 +1,29 @@
+=== BOUND_VARIABLE Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BOUND_VARIABLE*
+
+h|*Description*
+2+a|Definition of an external (bound) variable.
+
+TODO: some attributes seem to be reproducing what is in ELEMENT_BINDING.
+
+TODO: potentially rename as EXTERNAL_VARIABLE or BOUND_VARIABLE, to distinguish from LOCAL_VARIABLE.
+
+h|*Inherit*
+2+|`VARIABLE`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*path*: `String`
+a|TODO: path in archetype? Should this be here?
+
+h|*1..1*
+|*attribute*: `String`
+a|TODO: attribute name at archetype path - should this be here?
+|===

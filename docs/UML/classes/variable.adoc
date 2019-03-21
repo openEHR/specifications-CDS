@@ -3,10 +3,13 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*VARIABLE*
+2+^h|*_VARIABLE (abstract)_*
 
 h|*Description*
-2+a|
+2+a|Abstract model of a named variable with a definition provided by the `_code_` attribute, containing a gt-code.
+
+h|*Inherit*
+2+|`EXPRESSION_ITEM`
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,17 +17,9 @@ h|*Attributes*
 
 h|*1..1*
 |*name*: `String`
-a|
+a|Variable symbolic name
 
 h|*1..1*
 |*code*: `String`
-a|
-
-h|*1..1*
-|*path*: `String`
-a|
-
-h|*1..1*
-|*attribute*: `String`
-a|
+a|Internal gt-code defining the meaning of this variable.
 |===
