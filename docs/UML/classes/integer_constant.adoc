@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*INTEGER_CONSTANT*
 
 h|*Description*
-2+a|
+2+a|Constant of type Integer.
 
 h|*Inherit*
 2+|`CONSTANT`

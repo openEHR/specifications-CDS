@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_CONSTANT (abstract)_*
 
 h|*Description*
-2+a|
+2+a|Atomic expression representing a constant; subtypes indicate specific types.
 
 h|*Inherit*
 2+|`EXPRESSION_ITEM`
@@ -21,5 +21,5 @@ a|
 
 h|*1..1*
 |*value*: `String`
-a|
+a|TODO: is this meant to be the value of the constant that is redefined to Integer, ... etc? If so, it should be of tye Any here, and we rename all the fields like STRING_CONSTANT.string to value.
 |===

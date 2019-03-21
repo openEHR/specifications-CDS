@@ -25,6 +25,8 @@
 ==== Package expression
 
 [.xcode]
+* link:/releases/CDS/{base_release}/expression.html#_assertion_class[ASSERTION^]
+[.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_assignment_class[ASSIGNMENT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_binary_operator_class[BINARY_OPERATOR^]
@@ -56,6 +58,8 @@
 * link:/releases/CDS/{base_release}/expression.html#_ordinal_constant_class[ORDINAL_CONSTANT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_quantity_constant_class[QUANTITY_CONSTANT^]
+[.xcode]
+* link:/releases/CDS/{base_release}/expression.html#_statement_class[STATEMENT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_string_constant_class[STRING_CONSTANT^]
 [.xcode]

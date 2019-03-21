@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*QUANTITY_CONSTANT*
 
 h|*Description*
-2+a|
+2+a|Constant of type Quantity.
 
 h|*Inherit*
 2+|`CONSTANT`

@@ -99,8 +99,9 @@
 <li><a href="#_variable_class">5.2.2.16. VARIABLE Class</a></li>
 <li><a href="#_bound_variable_class">5.2.2.17. BOUND_VARIABLE Class</a></li>
 <li><a href="#_local_variable_class">5.2.2.18. LOCAL_VARIABLE Class</a></li>
-<li><a href="#_assignment_class">5.2.2.19. ASSIGNMENT Class</a></li>
-<li><a href="#_operator_kind">5.2.2.20. OPERATOR_KIND</a></li>
+<li><a href="#_statement_class">5.2.2.19. STATEMENT Class</a></li>
+<li><a href="#_assignment_class">5.2.2.20. ASSIGNMENT Class</a></li>
+<li><a href="#_assertion_class">5.2.2.21. ASSERTION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -938,9 +939,12 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicate_statements</strong>: <code>List&lt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicate_statements</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.</p>
+</div>
+<div class="paragraph">
+<p>TODO: I&#8217;ve set this to an ASSERTION type that explicitly points to a Boolean-returning Expression.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1287,6 +1291,11 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EXPONENT</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AND</p></td>
 <td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
@@ -1540,7 +1549,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Atomic expression representing a constant; subtypes indicate specific types.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1559,7 +1570,9 @@
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>TODO: is this meant to be the value of the constant that is redefined to Integer, &#8230;&#8203; etc? If so, it should be of tye Any here, and we rename all the fields like STRING_CONSTANT.string to value.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1579,7 +1592,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type String.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1613,7 +1628,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type Integer.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1647,7 +1664,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type Date/time.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1681,7 +1700,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type Code phrase.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1715,7 +1736,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type Coded text.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1749,7 +1772,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type Ordinal.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1783,7 +1808,9 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Constant of type Quantity.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
@@ -1925,7 +1952,29 @@
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.2.2.19. ASSIGNMENT Class</h5>
+<h5 id="_statement_class"><a class="anchor" href="#_statement_class"></a>5.2.2.19. STATEMENT Class</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>STATEMENT (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Abstract concept of a statement, which is a self-standing procedural element.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.2.2.20. ASSIGNMENT Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1940,8 +1989,12 @@
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>An assignment statement assigning an expression to a variable.</p>
+<p>A statement assigning an expression to a variable.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>STATEMENT</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1962,108 +2015,40 @@
 </table>
 </div>
 <div class="sect4">
-<h5 id="_operator_kind"><a class="anchor" href="#_operator_kind"></a>5.2.2.20. OPERATOR_KIND</h5>
-<div class="paragraph">
-<p>Enumeration containing all the operators used.</p>
-</div>
+<h5 id="_assertion_class"><a class="anchor" href="#_assertion_class"></a>5.2.2.21. ASSERTION Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
+<col style="width: 11.1111%;">
 <col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 55.5556%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Symbol</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Addition</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">+</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ASSERTION</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subtraction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>A statement asserting a Boolean expression.</p>
+</div>
+<div class="paragraph">
+<p>TODO: ideally, would have a constraint forcing a Boolean-typed expression.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Multiplication</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>STATEMENT</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Division</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Arithmetic</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exponent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">^</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">And</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;&amp;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Or</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">||</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Logical</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Not</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">!</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Equal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">==</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unequal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">!=</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Less than</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;=</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Relational</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;=</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Assignment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Assignment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">=</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminological reasoning</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Is a</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">is_a</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminological reasoning</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Is not a</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">!is_a</p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EXPRESSION_ITEM</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>

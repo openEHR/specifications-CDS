@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*DATE_TIME_CONSTANT*
 
 h|*Description*
-2+a|
+2+a|Constant of type Date/time.
 
 h|*Inherit*
 2+|`CONSTANT`

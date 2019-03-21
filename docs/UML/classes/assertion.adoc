@@ -1,12 +1,14 @@
-=== ASSIGNMENT Class
+=== ASSERTION Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*ASSIGNMENT*
+2+^h|*ASSERTION*
 
 h|*Description*
-2+a|A statement assigning an expression to a variable.
+2+a|A statement asserting a Boolean expression.
+
+TODO: ideally, would have a constraint forcing a Boolean-typed expression.
 
 h|*Inherit*
 2+|`STATEMENT`
@@ -14,10 +16,6 @@ h|*Inherit*
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
-
-h|*1..1*
-|*variable*: `BOUND_VARIABLE`
-a|
 
 h|*1..1*
 |*expression*: `EXPRESSION_ITEM`

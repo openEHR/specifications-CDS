@@ -1,0 +1,11 @@
+=== STATEMENT Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*_STATEMENT (abstract)_*
+
+h|*Description*
+2+a|Abstract concept of a statement, which is a self-standing procedural element.
+
+|===

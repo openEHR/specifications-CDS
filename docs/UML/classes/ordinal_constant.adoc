@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*ORDINAL_CONSTANT*
 
 h|*Description*
-2+a|
+2+a|Constant of type Ordinal.
 
 h|*Inherit*
 2+|`CONSTANT`

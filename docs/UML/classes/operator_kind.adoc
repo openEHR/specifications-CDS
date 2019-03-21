@@ -29,6 +29,10 @@ h|
 a|
 
 h|
+|EXPONENT
+a|
+
+h|
 |AND
 a|
 

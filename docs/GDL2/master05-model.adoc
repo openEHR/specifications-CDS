@@ -53,32 +53,8 @@ include::{uml_export_dir}/classes/quantity_constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/variable.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/bound_variable.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/local_variable.adoc[leveloffset=+1]
+
+include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
-
-==== OPERATOR_KIND
-
-Enumeration containing all the operators used.
-
-[options="header"]
-|===
-|Type                       |Name                   |Symbol
-|Arithmetic                 |Addition               |+
-|Arithmetic                 |Subtraction            |-
-|Arithmetic                 |Multiplication         |*
-|Arithmetic                 |Division               |/
-|Arithmetic                 |Exponent               |^
-|Logical                    |And                    |&&
-|Logical                    |Or                     |\|\|
-|Logical                    |Not                    |!
-|Relational                 |Equal                  |==
-|Relational                 |Unequal                |!=
-|Relational                 |Less than              |<
-|Relational                 |Less than or equal     |\<=
-|Relational                 |Greater than           |>
-|Relational                 |Greater than or equal  |>=
-|Assignment                 |Assignment             |=
-|Terminological reasoning   |Is a                   |is_a
-|Terminological reasoning   |Is not a               |!is_a
-|===
-
+include::{uml_export_dir}/classes/assertion.adoc[leveloffset=+1]
 
