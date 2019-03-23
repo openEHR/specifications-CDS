@@ -23,12 +23,12 @@ a|List of expressions that when evaluated to `True` cause the rule to be fired.
 TODO: can assignments be used here? Probably not.
 
 h|*0..1*
-|*then*: `List<EXPRESSION_ITEM>`
+|*then*: `List<ASSIGNMENT>`
 a|List of expressions to generate output of the rule.
 
 TODO: can assignments be used here? Probably only assignments?
 
 h|*1..1*
 |*priority*: `Integer`
-a|TODO: explain
+a|Indicates the evaluation order of Rules within a Guideline. Rules with a _higher_ priority value are executed first.
 |===

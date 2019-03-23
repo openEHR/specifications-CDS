@@ -36,8 +36,4 @@ a|The main definition part of the guide. It consists of archetype bindings and r
 h|*1..1*
 |*terminology*: `ARCHETYPE_TERMINOLOGY`
 a|TBD: I wonder if we should just reference the AM Terminology class here for now - it makes it easy to show re-use; or do you prefer just to make a local custom one for now? I have done it using a ref to AM::ARCHETYPE_TERMINOLOGY just to show how it looks. I think this could be better from a spec POV, I would not change anything in your impl, it is close enough.
-
-h|*1..1*
-|*test_cases*: 
-a|TBD: need a better understanding of this.
 |===

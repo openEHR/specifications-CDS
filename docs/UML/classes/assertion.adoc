@@ -6,9 +6,11 @@ h|*Class*
 2+^h|*ASSERTION*
 
 h|*Description*
-2+a|A statement asserting a Boolean expression.
+2+a|A statement of the logical form `assert(cond)` that asserts the truth of a Boolean expression, which if not true, generates an exception at runtime.
 
 TODO: ideally, would have a constraint forcing a Boolean-typed expression.
+
+TODO: we may not want/need this in GDL2 yet.
 
 h|*Inherit*
 2+|`STATEMENT`

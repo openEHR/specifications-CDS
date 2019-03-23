@@ -18,7 +18,7 @@ include::{uml_export_dir}/classes/rule.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/data_binding.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/element.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/element_binding.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/template.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/output_template.adoc[leveloffset=+1]
 
 == Expressions Package
 

@@ -30,11 +30,11 @@ h|*0..1*
 a|Map of rules indexed by local gt codes.
 
 h|*0..1*
-|*default_actions*: `List<EXPRESSION_ITEM>`
-a|TODO: explain
+|*default_actions*: `List<ASSIGNMENT>`
+a|Actions that will always be performed, whenever the `_when_` conditions are evaluated, regardless of the result.
 
 h|*0..1*
-|*templates*: `Hash<String,TEMPLATE>`
+|*templates*: `Hash<String,OUTPUT_TEMPLATE>`
 a|
 
 h|*0..1*

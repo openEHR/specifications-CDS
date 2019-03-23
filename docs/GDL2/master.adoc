@@ -55,7 +55,7 @@ This specification has benefited from formal and informal input from the openEHR
 
 The work reported in this paper has been funded by the following organisations:
 
-* Cambio Healthcare Systems, Sweden.
+* Cambio CDS, Sweden.
 
 === Trademarks
 

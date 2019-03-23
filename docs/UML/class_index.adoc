@@ -80,6 +80,6 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/guide.html#_guide_definition_class[GUIDE_DEFINITION^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_rule_class[RULE^]
+* link:/releases/CDS/{base_release}/guide.html#_output_template_class[OUTPUT_TEMPLATE^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_template_class[TEMPLATE^]
+* link:/releases/CDS/{base_release}/guide.html#_rule_class[RULE^]
