@@ -20,13 +20,9 @@ h|*0..1*
 |*when*: `List<EXPRESSION_ITEM>`
 a|List of expressions that when evaluated to `True` cause the rule to be fired.
 
-TODO: can assignments be used here? Probably not.
-
 h|*0..1*
 |*then*: `List<ASSIGNMENT>`
-a|List of expressions to generate output of the rule.
-
-TODO: can assignments be used here? Probably only assignments?
+a|List of assignments to generate output of the rule.
 
 h|*1..1*
 |*priority*: `Integer`

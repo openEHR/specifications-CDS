@@ -1,13 +1,13 @@
 = Requirements
 
-This chapter describes detailed formal requirements of the GDL.
+This chapter describes detailed formal requirements of the GDL2 language.
 
 == Clinical information models
 
 * It shall be possible to express clinical logic using standards-based clinical models such as openEHR Archetypes or HL7 FHIR Resources both as input and output of the rule execution.
 * The design shall support common data types underpinning standard clinical models.
 
-== Natural language support
+== Natural language independence
 
 * It shall be possible to author meta-data of the rules in any natural language.
 * The rule expressions shall be independent of any natural language.

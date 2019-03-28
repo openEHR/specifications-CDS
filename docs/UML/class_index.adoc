@@ -83,3 +83,14 @@
 * link:/releases/CDS/{base_release}/guide.html#_output_template_class[OUTPUT_TEMPLATE^]
 [.xcode]
 * link:/releases/CDS/{base_release}/guide.html#_rule_class[RULE^]
+
+==== Package terminology
+
+[.xcode]
+* link:/releases/CDS/{base_release}/terminology.html#_term_class[TERM^]
+[.xcode]
+* link:/releases/CDS/{base_release}/terminology.html#_terminology_class[TERMINOLOGY^]
+[.xcode]
+* link:/releases/CDS/{base_release}/terminology.html#_terminology_relation_class[TERMINOLOGY_RELATION^]
+[.xcode]
+* link:/releases/CDS/{base_release}/terminology.html#_value_set_class[VALUE_SET^]

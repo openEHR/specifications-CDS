@@ -4,7 +4,7 @@
 
 === Overview
 
-The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.
+The following UML diagram shows the `guideline` and `terminology` packages.
 
 [.text-center]
 .`cds.guideline` Package
@@ -24,7 +24,7 @@ include::{uml_export_dir}/classes/output_template.adoc[leveloffset=+1]
 
 === Overview
 
-The overview of the expressions package is illustrated by figure 2.
+The `expression` package is illustrated below.
 
 [.text-center]
 .`cds.expression` Package
@@ -58,3 +58,13 @@ include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assertion.adoc[leveloffset=+1]
 
+== Terminology Package
+
+=== Overview
+
+The `terminology` package is illustrated earlier. The `TERMINOLOGY` and `TERM` classes are slightly simplified versions of the `ARCHETYPE_TERMINOLOGY` and `ARCHETYPE_TERM` classes from the {openehr_am_aom2}[openEHR AOM2 specification^].
+
+=== Class Definitions
+
+include::{uml_export_dir}/classes/terminology.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/term.adoc[leveloffset=+1]

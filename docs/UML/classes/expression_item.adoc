@@ -6,6 +6,6 @@ h|*Class*
 2+^h|*_EXPRESSION_ITEM (abstract)_*
 
 h|*Description*
-2+a|
+2+a|Abstract parent of all valued elements that may be used as a term in an expression.
 
 |===

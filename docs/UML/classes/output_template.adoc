@@ -8,8 +8,6 @@ h|*Class*
 h|*Description*
 2+a|Definition of structure for reporting guideline execution results.
 
-TODO: note that DATA_BINDING has an attribute `_template_id_` that represents an openEHR (ADL) template, whereas this class represents something else. Maybe rename?
-
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*

@@ -4,7 +4,7 @@ openEHR archetypes are used both as input and output of GDL guidelines. This is 
 
 == Package Structure
 
-The Guide Object Model, the object model of the GDL, consists of two packages, the guide package and the expressions package described in detail through the next two sections.
+The Guide Object Model, the object model of the GDL, consists of three packages, the `guide` package, `expression` package and the `terminology` package, each described in detail through the following sections.
 
 [.text-center]
 .`cds` Package

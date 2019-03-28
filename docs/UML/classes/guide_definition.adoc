@@ -35,9 +35,9 @@ a|Actions that will always be performed, whenever the `_when_` conditions are ev
 
 h|*0..1*
 |*templates*: `Hash<String,OUTPUT_TEMPLATE>`
-a|
+a|One or more output termplates that define how to represent rule execution results for further consumption in the processing chain.
 
 h|*0..1*
 |*internal_variables*: `List<LOCAL_VARIABLE>`
-a|
+a|Variables used internally to a GDL guideline, i.e. not bound to external data entities.
 |===
