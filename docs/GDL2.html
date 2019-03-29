@@ -353,7 +353,13 @@
 <div class="sect2">
 <h3 id="_an_example"><a class="anchor" href="#_an_example"></a>2.3. An Example</h3>
 <div class="paragraph">
-<p>The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation. The definitions for the GDL reserved words used here can be found on the later chapters. The meta-data in the GDL header is based on the <a href="https://specifications.openehr.org/releases/BASE/latest/resource.html" target="_blank" rel="noopener">openEHR Resource model</a>. The following GDL source code illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.</p>
+<p>The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation.</p>
+</div>
+<div class="paragraph">
+<p>GDL Guidelines are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">openEHR ODIN</a> format (similar to JSON with typing), such that a GDL source is a serialised instance of the, GDL2 Object Model, described below in <a href="#_gdl2_object_model">Section 5</a>.</p>
+</div>
+<div class="paragraph">
+<p>The meta-data in the GDL header is based on the <a href="https://specifications.openehr.org/releases/BASE/latest/resource.html" target="_blank" rel="noopener">openEHR Resource model</a>. The following GDL source illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -372,16 +378,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">(</span><span class="tok-nc">GUIDE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">&lt;</span>
     <span class="tok-nc">gdl_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;0.1&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2VASc_Score_calculation.v1-Revised function&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">concept</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0036&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">language</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">LANGUAGE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
-    <span class="tok-p">&gt;</span>
-    <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RESOURCE_DESCRIPTION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
+    <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">details</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RESOURCE_DESCRIPTION_ITEM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">copyright</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-nc">keywords</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial Fibrillation&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;Stroke&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CHA2DS2-VASc&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-nc">misuse</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
@@ -398,26 +402,42 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
         <span class="tok-p">&gt;</span>
         <span class="tok-nc">other_contributors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Carlos Valladares&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-p">&gt;</span>
-    <span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
         <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-        <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+        <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+        <span class="tok-nc">local_variables</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
     <span class="tok-p">&gt;</span>
-    <span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+    <span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-p">[</span><span class="tok-s">&quot;gt123&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                    <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;some text&quot;</span><span class="tok-p">&gt;</span>
+                    <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-s">&quot;some description&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-nc">term_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+                <span class="tok-p">[</span><span class="tok-s">&quot;gt123&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">http://who.int/icd10/id/xxxx</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">&gt;</span>
+        <span class="tok-p">&gt;</span>
+    <span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The following block illustrates the <code>archetype_bindings</code> sub-section within the <code>definition</code> section, which binds data elements from the archetypes to variables used by GDL rules.</p>
+<p>The following block illustrates the <code>data_bindings</code> sub-section within the <code>definition</code> section, which binds data elements from the archetypes to variables used by GDL rules.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ARCHETYPE_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ELEMENT_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
@@ -427,25 +447,25 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 </div>
 <div class="paragraph">
-<p>Within the <code>definition</code> section, it is possible to define a set of conditions that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the <code>definition</code> section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the <code>term_bindings</code> section.</p>
+<p>Within the <code>definition</code> section, it is possible to define a set of <em>conditions</em> that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the <code>definition</code> section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the <code>term_bindings</code> section.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ARCHETYPE_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107!=null&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ELEMENT_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-nc">predicates</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|&quot;</span><span class="tok-p">,...&gt;</span>
+            <span class="tok-nc">predicates</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">template_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;diagnosis_chadvas_icd10&quot;</span><span class="tok-p">&gt;</span>
         <span class="tok-p">&gt;</span>
     <span class="tok-p">&gt;</span>
-    <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107!=null&quot;</span><span class="tok-p">,...&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -454,51 +474,53 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108!=null&quot;</span><span class="tok-p">,...&gt;</span>
-        <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014=1|local::at0031|Present|&quot;</span><span class="tok-p">,...&gt;</span>
-        <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(11)</b>
-    <span class="tok-p">&gt;</span>
-    <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109!=null&quot;</span><span class="tok-p">,...&gt;</span>
-        <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0010=1|local::at0034|Present|&quot;</span><span class="tok-p">,...&gt;</span>
-        <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(9)</b>
-    <span class="tok-p">&gt;</span>
-    <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)&quot;</span><span class="tok-p">,...&gt;</span>
-        <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(1)</b>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108!=null&quot;</span><span class="tok-p">,...&gt;</span>
+            <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014=1|local::at0031|Present|&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(11)</b>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109!=null&quot;</span><span class="tok-p">,...&gt;</span>
+            <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0010=1|local::at0034|Present|&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(9)</b>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(1)</b>
+        <span class="tok-p">&gt;</span>
     <span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Finally we have the <code>ontology</code> section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.</p>
+<p>Finally we have the <code>terminology</code> section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">terms</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0003&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0003&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Diagnosis&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0014&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0014&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Hypertension&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0102&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0102&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Diabetes&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial fibrillation&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Set hypertension&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Set diabetes&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculate total score&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
         <span class="tok-p">&gt;</span>
@@ -507,17 +529,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 </div>
 <div class="paragraph">
-<p>In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in term_bindings. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.</p>
+<p>In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in <code>term_bindings</code>. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">codes</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ICD10</span><span class="tok-p">::</span><span class="tok-nd">I48</span><span class="tok-p">],...&gt;</span>
-                <span class="tok-nc">uri</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">term_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">http://who.int/icd10/id/I48</span><span class="tok-p">&gt;</span>
         <span class="tok-p">&gt;</span>
     <span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
@@ -797,7 +816,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;EXPRESSION_ITEM&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of pre-conditions to be met before the guide should be executed.</p>
 </div></div></td>
@@ -952,7 +971,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicate_statements</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicates</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.</p>
 </div>
@@ -1131,6 +1150,18 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
 <p>Abstract parent of all valued elements that may be used as a term in an expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type name of the item. Comparisons should be done case-insensitive.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2043,12 +2074,6 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
 <p>A statement of the logical form <code>assert(cond)</code> that asserts the truth of a Boolean expression, which if not true, generates an exception at runtime.</p>
-</div>
-<div class="paragraph">
-<p>TODO: ideally, would have a constraint forcing a Boolean-typed expression.</p>
-</div>
-<div class="paragraph">
-<p>TODO: we may not want/need this in GDL2 yet.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2064,6 +2089,12 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>expression</strong>: <code>EXPRESSION_ITEM</code></p></td>
 <td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p><strong><em>Inv_expression_type</em></strong>: <code>expression.type().is_case_insensitive_equal('Boolean')</code></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>

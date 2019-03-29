@@ -22,7 +22,7 @@ h|*0..1*
 a|List of archetype bindings, which define specific elements to be used by rules.
 
 h|*0..1*
-|*pre_conditions*: `List<EXPRESSION_ITEM>`
+|*pre_conditions*: `List<ASSERTION>`
 a|List of pre-conditions to be met before the guide should be executed.
 
 h|*0..1*

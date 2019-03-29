@@ -11,7 +11,7 @@
 //
 :linkcss:
 :keywords: CDS, decision support
-:description: openEHR Clinical Decision Support (CDS) Specifications
+:description: openEHR Clinical Decision Support (CDS) Component
 :sectanchors:
 
 include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
@@ -24,7 +24,7 @@ image::{openehr_logo}["openEHR logo",align="center"]
 
 image::openehr_block_diagram.svg["openEHR components",align="center",width="60%",opts=interactive]
 
-= Clinical Decision Support (CDS) Languages - {cds_release}
+= Clinical Decision Support (CDS) Component - {cds_release}
 
 // Use the following version for 'latest'
 ifeval::["{cds_release}" == "latest"]

@@ -10,7 +10,11 @@ The scope of the GDL is to express clinical logic as production rules. Discrete 
 
 == An Example
 
-The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation. The definitions for the GDL reserved words used here can be found on the later chapters. The meta-data in the GDL header is based on the {openehr_resource}[openEHR Resource model^]. The following GDL source code illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.
+The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation.
+
+GDL Guidelines are expressed in the {openehr_odin}[openEHR ODIN^] format (similar to JSON with typing), such that a GDL source is a serialised instance of the, GDL2 Object Model, described below in <<_gdl2_object_model>>.
+
+The meta-data in the GDL header is based on the {openehr_resource}[openEHR Resource model^]. The following GDL source illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.
 
 NOTE: The term 'guideline' is used as a short name for a GDL guideline document in the remainder of this document.
 
@@ -18,16 +22,14 @@ The other top-level sections are respectively `definition` and `terminology`.
 
 [source, odin]
 ----
-(GUIDE) <
+<
     gdl_version = <"0.1">
     id = <"CHA2DS2VASc_Score_calculation.v1-Revised function">
     concept = <"gt0036">
-    language = (LANGUAGE) <
-        original_language = <[ISO_639-1::en]>
-    >
-    description = (RESOURCE_DESCRIPTION) <
+    original_language = <[ISO_639-1::en]>
+    description = <
         details = <
-            ["en"] = (RESOURCE_DESCRIPTION_ITEM) <
+            ["en"] = <
                 copyright = <"">
                 keywords = <"Atrial Fibrillation", "Stroke", "CHA2DS2-VASc">
                 misuse = <"">
@@ -44,25 +46,41 @@ The other top-level sections are respectively `definition` and `terminology`.
         >
         other_contributors = <"Carlos Valladares">
     >
-    definition = (GUIDE_DEFINITION) = <
+    definition = <
+        pre_conditions = <...>
         rules = <...>
-        archetype_bindings = <...>
+        data_bindings = <...>
+        local_variables = <...>
     >
-    terminology = <...>
+    terminology = <
+        term_definitions = <
+            ["en"] = <
+                ["gt123"] = <
+                    text = <"some text">
+                    description = "some description">
+                >
+            >
+        >
+        term_bindings = <
+            ["ICD10"] = <
+                ["gt123"] = <http://who.int/icd10/id/xxxx>
+            >
+        >
+    >
 >
 ----
 
-The following block illustrates the `archetype_bindings` sub-section within the `definition` section, which binds data elements from the archetypes to variables used by GDL rules.
+The following block illustrates the `data_bindings` sub-section within the `definition` section, which binds data elements from the archetypes to variables used by GDL rules.
 
 [source, odin]
 ----
-definition = (GUIDE_DEFINITION) <
-    archetype_bindings = <
-        [1] = (ARCHETYPE_BINDING) <
+definition = <
+    data_bindings = <
+        [1] = <
             archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
             domain = <"EHR">
             elements = <
-                ["gt0107"] = (ELEMENT_BINDING) <
+                ["gt0107"] = <
                     path = <"/data[at0001]/items[at0002.1]">
                 >
             >
@@ -71,25 +89,25 @@ definition = (GUIDE_DEFINITION) <
 >
 ----
 
-Within the `definition` section, it is possible to define a set of conditions that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the `definition` section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the `term_bindings` section.
+Within the `definition` section, it is possible to define a set of _conditions_ that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the `definition` section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the `term_bindings` section.
 
 [source, odin]
 ----
-definition = (GUIDE_DEFINITION) <
-    archetype_bindings = <
-        [1] = (ARCHETYPE_BINDING) <
+definition = <
+    pre_conditions = <"$gt0107!=null">
+    data_bindings = <
+        [1] = <
             archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
             domain = <"EHR">
             elements = <
-                ["gt0107"] = (ELEMENT_BINDING) <
+                ["gt0107"] = <
                     path = <"/data[at0001]/items[at0002.1]">
                 >
             >
-            predicates = <"/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|",...>
+            predicates = <"/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|">
             template_id = <"diagnosis_chadvas_icd10">
         >
     >
-    pre_conditions = <"$gt0107!=null",...>
 >
 ----
 
@@ -97,50 +115,52 @@ The `rules` section makes exclusive use of the locally defined variables to expr
 
 [source, odin]
 ----
-rules = <
-    ["gt0018"] = (RULE) <
-        when = <"$gt0108!=null",...>
-        then = <"$gt0014=1|local::at0031|Present|",...>
-        priority = <11>
-    >
-    ["gt0019"] = (RULE) <
-        when = <"$gt0109!=null",...>
-        then = <"$gt0010=1|local::at0034|Present|",...>
-        priority = <9>
-    >
-    ["gt0026"] = (RULE) <
-        then = <"$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)",...>
-        priority = <1>
+definition = <
+    rules = <
+        ["gt0018"] = <
+            when = <"$gt0108!=null",...>
+            then = <"$gt0014=1|local::at0031|Present|">
+            priority = <11>
+        >
+        ["gt0019"] = <
+            when = <"$gt0109!=null",...>
+            then = <"$gt0010=1|local::at0034|Present|">
+            priority = <9>
+        >
+        ["gt0026"] = <
+            then = <"$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)">
+            priority = <1>
+        >
     >
 >
 ----
 
-Finally we have the `ontology` section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.
+Finally we have the `terminology` section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.
 
 [source, odin]
 ----
-term_definitions = <
-    ["en"] = (TERM_DEFINITION) <
-        terms = <
-            ["gt0003"] = (TERM) <
+terminology = <
+    term_definitions = <
+        ["en"] = <
+            ["gt0003"] = <
                 text = <"Diagnosis">
             >
-            ["gt0014"] = (TERM) <
+            ["gt0014"] = <
                 text = <"Hypertension">
             >
-            ["gt0102"] = (TERM) <
+            ["gt0102"] = <
                 text = <"Diabetes">
             >
-            ["gt0105"] = (TERM) <
+            ["gt0105"] = <
                 text = <"Atrial fibrillation">
             >
-            ["gt0018"] = (TERM) <
+            ["gt0018"] = <
                 text = <"Set hypertension">
             >
-            ["gt0019"] = (TERM) <
+            ["gt0019"] = <
                 text = <"Set diabetes">
             >
-            ["gt0026"] = (TERM) <
+            ["gt0026"] = <
                 text = <"Calculate total score">
             >
         >
@@ -148,17 +168,14 @@ term_definitions = <
 >
 ----
 
-In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in term_bindings. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.
+In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in `term_bindings`. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.
 
 [source, odin]
 ----
-term_definitions = <
-    ["ICD10"] = (TERM_BINDING) <
-        bindings = <
-            ["gt0105"] = (BINDING) <
-                codes = <[ICD10::I48],...>
-                uri = <"">
-            >
+terminology = <
+    term_bindings = <
+        ["ICD10"] = <
+            ["gt0105"] = <http://who.int/icd10/id/I48>
         >
     >
 >

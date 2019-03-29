@@ -32,7 +32,7 @@ h|*0..1*
 a|Map of element binding indexed by local gt codes.
 
 h|*0..1*
-|*predicate_statements*: `List<ASSERTION>`
+|*predicates*: `List<ASSERTION>`
 a|List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.
 
 TODO: I've set this to an ASSERTION type that explicitly points to a Boolean-returning Expression.
