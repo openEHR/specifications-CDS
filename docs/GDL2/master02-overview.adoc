@@ -89,7 +89,9 @@ definition = <
 >
 ----
 
-Within the `definition` section, it is possible to define a set of _conditions_ that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the `definition` section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the `term_bindings` section.
+Within the `definition` section, it is possible to define a set of _conditions_ that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnoses of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the `definition` section the precondition is set to check against a local code (gt0105) which represents atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the `term_bindings` section.
+
+TODO: At the moment is it not clear what distinguishes `pre_conditions`, `predicates` and `when` conditions. We need to improve this explanation.
 
 [source, odin]
 ----
@@ -118,12 +120,12 @@ The `rules` section makes exclusive use of the locally defined variables to expr
 definition = <
     rules = <
         ["gt0018"] = <
-            when = <"$gt0108!=null",...>
+            when = <"$gt0108!=null">
             then = <"$gt0014=1|local::at0031|Present|">
             priority = <11>
         >
         ["gt0019"] = <
-            when = <"$gt0109!=null",...>
+            when = <"$gt0109!=null">
             then = <"$gt0010=1|local::at0034|Present|">
             priority = <9>
         >
@@ -135,7 +137,7 @@ definition = <
 >
 ----
 
-Finally we have the `terminology` section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.
+Finally we have the `terminology` section of the guideline, where all the terms are bound to user interface labels and description of the terms in supported natural languages.
 
 [source, odin]
 ----
@@ -168,7 +170,7 @@ terminology = <
 >
 ----
 
-In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in `term_bindings`. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.
+In addition, locally defined terms may be bound to concepts or refsets defined by external reference terminologies in `term_bindings`. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.
 
 [source, odin]
 ----

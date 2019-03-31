@@ -14,9 +14,9 @@ h|*Attributes*
 
 h|*1..1*
 |*id*: `String`
-a|The local gt code of this element.
+a|The local gt-code of this element.
 
 h|*1..1*
 |*path*: `String`
-a|The path to reach this element in the archetype.
+a|The path within archetype to reach this element.
 |===

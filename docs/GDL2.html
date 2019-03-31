@@ -447,7 +447,10 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 </div>
 <div class="paragraph">
-<p>Within the <code>definition</code> section, it is possible to define a set of <em>conditions</em> that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnosis of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the <code>definition</code> section the precondition is set to check against a local code (gt0105) which represents the meaning of atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the <code>term_bindings</code> section.</p>
+<p>Within the <code>definition</code> section, it is possible to define a set of <em>conditions</em> that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnoses of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the <code>definition</code> section the precondition is set to check against a local code (gt0105) which represents atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the <code>term_bindings</code> section.</p>
+</div>
+<div class="paragraph">
+<p>TODO: At the moment is it not clear what distinguishes <code>pre_conditions</code>, <code>predicates</code> and <code>when</code> conditions. We need to improve this explanation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -477,12 +480,12 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108!=null&quot;</span><span class="tok-p">,...&gt;</span>
+            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108!=null&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014=1|local::at0031|Present|&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(11)</b>
         <span class="tok-p">&gt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109!=null&quot;</span><span class="tok-p">,...&gt;</span>
+            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109!=null&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0010=1|local::at0034|Present|&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(9)</b>
         <span class="tok-p">&gt;</span>
@@ -495,7 +498,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 </div>
 <div class="paragraph">
-<p>Finally we have the <code>terminology</code> section of the guideline, where all the terms are bond to user interface labels and description of the terms in supported natural languages.</p>
+<p>Finally we have the <code>terminology</code> section of the guideline, where all the terms are bound to user interface labels and description of the terms in supported natural languages.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -529,7 +532,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 </div>
 <div class="paragraph">
-<p>In addition, local defined terms are bound to concepts or refsets defined by external reference terminologies in <code>term_bindings</code>. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.</p>
+<p>In addition, locally defined terms may be bound to concepts or refsets defined by external reference terminologies in <code>term_bindings</code>. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -885,7 +888,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong>: <code>List&lt;EXPRESSION_ITEM&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of expressions that when evaluated to <code>True</code> cause the rule to be fired.</p>
 </div></div></td>
@@ -974,9 +977,6 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicates</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.</p>
-</div>
-<div class="paragraph">
-<p>TODO: I&#8217;ve set this to an ASSERTION type that explicitly points to a Boolean-returning Expression.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1010,14 +1010,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The local gt code of this element.</p>
+<p>The local gt-code of this element.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The path to reach this element in the archetype.</p>
+<p>The path within archetype to reach this element.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1048,12 +1048,19 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Path within archetype to this element.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type of this element.</p>
+</div>
+<div class="paragraph">
+<p>TODO: this should probably by replaced by typing of all gt-variables.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>

@@ -17,7 +17,7 @@ h|*1..1*
 a|The local gt code of this rule.
 
 h|*0..1*
-|*when*: `List<EXPRESSION_ITEM>`
+|*when*: `List<ASSERTION>`
 a|List of expressions that when evaluated to `True` cause the rule to be fired.
 
 h|*0..1*

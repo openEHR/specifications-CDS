@@ -14,9 +14,11 @@ h|*Attributes*
 
 h|*1..1*
 |*path*: `String`
-a|
+a|Path within archetype to this element.
 
 h|*1..1*
 |*type*: `String`
-a|
+a|Type of this element.
+
+TODO: this should probably by replaced by typing of all gt-variables.
 |===
