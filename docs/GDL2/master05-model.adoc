@@ -13,7 +13,7 @@ image::{uml_diagrams_uri}/CDS-cds.guideline.svg[id=guideline, align="center"]
 === Class Definitions
 
 include::{uml_export_dir}/classes/guideline.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/guide_definition.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/guideline_definition.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/rule.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/data_binding.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/element.adoc[leveloffset=+1]
@@ -51,8 +51,6 @@ include::{uml_export_dir}/classes/ordinal_constant.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/quantity_constant.adoc[leveloffset=+1]
 
 include::{uml_export_dir}/classes/variable.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/bound_variable.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/local_variable.adoc[leveloffset=+1]
 
 include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]

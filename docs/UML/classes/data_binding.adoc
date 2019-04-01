@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*DATA_BINDING*
 
 h|*Description*
-2+a|The binding of list of elements from a selected archetype or template to local gt codes.
+2+a|The binding of list of elements from a selected archetype or template to local gt-codes.
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,9 +14,9 @@ h|*Attributes*
 
 h|*1..1*
 |*archetype_id*: `String`
-a|The ID of the archetype, from where the list of elements is selected.
+a|The identifier of the archetype, from where the list of elements is selected.
 
-h|*0..1*
+h|*1..1*
 |*template_id*: `String`
 a|The ID of an optional template to be used for selecting elements.
 
@@ -33,5 +33,5 @@ a|Map of element binding indexed by local gt codes.
 
 h|*0..1*
 |*predicates*: `List<ASSERTION>`
-a|List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.
+a|Predicates (constraints) that need to be fulfilled before the EHR queries can be performed.
 |===

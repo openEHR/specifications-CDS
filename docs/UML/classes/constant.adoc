@@ -6,7 +6,9 @@ h|*Class*
 2+^h|*_CONSTANT (abstract)_*
 
 h|*Description*
-2+a|Atomic expression representing a constant; subtypes indicate specific types.
+2+a|Terminal element representing a constant; subtypes indicate specific types.
+
+TODO: need an example; does a constant have a gt-code?
 
 h|*Inherit*
 2+|`EXPRESSION_ITEM`

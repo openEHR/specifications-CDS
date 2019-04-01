@@ -66,7 +66,7 @@
 <li><a href="#_class_definitions">5.1.2. Class Definitions</a>
 <ul class="sectlevel4">
 <li><a href="#_guideline_class">5.1.2.1. GUIDELINE Class</a></li>
-<li><a href="#_guide_definition_class">5.1.2.2. GUIDE_DEFINITION Class</a></li>
+<li><a href="#_guideline_definition_class">5.1.2.2. GUIDELINE_DEFINITION Class</a></li>
 <li><a href="#_rule_class">5.1.2.3. RULE Class</a></li>
 <li><a href="#_data_binding_class">5.1.2.4. DATA_BINDING Class</a></li>
 <li><a href="#_element_class">5.1.2.5. ELEMENT Class</a></li>
@@ -97,11 +97,9 @@
 <li><a href="#_ordinal_constant_class">5.2.2.14. ORDINAL_CONSTANT Class</a></li>
 <li><a href="#_quantity_constant_class">5.2.2.15. QUANTITY_CONSTANT Class</a></li>
 <li><a href="#_variable_class">5.2.2.16. VARIABLE Class</a></li>
-<li><a href="#_bound_variable_class">5.2.2.17. BOUND_VARIABLE Class</a></li>
-<li><a href="#_local_variable_class">5.2.2.18. LOCAL_VARIABLE Class</a></li>
-<li><a href="#_statement_class">5.2.2.19. STATEMENT Class</a></li>
-<li><a href="#_assignment_class">5.2.2.20. ASSIGNMENT Class</a></li>
-<li><a href="#_assertion_class">5.2.2.21. ASSERTION Class</a></li>
+<li><a href="#_statement_class">5.2.2.17. STATEMENT Class</a></li>
+<li><a href="#_assignment_class">5.2.2.18. ASSIGNMENT Class</a></li>
+<li><a href="#_assertion_class">5.2.2.19. ASSERTION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -220,8 +218,9 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial Writing.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Rong Chen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>29 November 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Chen,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>01 Apr 2019</p></td>
 </tr>
 </tbody>
 </table>
@@ -447,7 +446,13 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </div>
 </div>
 <div class="paragraph">
-<p>Within the <code>definition</code> section, it is possible to define a set of <em>conditions</em> that have to be met before the rules inside the guide can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation. In the example below, a pre-condition checks all the diagnoses of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the <code>definition</code> section the precondition is set to check against a local code (gt0105) which represents atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the <code>term_bindings</code> section.</p>
+<p>Within the <code>definition</code> section, it is possible to define a set of <em>pre-conditions</em> that have to be met before the rules inside the guideline can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation.</p>
+</div>
+<div class="paragraph">
+<p>TODO: this is currently coded as a predicate, but should be a</p>
+</div>
+<div class="paragraph">
+<p>In the example below, a pre-condition checks all the diagnoses of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the <code>definition</code> section the precondition is set to check against a local code (gt0105) which represents atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the <code>term_bindings</code> section.</p>
 </div>
 <div class="paragraph">
 <p>TODO: At the moment is it not clear what distinguishes <code>pre_conditions</code>, <code>predicates</code> and <code>when</code> conditions. We need to improve this explanation.</p>
@@ -671,7 +676,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <div class="sect2">
 <h3 id="_package_structure"><a class="anchor" href="#_package_structure"></a>4.1. Package Structure</h3>
 <div class="paragraph">
-<p>The Guide Object Model, the object model of the GDL, consists of three packages, the <code>guide</code> package, <code>expression</code> package and the <code>terminology</code> package, each described in detail through the following sections.</p>
+<p>The Guideline Object Model, the object model of the GDL, consists of three packages, the <code>guideline</code> package, <code>expression</code> package and the <code>terminology</code> package, each described in detail through the following sections.</p>
 </div>
 <div id="cds_packages" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -733,10 +738,10 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Identification of this guide.</p>
+<p>Identification of this guideline.</p>
 </div>
 <div class="paragraph">
-<p>TODO: details</p>
+<p>TODO: details - format? Uniqueness requirements.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -755,7 +760,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>GUIDE_DEFINITION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code>GUIDELINE_DEFINITION</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>The main definition part of the guide. It consists of archetype bindings and rule definitions.</p>
 </div></div></td>
@@ -771,7 +776,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </table>
 </div>
 <div class="sect4">
-<h5 id="_guide_definition_class"><a class="anchor" href="#_guide_definition_class"></a>5.1.2.2. GUIDE_DEFINITION Class</h5>
+<h5 id="_guideline_definition_class"><a class="anchor" href="#_guideline_definition_class"></a>5.1.2.2. GUIDELINE_DEFINITION Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -781,7 +786,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>GUIDE_DEFINITION</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>GUIDELINE_DEFINITION</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -814,14 +819,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>data_bindings</strong>: <code>Hash&lt;String,DATA_BINDING&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of archetype bindings, which define specific elements to be used by rules.</p>
+<p>List of archetype/template bindings, which define specific elements to be used by rules in this guideline.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of pre-conditions to be met before the guide should be executed.</p>
+<p>Pre-conditions to be met before the guide can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -840,14 +845,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>templates</strong>: <code>Hash&lt;String,OUTPUT_TEMPLATE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>output_templates</strong>: <code>Hash&lt;String,OUTPUT_TEMPLATE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>One or more output termplates that define how to represent rule execution results for further consumption in the processing chain.</p>
+<p>One or more output termplates that define how to represent output reporting structure.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_variables</strong>: <code>List&lt;LOCAL_VARIABLE&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_variables</strong>: <code>List&lt;VARIABLE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Variables used internally to a GDL guideline, i.e. not bound to external data entities.</p>
 </div></div></td>
@@ -883,7 +888,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The local gt code of this rule.</p>
+<p>The gt-code of this rule.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -926,7 +931,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>The binding of list of elements from a selected archetype or template to local gt codes.</p>
+<p>The binding of list of elements from a selected archetype or template to local gt-codes.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -938,11 +943,11 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The ID of the archetype, from where the list of elements is selected.</p>
+<p>The identifier of the archetype, from where the list of elements is selected.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>template_id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>The ID of an optional template to be used for selecting elements.</p>
@@ -976,7 +981,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicates</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of predicates (constraints) that need to be fulfilled before the EHR queries can be performed.</p>
+<p>Predicates (constraints) that need to be fulfilled before the EHR queries can be performed.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1010,7 +1015,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The local gt-code of this element.</p>
+<p>The gt-code of this element.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1092,7 +1097,9 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The gt-code of this output template.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -1600,7 +1607,10 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Atomic expression representing a constant; subtypes indicate specific types.</p>
+<p>Terminal element representing a constant; subtypes indicate specific types.</p>
+</div>
+<div class="paragraph">
+<p>TODO: need an example; does a constant have a gt-code?</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1890,12 +1900,12 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>VARIABLE (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Abstract model of a named variable with a definition provided by the <code><em>code</em></code> attribute, containing a gt-code.</p>
+<p>Terminal element representing a named variable with a definition provided by the <code><em>code</em></code> attribute, containing a gt-code.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1911,7 +1921,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Variable symbolic name</p>
+<p>Variable symbolic name.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1925,84 +1935,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </table>
 </div>
 <div class="sect4">
-<h5 id="_bound_variable_class"><a class="anchor" href="#_bound_variable_class"></a>5.2.2.17. BOUND_VARIABLE Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BOUND_VARIABLE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Definition of an external (bound) variable.</p>
-</div>
-<div class="paragraph">
-<p>TODO: some attributes seem to be reproducing what is in ELEMENT_BINDING.</p>
-</div>
-<div class="paragraph">
-<p>TODO: potentially rename as EXTERNAL_VARIABLE or BOUND_VARIABLE, to distinguish from LOCAL_VARIABLE.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>VARIABLE</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>TODO: path in archetype? Should this be here?</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>attribute</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>TODO: attribute name at archetype path - should this be here?</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_local_variable_class"><a class="anchor" href="#_local_variable_class"></a>5.2.2.18. LOCAL_VARIABLE Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>LOCAL_VARIABLE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Definition of a local variable.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>VARIABLE</code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_statement_class"><a class="anchor" href="#_statement_class"></a>5.2.2.19. STATEMENT Class</h5>
+<h5 id="_statement_class"><a class="anchor" href="#_statement_class"></a>5.2.2.17. STATEMENT Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2024,7 +1957,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.2.2.20. ASSIGNMENT Class</h5>
+<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.2.2.18. ASSIGNMENT Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2053,7 +1986,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variable</strong>: <code>BOUND_VARIABLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variable</strong>: <code>VARIABLE</code></p></td>
 <td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 <tr>
@@ -2065,7 +1998,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assertion_class"><a class="anchor" href="#_assertion_class"></a>5.2.2.21. ASSERTION Class</h5>
+<h5 id="_assertion_class"><a class="anchor" href="#_assertion_class"></a>5.2.2.19. ASSERTION Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">

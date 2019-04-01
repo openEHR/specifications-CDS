@@ -6,7 +6,8 @@
 
 |[[latest_issue]]2.0
 |Initial Writing.
-|Rong Chen
-|[[latest_issue_date]]29 November 2018
+|R Chen, +
+ T Beale
+|[[latest_issue_date]]01 Apr 2019
 
 |===

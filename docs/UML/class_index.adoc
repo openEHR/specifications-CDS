@@ -31,8 +31,6 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_binary_operator_class[BINARY_OPERATOR^]
 [.xcode]
-* link:/releases/CDS/{base_release}/expression.html#_bound_variable_class[BOUND_VARIABLE^]
-[.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_coded_text_constant_class[CODED_TEXT_CONSTANT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_code_phrase_constant_class[CODE_PHRASE_CONSTANT^]
@@ -48,8 +46,6 @@
 * link:/releases/CDS/{base_release}/expression.html#_function_kind_enumeration[FUNCTION_KIND^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_integer_constant_class[INTEGER_CONSTANT^]
-[.xcode]
-* link:/releases/CDS/{base_release}/expression.html#_local_variable_class[LOCAL_VARIABLE^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_operator_class[OPERATOR^]
 [.xcode]
@@ -67,22 +63,22 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_variable_class[VARIABLE^]
 
-==== Package guide
+==== Package guideline
 
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_data_binding_class[DATA_BINDING^]
+* link:/releases/CDS/{base_release}/guideline.html#_data_binding_class[DATA_BINDING^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_element_class[ELEMENT^]
+* link:/releases/CDS/{base_release}/guideline.html#_element_class[ELEMENT^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_element_binding_class[ELEMENT_BINDING^]
+* link:/releases/CDS/{base_release}/guideline.html#_element_binding_class[ELEMENT_BINDING^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_guideline_class[GUIDELINE^]
+* link:/releases/CDS/{base_release}/guideline.html#_guideline_class[GUIDELINE^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_guide_definition_class[GUIDE_DEFINITION^]
+* link:/releases/CDS/{base_release}/guideline.html#_guideline_definition_class[GUIDELINE_DEFINITION^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_output_template_class[OUTPUT_TEMPLATE^]
+* link:/releases/CDS/{base_release}/guideline.html#_output_template_class[OUTPUT_TEMPLATE^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guide.html#_rule_class[RULE^]
+* link:/releases/CDS/{base_release}/guideline.html#_rule_class[RULE^]
 
 ==== Package terminology
 

@@ -1,9 +1,9 @@
-=== GUIDE_DEFINITION Class
+=== GUIDELINE_DEFINITION Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*GUIDE_DEFINITION*
+2+^h|*GUIDELINE_DEFINITION*
 
 h|*Description*
 2+a|The definition of the guideline includes:
@@ -19,11 +19,11 @@ h|*Attributes*
 
 h|*0..1*
 |*data_bindings*: `Hash<String,DATA_BINDING>`
-a|List of archetype bindings, which define specific elements to be used by rules.
+a|List of archetype/template bindings, which define specific elements to be used by rules in this guideline.
 
 h|*0..1*
 |*pre_conditions*: `List<ASSERTION>`
-a|List of pre-conditions to be met before the guide should be executed.
+a|Pre-conditions to be met before the guide can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.
 
 h|*0..1*
 |*rules*: `Hash<String,RULE>`
@@ -34,10 +34,10 @@ h|*0..1*
 a|Actions that will always be performed, whenever the `_when_` conditions are evaluated, regardless of the result.
 
 h|*0..1*
-|*templates*: `Hash<String,OUTPUT_TEMPLATE>`
-a|One or more output termplates that define how to represent rule execution results for further consumption in the processing chain.
+|*output_templates*: `Hash<String,OUTPUT_TEMPLATE>`
+a|One or more output termplates that define how to represent output reporting structure.
 
 h|*0..1*
-|*internal_variables*: `List<LOCAL_VARIABLE>`
+|*internal_variables*: `List<VARIABLE>`
 a|Variables used internally to a GDL guideline, i.e. not bound to external data entities.
 |===
