@@ -1,0 +1,26 @@
+=== PARAMETER_TYPE Enumeration
+
+[cols="^1,3,5"]
+|===
+h|*Enumeration*
+2+^h|*PARAMETER_TYPE*
+
+h|*Description*
+2+a|
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|in
+a|Indicates an input variable i.e. readable.
+
+h|
+|out
+a|Indicates an output variable i.e. writable.
+
+h|
+|inout
+a|Indicates an input/output variable, i.e. read/write.
+|===

@@ -23,23 +23,23 @@ The other top-level sections are respectively `definition` and `terminology`.
 [source, odin]
 ----
 <
-    gdl_version = <"0.1">
-    id = <"CHA2DS2VASc_Score_calculation.v1-Revised function">
-    concept = <"gt0036">
+    gdl_version = <"2.0">
+    id = <"CHA2DS2-VASc.v1">
+    concept = <"gt0001">
     original_language = <[ISO_639-1::en]>
     description = <
         details = <
             ["en"] = <
-                copyright = <"">
+                copyright = <"Cambio Healthcare Systems">
                 keywords = <"Atrial Fibrillation", "Stroke", "CHA2DS2-VASc">
-                misuse = <"">
+                misuse = <"Do not use in patients with no diagnosis of atrial fibrillation.">
                 purpose = <"Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.">
                 use = <"Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.">
             >
         >
-        lifecycle_state = <"Author draft">
+        lifecycle_state = <"in_review">
         original_author = <
-            ["date"] = <"2012/12/03">
+            ["date"] = <"2016-12-16">
             ["email"] = <"rong.chen@cambio.se">
             ["name"] = <"Rong Chen">
             ["organisation"] = <"Cambio Healthcare Systems">
@@ -48,8 +48,16 @@ The other top-level sections are respectively `definition` and `terminology`.
     >
     definition = <
         pre_conditions = <...>
-        rules = <...>
-        data_bindings = <...>
+        data_bindings = <
+             ["gt0006"] = <...>
+             ["gt0007"] = <...>
+             ...
+        >
+        rules = <
+             ["gt0024"] = <...>
+             ["gt0025"] = <...>
+             ...
+        >
         local_variables = <...>
     >
     terminology = <
@@ -76,7 +84,7 @@ The following block illustrates the `data_bindings` sub-section within the `defi
 ----
 definition = <
     data_bindings = <
-        [1] = <
+        ["gt0006"] = <
             archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
             domain = <"EHR">
             elements = <
@@ -100,7 +108,7 @@ TODO: At the moment is it not clear what distinguishes `pre_conditions`, `predic
 [source, odin]
 ----
 definition = <
-    pre_conditions = <"$gt0107!=null">
+    pre_conditions = <"exists $gt0107|index diagnosis|">
     data_bindings = <
         [1] = <
             archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">

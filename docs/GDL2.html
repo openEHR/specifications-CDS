@@ -68,9 +68,9 @@
 <li><a href="#_guideline_class">5.1.2.1. GUIDELINE Class</a></li>
 <li><a href="#_guideline_definition_class">5.1.2.2. GUIDELINE_DEFINITION Class</a></li>
 <li><a href="#_rule_class">5.1.2.3. RULE Class</a></li>
-<li><a href="#_data_binding_class">5.1.2.4. DATA_BINDING Class</a></li>
-<li><a href="#_element_class">5.1.2.5. ELEMENT Class</a></li>
-<li><a href="#_element_binding_class">5.1.2.6. ELEMENT_BINDING Class</a></li>
+<li><a href="#_dataset_binding_class">5.1.2.4. DATASET_BINDING Class</a></li>
+<li><a href="#_variable_binding_class">5.1.2.5. VARIABLE_BINDING Class</a></li>
+<li><a href="#_parameter_type_enumeration">5.1.2.6. PARAMETER_TYPE Enumeration</a></li>
 <li><a href="#_output_template_class">5.1.2.7. OUTPUT_TEMPLATE Class</a></li>
 </ul>
 </li>
@@ -181,7 +181,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><a href="https://www.openehr.org" target="_blank" rel="noopener">The openEHR Foundation</a> is an independent, non-profit community organisation, facilitating the sharing of health records by consumers and clinicians via open standards-based implementations.</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><a href="https://www.openehr.org" target="_blank" rel="noopener">The openEHR Foundation</a> is an independent, non-profit foundation, facilitating the sharing of health records by consumers and clinicians via open specifications, clinical models and open platform implementations.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Licence</strong></p></td>
@@ -378,23 +378,23 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">&lt;</span>
-    <span class="tok-nc">gdl_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;0.1&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2VASc_Score_calculation.v1-Revised function&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">concept</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0036&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">gdl_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2.0&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2-VASc.v1&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">concept</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0001&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
     <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">details</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">copyright</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">copyright</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-nc">keywords</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial Fibrillation&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;Stroke&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CHA2DS2-VASc&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">misuse</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;&quot;</span><span class="tok-p">&gt;</span>
+                <span class="tok-nc">misuse</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Do not use in patients with no diagnosis of atrial fibrillation.&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-nc">purpose</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
                 <span class="tok-nc">use</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">&gt;</span>
         <span class="tok-p">&gt;</span>
-        <span class="tok-nc">lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Author draft&quot;</span><span class="tok-p">&gt;</span>
+        <span class="tok-nc">lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;in_review&quot;</span><span class="tok-p">&gt;</span>
         <span class="tok-nc">original_author</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;date&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2012/12/03&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-p">[</span><span class="tok-s">&quot;date&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2016-12-16&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;email&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;rong.chen@cambio.se&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;name&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Rong Chen&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;organisation&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
@@ -403,8 +403,16 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
     <span class="tok-p">&gt;</span>
     <span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-        <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-        <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+        <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+             <span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+             <span class="tok-p">[</span><span class="tok-s">&quot;gt0007&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+             <span class="tok-p">...</span>
+        <span class="tok-p">&gt;</span>
+        <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+             <span class="tok-p">[</span><span class="tok-s">&quot;gt0024&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+             <span class="tok-p">[</span><span class="tok-s">&quot;gt0025&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
+             <span class="tok-p">...</span>
+        <span class="tok-p">&gt;</span>
         <span class="tok-nc">local_variables</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
     <span class="tok-p">&gt;</span>
     <span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -432,7 +440,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <div class="content">
 <pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+        <span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -460,7 +468,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107!=null&quot;</span><span class="tok-p">&gt;</span>
+    <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;exists $gt0107|index diagnosis|&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
@@ -738,10 +746,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Identification of this guideline.</p>
+<p>Identification of this guideline. Syntax is a string of format:</p>
 </div>
-<div class="paragraph">
-<p>TODO: details - format? Uniqueness requirements.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>concept_name '.v' + [N[.M.P]]</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -755,7 +767,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The normative meaning of the guide as whole. Expressed as a local guide code.</p>
+<p>The normative meaning of the guideline as whole. Expressed as a gt-code.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -817,7 +829,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>data_bindings</strong>: <code>Hash&lt;String,DATA_BINDING&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>data_bindings</strong>: <code>Hash&lt;String,DATASET_BINDING&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List of archetype/template bindings, which define specific elements to be used by rules in this guideline.</p>
 </div></div></td>
@@ -826,7 +838,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Pre-conditions to be met before the guide can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.</p>
+<p>Pre-conditions to be met before the guideline can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -855,6 +867,9 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_variables</strong>: <code>List&lt;VARIABLE&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Variables used internally to a GDL guideline, i.e. not bound to external data entities.</p>
+</div>
+<div class="paragraph">
+<p>TODO: need an example of these.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -895,14 +910,14 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of expressions that when evaluated to <code>True</code> cause the rule to be fired.</p>
+<p>List of assertions that when evaluated to <code>True</code> cause the rule to be fired. The <code><em>when</em></code> assertions may only mention input type variables.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>then</strong>: <code>List&lt;ASSIGNMENT&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of assignments to generate output of the rule.</p>
+<p>List of actions if the rule is fired. Each action is in the form of an assignment to an 'out' type variable.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -916,7 +931,7 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </table>
 </div>
 <div class="sect4">
-<h5 id="_data_binding_class"><a class="anchor" href="#_data_binding_class"></a>5.1.2.4. DATA_BINDING Class</h5>
+<h5 id="_dataset_binding_class"><a class="anchor" href="#_dataset_binding_class"></a>5.1.2.4. DATASET_BINDING Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -926,12 +941,12 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_BINDING</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATASET_BINDING</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>The binding of list of elements from a selected archetype or template to local gt-codes.</p>
+<p>A list of bindings of nodes from the archetype (and optionally template) specified by <code><em>archetype_id</em></code> and <code><em>template_id</em></code> respectively, to guideline variables, each specified by an element binding.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -943,52 +958,35 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The identifier of the archetype, from where the list of elements is selected.</p>
+<p>The identifier of the archetype from which the list of elements is selected.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>template_id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>The ID of an optional template to be used for selecting elements.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>domain</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The space in which the rule variables reside. The value can either be:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>"INPUT"</code>: input data to the guideline, e.g. values retrieved from the EHR;</p>
-</li>
-<li>
-<p><code>"OUTPUT"</code>: output value generated by Guideline Rule execution.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>elements</strong>: <code>Hash&lt;String,ELEMENT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bindings</strong>: <code>Hash&lt;String,VARIABLE_BINDING&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Map of element binding indexed by local gt codes.</p>
+<p>Map of variable binding indexed by identifying gt-code of the variable.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicates</strong>: <code>List&lt;ASSERTION&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Predicates (constraints) that need to be fulfilled before the EHR queries can be performed.</p>
+<p>Predicates (constraints) that need to be satisfied before rule execution can occur. Generally speaking, predicates are constraints on variable values, and can only mention gt-codes of variables.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_element_class"><a class="anchor" href="#_element_class"></a>5.1.2.5. ELEMENT Class</h5>
+<h5 id="_variable_binding_class"><a class="anchor" href="#_variable_binding_class"></a>5.1.2.5. VARIABLE_BINDING Class</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -998,12 +996,12 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ELEMENT</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_BINDING</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>The binding between a specific element in an archetype and a local variable in the guide.</p>
+<p>The binding between a specific node in an archetype and a variable in the guide.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1025,11 +1023,28 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <p>The path within archetype to reach this element.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>PARAMETER_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Marker to indicate whether variable is an input or output variable. The value can either be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"INPUT"</code>: input data to the guideline, e.g. values retrieved from the EHR;</p>
+</li>
+<li>
+<p><code>"OUTPUT"</code>: output value generated by Guideline Rule execution.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_element_binding_class"><a class="anchor" href="#_element_binding_class"></a>5.1.2.6. ELEMENT_BINDING Class</h5>
+<h5 id="_parameter_type_enumeration"><a class="anchor" href="#_parameter_type_enumeration"></a>5.1.2.6. PARAMETER_TYPE Enumeration</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1038,8 +1053,8 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 </colgroup>
 <tbody>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ELEMENT_BINDING</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARAMETER_TYPE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -1051,20 +1066,24 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Path within archetype to this element.</p>
+<p>Indicates an input variable i.e. readable.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code>String</code></p></td>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">out</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Type of this element.</p>
-</div>
-<div class="paragraph">
-<p>TODO: this should probably by replaced by typing of all gt-variables.</p>
+<p>Indicates an output variable i.e. writable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inout</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates an input/output variable, i.e. read/write.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1109,22 +1128,26 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>model_id</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Identifier of a model that defines the structure of the <code><em>object</em></code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>template_id</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>element_bindings</strong>: <code>List&lt;ELEMENT_BINDING&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The identifier of a template defining the attached <code><em>object</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>TODO: is this correct?</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>object</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Detailed output report structure as an object that may be defined by a published model.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -2108,13 +2131,6 @@ The term 'guideline' is used as a short name for a GDL guideline document in the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>term_bindings</strong>: <code>Hash &lt;String, Hash&lt;String, Uri&gt;&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Directory of bindings to external terminology codes and value sets, as a two-level table. The outer hash keys are terminology ids, e.g. <code>"SNOMED_CT"</code>, and the inner hash keys are constraint codes, e.g. <code>"at4"</code>, <code>"ac13"</code> or paths. The indexed <code>DV_URI</code> objects represent references to externally defined resources, either terms, ontology concepts, or terminology subsets / ref-sets.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_sets</strong>: <code>Hash&lt;String, VALUE_SET&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Artefact-local value sets, each keyed by value-set id, i.e. an ac-code.</p>
 </div></div></td>
 </tr>
 <tr>

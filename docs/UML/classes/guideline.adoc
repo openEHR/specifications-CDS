@@ -17,9 +17,9 @@ h|*Attributes*
 
 h|*1..1*
 |*id*: `String`
-a|Identification of this guideline.
+a|Identification of this guideline. Syntax is a string of format:
 
-TODO: details - format? Uniqueness requirements.
+* `concept_name '.v' + [N[.M.P]]`
 
 h|*0..1*
 |*gdl_version*: `String`
@@ -27,7 +27,7 @@ a|The version of the GDL the guide is written in.
 
 h|*1..1*
 |*concept*: `String`
-a|The normative meaning of the guide as whole. Expressed as a local guide code.
+a|The normative meaning of the guideline as whole. Expressed as a gt-code.
 
 h|*1..1*
 |*definition*: `GUIDELINE_DEFINITION`

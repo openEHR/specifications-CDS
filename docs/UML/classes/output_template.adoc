@@ -22,17 +22,15 @@ a|
 
 h|*1..1*
 |*model_id*: `String`
-a|
+a|Identifier of a model that defines the structure of the `_object_`.
 
 h|*0..1*
 |*template_id*: `String`
-a|
+a|The identifier of a template defining the attached `_object_`.
 
-h|*0..1*
-|*element_bindings*: `List<ELEMENT_BINDING>`
-a|
+TODO: is this correct?
 
 h|*1..1*
 |*object*: `String`
-a|
+a|Detailed output report structure as an object that may be defined by a published model.
 |===

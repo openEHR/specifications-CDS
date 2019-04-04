@@ -31,10 +31,6 @@ a|Directory of term definitions as a two-level table. The outer hash keys are la
 h|*0..1*
 |*term_bindings*: `Hash <String, Hash<String, Uri>>`
 a|Directory of bindings to external terminology codes and value sets, as a two-level table. The outer hash keys are terminology ids, e.g. `"SNOMED_CT"`, and the inner hash keys are constraint codes, e.g. `"at4"`, `"ac13"` or paths. The indexed `DV_URI` objects represent references to externally defined resources, either terms, ontology concepts, or terminology subsets / ref-sets.
-
-h|*0..1*
-|*value_sets*: `Hash<String, VALUE_SET>`
-a|Artefact-local value sets, each keyed by value-set id, i.e. an ac-code.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

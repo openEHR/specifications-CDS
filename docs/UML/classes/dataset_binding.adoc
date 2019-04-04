@@ -1,0 +1,30 @@
+=== DATASET_BINDING Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*DATASET_BINDING*
+
+h|*Description*
+2+a|A list of bindings of nodes from the archetype (and optionally template) specified by `_archetype_id_` and `_template_id_` respectively, to guideline variables, each specified by an element binding.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*archetype_id*: `String`
+a|The identifier of the archetype from which the list of elements is selected.
+
+h|*0..1*
+|*template_id*: `String`
+a|The ID of an optional template to be used for selecting elements.
+
+h|*0..1*
+|*bindings*: `Hash<String,VARIABLE_BINDING>`
+a|Map of variable binding indexed by identifying gt-code of the variable.
+
+h|*0..1*
+|*predicates*: `List<ASSERTION>`
+a|Predicates (constraints) that need to be satisfied before rule execution can occur. Generally speaking, predicates are constraints on variable values, and can only mention gt-codes of variables.
+|===

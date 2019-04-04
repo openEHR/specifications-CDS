@@ -18,11 +18,11 @@ a|The gt-code of this rule.
 
 h|*0..1*
 |*when*: `List<ASSERTION>`
-a|List of expressions that when evaluated to `True` cause the rule to be fired.
+a|List of assertions that when evaluated to `True` cause the rule to be fired. The `_when_` assertions may only mention input type variables.
 
 h|*0..1*
 |*then*: `List<ASSIGNMENT>`
-a|List of assignments to generate output of the rule.
+a|List of actions if the rule is fired. Each action is in the form of an assignment to an 'out' type variable.
 
 h|*1..1*
 |*priority*: `Integer`

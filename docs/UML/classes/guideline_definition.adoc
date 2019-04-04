@@ -18,12 +18,12 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*data_bindings*: `Hash<String,DATA_BINDING>`
+|*data_bindings*: `Hash<String,DATASET_BINDING>`
 a|List of archetype/template bindings, which define specific elements to be used by rules in this guideline.
 
 h|*0..1*
 |*pre_conditions*: `List<ASSERTION>`
-a|Pre-conditions to be met before the guide can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.
+a|Pre-conditions to be met before the guideline can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.
 
 h|*0..1*
 |*rules*: `Hash<String,RULE>`
@@ -40,4 +40,6 @@ a|One or more output termplates that define how to represent output reporting st
 h|*0..1*
 |*internal_variables*: `List<VARIABLE>`
 a|Variables used internally to a GDL guideline, i.e. not bound to external data entities.
+
+TODO: need an example of these.
 |===
