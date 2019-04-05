@@ -5,7 +5,7 @@
 The following diagram illustrates the structure of a GDL2 guideline. The central rules defining the semantics of the guideline are defined in terms of the formal rule definitions (when/then structures) coupled with 'rule execution filters', consisting of pre-conditions and predicates, that decide which rules are executed. If a rule is executed, its `when` conditions will be evaluated, and if all satisfied, its `then` actions performed. The data-bindings and terminology parts of structure define respectively, the mappings of the gt-codes used in the rules to nodes in input or output data sets (archetypes and/or templates); and the definitions of the gt-codes as terms, for human use. Finally, the optional `templates` provide a way of reporting generated results to downstream consumers. These are described in more detail in the <<Reporting>> section below.
 
 [.text-center]
-.GDL2 execution model
+.GDL2 guideline structure
 image::{diagrams_uri}/gdl2_guideline_structure.svg[id=gdl2_guideline_structure, align="center"]
 
 == Execution Model
