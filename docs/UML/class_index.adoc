@@ -31,6 +31,8 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_binary_operator_class[BINARY_OPERATOR^]
 [.xcode]
+* link:/releases/CDS/{base_release}/expression.html#_boolean_constant_class[BOOLEAN_CONSTANT^]
+[.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_coded_text_constant_class[CODED_TEXT_CONSTANT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_code_phrase_constant_class[CODE_PHRASE_CONSTANT^]
@@ -53,6 +55,8 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_ordinal_constant_class[ORDINAL_CONSTANT^]
 [.xcode]
+* link:/releases/CDS/{base_release}/expression.html#_procedure_call_class[PROCEDURE_CALL^]
+[.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_quantity_constant_class[QUANTITY_CONSTANT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_statement_class[STATEMENT^]
@@ -66,7 +70,9 @@
 ==== Package guideline
 
 [.xcode]
-* link:/releases/CDS/{base_release}/guideline.html#_dataset_binding_class[DATASET_BINDING^]
+* link:/releases/CDS/{base_release}/guideline.html#_data_binding_class[DATA_BINDING^]
+[.xcode]
+* link:/releases/CDS/{base_release}/guideline.html#_element_class[ELEMENT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/guideline.html#_guideline_class[GUIDELINE^]
 [.xcode]
@@ -74,11 +80,7 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/guideline.html#_output_template_class[OUTPUT_TEMPLATE^]
 [.xcode]
-* link:/releases/CDS/{base_release}/guideline.html#_parameter_type_enumeration[PARAMETER_TYPE^]
-[.xcode]
 * link:/releases/CDS/{base_release}/guideline.html#_rule_class[RULE^]
-[.xcode]
-* link:/releases/CDS/{base_release}/guideline.html#_variable_binding_class[VARIABLE_BINDING^]
 
 ==== Package terminology
 
@@ -86,3 +88,5 @@
 * link:/releases/CDS/{base_release}/terminology.html#_term_class[TERM^]
 [.xcode]
 * link:/releases/CDS/{base_release}/terminology.html#_terminology_class[TERMINOLOGY^]
+[.xcode]
+* link:/releases/CDS/{base_release}/terminology.html#_term_binding_class[TERM_BINDING^]

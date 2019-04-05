@@ -22,14 +22,14 @@ a|Original language of the terminology, as set at creation or parsing time; must
 
 h|*1..1*
 |*concept_code*: `String`
-a|Term code defining the meaning of the artefact as a whole, and always used as the at-code on the root node of the archetype. Must be defined in the term_definitions property.
+a|Term code defining the meaning of the artefact as a whole, and always used as the at-code on the root node of the archetype. Must be defined in the `term_definitions` property.
 
 h|*1..1*
-|*term_definitions*: `Hash<String, Hash<String, TERM_DEFINITION>>`
+|*term_definitions*: `Hash<String, Hash<String, TERM>>`
 a|Directory of term definitions as a two-level table. The outer hash keys are language codes, e.g. `"en"`, `"de"`, while the inner hash keys are term codes, e.g. `"gt17"`.
 
 h|*0..1*
-|*term_bindings*: `Hash <String, Hash<String, Uri>>`
+|*term_bindings*: `Hash <String, TERM_BINDING>`
 a|Directory of bindings to external terminology codes and value sets, as a two-level table. The outer hash keys are terminology ids, e.g. `"SNOMED_CT"`, and the inner hash keys are constraint codes, e.g. `"at4"`, `"ac13"` or paths. The indexed `DV_URI` objects represent references to externally defined resources, either terms, ontology concepts, or terminology subsets / ref-sets.
 h|*Functions*
 ^h|*Signature*

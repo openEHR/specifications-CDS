@@ -1,6 +1,16 @@
 = GDL2 Object Model
 
-== Guide Package
+openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.
+
+== Package Structure
+
+The Guideline Object Model, the object model of the GDL, consists of three packages, the `guideline` package, `expression` package and the `terminology` package, each described in detail through the following sections.
+
+[.text-center]
+.`cds` Package
+image::{uml_diagrams_uri}/CDS-cds-packages.svg[id=cds_packages, align="center"]
+
+== Guideline Package
 
 === Overview
 
@@ -15,9 +25,8 @@ image::{uml_diagrams_uri}/CDS-cds.guideline.svg[id=guideline, align="center"]
 include::{uml_export_dir}/classes/guideline.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/guideline_definition.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/rule.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/dataset_binding.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/variable_binding.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/parameter_type.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/data_binding.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/element.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/output_template.adoc[leveloffset=+1]
 
 == Expressions Package
@@ -55,6 +64,7 @@ include::{uml_export_dir}/classes/variable.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assertion.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/procedure_call.adoc[leveloffset=+1]
 
 == Terminology Package
 
@@ -66,3 +76,4 @@ The `terminology` package is illustrated earlier. The `TERMINOLOGY` and `TERM` c
 
 include::{uml_export_dir}/classes/terminology.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/term.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/term_binding.adoc[leveloffset=+1]

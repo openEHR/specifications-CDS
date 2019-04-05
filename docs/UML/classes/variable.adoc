@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*VARIABLE*
 
 h|*Description*
-2+a|Terminal element representing a named variable with a definition provided by the `_code_` attribute, containing a gt-code.
+2+a|Terminal expression element representing a named variable with a definition provided by the `_code_` attribute, containing a gt-code.
 
 h|*Inherit*
 2+|`EXPRESSION_ITEM`

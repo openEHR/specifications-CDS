@@ -18,7 +18,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*data_bindings*: `Hash<String,DATASET_BINDING>`
+|*data_bindings*: `Hash<String,DATA_BINDING>`
 a|List of archetype/template bindings, which define specific elements to be used by rules in this guideline.
 
 h|*0..1*
@@ -34,12 +34,10 @@ h|*0..1*
 a|Actions that will always be performed, whenever the `_when_` conditions are evaluated, regardless of the result.
 
 h|*0..1*
-|*output_templates*: `Hash<String,OUTPUT_TEMPLATE>`
+|*templates*: `Hash<String,OUTPUT_TEMPLATE>`
 a|One or more output termplates that define how to represent output reporting structure.
 
 h|*0..1*
 |*internal_variables*: `List<VARIABLE>`
-a|Variables used internally to a GDL guideline, i.e. not bound to external data entities.
-
-TODO: need an example of these.
+a|Variables used internally to a GDL guideline, i.e. not bound to external data entities. These are generated during parsing of expressions and used to track interim state.
 |===

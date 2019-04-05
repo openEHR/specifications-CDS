@@ -6,7 +6,11 @@ h|*Class*
 2+^h|*RULE*
 
 h|*Description*
-2+a|A single rule defined in a guide.
+2+a|A single rule defined in a guideline, of the logical form
+
+`when` conditions `then` actions.
+
+Conditions are assertions based on input and/or environment variables (e.g.time, date etc). Actions take the form of assignments to output variables.
 
 h|*Attributes*
 ^h|*Signature*
@@ -18,11 +22,11 @@ a|The gt-code of this rule.
 
 h|*0..1*
 |*when*: `List<ASSERTION>`
-a|List of assertions that when evaluated to `True` cause the rule to be fired. The `_when_` assertions may only mention input type variables.
+a|List of assertions that when evaluated to `True` cause the rule to be fired. The `_when_` assertions may only mention 'input' type variables.
 
 h|*0..1*
-|*then*: `List<ASSIGNMENT>`
-a|List of actions if the rule is fired. Each action is in the form of an assignment to an 'out' type variable.
+|*then*: `List<STATEMENT>`
+a|List of actions if the rule is fired. Each action is in the form of a statement, usually an assignment to an 'output' type variable or a procedure call.
 
 h|*1..1*
 |*priority*: `Integer`

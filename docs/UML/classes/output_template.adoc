@@ -18,7 +18,7 @@ a|The gt-code of this output template.
 
 h|*1..1*
 |*name*: `String`
-a|
+a|Name of this template.
 
 h|*1..1*
 |*model_id*: `String`
@@ -26,9 +26,7 @@ a|Identifier of a model that defines the structure of the `_object_`.
 
 h|*0..1*
 |*template_id*: `String`
-a|The identifier of a template defining the attached `_object_`.
-
-TODO: is this correct?
+a|The identifier of a template based on the model identified by `_model_id_` defining the attached `_object_`.
 
 h|*1..1*
 |*object*: `String`

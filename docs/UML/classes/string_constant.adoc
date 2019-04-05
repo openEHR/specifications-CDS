@@ -15,7 +15,8 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*string*: `String`
-a|
+h|*1..1 +
+(redefined)*
+|*value*: `String`
+a|Value of constant, redefined to specific types in descendants.
 |===

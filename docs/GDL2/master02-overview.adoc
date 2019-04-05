@@ -58,7 +58,6 @@ The other top-level sections are respectively `definition` and `terminology`.
              ["gt0025"] = <...>
              ...
         >
-        local_variables = <...>
     >
     terminology = <
         term_definitions = <
@@ -78,7 +77,7 @@ The other top-level sections are respectively `definition` and `terminology`.
 >
 ----
 
-The following block illustrates the `data_bindings` sub-section within the `definition` section, which binds data elements from the archetypes to variables used by GDL rules.
+The following block illustrates the `data_bindings` sub-section within the `definition` section, which binds data elements from a source data-set, defined in terms of an archetype, optionally within a specific template, to variables used by GDL rules. Variables are identified using 'gt-codes', e.g. 'gt0123'.
 
 [source, odin]
 ----
@@ -97,18 +96,12 @@ definition = <
 >
 ----
 
-Within the `definition` section, it is possible to define a set of _pre-conditions_ that have to be met before the rules inside the guideline can be executed. In the case of CHA2DS2-VASc score calculation, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation.
-
-TODO: this is currently coded as a predicate, but should be a 
-
-In the example below, a pre-condition checks all the diagnoses of the patient (gt0107) for the existence of atrial fibrillation. Using predicate in the `definition` section the precondition is set to check against a local code (gt0105) which represents atrial fibrillation. This code can be bound to a concept formally defined by external reference terminologies, e.g. SNOMED CT, later on in the `term_bindings` section.
-
-TODO: At the moment is it not clear what distinguishes `pre_conditions`, `predicates` and `when` conditions. We need to improve this explanation.
+Within the `definition` section, it is possible to define a set of logical pre-conditions that have to be met before the rules inside the guideline can be executed. In GDL2, the pre-conditions are formed from the `pre_conditions` sub-section, and `predicates` defined in each of the subordinate `data_bindings`, as in the CHA2DS2-VASc score calculation shown below:
 
 [source, odin]
 ----
 definition = <
-    pre_conditions = <"exists $gt0107|index diagnosis|">
+    pre_conditions = <"$gt0107|index diagnosis| != null">
     data_bindings = <
         [1] = <
             archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
@@ -125,24 +118,36 @@ definition = <
 >
 ----
 
-The `rules` section makes exclusive use of the locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt-code, with which its natural language-dependent name and description are indexed in the `term_definitions` section. Also a priority can be assigned to ensure execution order of the rules. Higher priorities are executed earlier. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the `DV_ORDINALs` inside a CHA2DS2-VASc score archetype. The rule `gt0026` ("Calculate total score") sums the values and sets the total score in CHA2DS2-VASc score archetype.
+In this case, the pre-conditions consist of the statements:
+
+----
+-- there is a diagnosis in the data set
+$gt0107|index diagnosis| != null
+
+-- the diagnosis is gt0105, Atrial Fibrillation.
+/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|
+----
+
+Accordingly, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation.
+
+The `rules` section makes exclusive use of the locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt-code, with which its natural language-dependent name and description are indexed in the `term_definitions` section. A priority can be assigned to ensure execution order of the rules. Higher priorities are executed earlier. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the `DV_ORDINALs` inside a CHA2DS2-VASc score archetype. The rule `gt0026` ("Calculate total score") sums the values and sets the total score in CHA2DS2-VASc score archetype.
 
 [source, odin]
 ----
 definition = <
     rules = <
         ["gt0018"] = <
-            when = <"$gt0108!=null">
-            then = <"$gt0014=1|local::at0031|Present|">
+            when = <"$gt0108 != null">
+            then = <"$gt0014 = 1|local::at0031|Present|">
             priority = <11>
         >
         ["gt0019"] = <
-            when = <"$gt0109!=null">
-            then = <"$gt0010=1|local::at0034|Present|">
+            when = <"$gt0109 != null">
+            then = <"$gt0010 = 1|local::at0034|Present|">
             priority = <9>
         >
         ["gt0026"] = <
-            then = <"$gt0016.magnitude=( ( ( ( ( (gt0009.value+$gt0010.value)+$gt0011.value)+$gt0015.value)+$gt0012.value)+$gt0013.value)+$gt0014.value)">
+            then = <"$gt0016.magnitude = gt0009.value + $gt0010.value + $gt0011.value + $gt0015.value + $gt0012.value + $gt0013.value + $gt0014.value">
             priority = <1>
         >
     >

@@ -15,7 +15,8 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*coded_test*: `DV_CODED_TEXT`
-a|
+h|*1..1 +
+(redefined)*
+|*value*: `DV_CODED_TEXT`
+a|Value of constant, redefined to specific types in descendants.
 |===

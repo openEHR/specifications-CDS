@@ -1,8 +1,0 @@
-= Syntax Specification
-
-The grammar and lexical specification for the standard GDL is entirely based on dADL and driven by the guide object model.
-
-== Syntax Specification
-
-The grammar and lexical specification for the expressions used by GDL is loosely based on the assertion syntax in the ADL specification. This grammar is implemented using javaCC specifications in the Java programming environment.
-The full source code of the java GDL parser can be found below.

@@ -19,11 +19,17 @@ h|*1..1*
 |*id*: `String`
 a|Identification of this guideline. Syntax is a string of format:
 
-* `concept_name '.v' + [N[.M.P]]`
+* `concept_name '.v' [N[.M.P]]`
+
+For example: `calculate_bmi.v1`.
 
 h|*0..1*
 |*gdl_version*: `String`
-a|The version of the GDL the guide is written in.
+a|The version of the GDL the guide is written in, in a string of format:
+
+* `N.M[.P]`
+
+i.e. a 2- or 3-number form of version, e.g. "1.0", "2.0", etc.
 
 h|*1..1*
 |*concept*: `String`
@@ -35,5 +41,5 @@ a|The main definition part of the guide. It consists of archetype bindings and r
 
 h|*1..1*
 |*terminology*: `TERMINOLOGY`
-a|Terminology definitions of the guideline.
+a|Terminology definitions of the guideline containing definitions and translations (if applicable) for every gt-code.
 |===

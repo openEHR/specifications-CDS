@@ -14,69 +14,69 @@ h|*Attributes*
 
 h|
 |ADDITION
-a|
+a|Addition ('+') operation.
 
 h|
 |SUBTRACTION
-a|
+a|Subtraction ('-') operation.
 
 h|
 |MULTIPLICATION
-a|
+a|Multiplication ('*') operation.
 
 h|
 |DIVISION
-a|
+a|Division ('/') operation.
 
 h|
 |EXPONENT
-a|
+a|Exponent ('^') operation.
 
 h|
 |AND
-a|
+a|Logical and ('&&') operation.
 
 h|
 |OR
-a|
+a|Logical or ('&#124;&#124;') operation.
 
 h|
 |NOT
-a|
+a|Logical negation ('!') operation.
 
 h|
 |EQUALITY
-a|
+a|Relational equality ('==') operation.
 
 h|
 |INEQUALITY
-a|
+a|Relational inequality ('!=') operation.
 
 h|
 |LESS_THAN
-a|
+a|Relational less-than ('<') operation.
 
 h|
 |GREATER_THAN
-a|
+a|Relational greater-than ('>') operation.
 
 h|
 |LESS_THAN_OR_EQUAL
-a|
+a|Relational less-than-or-equal ('\<=') operation.
 
 h|
 |GREATER_THAN_OR_EQUAL
-a|
+a|Relational greater-than-or-equal ('>=') operation.
 
 h|
 |IS_A
-a|
+a|Subsumption operator ('is_a').
 
 h|
 |IS_NOT_A
-a|
+a|Negated subsumption operator ('!is_a').
 
 h|
 |FOR_ALL
-a|
+a|Universal quantifier operator ('∀').
 |===

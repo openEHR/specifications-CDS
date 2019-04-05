@@ -1,0 +1,22 @@
+=== TERM_BINDING Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*TERM_BINDING*
+
+h|*Description*
+2+a|One binding between a local gt-code and one or more external bindings
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*bindings*: `List<TERM>`
+a|List of external codes, typically parsed in either URI form or openEHR standard form namespace '::' code.
+
+h|*1..1*
+|*code*: `String`
+a|Local gt-code to which external terms are bound.
+|===

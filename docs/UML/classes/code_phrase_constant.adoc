@@ -15,7 +15,8 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*1..1*
-|*code_phrase*: `CODE_PHRASE`
-a|
+h|*1..1 +
+(redefined)*
+|*value*: `CODE_PHRASE`
+a|Value of constant, redefined to specific types in descendants.
 |===

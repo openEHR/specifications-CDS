@@ -17,7 +17,7 @@ h|*Attributes*
 
 h|*1..1*
 |*expression*: `EXPRESSION_ITEM`
-a|
+a|Expression that is the subject of the assertion.
 
 h|*Invariants*
 2+a|*_Inv_expression_type_*: `expression.type().is_case_insensitive_equal('Boolean')`
