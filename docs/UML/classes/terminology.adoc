@@ -40,22 +40,6 @@ h|
 a|Specialisation depth of this artefact. Unspecialised artefacts have depth 0, with each additional level of specialisation adding 1 to the specialisation_depth.
 
 h|
-|*id_codes* (): `List<String>`
-a|List of all gt codes in the terminology.
-
-h|
-|*value_codes* (): `List<String>`
-a|List of all value term codes in the terminology, i.e. the 'at' codes in an ADL archetype, which are used as possible values on terminological constrainer nodes.
-
-TODO: remove?
-
-h|
-|*value_set_codes* (): `List<String>`
-a|List of all value set codes in the terminology defining value sets. These correspond to the “ac” codes in an ADL archetype.
-
-TODO: remove?
-
-h|
 |*has_language* ( +
 a_lang: `String[1]` +
 ): `Boolean`
