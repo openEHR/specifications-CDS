@@ -43,7 +43,7 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 === Primary Author
 
-* Rong Chen MD, PhD, Cambio Heath Systems, Sweden
+* Rong Chen MD, PhD, Cambio CDS, Sweden
 
 === Contributors
 

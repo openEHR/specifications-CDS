@@ -8,6 +8,15 @@ Expressing and sharing computerized clinical decision support (CDS) content acro
 
 The scope of GDL is to express clinical logic as production rules. Discrete GDL rules, each containing 'when-then' statements, can be combined together as building blocks to support single decision making and more complex, chained decision making processes. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.
 
+The use cases of GDL2 include, but are not limited to:
+
+* Prompts, alerts & reminders;  
+* Interactive single-screen decision support applications;
+* Detailed order-sets and care process support;
+* Algorithm-based calculators;
+* Generate and update personalized care plans as part of more complex care process support;
+* Retrospective treatment compliance check, and outcome measures.
+
 == An Example
 
 The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation.
@@ -80,8 +89,8 @@ The following block illustrates the `data_bindings` sub-section within the `defi
 definition = <
     data_bindings = <
         ["gt0006"] = <
-            archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-            domain = <"EHR">
+            model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+            domain = <"INPUT">
             elements = <
                 ["gt0107"] = <
                     path = <"/data[at0001]/items[at0002.1]">
@@ -100,8 +109,8 @@ definition = <
     pre_conditions = <"$gt0107|index diagnosis| != null">
     data_bindings = <
         [1] = <
-            archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-            domain = <"EHR">
+            model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+            domain = <"INPUT">
             elements = <
                 ["gt0107"] = <
                     path = <"/data[at0001]/items[at0002.1]">

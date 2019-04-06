@@ -38,9 +38,9 @@
 		>
 	>
 	definition = (GUIDE_DEFINITION) <
-		archetype_bindings = <
+		data_bindings = <
 			["gt0122"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
+				model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
 				domain = <"CDS">
 				elements = <
 					["gt0115"] = (ELEMENT_BINDING) <
@@ -64,7 +64,7 @@
 				>
 			>
 			["gt0123"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-OBSERVATION.basic_demographic.v1">
+				model_id = <"openEHR-EHR-OBSERVATION.basic_demographic.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0006"] = (ELEMENT_BINDING) <
@@ -77,7 +77,7 @@
 				predicates = <"max(/data/events/time)",...>
 			>
 			["gt0124"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-OBSERVATION.chadsvas_score.v1">
+				model_id = <"openEHR-EHR-OBSERVATION.chadsvas_score.v1">
 				domain = <"CDS">
 				elements = <
 					["gt0009"] = (ELEMENT_BINDING) <

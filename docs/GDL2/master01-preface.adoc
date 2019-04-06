@@ -2,7 +2,7 @@
 
 == Purpose
 
-This document contains the design specifications of the Guideline Definition Language version 2 (GDL2). GDL2 is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model. GDL2 is a major improvement of GDL version 1 ('GDL').
+This document contains the design specifications of the Guideline Definition Language version 2 (GDL2). GDL2 is a formal language for expressing decision support logic. It is designed to be agnostic to languages, reference terminologies and standard EHR models. GDL2 is a major evolution from {openehr_cds_gdl}[GDL version 1^] ('GDL').
 
 == Related Documents
 
@@ -10,6 +10,7 @@ Prerequisite documents for reading this document include:
 
 * The {openehr_overview}[openEHR Architecture Overview^].
 * {openehr_rm}[openEHR Reference Model specifications^].
+* {openehr_cds_gdl}[GDL version 1^].
 
 == Status
 
@@ -26,3 +27,7 @@ Feedback may be provided on the {openehr_technical_list}[technical mailing list^
 Issues may be raised on the {component_prs}[specifications Problem Report tracker^].
 
 To see changes made due to previously reported issues, see the {component_history}[{component} component Change Request tracker^].
+
+== A Note on Nomenclature
+
+This specification uses the terms 'GDL2' and 'GDL' to refer to version 2 of GDL, i.e. the formalism described in this specification. 

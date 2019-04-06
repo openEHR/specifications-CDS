@@ -34,9 +34,9 @@
 		>
 	>
 	definition = (GUIDE_DEFINITION) <
-		archetype_bindings = <
+		data_bindings = <
 			["gt0157"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
+				model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0137"] = (ELEMENT_BINDING) <
@@ -64,7 +64,7 @@
 				predicates = <"max(/data[at0001]/items[at0041])",...>
 			>
 			["gt0158"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
+				model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
 				domain = <"CDS">
 				elements = <
 					["gt0114"] = (ELEMENT_BINDING) <
@@ -91,7 +91,7 @@
 				>
 			>
 			["gt0159"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0122"] = (ELEMENT_BINDING) <
@@ -105,7 +105,7 @@
 				template_id = <"diagnosis">
 			>
 			["gt0160"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0108"] = (ELEMENT_BINDING) <
@@ -119,7 +119,7 @@
 				template_id = <"diagnosis">
 			>
 			["gt0161"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0109"] = (ELEMENT_BINDING) <
@@ -133,7 +133,7 @@
 				template_id = <"diagnosis">
 			>
 			["gt0162"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0110"] = (ELEMENT_BINDING) <
@@ -147,7 +147,7 @@
 				template_id = <"diagnosis">
 			>
 			["gt0163"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0111"] = (ELEMENT_BINDING) <
@@ -161,7 +161,7 @@
 				template_id = <"diagnosis">
 			>
 			["gt0164"] = (ARCHETYPE_BINDING) <
-				archetype_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
+				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
 				domain = <"EHR">
 				elements = <
 					["gt0112"] = (ELEMENT_BINDING) <

@@ -33,6 +33,7 @@
 <li><a href="#_related_documents">1.2. Related Documents</a></li>
 <li><a href="#_status">1.3. Status</a></li>
 <li><a href="#_feedback">1.4. Feedback</a></li>
+<li><a href="#_a_note_on_nomenclature">1.5. A Note on Nomenclature</a></li>
 </ul>
 </li>
 <li><a href="#_overview">2. Overview</a>
@@ -247,7 +248,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Rong Chen MD, PhD, Cambio Heath Systems, Sweden</p>
+<p>Rong Chen MD, PhD, Cambio CDS, Sweden</p>
 </li>
 </ul>
 </div>
@@ -302,7 +303,7 @@
 <div class="sect2">
 <h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
 <div class="paragraph">
-<p>This document contains the design specifications of the Guideline Definition Language version 2 (GDL2). GDL2 is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model. GDL2 is a major improvement of GDL version 1 ('GDL').</p>
+<p>This document contains the design specifications of the Guideline Definition Language version 2 (GDL2). GDL2 is a formal language for expressing decision support logic. It is designed to be agnostic to languages, reference terminologies and standard EHR models. GDL2 is a major evolution from <a href="https://specifications.openehr.org/releases/CDS/latest/GDL.html" target="_blank" rel="noopener">GDL version 1</a> ('GDL').</p>
 </div>
 </div>
 <div class="sect2">
@@ -317,6 +318,9 @@
 </li>
 <li>
 <p><a href="https://specifications.openehr.org/releases/RM/latest/index" target="_blank" rel="noopener">openEHR Reference Model specifications</a>.</p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/CDS/latest/GDL.html" target="_blank" rel="noopener">GDL version 1</a>.</p>
 </li>
 </ul>
 </div>
@@ -345,6 +349,12 @@
 <p>To see changes made due to previously reported issues, see the <a href="https://specifications.openehr.org/components/CDS/history" target="_blank" rel="noopener">CDS component Change Request tracker</a>.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_a_note_on_nomenclature"><a class="anchor" href="#_a_note_on_nomenclature"></a>1.5. A Note on Nomenclature</h3>
+<div class="paragraph">
+<p>This specification uses the terms 'GDL2' and 'GDL' to refer to version 2 of GDL, i.e. the formalism described in this specification.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -360,6 +370,31 @@
 <h3 id="_scope"><a class="anchor" href="#_scope"></a>2.2. Scope</h3>
 <div class="paragraph">
 <p>The scope of GDL is to express clinical logic as production rules. Discrete GDL rules, each containing 'when-then' statements, can be combined together as building blocks to support single decision making and more complex, chained decision making processes. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.</p>
+</div>
+<div class="paragraph">
+<p>The use cases of GDL2 include, but are not limited to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prompts, alerts &amp; reminders;</p>
+</li>
+<li>
+<p>Interactive single-screen decision support applications;</p>
+</li>
+<li>
+<p>Detailed order-sets and care process support;</p>
+</li>
+<li>
+<p>Algorithm-based calculators;</p>
+</li>
+<li>
+<p>Generate and update personalized care plans as part of more complex care process support;</p>
+</li>
+<li>
+<p>Retrospective treatment compliance check, and outcome measures.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -447,8 +482,8 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
 <pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
@@ -468,8 +503,8 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
     <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107|index diagnosis| != null&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;EHR&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
@@ -635,7 +670,7 @@ $gt0107|index diagnosis| != null
 <p>Each rule shall be uniquely identified for a given name space;</p>
 </li>
 <li>
-<p>Each rule shall have explicit version information as part of the rule identification;</p>
+<p>Each rule shall have explicit version information as part of the guideline definition;</p>
 </li>
 <li>
 <p>There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.</p>
@@ -648,10 +683,10 @@ $gt0107|index diagnosis| != null
 <div class="ulist">
 <ul>
 <li>
-<p>It shall be possible to chain the execution of several CDS rules in order to support complex decision making process;</p>
+<p>It shall be possible to chain the execution of several guidelines in order to support complex decision making process;</p>
 </li>
 <li>
-<p>It shall be possible to reuse the CDS rules in different decision support applications in different clinical contexts.</p>
+<p>It shall be possible to reuse the guidelines in different decision support applications in different clinical contexts.</p>
 </li>
 </ul>
 </div>
@@ -667,7 +702,10 @@ $gt0107|index diagnosis| != null
 <p>It shall be possible to alter the structure of the output objects based on the rule executions;</p>
 </li>
 <li>
-<p>It shall be possible to alter the details of the output objects based on the rule executions.</p>
+<p>It shall be possible to alter the details of the output objects based on the rule executions;</p>
+</li>
+<li>
+<p>It shall support standard or no-standard base output format.</p>
 </li>
 </ul>
 </div>
@@ -738,9 +776,9 @@ $gt0107|index diagnosis| != null
 <pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
 	<span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0121 == 1|local::at0051|Present|&quot;</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+    <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;gt0122&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-p">[</span><span class="tok-s">&quot;gt0121&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
@@ -1225,9 +1263,9 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>model_id</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>The identifier of the archetype from which the list of elements is selected.</p>
+<p>The identifier of the data-set model (i.e. archetype or other) from which the list of elements is selected.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2684,7 +2722,7 @@ Hash of keys ("text", "description" etc) and corresponding values.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-06 09:14:21 BST
+Last updated 2019-04-06 12:32:49 BST
 </div>
 </div>
 </body>

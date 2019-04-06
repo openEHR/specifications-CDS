@@ -35,9 +35,9 @@ The following shows a pre-condition used in the `CHA2DS2VASc_Score_calculation.v
 definition = <
 	pre_conditions = <"$gt0121 == 1|local::at0051|Present|">
 
-    archetype_bindings = <
+    data_bindings = <
         ["gt0122"] = <
-            archetype_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
+            model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
             type = <"INPUT">
             elements = <
                 ["gt0121"] = <

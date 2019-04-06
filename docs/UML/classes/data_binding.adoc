@@ -13,8 +13,8 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*archetype_id*: `String`
-a|The identifier of the archetype from which the list of elements is selected.
+|*model_id*: `String`
+a|The identifier of the data-set model (i.e. archetype or other) from which the list of elements is selected.
 
 h|*0..1*
 |*template_id*: `String`

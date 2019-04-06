@@ -23,19 +23,20 @@ This section describes detailed formal requirements of the GDL2 language.
 == Identification and meta-data
 
 * Each rule shall be uniquely identified for a given name space;
-* Each rule shall have explicit version information as part of the rule identification;
+* Each rule shall have explicit version information as part of the guideline definition;
 * There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.
 
 == Rule Execution
 
-* It shall be possible to chain the execution of several CDS rules in order to support complex decision making process;
-* It shall be possible to reuse the CDS rules in different decision support applications in different clinical contexts.
+* It shall be possible to chain the execution of several guidelines in order to support complex decision making process;
+* It shall be possible to reuse the guidelines in different decision support applications in different clinical contexts.
 
 == Complex Output Objects
 
 * It shall be possible to support complex hierarchical objects as output of the rule execution;
 * It shall be possible to alter the structure of the output objects based on the rule executions;
-* It shall be possible to alter the details of the output objects based on the rule executions.
+* It shall be possible to alter the details of the output objects based on the rule executions;
+* It shall support standard or no-standard base output format.
 
 == Local variables
 
