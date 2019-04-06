@@ -1,0 +1,382 @@
+{
+  "id": "Coeliac_disease_alert.v1",
+  "gdl_version": "2.0",
+  "concept": "gt0001",
+  "language": {
+    "original_language": "ISO_639-1::en"
+  },
+  "description": {
+    "original_author": {
+      "date": "2018-06-11",
+      "name": "Medical Informatics Group",
+      "organisation": "Cambio",
+      "email": "mig@cambio.se"
+    },
+    "lifecycle_state": "Initial",
+    "details": {
+      "en": {
+        "id": "en",
+        "purpose": "This CDS Application is one in a series of implementations adopting the Scotland new Gastrointestinal Pathways. The CDS Application provides alerts and recommendations when a Read code for one or more risk factor indicators for coeliac disease is detected in a patient’s medical record in the local EHR. The CDS Application is based on information contained in the NICE guideline Coeliac disease: recognition and assessment (hereafter NICE NG20 Guideline) and the NICE pathways for Coeliac disease (hereafter NICE Coeliac Disease Pathways).",
+        "keywords": [
+          "Coeliac Disease",
+          "CDS alert"
+        ],
+        "copyright": "Cambio"
+      }
+    },
+    "other_details": {
+      "references": "1.  (NICE guideline NG20). [cited 23 April 2018]. Available from URL: https://www.nice.org.uk/guidance/ng20."
+    },
+    "references": [
+      {
+        "id": "1",
+        "label": "Coeliac disease: recognition, assessment and management. NICE guideline [NG20], September 2015.",
+        "url": "https://www.nice.org.uk/guidance/ng20"
+      }
+    ]
+  },
+  "definition": {
+    "data_bindings": {
+      "gt0002": {
+        "id": "gt0002",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0003": {
+            "id": "gt0003",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0004|Irritable bowel syndrome|"
+        ]
+      },
+      "gt0014": {
+        "id": "gt0014",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0015": {
+            "id": "gt0015",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0016|Coeliac disease|"
+        ]
+      },
+      "gt0019": {
+        "id": "gt0019",
+        "model_id": "openEHR-EHR-EVALUATION.coeliac_disease_review.v1",
+        "template_id": "openEHR-EHR-EVALUATION.coeliac_disease_review.v1",
+        "type": "OUTPUT",
+        "elements": {
+          "gt0025": {
+            "id": "gt0025",
+            "path": "/data[at0001]/items[at0002]/items[at0006]"
+          },
+          "gt0026": {
+            "id": "gt0026",
+            "path": "/data[at0001]/items[at0002]/items[at0005]"
+          },
+          "gt0028": {
+            "id": "gt0028",
+            "path": "/data[at0001]/items[at0002]/items[at0007]"
+          },
+          "gt0029": {
+            "id": "gt0029",
+            "path": "/data[at0001]/items[at0002]/items[at0003]"
+          }
+        }
+      },
+      "gt0030": {
+        "id": "gt0030",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0031": {
+            "id": "gt0031",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0032|Type 1 diabetes mellitus|"
+        ]
+      },
+      "gt0039": {
+        "id": "gt0039",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0050": {
+            "id": "gt0050",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0052|Autoimmune thyroiditis|"
+        ]
+      },
+      "gt0040": {
+        "id": "gt0040",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0041": {
+            "id": "gt0041",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0042|Iron deficiency anaemia|"
+        ]
+      }
+    },
+    "templates": {
+      "gt2022": {
+        "id": "gt2022",
+        "name": "coeliac-disease-alert",
+        "model_id": "generic_model",
+        "template_id": "generic_model",
+        "object": {
+          "cards": [
+            {
+              "summary": "{$gt0009}",
+              "detail": "Found risk factor(s):{$gt0020}",
+              "indicator": "warning",
+              "source": {
+                "label": "National Institute for Health and Care Excellence (NICE). Coeliac disease: recognition, assessment and management. 2015.",
+                "url": "https://www.nice.org.uk/guidance/ng20"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "pre_conditions": [
+      "$gt0015|Coeliac disease diagnosis|==null"
+    ],
+    "default_actions": [
+      "$gt0020|Group 1 risk factors found|=''"
+    ],
+    "rules": {
+      "gt0053": {
+        "id": "gt0053",
+        "priority": 6,
+        "when": [
+          "$gt0050|Autoimmune thyroiditis diagnosis|!=null"
+        ],
+        "then": [
+          "$gt0026|Autoimmune thyroid disease (and relevant medicines)|=true",
+          "$gt0020|Group 1 risk factors found|=$gt0020+'\n* Autoimmune thyroid disease'"
+        ]
+      },
+      "gt0035": {
+        "id": "gt0035",
+        "priority": 4,
+        "when": [
+          "$gt0041|Iron deficiency anaemia diagnosis|!=null"
+        ],
+        "then": [
+          "$gt0028|(Unexplained) B12, iron or folate deficiency (and relevant medicines)|=true",
+          "$gt0020|Group 1 risk factors found|=$gt0020+'\n* Unexplained iron deficiency anaemia'"
+        ]
+      },
+      "gt0034": {
+        "id": "gt0034",
+        "priority": 3,
+        "when": [
+          "$gt0003|Irritable bowel syndrome diagnosis|!=null"
+        ],
+        "then": [
+          "$gt0029|Irritable bowel syndrome|=true",
+          "$gt0020|Group 1 risk factors found|=$gt0020+'\n* Irritable bowel syndrome'"
+        ]
+      },
+      "gt0036": {
+        "id": "gt0036",
+        "priority": 2,
+        "when": [
+          "$gt0031|Type 1 diabetes diagnosis|!=null"
+        ],
+        "then": [
+          "$gt0025|Type 1 diabetes|=true",
+          "$gt0020|Group 1 risk factors found|=$gt0020+'\n* Type 1 diabetes'"
+        ]
+      },
+      "gt0007": {
+        "id": "gt0007",
+        "priority": 1,
+        "when": [
+          "(($gt0025|Type 1 diabetes|==true)||(($gt0029|Irritable bowel syndrome|==true)||($gt0028|(Unexplained) B12, iron or folate deficiency (and relevant medicines)|==true)))||($gt0026|Autoimmune thyroid disease (and relevant medicines)|==true)"
+        ],
+        "then": [
+          "$gt0009|card.summary|='tTG serological testing is recommended'",
+          "use_template($gt2022)"
+        ]
+      }
+    }
+  },
+  "ontology": {
+    "term_definitions": {
+      "en": {
+        "id": "en",
+        "terms": {
+          "gt0001": {
+            "id": "gt0001",
+            "text": "Coeliac disease alert",
+            "description": "Coeliac Disease alert is a designed to support the clinician at the point of care with the early detection of coeliac disease."
+          },
+          "gt0003": {
+            "id": "gt0003",
+            "text": "Irritable bowel syndrome diagnosis",
+            "description": ""
+          },
+          "gt0004": {
+            "id": "gt0004",
+            "text": "Irritable bowel syndrome",
+            "description": ""
+          },
+          "gt0007": {
+            "id": "gt0007",
+            "text": "Risk group 1 alert"
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "text": "card.summary",
+            "description": "summaryValue"
+          },
+          "gt0015": {
+            "id": "gt0015",
+            "text": "Coeliac disease diagnosis",
+            "description": ""
+          },
+          "gt0016": {
+            "id": "gt0016",
+            "text": "Coeliac disease",
+            "description": ""
+          },
+          "gt0020": {
+            "id": "gt0020",
+            "text": "Group 1 risk factors found",
+            "description": "Group 1 risk factors found"
+          },
+          "gt0025": {
+            "id": "gt0025",
+            "text": "Type 1 diabetes",
+            "description": "Type 1 diabetes"
+          },
+          "gt0026": {
+            "id": "gt0026",
+            "text": "Autoimmune thyroid disease (and relevant medicines)",
+            "description": "Autoimmune thyroid disease (and relevant medicines)"
+          },
+          "gt0028": {
+            "id": "gt0028",
+            "text": "(Unexplained) B12, iron or folate deficiency (and relevant medicines)",
+            "description": "(Unexplained) B12, iron or folate deficiency (and relevant medicines)"
+          },
+          "gt0029": {
+            "id": "gt0029",
+            "text": "Irritable bowel syndrome",
+            "description": "Irritable bowel syndrome"
+          },
+          "gt0031": {
+            "id": "gt0031",
+            "text": "Type 1 diabetes diagnosis",
+            "description": ""
+          },
+          "gt0032": {
+            "id": "gt0032",
+            "text": "Type 1 diabetes mellitus",
+            "description": ""
+          },
+          "gt0033": {
+            "id": "gt0033",
+            "text": "Check type 1 diabetes"
+          },
+          "gt0034": {
+            "id": "gt0034",
+            "text": "Check irritable bowel syndrome"
+          },
+          "gt0035": {
+            "id": "gt0035",
+            "text": "Check iron deficiency anaemia"
+          },
+          "gt0036": {
+            "id": "gt0036",
+            "text": "Check type-1 diabetes",
+            "description": ""
+          },
+          "gt0041": {
+            "id": "gt0041",
+            "text": "Iron deficiency anaemia diagnosis",
+            "description": ""
+          },
+          "gt0042": {
+            "id": "gt0042",
+            "text": "Iron deficiency anaemia",
+            "description": ""
+          },
+          "gt0050": {
+            "id": "gt0050",
+            "text": "Autoimmune thyroiditis diagnosis",
+            "description": "description gt0050"
+          },
+          "gt0052": {
+            "id": "gt0052",
+            "text": "Autoimmune thyroiditis",
+            "description": "description gt0052"
+          },
+          "gt0053": {
+            "id": "gt0053",
+            "text": "Check autoimmune thyroid disease",
+            "description": ""
+          },
+          "gt2022": {
+            "id": "gt2022",
+            "text": "coeliac-disease-alert",
+            "description": ""
+          }
+        }
+      }
+    },
+    "term_bindings": {
+      "READ": {
+        "id": "READ",
+        "bindings": {
+          "gt0032": {
+            "codes": [
+              "READ::C10E"
+            ]
+          },
+          "gt0052": {
+            "codes": [
+              "READ::C052"
+            ]
+          },
+          "gt0042": {
+            "codes": [
+              "READ::D00"
+            ]
+          },
+          "gt0004": {
+            "codes": [
+              "READ::J521"
+            ]
+          },
+          "gt0016": {
+            "codes": [
+              "READ::J690"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

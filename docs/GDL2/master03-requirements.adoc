@@ -1,44 +1,44 @@
 = Requirements
 
-This chapter describes detailed formal requirements of the GDL2 language.
+This section describes detailed formal requirements of the GDL2 language.
 
 == Clinical information models
 
-* It shall be possible to express clinical logic using standards-based clinical models such as openEHR Archetypes or HL7 FHIR Resources both as input and output of the rule execution.
+* It shall be possible to express clinical decision logic using standards-based clinical models such as openEHR Archetypes or HL7 FHIR Resources both as input and output of the rule execution;
 * The design shall support common data types underpinning standard clinical models.
 
 == Natural language independence
 
-* It shall be possible to author meta-data of the rules in any natural language.
-* The rule expressions shall be independent of any natural language.
-* The name of individual rules shall be independent of any natural language.
+* It shall be possible to author meta-data of the rules in any natural language;
+* The rule expressions shall be independent of any natural language;
+* The name of individual rules shall be independent of any natural language;
 * It shall be possible to add multiple language translations without changing the logical definitions in the rules.
 
 == Reference terminology support
 
-* It shall be possible to bind a locally defined term in the guideline to a single concept defined by one or several external reference terminologies.
-* It shall be possible to bind a locally defined term in the guideline to multiple concepts defined by external reference terminologies.
-* It shall be possible to bind a locally defined term in the guideline to terminology ref-sets defined externally.
+* It shall be possible to bind a locally defined term in the guideline to a single concept defined in one or several external reference terminologies;
+* It shall be possible to bind a locally defined term in the guideline to multiple concepts defined by external reference terminologies;
+* It shall be possible to bind a locally defined term in the guideline to externally defined terminology ref-sets.
 
 == Identification and meta-data
 
-* Each rule shall be uniquely identified for a given name space.
-* Each rule shall have explicit version information as part of the rule identification.
+* Each rule shall be uniquely identified for a given name space;
+* Each rule shall have explicit version information as part of the rule identification;
 * There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.
 
 == Rule Execution
 
-* It shall be possible to chain the execution of several CDS rules in order to support complex decision making process.
-* It shall be possible to reuse the CDS rules in different decision support applications in different clinical context.
+* It shall be possible to chain the execution of several CDS rules in order to support complex decision making process;
+* It shall be possible to reuse the CDS rules in different decision support applications in different clinical contexts.
 
 == Complex Output Objects
 
-* It shall be possible to support complex hierarchical objects as output of the rule execution.
-* It shall be possible to alter the structure of the output objects based on the rule executions.
+* It shall be possible to support complex hierarchical objects as output of the rule execution;
+* It shall be possible to alter the structure of the output objects based on the rule executions;
 * It shall be possible to alter the details of the output objects based on the rule executions.
 
 == Local variables
 
-* It shall be possible to use locally defined variables to hold intermediate results of the rule execution.
+* It shall be possible to use locally defined variables to hold intermediate results of the rule execution;
 * It shall be possible to use such local variables without dependent on external clinical models.
 

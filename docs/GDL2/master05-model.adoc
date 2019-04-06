@@ -1,10 +1,8 @@
 = GDL2 Object Model
 
-openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.
-
 == Package Structure
 
-The Guideline Object Model, the object model of the GDL, consists of three packages, the `guideline` package, `expression` package and the `terminology` package, each described in detail through the following sections.
+The Guideline Object Model, the object model of GDL2 consists of three packages, the `guideline` package, `expression` package and the `terminology` package, each described in detail through the following sections.
 
 [.text-center]
 .`cds` Package

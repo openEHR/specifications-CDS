@@ -78,9 +78,8 @@ include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-requirements.adoc[leveloffset=+1]
 include::master04-language.adoc[leveloffset=+1]
-include::master05-reporting.adoc[leveloffset=+1]
-include::master06-model.adoc[leveloffset=+1]
-include::master07-syntax.adoc[leveloffset=+1]
+include::master05-model.adoc[leveloffset=+1]
+include::master06-syntax.adoc[leveloffset=+1]
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------

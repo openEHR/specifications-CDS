@@ -1,0 +1,186 @@
+{
+  "id": "calculate_bmi.v0",
+  "gdl_version": "2.0",
+  "concept": "gt0001",
+  "language": {
+    "original_language": "ISO_639-1::en"
+  },
+  "description": {
+    "original_author": {
+      "date": "2019-01-24",
+      "name": "Mattias Fendukly",
+      "organisation": "Cambio Healthcare Systems AB",
+      "email": "mattias.fendukly@cambio.se"
+    },
+    "lifecycle_state": "Initial",
+    "details": {
+      "en": {
+        "id": "en",
+        "purpose": "To calculate the body mass index in kg/m2  from the weight (kg) and height (cm) of an individual.",
+        "use": "Use for calculating the BMI in adults and children.",
+        "misuse": "Do not use for classifying the BMI into categories of weight such as obesity. This must be done in a different guideline that will use the result of this guideline as input for BMI classification.",
+        "copyright": "@ Cambio Healthcare Systems"
+      }
+    },
+    "other_details": {
+      "references": "Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults: The Evidence Report [Internet]. Bethesda (MD): National Heart, Lung, and Blood Institute; NIH Publication No. 98-4083, Sep 1998, [cited 2009 July 02]."
+    }
+  },
+  "definition": {
+    "data_bindings": {
+      "gt0002": {
+        "id": "gt0002",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.body_mass_index.v0",
+        "type": "OUTPUT",
+        "elements": {
+          "gt0003": {
+            "id": "gt0003",
+            "path": "/valueQuantity"
+          },
+          "gt0013": {
+            "id": "gt0013",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0014|Coded BMI|"
+        ]
+      },
+      "gt0004": {
+        "id": "gt0004",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.body_height.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0005": {
+            "id": "gt0005",
+            "path": "/valueQuantity"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0010|Coded height|"
+        ]
+      },
+      "gt0006": {
+        "id": "gt0006",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.body_weight.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0007": {
+            "id": "gt0007",
+            "path": "/valueQuantity"
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0011|Coded weight|"
+        ]
+      }
+    },
+    "rules": {
+      "gt0012": {
+        "id": "gt0012",
+        "priority": 1,
+        "then": [
+          "$gt0003|BMI|.unit='kg/m2'",
+          "$gt0003|BMI|.precision=1",
+          "$gt0003|BMI|.magnitude=$gt0007.magnitude/($gt0005.magnitude/100)^2"
+        ]
+      }
+    }
+  },
+  "ontology": {
+    "term_definitions": {
+      "en": {
+        "id": "en",
+        "terms": {
+          "gt0001": {
+            "id": "gt0001",
+            "text": "BMI_Calculation-FHIR.v1.gdl2",
+            "description": "BMI calculation based on FHIR."
+          },
+          "gt0003": {
+            "id": "gt0003",
+            "text": "BMI",
+            "description": ""
+          },
+          "gt0005": {
+            "id": "gt0005",
+            "text": "Height",
+            "description": ""
+          },
+          "gt0007": {
+            "id": "gt0007",
+            "text": "Weight",
+            "description": "valueQuantity"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "text": "height code",
+            "description": ""
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "text": "weight code",
+            "description": ""
+          },
+          "gt0010": {
+            "id": "gt0010",
+            "text": "Coded height",
+            "description": ""
+          },
+          "gt0011": {
+            "id": "gt0011",
+            "text": "Coded weight",
+            "description": ""
+          },
+          "gt0012": {
+            "id": "gt0012",
+            "text": "BMI"
+          },
+          "gt0013": {
+            "id": "gt0013",
+            "text": "BMI code",
+            "description": ""
+          },
+          "gt0014": {
+            "id": "gt0014",
+            "text": "Coded BMI",
+            "description": ""
+          }
+        }
+      }
+    },
+    "term_bindings": {
+      "LOINC": {
+        "id": "LOINC",
+        "bindings": {
+          "gt0010": {
+            "codes": [
+              "LOINC::8302-2"
+            ]
+          },
+          "gt0011": {
+            "codes": [
+              "LOINC::29463-7"
+            ]
+          },
+          "gt0014": {
+            "codes": [
+              "LOINC::39156-5"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2850 @@
+{
+  "gdl_version": "0.1",
+  "id": "QRISK2-2015_risk_calculation.v2",
+  "concept": "gt0001",
+  "language": {
+    "original_language": "ISO_639-1::en"
+  },
+  "description": {
+    "original_author": {
+      "name": "Rong Chen"
+    },
+    "details": {
+      "en": {
+        "id": "en",
+        "purpose": "For test and demo purpose",
+        "keywords": [
+          "QRISK2-2015 risk",
+          "FH CVD",
+          "Stroke"
+        ]
+      },
+      "sv": {
+        "id": "sv",
+        "purpose": "I test- och demonstrationssyften",
+        "keywords": [
+          "QRISK2-2015 risk",
+          "Heart attack",
+          "Stroke"
+        ]
+      },
+      "es": {
+        "id": "es",
+        "purpose": "Ejemplos de reglas de cds basadas en fhir para propósitos de demostración",
+        "keywords": [
+          "QRISK2-2015 risk",
+          "Heart attack",
+          "Stroke"
+        ]
+      }
+    },
+    "references": [
+      {
+        "id": "1",
+        "label": "Predicting cardiovascular risk in England and Wales: prospective derivation and validation of QRISK2, BMJ 2008;336:1475-82.",
+        "url": "https://qrisk.org/2015/"
+      }
+    ]
+  },
+  "definition": {
+    "pre_conditions": [
+      "$gt0024|BMI|!=null"
+    ],
+    "data_bindings": {
+      "gt0002": {
+        "id": "gt0002",
+        "model_id": "openEHR-EHR-OBSERVATION.qrisk2_2015_score.v0",
+        "template_id": "openEHR-EHR-OBSERVATION.qrisk2_2015_score.v0",
+        "type": "OUTPUT",
+        "elements": {
+          "gt0004": {
+            "id": "gt0004",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0004]"
+          },
+          "gt0005": {
+            "id": "gt0005",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0007]"
+          },
+          "gt0006": {
+            "id": "gt0006",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0010]"
+          },
+          "gt0007": {
+            "id": "gt0007",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0013]"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0016]"
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0019]"
+          },
+          "gt0010": {
+            "id": "gt0010",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0022]"
+          },
+          "gt0011": {
+            "id": "gt0011",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0025]"
+          },
+          "gt0012": {
+            "id": "gt0012",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0028]"
+          },
+          "gt0013": {
+            "id": "gt0013",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0031]"
+          },
+          "gt0014": {
+            "id": "gt0014",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0034]"
+          }
+        }
+      },
+      "gt0021": {
+        "id": "gt0021",
+        "model_id": "openEHR-EHR-OBSERVATION.basic_demographic.v1",
+        "template_id": "openEHR-EHR-OBSERVATION.basic_demographic.v1",
+        "type": "INPUT",
+        "elements": {
+          "gt0022": {
+            "id": "gt0022",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0013]"
+          }
+        }
+      },
+      "gt0023": {
+        "id": "gt0023",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.body_mass_index.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0024": {
+            "id": "gt0024",
+            "path": "/valueQuantity"
+          },
+          "gt8008": {
+            "id": "gt8008",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt0160|BMI|"
+        ]
+      },
+      "gt0029": {
+        "id": "gt0029",
+        "model_id": "openEHR-EHR-OBSERVATION.qrisk2_2015_score.v0",
+        "template_id": "openEHR-EHR-OBSERVATION.qrisk2_2015_score.v0",
+        "type": "OUTPUT",
+        "elements": {
+          "gt0030": {
+            "id": "gt0030",
+            "path": "/data[at0001]/events[at0002]/data[at0003]/items[at0035]"
+          }
+        }
+      },
+      "gt2002": {
+        "id": "gt2002",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.blood_pressure.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0016": {
+            "id": "gt0016",
+            "path": "/component[0]/valueQuantity"
+          },
+          "gt8009": {
+            "id": "gt8009",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3001|Blood Pressure Panel|"
+        ]
+      },
+      "gt2003": {
+        "id": "gt2003",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.lipids_cholesterol_ratio.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0028": {
+            "id": "gt0028",
+            "path": "/valueQuantity"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3002|Cholesterol.total/Cholesterol.in HDL|"
+        ]
+      },
+      "gt2004": {
+        "id": "gt2004",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2005": {
+            "id": "gt2005",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3003|Atrial fibrillation and flutter|"
+        ]
+      },
+      "gt2006": {
+        "id": "gt2006",
+        "model_id": "org.hl7.fhir.dstu3.model.MedicationStatement",
+        "template_id": "FHIR-STU3-MedicationStatement.generic.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2007": {
+            "id": "gt2007",
+            "path": "/medicationCodeableConcept/coding[0]"
+          }
+        },
+        "predicates": [
+          "/medicationCodeableConcept/coding[0] is_a local::gt3004|Antihypertensive medication|"
+        ]
+      },
+      "gt2008": {
+        "id": "gt2008",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2009": {
+            "id": "gt2009",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3005|Type 1 diabetes mellitus|"
+        ]
+      },
+      "gt2010": {
+        "id": "gt2010",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2011": {
+            "id": "gt2011",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3006|Type 2 diabetes mellitus|"
+        ]
+      },
+      "gt2012": {
+        "id": "gt2012",
+        "model_id": "org.hl7.fhir.dstu3.model.FamilyMemberHistory",
+        "template_id": "FHIR-STU3-FamilyMemberHistory.generic.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2013": {
+            "id": "gt2013",
+            "path": "/condition[0]/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/condition[0]/code/coding[0] is_a local::gt3007|Acute myocardial infarction|",
+          "/condition[0]/onsetAge<60,a"
+        ]
+      },
+      "gt2014": {
+        "id": "gt2014",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2015": {
+            "id": "gt2015",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3008|Chronic kidney disease 4 or 5|"
+        ]
+      },
+      "gt2016": {
+        "id": "gt2016",
+        "model_id": "org.hl7.fhir.dstu3.model.Condition",
+        "template_id": "FHIR-STU3-Condition.problem_diagnosis.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2017": {
+            "id": "gt2017",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3009|Rheumatoid arthritis|"
+        ]
+      },
+      "gt2021": {
+        "id": "gt2021",
+        "model_id": "org.hl7.fhir.dstu3.model.Patient",
+        "template_id": "FHIR-STU3-Patient.basic_demographic.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0026": {
+            "id": "gt0026",
+            "path": "/gender"
+          }
+        }
+      },
+      "gt2103": {
+        "id": "gt2103",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.lipids_total_cholesterol.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0128": {
+            "id": "gt0128",
+            "path": "/valueQuantity"
+          },
+          "gt8010": {
+            "id": "gt8010",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3090|Total cholesterol|"
+        ]
+      },
+      "gt2104": {
+        "id": "gt2104",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.lipids_hdl_cholesterol.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0129": {
+            "id": "gt0129",
+            "path": "/valueQuantity"
+          },
+          "gt8011": {
+            "id": "gt8011",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3091|HDL cholesterol|"
+        ]
+      },
+      "gt2108": {
+        "id": "gt2108",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.tobacco_use.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt2109": {
+            "id": "gt2109",
+            "path": "/valueCodeableConcept/coding[0]"
+          },
+          "gt8012": {
+            "id": "gt8012",
+            "path": "/code/coding[0]"
+          }
+        },
+        "predicates": [
+          "/code/coding[0] is_a local::gt3010|Smoking status|"
+        ]
+      }
+    },
+    "templates": {
+      "gt8003": {
+        "id": "gt8003",
+        "name": "FHIR-STU3-Observation.qrisk2_score.v0",
+        "model_id": "org.hl7.fhir.dstu3.model.Observation",
+        "template_id": "FHIR-STU3-Observation.qrisk2_score.v0",
+        "object": {
+          "referenceRange": [
+            {
+              "high": {
+                "value": 100,
+                "unit": "%"
+              }
+            }
+          ],
+          "code": {
+            "coding": [
+              {
+                "code": "718087004",
+                "system": "http://snomed.info/sct",
+                "display": "{$gt5101}"
+              }
+            ]
+          },
+          "effectiveDateTime": "{$gt4001}",
+          "category": [
+            {
+              "coding": [
+                {
+                  "code": "survey",
+                  "system": "http://hl7.org/fhir/observation-category",
+                  "display": "{$gt5100}"
+                }
+              ]
+            }
+          ],
+          "valueQuantity": {
+            "unit": "%",
+            "code": "%",
+            "system": "http://unitsofmeasure.org",
+            "value": "{$gt4000}"
+          },
+          "status": "final",
+          "resourceType": "Observation"
+        }
+      }
+    },
+    "rules": {
+      "gt0204": {
+        "id": "gt0204",
+        "priority": 204,
+        "when": [
+          "$gt0004|smoking category 1|==null",
+          "$gt2109|Smoking status| is_a local::gt3012|former smoker|"
+        ],
+        "then": [
+          "$gt0004|smoking category 1|=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0203": {
+        "id": "gt0203",
+        "priority": 203,
+        "when": [
+          "$gt0005|smoking category 2|==null",
+          "$gt2109|Smoking status| is_a local::gt3013|light smoker|"
+        ],
+        "then": [
+          "$gt0005|smoking category 2|=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0202": {
+        "id": "gt0202",
+        "priority": 202,
+        "when": [
+          "$gt0006|smoking category 3|==null",
+          "$gt2109|Smoking status| is_a local::gt3014|moderate smoker|"
+        ],
+        "then": [
+          "$gt0006|smoking category 3|=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0201": {
+        "id": "gt0201",
+        "priority": 201,
+        "when": [
+          "$gt0007|smoking category 4|==null",
+          "$gt2109|Smoking status| is_a local::gt3015|heavy smoker|"
+        ],
+        "then": [
+          "$gt0007|smoking category 4|=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0117": {
+        "id": "gt0117",
+        "priority": 123,
+        "when": [
+          "$gt0014==null",
+          "$gt2017!=null"
+        ],
+        "then": [
+          "$gt0014=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0110": {
+        "id": "gt0110",
+        "priority": 122,
+        "when": [
+          "$gt0014==null",
+          "$gt2017==null"
+        ],
+        "then": [
+          "$gt0014=0|local::at0005|No|"
+        ]
+      },
+      "gt0116": {
+        "id": "gt0116",
+        "priority": 121,
+        "when": [
+          "$gt0011==null",
+          "$gt2015!=null"
+        ],
+        "then": [
+          "$gt0011=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0107": {
+        "id": "gt0107",
+        "priority": 120,
+        "when": [
+          "$gt0011==null",
+          "$gt2015==null"
+        ],
+        "then": [
+          "$gt0011=0|local::at0005|No|"
+        ]
+      },
+      "gt0115": {
+        "id": "gt0115",
+        "priority": 119,
+        "when": [
+          "$gt0010==null",
+          "$gt2013!=null"
+        ],
+        "then": [
+          "$gt0010=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0106": {
+        "id": "gt0106",
+        "priority": 118,
+        "when": [
+          "$gt0010==null",
+          "$gt2013==null"
+        ],
+        "then": [
+          "$gt0010=0|local::at0005|No|"
+        ]
+      },
+      "gt0114": {
+        "id": "gt0114",
+        "priority": 117,
+        "when": [
+          "$gt0009==null",
+          "$gt2011!=null"
+        ],
+        "then": [
+          "$gt0009=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0105": {
+        "id": "gt0105",
+        "priority": 116,
+        "when": [
+          "$gt0009==null",
+          "$gt2011==null"
+        ],
+        "then": [
+          "$gt0009=0|local::at0005|No|"
+        ]
+      },
+      "gt0113": {
+        "id": "gt0113",
+        "priority": 115,
+        "when": [
+          "$gt0008==null",
+          "$gt2009!=null"
+        ],
+        "then": [
+          "$gt0008=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0104": {
+        "id": "gt0104",
+        "priority": 114,
+        "when": [
+          "$gt0008==null",
+          "$gt2009==null"
+        ],
+        "then": [
+          "$gt0008=0|local::at0005|No|"
+        ]
+      },
+      "gt0112": {
+        "id": "gt0112",
+        "priority": 113,
+        "when": [
+          "$gt2007!=null",
+          "$gt0013==null"
+        ],
+        "then": [
+          "$gt0013=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0109": {
+        "id": "gt0109",
+        "priority": 112,
+        "when": [
+          "$gt2007==null",
+          "$gt0013==null"
+        ],
+        "then": [
+          "$gt0013=0|local::at0005|No|"
+        ]
+      },
+      "gt0111": {
+        "id": "gt0111",
+        "priority": 111,
+        "when": [
+          "$gt0012==null",
+          "$gt2005==null"
+        ],
+        "then": [
+          "$gt0012=0|local::at0005|No|"
+        ]
+      },
+      "gt0108": {
+        "id": "gt0108",
+        "priority": 110,
+        "when": [
+          "$gt2005!=null",
+          "$gt0012==null"
+        ],
+        "then": [
+          "$gt0012=1|local::at0006|Yes|"
+        ]
+      },
+      "gt0100": {
+        "id": "gt0100",
+        "priority": 109,
+        "when": [
+          "$gt0004==null"
+        ],
+        "then": [
+          "$gt0004=0|local::at0005|No|"
+        ]
+      },
+      "gt0101": {
+        "id": "gt0101",
+        "priority": 108,
+        "when": [
+          "$gt0005==null"
+        ],
+        "then": [
+          "$gt0005=0|local::at0005|No|"
+        ]
+      },
+      "gt0102": {
+        "id": "gt0102",
+        "priority": 107,
+        "when": [
+          "$gt0006==null"
+        ],
+        "then": [
+          "$gt0006=0|local::at0005|No|"
+        ]
+      },
+      "gt0103": {
+        "id": "gt0103",
+        "priority": 106,
+        "when": [
+          "$gt0007==null"
+        ],
+        "then": [
+          "$gt0007=0|local::at0005|No|"
+        ]
+      },
+      "gt8007": {
+        "id": "gt8007",
+        "priority": 105,
+        "when": [
+          "$gt0028|Cholesterol ratio|!=null"
+        ],
+        "then": [
+          "$gt8005|Cholesterol/HDL ratio|=$gt0028|Cholesterol ratio|"
+        ]
+      },
+      "gt0123": {
+        "id": "gt0123",
+        "priority": 104,
+        "when": [
+          "$gt0028|Cholesterol ratio|==null",
+          "$gt0128|Cholesterol|!=null",
+          "$gt0129|HDL|!=null"
+        ],
+        "then": [
+          "$gt8005|Cholesterol/HDL ratio|.magnitude=$gt0128|Cholesterol|.magnitude / $gt0129|HDL|.magnitude"
+        ]
+      },
+      "gt0025": {
+        "id": "gt0025",
+        "priority": 2,
+        "when": [
+          "$gt0026=='female'"
+        ],
+        "then": [
+          "$gt1000|dage|.precision = 15",
+          "$gt1001|age_1|.precision = 15",
+          "$gt1002|age_2|.precision = 15",
+          "$gt1003|bmi|.precision = 15",
+          "$gt1004|bmi_2|.precision = 15",
+          "$gt1005|bmi_1|.precision = 15",
+          "$gt1006|rati|.precision = 15",
+          "$gt1007|sbp|.precision = 15",
+          "$gt1008|town|.precision = 15",
+
+          "$gt1000|dage|.magnitude = $gt0022|age|.magnitude",
+          "$gt1000|dage|.magnitude = $gt1000|dage|.magnitude / 10.0",
+          "$gt1001|age_1|.magnitude = $gt1000|dage|.magnitude ^ 0.5",
+          "$gt1002|age_2|.magnitude = $gt1000|dage|.magnitude",
+          "$gt1003|dbmi|.magnitude = $gt0024.magnitude",
+          "$gt1003|dbmi|.magnitude = $gt1003|dbmi|.magnitude / 10.0",
+          "$gt1004|bmi_2|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2) * log($gt1003|dbmi|.magnitude)",
+          "$gt1005|bmi_1|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2)",
+
+          "$gt1001|age_1|.magnitude = $gt1001|age_1|.magnitude - 2.086397409439087",
+          "$gt1002|age_2|.magnitude = $gt1002|age_2|.magnitude - 4.353054523468018",
+          "$gt1005|bmi_1|.magnitude = $gt1005|bmi_1|.magnitude - 0.152244374155998",
+          "$gt1004|bmi_2|.magnitude = $gt1004|bmi_2|.magnitude - 0.143282383680344",
+          "$gt1006|rati|.magnitude = $gt8005|Cholesterol/HDL ratio|.magnitude - 3.506655454635620",
+          "$gt1007|sbp|.magnitude = $gt0016|Systolic BP|.magnitude - 125.040039062500000",
+          "$gt1008|town|.magnitude = (0-0.416743695735931)",
+
+          "$gt0030|QRISK2 score|.precision = 15",
+          "$gt0030|QRISK2 score|.magnitude = 0",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0004|Smoking category 1|.value * 0.2119377108760385200000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0005|Smoking category 2|.value * 0.6618634379685941500000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0006|Smoking category 3|.value * 0.7570714587132305600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0007|Smoking category 4|.value * 0.9496298251457036000000000",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * 4.4417863976316578000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * 0.0281637210672999180000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1005|bmi_1|.magnitude * 0.8942365304710663300000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1004|bmi_2|.magnitude * (0-6.5748047596104335000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1006|rati|.magnitude * 0.1433900561621420900000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1007|sbp|.magnitude * 0.0128971795843613720000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1008|town|.magnitude * 0.0664772630011438850000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0012|Atrial fibrillation|.value * 1.6284780236484424000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0014|Rheumatoid arthritis|.value * 0.2901233104088770700000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0011|Renal failure|.value  * 1.0043796680368302000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0013|Hypertension treatment|.value * 0.6180430562788129500000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0008|Type 1 diabetes|.value * 1.8400348250874599000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0009|Type 2 diabetes|.value * 1.1711626412196512000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0010|FH CVD|.value * 0.5147261203665195500000000",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0004|Smoking category 1|.value * 0.7464406144391666500000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0005|Smoking category 2|.value * 0.2568541711879666600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0006|Smoking category 3|.value * (0-1.5452226707866523000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0007|Smoking category 4|.value * (0-1.7113013709043405000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0012|Atrial fibrillation|.value * (0-7.0177986441269269000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0011|Renal failure|.value * (0-2.9684019256454390000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0013|Hypertension treatment|.value * (0-4.2219906452967848000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0008|Type 1 diabetes|.value * 1.6835769546040080000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0009|Type 2 diabetes|.value * (0-2.9371798540034648000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1005|bmi_1|.magnitude * 0.1797196207044682300000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1004|bmi_2|.magnitude * 40.2428166760658140000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0010|FH CVD|.value * 0.1439979240753906700000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1007|sbp|.magnitude * (0-0.0362575233899774460000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1008|town|.magnitude * 0.3735138031433442600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0004|Smoking category 1|.value * (0-0.1927057741748231000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0005|Smoking category 2|.value * (0-0.1526965063458932700000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0006|Smoking category 3|.value * 0.2313563976521429400000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0007|Smoking category 4|.value * 0.2307165013868296700000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0012|Atrial fibrillation|.value * 1.1395776028337732000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0011|Renal failure|.value * 0.4356963208330940600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0013|Hypertension treatment|.value * 0.7265947108887239600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0008|Type 1 diabetes|.value * (0-0.6320977766275653900000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0009|Type 2 diabetes|.value * 0.4023270434871086800000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1005|bmi_1|.magnitude * 0.1319276622711877700000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1004|bmi_2|.magnitude * (0-7.3211322435546409000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0010|FH CVD|.value * (0-0.1330260018273720400000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1007|sbp|.magnitude * 0.0045842850495397955000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1008|town|.magnitude * (0-0.0952370300845990780000000)",
+
+          "$gt0030.magnitude = 100.0 * (1.00 - 0.989747583866119 ^ exp($gt0030.magnitude))",
+          "$gt0030.precision = 1",
+          "$gt0030.unit='%'"
+        ],
+        "cards": [
+          {
+            "summary": "{$gt8013.term}{$gt0030.string}",
+            "indicator": "info",
+            "source": {
+              "label": "Predicting cardiovascular risk in England and Wales: prospective derivation and validation of QRISK2, BMJ 2008;336:1475-82.",
+              "url": "https://qrisk.org/2015/",
+              "label_reference": "$ref[1].label",
+              "url_reference": "$ref[1].url"
+            },
+            "suggestions": [
+              {
+                "uuid": "578dbaeb-7d28-43f5-ae1a-b767d29933d6",
+                "label": "{$gt5002.term}",
+                "actions": [
+                  {
+                    "type": "create",
+                    "description": "{$gt5002.term}",
+                    "resource_template": {
+                      "template_id": "gt8003",
+                      "assignments": [
+                        "$gt4000=$gt0030.magnitude",
+                        "$gt4001=$currentDateTime",
+                        "$gt5100=$gt5000.term",
+                        "$gt5101=$gt5001.term"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gt0050": {
+        "id": "gt0050",
+        "priority": 1,
+        "when": [
+          "$gt0026=='male'"
+        ],
+        "then": [
+          "$gt1000|dage|.precision = 15",
+          "$gt1001|age_1|.precision = 15",
+          "$gt1002|age_2|.precision = 15",
+          "$gt1003|bmi|.precision = 15",
+          "$gt1004|bmi_2|.precision = 15",
+          "$gt1005|bmi_1|.precision = 15",
+          "$gt1006|rati|.precision = 15",
+          "$gt1007|sbp|.precision = 15",
+          "$gt1008|town|.precision = 15",
+
+          "$gt1000|dage|.magnitude = $gt0022|age|.magnitude",
+          "$gt1000|dage|.magnitude = $gt1000|dage|.magnitude / 10.0",
+          "$gt1001|age_1|.magnitude = $gt1000|dage|.magnitude ^ (0-1)",
+          "$gt1002|age_2|.magnitude = $gt1000|dage|.magnitude ^ 2",
+          "$gt1003|dbmi|.magnitude = $gt0024.magnitude",
+          "$gt1003|dbmi|.magnitude = $gt1003|dbmi|.magnitude / 10.0",
+          "$gt1004|bmi_2|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2) * log($gt1003|dbmi|.magnitude)",
+          "$gt1005|bmi_1|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2)",
+
+          "$gt1001|age_1|.magnitude = $gt1001|age_1|.magnitude - 0.233734160661697",
+          "$gt1002|age_2|.magnitude = $gt1002|age_2|.magnitude - 18.304403305053711",
+          "$gt1005|bmi_1|.magnitude = $gt1005|bmi_1|.magnitude - 0.146269768476486",
+          "$gt1004|bmi_2|.magnitude = $gt1004|bmi_2|.magnitude - 0.140587374567986",
+          "$gt1006|rati|.magnitude = $gt8005|Cholesterol/HDL ratio|.magnitude - 4.321151256561279",
+          "$gt1007|sbp|.magnitude = $gt0016|Systolic BP|.magnitude - 130.589752197265620",
+          "$gt1008|town|.magnitude = (0-0.551009356975555)",
+
+          "$gt0030.precision = 15",
+          "$gt0030|QRISK2 score|.magnitude = 0",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0004|Smoking category 1|.value * 0.2684479158158020200000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0005|Smoking category 2|.value * 0.6307674973877591700000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0006|Smoking category 3|.value * 0.7178078883378695700000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0007|Smoking category 4|.value * 0.8704172533465485100000000",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * (0-18.0437312550377270000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * 0.0236486454254306940000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1005|bmi_1|.magnitude * 2.5388084343581578000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1004|bmi_2|.magnitude * (0-9.1034725871528597000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1006|rati|.magnitude * 0.1684397636136909500000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1007|sbp|.magnitude * 0.0105003089380754820000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1008|town|.magnitude * 0.0323801637634487590000000",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0012|Atrial fibrillation|.value * 1.0363048000259454000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0014|Rheumatoid arthritis|.value * 0.2519953134791012600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0011|Renal failure|.value  * 0.8359352886995286000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0013|Hypertension treatment|.value * 0.6603459695917862600000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0008|Type 1 diabetes|.value * 1.3309170433446138000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0009|Type 2 diabetes|.value * 0.9454348892774417900000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt0010|FH CVD|.value * 0.5986037897136281500000000",
+
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0004|Smoking category 1|.value * 0.6186864699379683900000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0005|Smoking category 2|.value * 1.5522017055600055000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0006|Smoking category 3|.value * 2.4407210657517648000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0007|Smoking category 4|.value * 3.5140494491884624000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0012|Atrial fibrillation|.value * 8.0382925558108482000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0011|Renal failure|.value * (0-1.6389521229064483000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0013|Hypertension treatment|.value * 8.4621771382346651000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0008|Type 1 diabetes|.value * 5.4977016563835504000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0009|Type 2 diabetes|.value * 3.3974747488766690000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1005|bmi_1|.magnitude * 33.8489881012767600000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1004|bmi_2|.magnitude * (0-140.6707025404897100000000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt0010|FH CVD|.value * 2.0858333154353321000000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1007|sbp|.magnitude * 0.0501283668830720540000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1001|age_1|.magnitude * $gt1008|town|.magnitude * (0-0.1988268217186850700000000))))",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0004|Smoking category 1|.value * (0-0.0040893975066796338000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0005|Smoking category 2|.value * (0-0.0056065852346001768000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0006|Smoking category 3|.value * (0-0.0018261006189440492000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0007|Smoking category 4|.value * (0-0.0014997157296173290000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0012|Atrial fibrillation|.value * 0.0052471594895864343000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0011|Renal failure|.value * (0-0.0179663586193546390000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0013|Hypertension treatment|.value * 0.0092088445323379176000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0008|Type 1 diabetes|.value * 0.0047493510223424558000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0009|Type 2 diabetes|.value * (0-0.0048113775783491563000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1005|bmi_1|.magnitude * 0.0627410757513945650000000",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1004|bmi_2|.magnitude * (0-0.2382914909385732100000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt0010|FH CVD|.value * (0-0.0049971149213281010000000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1007|sbp|.magnitude * (0-0.0000523700987951435090000)",
+          "$gt0030.magnitude = $gt0030.magnitude + $gt1002|age_2|.magnitude * $gt1008|town|.magnitude * (0-0.0012518116569283104000000)",
+
+          "$gt0030.magnitude = 100.0 * (1.00 - 0.978794217109680 ^ exp($gt0030.magnitude))",
+          "$gt0030.precision = 1",
+          "$gt0030.unit='%'"
+        ],
+        "cards": [
+          {
+            "summary": "{$gt8013.term}{$gt0030.string}",
+            "indicator": "info",
+            "source": {
+              "label": "Predicting cardiovascular risk in England and Wales: prospective derivation and validation of QRISK2, BMJ 2008;336:1475-82.",
+              "url": "https://qrisk.org/2015/",
+              "label_reference": "$ref[1].label",
+              "url_reference": "$ref[1].url"
+            },
+            "suggestions": [
+              {
+                "uuid": "578dbaeb-7d28-43f5-ae1a-b767d29933d6",
+                "label": "{$gt5002.term}",
+                "actions": [
+                  {
+                    "type": "create",
+                    "description": "{$gt5002.term}",
+                    "resource_template": {
+                      "template_id": "gt8003",
+                      "assignments": [
+                        "$gt4000=$gt0030.magnitude",
+                        "$gt4001=$currentDateTime",
+                        "$gt5100=$gt5000.term",
+                        "$gt5101=$gt5001.term"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "ontology": {
+    "term_definitions": {
+      "en": {
+        "id": "en",
+        "terms": {
+          "gt0001": {
+            "id": "gt0001",
+            "text": "QRISK2-2015 risk calculation",
+            "description": "Proof-of-concept imlementation of QRISK2-2015 in GDL"
+          },
+          "gt0003": {
+            "id": "gt0003",
+            "text": "QRISK2 score",
+            "description": "QRISK2 score"
+          },
+          "gt0004": {
+            "id": "gt0004",
+            "text": "Smoking category 1",
+            "description": "*"
+          },
+          "gt0005": {
+            "id": "gt0005",
+            "text": "Smoking cateogry 2",
+            "description": "*"
+          },
+          "gt0006": {
+            "id": "gt0006",
+            "text": "Smoking cateogry 3",
+            "description": "*"
+          },
+          "gt0007": {
+            "id": "gt0007",
+            "text": "Smoking category 4",
+            "description": "*"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "text": "Diabetes type 1",
+            "description": "*"
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "text": "Diabetes type 2",
+            "description": "*"
+          },
+          "gt0010": {
+            "id": "gt0010",
+            "text": "Angina or CVD in a 1st degree relative < 60?",
+            "description": "*"
+          },
+          "gt0011": {
+            "id": "gt0011",
+            "text": "Chronic kidney disease (stage 4 or 5)?",
+            "description": "*"
+          },
+          "gt0012": {
+            "id": "gt0012",
+            "text": "Atrial fibrillation?",
+            "description": "*"
+          },
+          "gt0013": {
+            "id": "gt0013",
+            "text": "On blood pressure treatment?",
+            "description": "*"
+          },
+          "gt0014": {
+            "id": "gt0014",
+            "text": "Rheumatoid arthritis?",
+            "description": "*"
+          },
+          "gt0016": {
+            "id": "gt0016",
+            "text": "Systolic BP",
+            "description": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+          },
+          "gt0018": {
+            "id": "gt0018",
+            "text": "Weight",
+            "description": "The weight of the individual."
+          },
+          "gt0020": {
+            "id": "gt0020",
+            "text": "Height/Length",
+            "description": "The length of the body from crown of head to sole of foot."
+          },
+          "gt0022": {
+            "id": "gt0022",
+            "text": "Age",
+            "description": "Age in years, and for babies: months, weeks or days"
+          },
+          "gt0024": {
+            "id": "gt0024",
+            "text": "Body Mass Index",
+            "description": "Index describing ratio of weight to height."
+          },
+          "gt0025": {
+            "id": "gt0025",
+            "text": "Calculate QRISK2-2015 Female"
+          },
+          "gt0026": {
+            "id": "gt0026",
+            "text": "Gender",
+            "description": "The patient's gender."
+          },
+          "gt0028": {
+            "id": "gt0028",
+            "text": "Cholesterol ratio",
+            "description": "The ratio of HDL cholesterol to Total cholesterol."
+          },
+          "gt0030": {
+            "id": "gt0030",
+            "text": "QRISK2 score",
+            "description": "QRISK2 score"
+          },
+          "gt0050": {
+            "id": "gt0050",
+            "text": "Calculate QRISK2-2015 Male",
+            "description": "description gt0050"
+          },
+          "gt0100": {
+            "id": "gt0100",
+            "text": "set former smoker absent",
+            "description": "description gt0100"
+          },
+          "gt0101": {
+            "id": "gt0101",
+            "text": "set light tobacco smoker absent",
+            "description": "description gt0101"
+          },
+          "gt0102": {
+            "id": "gt0102",
+            "text": "set moderate smoker absent",
+            "description": "description gt0102"
+          },
+          "gt0103": {
+            "id": "gt0103",
+            "text": "set heavy smoker absent",
+            "description": "description gt0103"
+          },
+          "gt0104": {
+            "id": "gt0104",
+            "text": "set type 1 dm absent",
+            "description": "description gt0104"
+          },
+          "gt0105": {
+            "id": "gt0105",
+            "text": "set type 2 dm absent",
+            "description": "description gt0105"
+          },
+          "gt0106": {
+            "id": "gt0106",
+            "text": "set acute MI in family absent",
+            "description": "description gt0106"
+          },
+          "gt0107": {
+            "id": "gt0107",
+            "text": "set CKD 4 or 5 absent",
+            "description": "description gt0107"
+          },
+          "gt0108": {
+            "id": "gt0108",
+            "text": "set AF present",
+            "description": "description gt0108"
+          },
+          "gt0109": {
+            "id": "gt0109",
+            "text": "set bp treatment absent",
+            "description": "description gt0109"
+          },
+          "gt0110": {
+            "id": "gt0110",
+            "text": "set RA absent",
+            "description": "description gt0110"
+          },
+          "gt0111": {
+            "id": "gt0111",
+            "text": "set AF absent",
+            "description": "description gt0111"
+          },
+          "gt0112": {
+            "id": "gt0112",
+            "text": "set bp treatment present",
+            "description": "description gt0112"
+          },
+          "gt0113": {
+            "id": "gt0113",
+            "text": "set type 1 dm present",
+            "description": "description gt0113"
+          },
+          "gt0114": {
+            "id": "gt0114",
+            "text": "set type 2 dm present",
+            "description": "description gt0114"
+          },
+          "gt0115": {
+            "id": "gt0115",
+            "text": "set acute MI in family present",
+            "description": "description gt0115"
+          },
+          "gt0116": {
+            "id": "gt0116",
+            "text": "set CKD 4 or 5 present",
+            "description": "description gt0116"
+          },
+          "gt0117": {
+            "id": "gt0117",
+            "text": "set RA present",
+            "description": "description gt0117"
+          },
+          "gt0123": {
+            "id": "gt0123",
+            "text": "calculate cholesterol ratio",
+            "description": "description gt0123"
+          },
+          "gt0128": {
+            "id": "gt0128",
+            "text": "totalc",
+            "description": "description gt0128"
+          },
+          "gt0129": {
+            "id": "gt0129",
+            "text": "hdlc",
+            "description": "description gt0129"
+          },
+          "gt0160": {
+            "id": "gt0160",
+            "text": "BMI",
+            "description": "BMI value"
+          },
+          "gt0201": {
+            "id": "gt0201",
+            "text": "set heavy smoker present",
+            "description": "description gt0201"
+          },
+          "gt0202": {
+            "id": "gt0202",
+            "text": "set moderate smoker present",
+            "description": "description gt0202"
+          },
+          "gt0203": {
+            "id": "gt0203",
+            "text": "set light tobacco smoker present",
+            "description": "description gt0203"
+          },
+          "gt0204": {
+            "id": "gt0204",
+            "text": "set former smoker present",
+            "description": "description gt0204"
+          },
+          "gt1000": {
+            "id": "gt1000",
+            "text": "dage",
+            "description": "description gt1000"
+          },
+          "gt1001": {
+            "id": "gt1001",
+            "text": "age_1",
+            "description": "description gt1001"
+          },
+          "gt1002": {
+            "id": "gt1002",
+            "text": "age_2",
+            "description": "description gt1002"
+          },
+          "gt1003": {
+            "id": "gt1003",
+            "text": "bmi",
+            "description": "description gt1003"
+          },
+          "gt1004": {
+            "id": "gt1004",
+            "text": "bmi_2",
+            "description": "description gt1004"
+          },
+          "gt1005": {
+            "id": "gt1005",
+            "text": "bmi_1",
+            "description": "description gt1005"
+          },
+          "gt1006": {
+            "id": "gt1006",
+            "text": "rati",
+            "description": "description gt1006"
+          },
+          "gt1007": {
+            "id": "gt1007",
+            "text": "sbp",
+            "description": "description gt1007"
+          },
+          "gt1008": {
+            "id": "gt1008",
+            "text": "town",
+            "description": "description gt1008"
+          },
+          "gt2005": {
+            "id": "gt2005",
+            "text": "atrialFibrillation",
+            "description": "description gt2005"
+          },
+          "gt2007": {
+            "id": "gt2007",
+            "text": "antihypertensives",
+            "description": "description gt2007"
+          },
+          "gt2009": {
+            "id": "gt2009",
+            "text": "DM1",
+            "description": "description gt2009"
+          },
+          "gt2011": {
+            "id": "gt2011",
+            "text": "DM2",
+            "description": "description gt2011"
+          },
+          "gt2013": {
+            "id": "gt2013",
+            "text": "Acute MI",
+            "description": "description gt2013"
+          },
+          "gt2015": {
+            "id": "gt2015",
+            "text": "CKD4or5",
+            "description": "description gt2015"
+          },
+          "gt2017": {
+            "id": "gt2017",
+            "text": "rheumatoidArthritis",
+            "description": "description gt2017"
+          },
+          "gt2109": {
+            "id": "gt2109",
+            "text": "Tobacco smoking status",
+            "description": "description gt2109"
+          },
+          "gt3001": {
+            "id": "gt3001",
+            "text": "Systolic Blood Pressure",
+            "description": "description gt3001"
+          },
+          "gt3002": {
+            "id": "gt3002",
+            "text": "Cholesterol.total/Cholesterol.in HDL",
+            "description": "description gt3002"
+          },
+          "gt3003": {
+            "id": "gt3003",
+            "text": "Atrial fibrillation and flutter",
+            "description": "description gt3003"
+          },
+          "gt3004": {
+            "id": "gt3004",
+            "text": "Antihypertensive medication",
+            "description": "description gt3004"
+          },
+          "gt3005": {
+            "id": "gt3005",
+            "text": "Type 1 diabetes mellitus",
+            "description": "description gt3005"
+          },
+          "gt3006": {
+            "id": "gt3006",
+            "text": "Type 2 diabetes mellitus",
+            "description": "description gt3006"
+          },
+          "gt3007": {
+            "id": "gt3007",
+            "text": "Acute myocardial infarction",
+            "description": "description gt3007"
+          },
+          "gt3008": {
+            "id": "gt3008",
+            "text": "Chronic kidney disease 4 or 5",
+            "description": "description gt3008"
+          },
+          "gt3009": {
+            "id": "gt3009",
+            "text": "Rheumatoid arthritis",
+            "description": "description gt3009"
+          },
+          "gt3010": {
+            "id": "gt3010",
+            "text": "Smoking status",
+            "description": "."
+          },
+          "gt3012": {
+            "id": "gt3012",
+            "text": "Former smoker",
+            "description": "."
+          },
+          "gt3013": {
+            "id": "gt3013",
+            "text": "Light tobacco smoker",
+            "description": "."
+          },
+          "gt3014": {
+            "id": "gt3014",
+            "text": "Moderate smoker (20 or less per day)",
+            "description": "."
+          },
+          "gt3015": {
+            "id": "gt3015",
+            "text": "Heavy smoker (over 20 per day)",
+            "description": "."
+          },
+          "gt3090": {
+            "id": "gt3090",
+            "text": "Total cholesterol",
+            "description": "description gt3090"
+          },
+          "gt3091": {
+            "id": "gt3091",
+            "text": "HDL cholesterol",
+            "description": "description gt3091"
+          },
+          "gt4000": {
+            "id": "gt4000",
+            "text": "value",
+            "description": "/valueQuantity/value"
+          },
+          "gt4001": {
+            "id": "gt4001",
+            "text": "value",
+            "description": "/effectiveDateTime"
+          },
+          "gt5000": {
+            "id": "gt5000",
+            "text": "Survey",
+            "description": "/category/coding/display"
+          },
+          "gt5001": {
+            "id": "gt5001",
+            "text": "QRISK2 cardiovascular disease 10 year risk score",
+            "description": "/code/coding/display"
+          },
+          "gt5002": {
+            "id": "gt5002",
+            "text": "Calculated QRISK2 score",
+            "description": "summary"
+          },
+          "gt5100": {
+            "id": "gt5100",
+            "text": "value",
+            "description": "/category/coding/display"
+          },
+          "gt5101": {
+            "id": "gt5101",
+            "text": "value",
+            "description": "/code/coding/display"
+          },
+          "gt8003": {
+            "id": "gt8003",
+            "text": "QRISK2 Score"
+          },
+          "gt8005": {
+            "id": "gt8005",
+            "text": "cholesterolHdlRatioValue",
+            "description": ""
+          },
+          "gt8006": {
+            "id": "gt8006",
+            "text": "cholesterolHdlRatio",
+            "description": ""
+          },
+          "gt8007": {
+            "id": "gt8007",
+            "text": "set cholesterol ratio"
+          },
+          "gt8008": {
+            "id": "gt8008",
+            "text": "bodyMassIndex",
+            "description": ""
+          },
+          "gt8009": {
+            "id": "gt8009",
+            "text": "systolicBP",
+            "description": ""
+          },
+          "gt8010": {
+            "id": "gt8010",
+            "text": "totalCholesterol",
+            "description": ""
+          },
+          "gt8011": {
+            "id": "gt8011",
+            "text": "hdlCholesterol",
+            "description": ""
+          },
+          "gt8012": {
+            "id": "gt8012",
+            "text": "smokingStatus",
+            "description": ""
+          },
+          "gt8013": {
+            "id": "gt8013",
+            "text": "QRISK2 score: ",
+            "description": ""
+          }
+        }
+      },
+      "sv": {
+        "id": "sv",
+        "terms": {
+          "gt0001": {
+            "id": "gt0001",
+            "text": "QRISK2-2015 riskberäkning",
+            "description": "Proof-of-concept imlementation of QRISK2-2015 in GDL"
+          },
+          "gt0003": {
+            "id": "gt0003",
+            "text": "QRISK2 score",
+            "description": "QRISK2 score"
+          },
+          "gt0004": {
+            "id": "gt0004",
+            "text": "Smoking category 1",
+            "description": "*"
+          },
+          "gt0005": {
+            "id": "gt0005",
+            "text": "Smoking cateogry 2",
+            "description": "*"
+          },
+          "gt0006": {
+            "id": "gt0006",
+            "text": "Smoking cateogry 3",
+            "description": "*"
+          },
+          "gt0007": {
+            "id": "gt0007",
+            "text": "Smoking category 4",
+            "description": "*"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "text": "Diabetes type 1",
+            "description": "*"
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "text": "Diabetes type 2",
+            "description": "*"
+          },
+          "gt0010": {
+            "id": "gt0010",
+            "text": "Angina or heart attack in a 1st degree relative < 60?",
+            "description": "*"
+          },
+          "gt0011": {
+            "id": "gt0011",
+            "text": "Chronic kidney disease (stage 4 or 5)?",
+            "description": "*"
+          },
+          "gt0012": {
+            "id": "gt0012",
+            "text": "Atrial fibrillation?",
+            "description": "*"
+          },
+          "gt0013": {
+            "id": "gt0013",
+            "text": "On blood pressure treatment?",
+            "description": "*"
+          },
+          "gt0014": {
+            "id": "gt0014",
+            "text": "Rheumatoid arthritis?",
+            "description": "*"
+          },
+          "gt0016": {
+            "id": "gt0016",
+            "text": "Systolic BP",
+            "description": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+          },
+          "gt0018": {
+            "id": "gt0018",
+            "text": "Weight",
+            "description": "The weight of the individual."
+          },
+          "gt0020": {
+            "id": "gt0020",
+            "text": "Height/Length",
+            "description": "The length of the body from crown of head to sole of foot."
+          },
+          "gt0022": {
+            "id": "gt0022",
+            "text": "Age",
+            "description": "Age in years, and for babies: months, weeks or days"
+          },
+          "gt0024": {
+            "id": "gt0024",
+            "text": "Body Mass Index",
+            "description": "Index describing ratio of weight to height."
+          },
+          "gt0025": {
+            "id": "gt0025",
+            "text": "Calculate QRISK2-2015 Female"
+          },
+          "gt0026": {
+            "id": "gt0026",
+            "text": "Gender",
+            "description": "The patient's gender."
+          },
+          "gt0028": {
+            "id": "gt0028",
+            "text": "Cholesterol ratio",
+            "description": "The ratio of HDL cholesterol to Total cholesterol."
+          },
+          "gt0030": {
+            "id": "gt0030",
+            "text": "QRISK2-poäng",
+            "description": "QRISK2 score"
+          },
+          "gt0050": {
+            "id": "gt0050",
+            "text": "term gt0050",
+            "description": "description gt0050"
+          },
+          "gt0100": {
+            "id": "gt0100",
+            "text": "term gt0100",
+            "description": "description gt0100"
+          },
+          "gt0101": {
+            "id": "gt0101",
+            "text": "term gt0101",
+            "description": "description gt0101"
+          },
+          "gt0102": {
+            "id": "gt0102",
+            "text": "term gt0102",
+            "description": "description gt0102"
+          },
+          "gt0103": {
+            "id": "gt0103",
+            "text": "term gt0103",
+            "description": "description gt0103"
+          },
+          "gt0104": {
+            "id": "gt0104",
+            "text": "term gt0104",
+            "description": "description gt0104"
+          },
+          "gt0105": {
+            "id": "gt0105",
+            "text": "term gt0105",
+            "description": "description gt0105"
+          },
+          "gt0106": {
+            "id": "gt0106",
+            "text": "term gt0106",
+            "description": "description gt0106"
+          },
+          "gt0107": {
+            "id": "gt0107",
+            "text": "term gt0107",
+            "description": "description gt0107"
+          },
+          "gt0108": {
+            "id": "gt0108",
+            "text": "term gt0108",
+            "description": "description gt0108"
+          },
+          "gt0109": {
+            "id": "gt0109",
+            "text": "term gt0109",
+            "description": "description gt0109"
+          },
+          "gt0110": {
+            "id": "gt0110",
+            "text": "term gt0110",
+            "description": "description gt0110"
+          },
+          "gt0111": {
+            "id": "gt0111",
+            "text": "term gt0111",
+            "description": "description gt0111"
+          },
+          "gt0112": {
+            "id": "gt0112",
+            "text": "term gt0112",
+            "description": "description gt0112"
+          },
+          "gt0113": {
+            "id": "gt0113",
+            "text": "term gt0113",
+            "description": "description gt0113"
+          },
+          "gt0114": {
+            "id": "gt0114",
+            "text": "term gt0114",
+            "description": "description gt0114"
+          },
+          "gt0115": {
+            "id": "gt0115",
+            "text": "term gt0115",
+            "description": "description gt0115"
+          },
+          "gt0116": {
+            "id": "gt0116",
+            "text": "term gt0116",
+            "description": "description gt0116"
+          },
+          "gt0117": {
+            "id": "gt0117",
+            "text": "term gt0117",
+            "description": "description gt0117"
+          },
+          "gt0123": {
+            "id": "gt0123",
+            "text": "term gt0123",
+            "description": "description gt0123"
+          },
+          "gt0128": {
+            "id": "gt0128",
+            "text": "term gt0128",
+            "description": "description gt0128"
+          },
+          "gt0129": {
+            "id": "gt0129",
+            "text": "term gt0129",
+            "description": "description gt0129"
+          },
+          "gt0160": {
+            "id": "gt0160",
+            "text": "term gt0160",
+            "description": "description gt0160"
+          },
+          "gt0201": {
+            "id": "gt0201",
+            "text": "term gt0201",
+            "description": "description gt0201"
+          },
+          "gt0202": {
+            "id": "gt0202",
+            "text": "term gt0202",
+            "description": "description gt0202"
+          },
+          "gt0203": {
+            "id": "gt0203",
+            "text": "term gt0203",
+            "description": "description gt0203"
+          },
+          "gt0204": {
+            "id": "gt0204",
+            "text": "term gt0204",
+            "description": "description gt0204"
+          },
+          "gt1000": {
+            "id": "gt1000",
+            "text": "dage",
+            "description": "description gt1000"
+          },
+          "gt1001": {
+            "id": "gt1001",
+            "text": "age_1",
+            "description": "description gt1001"
+          },
+          "gt1002": {
+            "id": "gt1002",
+            "text": "age_2",
+            "description": "description gt1002"
+          },
+          "gt1003": {
+            "id": "gt1003",
+            "text": "bmi",
+            "description": "description gt1003"
+          },
+          "gt1004": {
+            "id": "gt1004",
+            "text": "term gt1004",
+            "description": "description gt1004"
+          },
+          "gt1005": {
+            "id": "gt1005",
+            "text": "term gt1005",
+            "description": "description gt1005"
+          },
+          "gt1006": {
+            "id": "gt1006",
+            "text": "term gt1006",
+            "description": "description gt1006"
+          },
+          "gt1007": {
+            "id": "gt1007",
+            "text": "term gt1007",
+            "description": "description gt1007"
+          },
+          "gt1008": {
+            "id": "gt1008",
+            "text": "term gt1008",
+            "description": "description gt1008"
+          },
+          "gt2005": {
+            "id": "gt2005",
+            "text": "term gt2005",
+            "description": "description gt2005"
+          },
+          "gt2007": {
+            "id": "gt2007",
+            "text": "term gt2007",
+            "description": "description gt2007"
+          },
+          "gt2009": {
+            "id": "gt2009",
+            "text": "term gt2009",
+            "description": "description gt2009"
+          },
+          "gt2011": {
+            "id": "gt2011",
+            "text": "term gt2011",
+            "description": "description gt2011"
+          },
+          "gt2013": {
+            "id": "gt2013",
+            "text": "term gt2013",
+            "description": "description gt2013"
+          },
+          "gt2015": {
+            "id": "gt2015",
+            "text": "term gt2015",
+            "description": "description gt2015"
+          },
+          "gt2017": {
+            "id": "gt2017",
+            "text": "term gt2017",
+            "description": "description gt2017"
+          },
+          "gt2109": {
+            "id": "gt2109",
+            "text": "term gt2109",
+            "description": "description gt2109"
+          },
+          "gt3001": {
+            "id": "gt3001",
+            "text": "term gt3001",
+            "description": "description gt3001"
+          },
+          "gt3002": {
+            "id": "gt3002",
+            "text": "Cholesterol.total/Cholesterol.in HDL",
+            "description": "description gt3002"
+          },
+          "gt3003": {
+            "id": "gt3003",
+            "text": "term gt3003",
+            "description": "description gt3003"
+          },
+          "gt3004": {
+            "id": "gt3004",
+            "text": "term gt3004",
+            "description": "description gt3004"
+          },
+          "gt3005": {
+            "id": "gt3005",
+            "text": "term gt3005",
+            "description": "description gt3005"
+          },
+          "gt3006": {
+            "id": "gt3006",
+            "text": "term gt3006",
+            "description": "description gt3006"
+          },
+          "gt3007": {
+            "id": "gt3007",
+            "text": "term gt3007",
+            "description": "description gt3007"
+          },
+          "gt3008": {
+            "id": "gt3008",
+            "text": "term gt3008",
+            "description": "description gt3008"
+          },
+          "gt3009": {
+            "id": "gt3009",
+            "text": "term gt3009",
+            "description": "description gt3009"
+          },
+          "gt3010": {
+            "id": "gt3010",
+            "text": "term gt3010",
+            "description": "description gt3010"
+          },
+          "gt3012": {
+            "id": "gt3012",
+            "text": "term gt3012",
+            "description": "description gt3012"
+          },
+          "gt3013": {
+            "id": "gt3013",
+            "text": "term gt3013",
+            "description": "description gt3013"
+          },
+          "gt3014": {
+            "id": "gt3014",
+            "text": "term gt3014",
+            "description": "description gt3014"
+          },
+          "gt3015": {
+            "id": "gt3015",
+            "text": "term gt3015",
+            "description": "description gt3015"
+          },
+          "gt3090": {
+            "id": "gt3090",
+            "text": "term gt3090",
+            "description": "description gt3090"
+          },
+          "gt3091": {
+            "id": "gt3091",
+            "text": "term gt3091",
+            "description": "description gt3091"
+          },
+          "gt4000": {
+            "id": "gt4000",
+            "text": "value",
+            "description": "/valueQuantity/value"
+          },
+          "gt4001": {
+            "id": "gt4001",
+            "text": "value",
+            "description": "/effectiveDateTime"
+          },
+          "gt5000": {
+            "id": "gt5000",
+            "text": "Undersökning",
+            "description": "/category/coding/display"
+          },
+          "gt5001": {
+            "id": "gt5001",
+            "text": "10-årsrisk för hjärtkärlsjukdom enligt QRISK2-skalan",
+            "description": "/code/coding/display"
+          },
+          "gt5002": {
+            "id": "gt5002",
+            "text": "Beräknat QRISK2 poäng",
+            "description": "summary"
+          },
+          "gt5100": {
+            "id": "gt5100",
+            "text": "value",
+            "description": "/category/coding/display"
+          },
+          "gt5101": {
+            "id": "gt5101",
+            "text": "value",
+            "description": "/code/coding/display"
+          },
+          "gt8000": {
+            "id": "gt8000",
+            "text": "QRISK2-poäng:",
+            "description": ""
+          },
+          "gt8001": {
+            "id": "gt8001",
+            "text": "Beräknad QRISK2-poäng",
+            "description": ""
+          },
+          "gt8002": {
+            "id": "gt8002",
+            "text": "Beräknad QRISK2-poäng",
+            "description": ""
+          },
+          "gt8003": {
+            "id": "gt8003",
+            "text": "*(en) Generic Template",
+            "description": ""
+          },
+          "gt8005": {
+            "id": "gt8005",
+            "text": "cholesterolHdlRatioValue",
+            "description": ""
+          },
+          "gt8006": {
+            "id": "gt8006",
+            "text": "cholesterolHdlRatio",
+            "description": ""
+          },
+          "gt8007": {
+            "id": "gt8007",
+            "text": "set cholesterol ratio"
+          },
+          "gt8008": {
+            "id": "gt8008",
+            "text": "bodyMassIndex",
+            "description": ""
+          },
+          "gt8009": {
+            "id": "gt8009",
+            "text": "systolicBP",
+            "description": ""
+          },
+          "gt8010": {
+            "id": "gt8010",
+            "text": "totalCholesterol",
+            "description": ""
+          },
+          "gt8011": {
+            "id": "gt8011",
+            "text": "hdlCholesterol",
+            "description": ""
+          },
+          "gt8012": {
+            "id": "gt8012",
+            "text": "smokingStatus",
+            "description": ""
+          },
+          "gt8013": {
+            "id": "gt8013",
+            "text": "QRISK2 poäng: ",
+            "description": ""
+          }
+        }
+      },
+      "es": {
+        "id": "es",
+        "terms": {
+          "gt0001": {
+            "id": "gt0001",
+            "text": "QRISK2-2015 calculo de riesgo",
+            "description": "Proof-of-concept imlementation of QRISK2-2015 in GDL"
+          },
+          "gt0003": {
+            "id": "gt0003",
+            "text": "QRISK2 score",
+            "description": "QRISK2 score"
+          },
+          "gt0004": {
+            "id": "gt0004",
+            "text": "Smoking category 1",
+            "description": "*"
+          },
+          "gt0005": {
+            "id": "gt0005",
+            "text": "Smoking cateogry 2",
+            "description": "*"
+          },
+          "gt0006": {
+            "id": "gt0006",
+            "text": "Smoking cateogry 3",
+            "description": "*"
+          },
+          "gt0007": {
+            "id": "gt0007",
+            "text": "Smoking category 4",
+            "description": "*"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "text": "Diabetes type 1",
+            "description": "*"
+          },
+          "gt0009": {
+            "id": "gt0009",
+            "text": "Diabetes type 2",
+            "description": "*"
+          },
+          "gt0010": {
+            "id": "gt0010",
+            "text": "Angina or heart attack in a 1st degree relative < 60?",
+            "description": "*"
+          },
+          "gt0011": {
+            "id": "gt0011",
+            "text": "Chronic kidney disease (stage 4 or 5)?",
+            "description": "*"
+          },
+          "gt0012": {
+            "id": "gt0012",
+            "text": "Atrial fibrillation?",
+            "description": "*"
+          },
+          "gt0013": {
+            "id": "gt0013",
+            "text": "On blood pressure treatment?",
+            "description": "*"
+          },
+          "gt0014": {
+            "id": "gt0014",
+            "text": "Rheumatoid arthritis?",
+            "description": "*"
+          },
+          "gt0016": {
+            "id": "gt0016",
+            "text": "Systolic BP",
+            "description": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+          },
+          "gt0018": {
+            "id": "gt0018",
+            "text": "Weight",
+            "description": "The weight of the individual."
+          },
+          "gt0020": {
+            "id": "gt0020",
+            "text": "Height/Length",
+            "description": "The length of the body from crown of head to sole of foot."
+          },
+          "gt0022": {
+            "id": "gt0022",
+            "text": "Age",
+            "description": "Age in years, and for babies: months, weeks or days"
+          },
+          "gt0024": {
+            "id": "gt0024",
+            "text": "Body Mass Index",
+            "description": "Index describing ratio of weight to height."
+          },
+          "gt0025": {
+            "id": "gt0025",
+            "text": "Calculate QRISK2-2015 Female"
+          },
+          "gt0026": {
+            "id": "gt0026",
+            "text": "Gender",
+            "description": "The patient's gender."
+          },
+          "gt0028": {
+            "id": "gt0028",
+            "text": "Cholesterol ratio",
+            "description": "The ratio of HDL cholesterol to Total cholesterol."
+          },
+          "gt0030": {
+            "id": "gt0030",
+            "text": "QRISK2 score",
+            "description": "QRISK2 score"
+          },
+          "gt0050": {
+            "id": "gt0050",
+            "text": "term gt0050",
+            "description": "description gt0050"
+          },
+          "gt0100": {
+            "id": "gt0100",
+            "text": "term gt0100",
+            "description": "description gt0100"
+          },
+          "gt0101": {
+            "id": "gt0101",
+            "text": "term gt0101",
+            "description": "description gt0101"
+          },
+          "gt0102": {
+            "id": "gt0102",
+            "text": "term gt0102",
+            "description": "description gt0102"
+          },
+          "gt0103": {
+            "id": "gt0103",
+            "text": "term gt0103",
+            "description": "description gt0103"
+          },
+          "gt0104": {
+            "id": "gt0104",
+            "text": "term gt0104",
+            "description": "description gt0104"
+          },
+          "gt0105": {
+            "id": "gt0105",
+            "text": "term gt0105",
+            "description": "description gt0105"
+          },
+          "gt0106": {
+            "id": "gt0106",
+            "text": "term gt0106",
+            "description": "description gt0106"
+          },
+          "gt0107": {
+            "id": "gt0107",
+            "text": "term gt0107",
+            "description": "description gt0107"
+          },
+          "gt0108": {
+            "id": "gt0108",
+            "text": "term gt0108",
+            "description": "description gt0108"
+          },
+          "gt0109": {
+            "id": "gt0109",
+            "text": "term gt0109",
+            "description": "description gt0109"
+          },
+          "gt0110": {
+            "id": "gt0110",
+            "text": "term gt0110",
+            "description": "description gt0110"
+          },
+          "gt0111": {
+            "id": "gt0111",
+            "text": "term gt0111",
+            "description": "description gt0111"
+          },
+          "gt0112": {
+            "id": "gt0112",
+            "text": "term gt0112",
+            "description": "description gt0112"
+          },
+          "gt0113": {
+            "id": "gt0113",
+            "text": "term gt0113",
+            "description": "description gt0113"
+          },
+          "gt0114": {
+            "id": "gt0114",
+            "text": "term gt0114",
+            "description": "description gt0114"
+          },
+          "gt0115": {
+            "id": "gt0115",
+            "text": "term gt0115",
+            "description": "description gt0115"
+          },
+          "gt0116": {
+            "id": "gt0116",
+            "text": "term gt0116",
+            "description": "description gt0116"
+          },
+          "gt0117": {
+            "id": "gt0117",
+            "text": "term gt0117",
+            "description": "description gt0117"
+          },
+          "gt0123": {
+            "id": "gt0123",
+            "text": "term gt0123",
+            "description": "description gt0123"
+          },
+          "gt0128": {
+            "id": "gt0128",
+            "text": "term gt0128",
+            "description": "description gt0128"
+          },
+          "gt0129": {
+            "id": "gt0129",
+            "text": "term gt0129",
+            "description": "description gt0129"
+          },
+          "gt0160": {
+            "id": "gt0160",
+            "text": "term gt0160",
+            "description": "description gt0160"
+          },
+          "gt0201": {
+            "id": "gt0201",
+            "text": "term gt0201",
+            "description": "description gt0201"
+          },
+          "gt0202": {
+            "id": "gt0202",
+            "text": "term gt0202",
+            "description": "description gt0202"
+          },
+          "gt0203": {
+            "id": "gt0203",
+            "text": "term gt0203",
+            "description": "description gt0203"
+          },
+          "gt0204": {
+            "id": "gt0204",
+            "text": "term gt0204",
+            "description": "description gt0204"
+          },
+          "gt1000": {
+            "id": "gt1000",
+            "text": "dage",
+            "description": "description gt1000"
+          },
+          "gt1001": {
+            "id": "gt1001",
+            "text": "age_1",
+            "description": "description gt1001"
+          },
+          "gt1002": {
+            "id": "gt1002",
+            "text": "age_2",
+            "description": "description gt1002"
+          },
+          "gt1003": {
+            "id": "gt1003",
+            "text": "bmi",
+            "description": "description gt1003"
+          },
+          "gt1004": {
+            "id": "gt1004",
+            "text": "term gt1004",
+            "description": "description gt1004"
+          },
+          "gt1005": {
+            "id": "gt1005",
+            "text": "term gt1005",
+            "description": "description gt1005"
+          },
+          "gt1006": {
+            "id": "gt1006",
+            "text": "term gt1006",
+            "description": "description gt1006"
+          },
+          "gt1007": {
+            "id": "gt1007",
+            "text": "term gt1007",
+            "description": "description gt1007"
+          },
+          "gt1008": {
+            "id": "gt1008",
+            "text": "term gt1008",
+            "description": "description gt1008"
+          },
+          "gt2005": {
+            "id": "gt2005",
+            "text": "term gt2005",
+            "description": "description gt2005"
+          },
+          "gt2007": {
+            "id": "gt2007",
+            "text": "term gt2007",
+            "description": "description gt2007"
+          },
+          "gt2009": {
+            "id": "gt2009",
+            "text": "term gt2009",
+            "description": "description gt2009"
+          },
+          "gt2011": {
+            "id": "gt2011",
+            "text": "term gt2011",
+            "description": "description gt2011"
+          },
+          "gt2013": {
+            "id": "gt2013",
+            "text": "term gt2013",
+            "description": "description gt2013"
+          },
+          "gt2015": {
+            "id": "gt2015",
+            "text": "term gt2015",
+            "description": "description gt2015"
+          },
+          "gt2017": {
+            "id": "gt2017",
+            "text": "term gt2017",
+            "description": "description gt2017"
+          },
+          "gt2109": {
+            "id": "gt2109",
+            "text": "term gt2109",
+            "description": "description gt2109"
+          },
+          "gt3001": {
+            "id": "gt3001",
+            "text": "term gt3001",
+            "description": "description gt3001"
+          },
+          "gt3002": {
+            "id": "gt3002",
+            "text": "Cholesterol.total/Cholesterol.in HDL",
+            "description": "description gt3002"
+          },
+          "gt3003": {
+            "id": "gt3003",
+            "text": "term gt3003",
+            "description": "description gt3003"
+          },
+          "gt3004": {
+            "id": "gt3004",
+            "text": "term gt3004",
+            "description": "description gt3004"
+          },
+          "gt3005": {
+            "id": "gt3005",
+            "text": "term gt3005",
+            "description": "description gt3005"
+          },
+          "gt3006": {
+            "id": "gt3006",
+            "text": "term gt3006",
+            "description": "description gt3006"
+          },
+          "gt3007": {
+            "id": "gt3007",
+            "text": "term gt3007",
+            "description": "description gt3007"
+          },
+          "gt3008": {
+            "id": "gt3008",
+            "text": "term gt3008",
+            "description": "description gt3008"
+          },
+          "gt3009": {
+            "id": "gt3009",
+            "text": "term gt3009",
+            "description": "description gt3009"
+          },
+          "gt3010": {
+            "id": "gt3010",
+            "text": "term gt3010",
+            "description": "description gt3010"
+          },
+          "gt3012": {
+            "id": "gt3012",
+            "text": "term gt3012",
+            "description": "description gt3012"
+          },
+          "gt3013": {
+            "id": "gt3013",
+            "text": "term gt3013",
+            "description": "description gt3013"
+          },
+          "gt3014": {
+            "id": "gt3014",
+            "text": "term gt3014",
+            "description": "description gt3014"
+          },
+          "gt3015": {
+            "id": "gt3015",
+            "text": "term gt3015",
+            "description": "description gt3015"
+          },
+          "gt3090": {
+            "id": "gt3090",
+            "text": "term gt3090",
+            "description": "description gt3090"
+          },
+          "gt3091": {
+            "id": "gt3091",
+            "text": "term gt3091",
+            "description": "description gt3091"
+          },
+          "gt4000": {
+            "id": "gt4000",
+            "text": "value",
+            "description": "/valueQuantity/value"
+          },
+          "gt4001": {
+            "id": "gt4001",
+            "text": "value",
+            "description": "/effectiveDateTime"
+          },
+          "gt5000": {
+            "id": "gt5000",
+            "text": "Estudio",
+            "description": "/category/coding/display"
+          },
+          "gt5001": {
+            "id": "gt5001",
+            "text": "Puntaje de la evaluación con la escala de riesgo de enfermedad cardiovascular a 10 años QRISK2",
+            "description": "/code/coding/display"
+          },
+          "gt5002": {
+            "id": "gt5002",
+            "text": "Puntaje QRISK2 calculado",
+            "description": "summary"
+          },
+          "gt5100": {
+            "id": "gt5100",
+            "text": "value",
+            "description": "/category/coding/display"
+          },
+          "gt5101": {
+            "id": "gt5101",
+            "text": "value",
+            "description": "/code/coding/display"
+          },
+          "gt8000": {
+            "id": "gt8000",
+            "text": "Puntaje QRISK2:",
+            "description": ""
+          },
+          "gt8001": {
+            "id": "gt8001",
+            "text": "Puntaje QRISK2 calculado",
+            "description": ""
+          },
+          "gt8002": {
+            "id": "gt8002",
+            "text": "Puntaje QRISK2 calculado",
+            "description": ""
+          },
+          "gt8003": {
+            "id": "gt8003",
+            "text": "*(en) Generic Template",
+            "description": ""
+          },
+          "gt8005": {
+            "id": "gt8005",
+            "text": "cholesterolHdlRatioValue",
+            "description": ""
+          },
+          "gt8006": {
+            "id": "gt8006",
+            "text": "cholesterolHdlRatio",
+            "description": ""
+          },
+          "gt8007": {
+            "id": "gt8007",
+            "text": "set cholesterol ratio"
+          },
+          "gt8008": {
+            "id": "gt8008",
+            "text": "bodyMassIndex",
+            "description": ""
+          },
+          "gt8009": {
+            "id": "gt8009",
+            "text": "systolicBP",
+            "description": ""
+          },
+          "gt8010": {
+            "id": "gt8010",
+            "text": "totalCholesterol",
+            "description": ""
+          },
+          "gt8011": {
+            "id": "gt8011",
+            "text": "hdlCholesterol",
+            "description": ""
+          },
+          "gt8012": {
+            "id": "gt8012",
+            "text": "smokingStatus",
+            "description": ""
+          },
+          "gt8013": {
+            "id": "gt8013",
+            "text": "Puntuación QRISK2: ",
+            "description": ""
+          }
+        }
+      }
+    },
+    "term_bindings": {
+      "DBP": {
+        "id": "DBP",
+        "bindings": {
+          "gt0160": {
+            "codes": [
+              "DBP::7"
+            ]
+          },
+          "gt3010": {
+            "codes": [
+              "DBP::12"
+            ]
+          },
+          "gt3012": {
+            "codes": [
+              "DBP::15698",
+              "DBP::171397"
+            ]
+          },
+          "gt3013": {
+            "codes": [
+              "DBP::16025"
+            ]
+          },
+          "gt3015": {
+            "codes": [
+              "DBP::15696"
+            ]
+          },
+          "gt3090": {
+            "codes": [
+              "DBP::49"
+            ]
+          },
+          "gt3091": {
+            "codes": [
+              "DBP::82"
+            ]
+          }
+        }
+      },
+      "NPU": {
+        "id": "NPU",
+        "bindings": {
+          "gt3090": {
+            "codes": [
+              "NPU::NPU01566"
+            ]
+          },
+          "gt3091": {
+            "codes": [
+              "NPU::NPU01567"
+            ]
+          }
+        }
+      },
+      "READ2": {
+        "id": "READ2",
+        "bindings": {
+          "gt0160": {
+            "codes": [
+              "READ2::22K"
+            ]
+          },
+          "gt3001": {
+            "codes": [
+              "READ2::246"
+            ]
+          },
+          "gt3002": {
+            "codes": [
+              "READ2::44lF",
+              "READ2::44lG",
+              "READ2::44PF"
+            ]
+          },
+          "gt3003": {
+            "codes": [
+              "READ2::G5730"
+            ]
+          },
+          "gt3005": {
+            "codes": [
+              "READ2::C10E"
+            ]
+          },
+          "gt3006": {
+            "codes": [
+              "READ2::C10F"
+            ]
+          },
+          "gt3007": {
+            "codes": [
+              "READ2::G30",
+              "READ2::12C5"
+            ]
+          },
+          "gt3008": {
+            "codes": [
+              "READ2::1Z13",
+              "READ2::1Z14"
+            ]
+          },
+          "gt3009": {
+            "codes": [
+              "READ2::N040"
+            ]
+          },
+          "gt3010": {
+            "codes": [
+              "READ2::137"
+            ]
+          },
+          "gt3012": {
+            "codes": [
+              "READ2::1377"
+            ]
+          },
+          "gt3013": {
+            "codes": [
+              "READ2::137G"
+            ]
+          },
+          "gt3014": {
+            "codes": [
+              "READ2::1372",
+              "READ2::1373"
+            ]
+          },
+          "gt3015": {
+            "codes": [
+              "READ2::1374",
+              "READ2::1375",
+              "READ2::1376"
+            ]
+          },
+          "gt3090": {
+            "codes": [
+              "READ2::44P"
+            ]
+          },
+          "gt3091": {
+            "codes": [
+              "READ2::44P5"
+            ]
+          }
+        }
+      },
+      "LOINC": {
+        "id": "LOINC",
+        "bindings": {
+          "gt3001": {
+            "codes": [
+              "LOINC::85354-9"
+            ]
+          },
+          "gt3002": {
+            "codes": [
+              "LOINC::9830-1"
+            ]
+          },
+          "gt3090": {
+            "codes": [
+              "LOINC::2093-3"
+            ]
+          },
+          "gt3091": {
+            "codes": [
+              "LOINC::2085-9"
+            ]
+          },
+          "gt3010": {
+            "codes": [
+              "LOINC::72166-2"
+            ]
+          },
+          "gt0160": {
+            "codes": [
+              "LOINC::39156-5"
+            ]
+          }
+        }
+      },
+      "ICD-10": {
+        "id": "ICD-10",
+        "bindings": {
+          "gt3003": {
+            "codes": [
+              "ICD-10::I48"
+            ]
+          },
+          "gt3005": {
+            "codes": [
+              "ICD-10::E10"
+            ]
+          },
+          "gt3006": {
+            "codes": [
+              "ICD-10::E11"
+            ]
+          },
+          "gt3007": {
+            "codes": [
+              "ICD-10::Z82.49",
+              "ICD-10::I21"
+            ]
+          },
+          "gt3008": {
+            "codes": [
+              "ICD-10::N18.4",
+              "ICD-10::N18.5"
+            ]
+          },
+          "gt3009": {
+            "codes": [
+              "ICD-10::M06"
+            ]
+          }
+        }
+      },
+      "ICD-10-UK": {
+        "id": "ICD-10-UK",
+        "bindings": {
+          "gt3003": {
+            "codes": [
+              "ICD-10-UK::I48"
+            ]
+          },
+          "gt3005": {
+            "codes": [
+              "ICD-10-UK::E10"
+            ]
+          },
+          "gt3006": {
+            "codes": [
+              "ICD-10-UK::E11"
+            ]
+          },
+          "gt3007": {
+            "codes": [
+              "ICD-10-UK::Z82.49",
+              "ICD-10-UK::I21"
+            ]
+          },
+          "gt3008": {
+            "codes": [
+              "ICD-10-UK::N18.4",
+              "ICD-10-UK::N18.5"
+            ]
+          },
+          "gt3009": {
+            "codes": [
+              "ICD-10-UK::M06"
+            ]
+          }
+        }
+      },
+      "ICD-10-SE": {
+        "id": "ICD-10-SE",
+        "bindings": {
+          "gt3003": {
+            "codes": [
+              "ICD-10-SE::I48"
+            ]
+          },
+          "gt3005": {
+            "codes": [
+              "ICD-10-SE::E10"
+            ]
+          },
+          "gt3006": {
+            "codes": [
+              "ICD-10-SE::E11"
+            ]
+          },
+          "gt3007": {
+            "codes": [
+              "ICD-10-SE::Z8249",
+              "ICD-10-SE::I21"
+            ]
+          },
+          "gt3008": {
+            "codes": [
+              "ICD-10-SE::N184",
+              "ICD-10-SE::N185"
+            ]
+          },
+          "gt3009": {
+            "codes": [
+              "ICD-10-SE::M06"
+            ]
+          }
+        }
+      },
+      "CIE-10-CM-ES": {
+        "id": "CIE-10-CM-ES",
+        "bindings": {
+          "gt3003": {
+            "codes": [
+              "CIE-10-CM-ES::I48"
+            ]
+          },
+          "gt3005": {
+            "codes": [
+              "CIE-10-CM-ES::E10"
+            ]
+          },
+          "gt3006": {
+            "codes": [
+              "CIE-10-CM-ES::E11"
+            ]
+          },
+          "gt3007": {
+            "codes": [
+              "CIE-10-CM-ES::Z82.49",
+              "CIE-10-CM-ES::I21"
+            ]
+          },
+          "gt3008": {
+            "codes": [
+              "CIE-10-CM-ES::N18.4",
+              "CIE-10-CM-ES::N18.5"
+            ]
+          },
+          "gt3009": {
+            "codes": [
+              "CIE-10-CM-ES::M06"
+            ]
+          }
+        }
+      },
+      "ATC": {
+        "id": "ATC",
+        "bindings": {
+          "gt3004": {
+            "codes": [
+              "ATC::C02",
+              "ATC::C03",
+              "ATC::C07",
+              "ATC::C08",
+              "ATC::C09"
+            ]
+          }
+        }
+      },
+      "SNOMED-CT": {
+        "id": "SNOMED-CT",
+        "bindings": {
+          "gt3003": {
+            "codes": [
+              "SNOMED-CT::49436004"
+            ]
+          },
+          "gt3005": {
+            "codes": [
+              "SNOMED-CT::46635009"
+            ]
+          },
+          "gt3006": {
+            "codes": [
+              "SNOMED-CT::44054006"
+            ]
+          },
+          "gt3007": {
+            "codes": [
+              "SNOMED-CT::275122004",
+              "SNOMED-CT::22298006"
+            ]
+          },
+          "gt3008": {
+            "codes": [
+              "SNOMED-CT::431857002",
+              "SNOMED-CT::433146000"
+            ]
+          },
+          "gt3009": {
+            "codes": [
+              "SNOMED-CT::69896004"
+            ]
+          },
+          "gt3012": {
+            "codes": [
+              "SNOMED-CT::8517006",
+              "SNOMED-CT::702975009"
+            ]
+          },
+          "gt3013": {
+            "codes": [
+              "SNOMED-CT::428041000124106"
+            ]
+          },
+          "gt3014": {
+            "codes": [
+              "SNOMED-CT::56578002"
+            ]
+          },
+          "gt3015": {
+            "codes": [
+              "SNOMED-CT::56771006"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

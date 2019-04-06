@@ -2,23 +2,17 @@
 
 == Background
 
-Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites.
+Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites. The openEHR information architecture, coupled with external terminology provides a well-defined, open platform on which to base a computable guideline facility.
 
 == Scope
 
-The scope of the GDL is to express clinical logic as production rules. Discrete GDL rules, each containing if-then statements, can be combined together as building blocks to support single decision making and more complex decision making processes. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.
+The scope of GDL is to express clinical logic as production rules. Discrete GDL rules, each containing 'when-then' statements, can be combined together as building blocks to support single decision making and more complex, chained decision making processes. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.
 
 == An Example
 
 The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation.
 
-GDL Guidelines are expressed in the {openehr_odin}[openEHR ODIN^] format (similar to JSON with typing), such that a GDL source is a serialised instance of the, GDL2 Object Model, described below in <<_gdl2_object_model>>.
-
-The meta-data in the GDL header is based on the {openehr_resource}[openEHR Resource model^]. The following GDL source illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.
-
-NOTE: The term 'guideline' is used as a short name for a GDL guideline document in the remainder of this document.
-
-The other top-level sections are respectively `definition` and `terminology`.
+NOTE: GDL Guidelines are expressed in either the {openehr_odin}[openEHR ODIN^] or JSON formats, such that a GDL source is a serialised instance of the, GDL2 Object Model, described below in <<_gdl2_object_model>>. The example here uses ODIN.
 
 [source, odin]
 ----
@@ -77,6 +71,8 @@ The other top-level sections are respectively `definition` and `terminology`.
 >
 ----
 
+The meta-data in the GDL header is based on the {openehr_resource}[openEHR Resource model^]. The following GDL source illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline. The other top-level sections are respectively `definition` and `terminology`.
+
 The following block illustrates the `data_bindings` sub-section within the `definition` section, which binds data elements from a source data-set, defined in terms of an archetype, optionally within a specific template, to variables used by GDL rules. Variables are identified using 'gt-codes', e.g. 'gt0123'.
 
 [source, odin]
@@ -96,7 +92,7 @@ definition = <
 >
 ----
 
-Within the `definition` section, it is possible to define a set of logical pre-conditions that have to be met before the rules inside the guideline can be executed. In GDL2, the pre-conditions are formed from the `pre_conditions` sub-section, and `predicates` defined in each of the subordinate `data_bindings`, as in the CHA2DS2-VASc score calculation shown below:
+Within the `definition` section, it is possible to define a set of logical pre-conditions that have to be met before the rules inside the guideline can be executed. In GDL2, the pre-conditions are formed from the `pre_conditions` sub-section (guideline-wide), and `predicates` defined in each of the subordinate `data_bindings` items, as in the CHA2DS2-VASc score calculation shown below:
 
 [source, odin]
 ----
@@ -130,7 +126,7 @@ $gt0107|index diagnosis| != null
 
 Accordingly, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation.
 
-The `rules` section makes exclusive use of the locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt-code, with which its natural language-dependent name and description are indexed in the `term_definitions` section. A priority can be assigned to ensure execution order of the rules. Higher priorities are executed earlier. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the `DV_ORDINALs` inside a CHA2DS2-VASc score archetype. The rule `gt0026` ("Calculate total score") sums the values and sets the total score in CHA2DS2-VASc score archetype.
+The `rules` section makes use of locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt-code, with which its natural language-dependent name and description are indexed in the `term_definitions` section. A priority can be assigned to ensure execution order of the rules. Higher priorities are executed earlier. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the `DV_ORDINALs` inside a CHA2DS2-VASc score archetype. The rule `gt0026` ("Calculate total score") sums the values and sets the total score in CHA2DS2-VASc score archetype.
 
 [source, odin]
 ----
@@ -194,7 +190,7 @@ In addition, locally defined terms may be bound to concepts or refsets defined b
 terminology = <
     term_bindings = <
         ["ICD10"] = <
-            ["gt0105"] = <http://who.int/icd10/id/I48>
+            ["gt0105"] = <"ICD10::I48">
         >
     >
 >

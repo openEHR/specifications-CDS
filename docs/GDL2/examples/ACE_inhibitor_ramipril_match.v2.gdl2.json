@@ -1,0 +1,189 @@
+{
+  "id": "ACE_inhibitor_ramipril_match.v1",
+  "gdl_version": "2.0",
+  "concept": "gt0001",
+  "language": {
+    "original_language": "ISO_639-1::en"
+  },
+  "description": {
+    "original_author": {
+      "date": "2018-05-17",
+      "name": "Cambio"
+    },
+    "lifecycle_state": "Initial",
+    "details": {
+      "en": {
+        "id": "en",
+        "keywords": [
+          "Medicines review",
+          "Heart failure"
+        ]
+      }
+    },
+    "other_details": {
+      "references": "1. Scottish Government Polypharmacy Model of Care Polypharmacy Working Group. Polypharmacy Guidance (fourth edition). April 2018. Scottish Government."
+    }
+  },
+  "definition": {
+    "data_bindings": {
+      "gt0002": {
+        "id": "gt0002",
+        "model_id": "org.hl7.fhir.dstu3.model.MedicationStatement",
+        "template_id": "FHIR-STU3-MedicationStatement.generic.v0",
+        "type": "INPUT",
+        "elements": {
+          "gt0003": {
+            "id": "gt0003",
+            "path": "/medicationCodeableConcept/coding[0]"
+          },
+          "gt0004": {
+            "id": "gt0004",
+            "path": "/effectiveDateTime"
+          },
+          "gt0030": {
+            "id": "gt0030",
+            "path": "/dosage[0]/doseQuantity"
+          }
+        },
+        "predicates": [
+          "/medicationCodeableConcept/coding[0] is_a local::gt0008|Ramipril|"
+        ]
+      }
+    },
+    "templates": {
+      "gt2022": {
+        "id": "gt2022",
+        "name": "Generic Template",
+        "model_id": "generic_model",
+        "template_id": "generic_model",
+        "object": {
+          "medicine": "{$gt2000}",
+          "dose": {
+            "unit": "{$gt2002}",
+            "magnitude": "{$gt2001}",
+            "precision": 0.0
+          },
+          "startDate": "{$gt2004}",
+          "duration": {
+            "unit": "wk",
+            "magnitude": "{$gt2003}",
+            "precision": 0.0
+          },
+          "numberNeededToTreatInformation": [
+            {
+              "medicine": "ACE inhibitor (ramipril 10 mg/day)",
+              "comparator": "Placebo",
+              "studyPopulation": "Patients at high-risk of cardiovascular disease without LVSD or heart failure. High-risk of cardiovascular disease defined as: history of coronary heart disease, stroke, peripheral vascular disease or diabetes plus one other cardiovascular risk factor (see comments)",
+              "outcome": "Prevent one death (any cause)",
+              "durationOfTrial": "60 months",
+              "numberNeededToTreat": "54",
+              "annualisedNumberNeededToTreat": "270",
+              "numberNeededToTreatVisual": "https://nsspolypharmacy.azurewebsites.net/polypharmacy-guidance-medicines-review/shared-decision-making/ramipril/SMART/#accordionNumber-2",
+              "comments": "Mean age of enrolled patients was 66 years. >50% of patients had a history of MI. Cardiovascular risk factors: hypertension, elevated total cholesterol, low HDL, smoker, microalbuminuria. Ramipril reduced the risk of myocardial infarction, stroke, coronary revascularisation and heart failure. There are no data to support ARBs for this indication."
+            }
+          ],
+          "sharedDecisionAid": "https://nsspolypharmacy.azurewebsites.net/polypharmacy-guidance-medicines-review/shared-decision-making/ramipril?viewasapp=1"
+        }
+      }
+    },
+    "rules": {
+      "gt0022": {
+        "id": "gt0022",
+        "priority": 1,
+        "when": [
+          "$gt0003|ramiprilMedication|!=null",
+          "$gt0030|ramiprilDosage|==10,mg"
+        ],
+        "then": [
+          "$gt2000=$gt0003.value",
+          "$gt2001=$gt0030.magnitude",
+          "$gt2002=$gt0030.unit",
+          "$gt2003=floor(($currentDateTime-$gt0004)/7,d)",
+          "$gt2004=$gt0004.string",
+          "use_template($gt2022)"
+        ]
+      }
+    }
+  },
+  "ontology": {
+    "term_definitions": {
+      "en": {
+        "id": "en",
+        "terms": {
+          "gt0001": {
+            "id": "gt0001",
+            "text": "Match medicines",
+            "description": "FR10, perform matching of patient medications\nThe CDS Application shall compare any medications retrieved from the patient�s medical record against the list of medications available in the Drug Efficacy Table of the Polypharmacy Guide. The comparison shall detect any matching combination of medication name, dosage, ideal body weight, fasting blood glucose, diagnosis and age, between the patient�s medical record and the data from the Drug Efficacy Table."
+          },
+          "gt0003": {
+            "id": "gt0003",
+            "text": "ramiprilMedication",
+            "description": "description gt0003"
+          },
+          "gt0004": {
+            "id": "gt0004",
+            "text": "ramiprilPrescriptionDate",
+            "description": "description gt0004"
+          },
+          "gt0008": {
+            "id": "gt0008",
+            "text": "Ramipril",
+            "description": "description gt0008"
+          },
+          "gt0022": {
+            "id": "gt0022",
+            "text": "rule: ramiprilCheck",
+            "description": "description gt0022"
+          },
+          "gt0030": {
+            "id": "gt0030",
+            "text": "ramiprilDosage",
+            "description": "description gt0030"
+          },
+          "gt2000": {
+            "id": "gt2000",
+            "text": "medicine",
+            "description": "description gt2000"
+          },
+          "gt2001": {
+            "id": "gt2001",
+            "text": "doseMagnitude",
+            "description": "description gt2001"
+          },
+          "gt2002": {
+            "id": "gt2002",
+            "text": "doseUnit",
+            "description": "description gt2002"
+          },
+          "gt2003": {
+            "id": "gt2003",
+            "text": "durationMagnitude",
+            "description": "description gt2003"
+          },
+          "gt2004": {
+            "id": "gt2004",
+            "text": "startDate",
+            "description": "description gt2004"
+          },
+          "gt2022": {
+            "id": "gt2022",
+            "text": "ramiprilEfficacyChart",
+            "description": "description gt2022"
+          }
+        }
+      }
+    },
+    "term_bindings": {
+      "READ": {
+        "id": "READ",
+        "bindings": {
+          "gt0008": {
+            "codes": [
+              "READ::bi6E"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
