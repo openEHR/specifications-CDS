@@ -30,4 +30,8 @@ To see changes made due to previously reported issues, see the {component_histor
 
 == A Note on Nomenclature
 
-This specification uses the terms 'GDL2' and 'GDL' to refer to version 2 of GDL, i.e. the formalism described in this specification. 
+This specification uses the terms 'GDL2' and 'GDL' to refer to version 2 of GDL, i.e. the formalism described in this specification.
+
+== Resources
+
+The {gdl_lang_site}[GDL-lang site^] is a useful location for GDL-related research material. The {gdl_models_github}[GDL Github repository^] contains published GDLguidelines. The {gdl_wiki}[GDL wiki^] provides further material.

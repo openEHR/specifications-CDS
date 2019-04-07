@@ -55,8 +55,6 @@
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_ordinal_constant_class[ORDINAL_CONSTANT^]
 [.xcode]
-* link:/releases/CDS/{base_release}/expression.html#_procedure_call_class[PROCEDURE_CALL^]
-[.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_quantity_constant_class[QUANTITY_CONSTANT^]
 [.xcode]
 * link:/releases/CDS/{base_release}/expression.html#_statement_class[STATEMENT^]

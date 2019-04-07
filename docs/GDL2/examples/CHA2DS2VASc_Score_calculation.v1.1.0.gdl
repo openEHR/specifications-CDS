@@ -41,7 +41,7 @@
 		data_bindings = <
 			["gt0122"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
-				domain = <"CDS">
+				type = <"OUTPUT">
 				elements = <
 					["gt0115"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0036]">
@@ -65,7 +65,7 @@
 			>
 			["gt0123"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-OBSERVATION.basic_demographic.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0006"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
@@ -78,7 +78,7 @@
 			>
 			["gt0124"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-OBSERVATION.chadsvas_score.v1">
-				domain = <"CDS">
+				type = <"OUTPUT">
 				elements = <
 					["gt0009"] = (ELEMENT_BINDING) <
 						path = <"/data[at0002]/events[at0003]/data[at0001]/items[at0046]">

@@ -62,7 +62,6 @@ include::{uml_export_dir}/classes/variable.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/assertion.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/procedure_call.adoc[leveloffset=+1]
 
 == Terminology Package
 

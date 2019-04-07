@@ -72,7 +72,7 @@ Rules consist of the pattern `when Assertion(s) then Statement(s)`. The logic of
 The following example is from the `Coeliac_disease_alert.v2` guideline, and shows a rule whose `when` condition is a multi-way `or` expression of various conditions, and whose `then` statements consist of:
 
 * assignment to a variable from an output template that corresponds to a CDS hooks 'card' data item;
-* call to a procedure `use_template` that tells the execution engine which reporting template to use.
+* an internal `use_template` call that tells the execution engine which reporting template to use.
 
 This kind of rule essentially reports on a Boolean condition that was found to be present in the input data.
 
@@ -168,9 +168,9 @@ Local variables identified by gt-codes may be defined by including their gt-code
 
 == Reporting
 
-The actions performed when a GDL2 rule is fired consist of statements, which may be assignments, procedure calls, or assertions. Assignments result in a value being set in a location of an output data set. In order to perform more processing with the result, procedures known to the execution engine may be called which will cause the computed results to be passed outside the GDL2 execution environment.
+The actions performed when a GDL2 rule is fired consist of assignments, which result in a value being set in a location of an output data set.
 
-The following example shows a rule whose `then` action list includes the statement `use_template($gt2022)`. The code `gt2022` refers to a reporting 'template', which appears below the rule that mentions it. Within this template, the `object` field contains a structure whose model is defined by the preceding `model_id` and `template_id` attributes. Within the object structure, any output variables from the Guideline may be mentioned using the syntax `{}`, which means that at execution time, if the rule is fired, the template will be evaluated such that all `{}` mentions are substituted with their variable values, before final processing of the template (which might for example send it to a specific receiver service or application).
+The following example shows a rule whose `then` action list includes the internal call `use_template($gt2022)`. The code `gt2022` refers to a reporting 'template', which appears below the rule that mentions it. Within this template, the `object` field contains a structure whose model is defined by the preceding `model_id` and `template_id` attributes. Within the object structure, any output variables from the Guideline may be mentioned using the syntax `{}`, which means that at execution time, if the rule is fired, the template will be evaluated such that all `{}` mentions are substituted with their variable values, before final processing of the template (which might for example send it to a specific receiver service or application).
 
 [source,json]
 ----

@@ -37,7 +37,7 @@
 		data_bindings = <
 			["gt0157"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0137"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0035]">
@@ -65,7 +65,7 @@
 			>
 			["gt0158"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1">
-				domain = <"CDS">
+				type = <"OUTPUT">
 				elements = <
 					["gt0114"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0035]">
@@ -92,7 +92,7 @@
 			>
 			["gt0159"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0122"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0002.1]">
@@ -106,7 +106,7 @@
 			>
 			["gt0160"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0108"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0002.1]">
@@ -120,7 +120,7 @@
 			>
 			["gt0161"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0109"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0002.1]">
@@ -134,7 +134,7 @@
 			>
 			["gt0162"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0110"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0002.1]">
@@ -148,7 +148,7 @@
 			>
 			["gt0163"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0111"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0002.1]">
@@ -162,7 +162,7 @@
 			>
 			["gt0164"] = (ARCHETYPE_BINDING) <
 				model_id = <"openEHR-EHR-EVALUATION.problem-diagnosis.v1">
-				domain = <"EHR">
+				type = <"INPUT">
 				elements = <
 					["gt0112"] = (ELEMENT_BINDING) <
 						path = <"/data[at0001]/items[at0002.1]">

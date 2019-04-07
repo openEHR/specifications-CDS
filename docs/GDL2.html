@@ -34,6 +34,7 @@
 <li><a href="#_status">1.3. Status</a></li>
 <li><a href="#_feedback">1.4. Feedback</a></li>
 <li><a href="#_a_note_on_nomenclature">1.5. A Note on Nomenclature</a></li>
+<li><a href="#_resources">1.6. Resources</a></li>
 </ul>
 </li>
 <li><a href="#_overview">2. Overview</a>
@@ -112,7 +113,6 @@
 <li><a href="#_statement_class">5.3.2.17. STATEMENT Class</a></li>
 <li><a href="#_assignment_class">5.3.2.18. ASSIGNMENT Class</a></li>
 <li><a href="#_assertion_class">5.3.2.19. ASSERTION Class</a></li>
-<li><a href="#_procedure_call_class">5.3.2.20. PROCEDURE_CALL Class</a></li>
 </ul>
 </li>
 </ul>
@@ -355,6 +355,12 @@
 <p>This specification uses the terms 'GDL2' and 'GDL' to refer to version 2 of GDL, i.e. the formalism described in this specification.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_resources"><a class="anchor" href="#_resources"></a>1.6. Resources</h3>
+<div class="paragraph">
+<p>The <a href="https://gdl-lang.org/" target="_blank" rel="noopener">GDL-lang site</a> is a useful location for GDL-related research material. The <a href="https://github.com/gdl-lang/common-clinical-models/tree/master/gdl2" target="_blank" rel="noopener">GDL Github repository</a> contains published GDLguidelines. The <a href="https://github.com/gdl-lang/common-clinical-models/wiki" target="_blank" rel="noopener">GDL wiki</a> provides further material.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -483,7 +489,7 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
     <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
@@ -504,7 +510,7 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
     <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">domain</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
+            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
             <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                 <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
                     <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
@@ -670,7 +676,7 @@ $gt0107|index diagnosis| != null
 <p>Each rule shall be uniquely identified for a given name space;</p>
 </li>
 <li>
-<p>Each rule shall have explicit version information as part of the guideline definition;</p>
+<p>Each rule shall have explicit version information as part of the guideline identifier;</p>
 </li>
 <li>
 <p>There shall be sufficient meta-data about the guideline with regards to authorship, purpose of the rules, version information and relevant clinical references.</p>
@@ -705,7 +711,7 @@ $gt0107|index diagnosis| != null
 <p>It shall be possible to alter the details of the output objects based on the rule executions;</p>
 </li>
 <li>
-<p>It shall support standard or no-standard base output format.</p>
+<p>It shall support standard or non-standard based output format.</p>
 </li>
 </ul>
 </div>
@@ -822,7 +828,7 @@ $gt0107|index diagnosis| != null
 <p>assignment to a variable from an output template that corresponds to a CDS hooks 'card' data item;</p>
 </li>
 <li>
-<p>call to a procedure <code>use_template</code> that tells the execution engine which reporting template to use.</p>
+<p>an internal <code>use_template</code> call that tells the execution engine which reporting template to use.</p>
 </li>
 </ul>
 </div>
@@ -930,10 +936,10 @@ $gt0107|index diagnosis| != null
 <div class="sect2">
 <h3 id="_reporting"><a class="anchor" href="#_reporting"></a>4.4. Reporting</h3>
 <div class="paragraph">
-<p>The actions performed when a GDL2 rule is fired consist of statements, which may be assignments, procedure calls, or assertions. Assignments result in a value being set in a location of an output data set. In order to perform more processing with the result, procedures known to the execution engine may be called which will cause the computed results to be passed outside the GDL2 execution environment.</p>
+<p>The actions performed when a GDL2 rule is fired consist of assignments, which result in a value being set in a location of an output data set.</p>
 </div>
 <div class="paragraph">
-<p>The following example shows a rule whose <code>then</code> action list includes the statement <code>use_template($gt2022)</code>. The code <code>gt2022</code> refers to a reporting 'template', which appears below the rule that mentions it. Within this template, the <code>object</code> field contains a structure whose model is defined by the preceding <code>model_id</code> and <code>template_id</code> attributes. Within the object structure, any output variables from the Guideline may be mentioned using the syntax <code>{}</code>, which means that at execution time, if the rule is fired, the template will be evaluated such that all <code>{}</code> mentions are substituted with their variable values, before final processing of the template (which might for example send it to a specific receiver service or application).</p>
+<p>The following example shows a rule whose <code>then</code> action list includes the internal call <code>use_template($gt2022)</code>. The code <code>gt2022</code> refers to a reporting 'template', which appears below the rule that mentions it. Within this template, the <code>object</code> field contains a structure whose model is defined by the preceding <code>model_id</code> and <code>template_id</code> attributes. Within the object structure, any output variables from the Guideline may be mentioned using the syntax <code>{}</code>, which means that at execution time, if the rule is fired, the template will be evaluated such that all <code>{}</code> mentions are substituted with their variable values, before final processing of the template (which might for example send it to a specific receiver service or application).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1222,9 +1228,9 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>then</strong>: <code>List&lt;STATEMENT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>then</strong>: <code>List&lt;ASSIGNMENT&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of actions if the rule is fired. Each action is in the form of a statement, usually an assignment to an 'output' type variable or a procedure call.</p>
+<p>List of actions if the rule is fired. Each action is in the form of an assignment to an 'output' type variable.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2380,51 +2386,6 @@ $gt0107|index diagnosis| != null
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
 <p><strong><em>Inv_expression_type</em></strong>: <code>expression.type().is_case_insensitive_equal('Boolean')</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_procedure_call_class"><a class="anchor" href="#_procedure_call_class"></a>5.3.2.20. PROCEDURE_CALL Class</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PROCEDURE_CALL</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Statement type representing a procedure call.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>STATEMENT</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Name of the procedure.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>arguments</strong>: <code>List&lt;String&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List of arguments as String values.</p>
 </div></div></td>
 </tr>
 </tbody>

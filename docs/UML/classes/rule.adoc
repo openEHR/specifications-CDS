@@ -25,8 +25,8 @@ h|*0..1*
 a|List of assertions that when evaluated to `True` cause the rule to be fired. The `_when_` assertions may only mention 'input' type variables.
 
 h|*0..1*
-|*then*: `List<STATEMENT>`
-a|List of actions if the rule is fired. Each action is in the form of a statement, usually an assignment to an 'output' type variable or a procedure call.
+|*then*: `List<ASSIGNMENT>`
+a|List of actions if the rule is fired. Each action is in the form of an assignment to an 'output' type variable.
 
 h|*1..1*
 |*priority*: `Integer`
