@@ -53,7 +53,7 @@ This specification has benefited from formal and informal input from the openEHR
 
 === Support
 
-The work reported in this paper has been funded by the following organisations:
+The work to produce this specification was funded by the following organisations:
 
 * Cambio CDS, Sweden.
 
