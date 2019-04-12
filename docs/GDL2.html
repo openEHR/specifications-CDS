@@ -35,6 +35,7 @@
 <li><a href="#_feedback">1.4. Feedback</a></li>
 <li><a href="#_a_note_on_nomenclature">1.5. A Note on Nomenclature</a></li>
 <li><a href="#_resources">1.6. Resources</a></li>
+<li><a href="#_changes_since_gdl_version_1_gdl">1.7. Changes since GDL version 1 ('GDL')</a></li>
 </ul>
 </li>
 <li><a href="#_overview">2. Overview</a>
@@ -234,7 +235,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Initial Writing.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">R Chen,<br>
  T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>05 Apr 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>12 Apr 2019</p></td>
 </tr>
 </tbody>
 </table>
@@ -359,6 +360,31 @@
 <h3 id="_resources"><a class="anchor" href="#_resources"></a>1.6. Resources</h3>
 <div class="paragraph">
 <p>The <a href="https://gdl-lang.org/" target="_blank" rel="noopener">GDL-lang site</a> is a useful location for GDL-related research material. The <a href="https://github.com/gdl-lang/common-clinical-models/tree/master/gdl2" target="_blank" rel="noopener">GDL Github repository</a> contains published GDLguidelines. The <a href="https://github.com/gdl-lang/common-clinical-models/wiki" target="_blank" rel="noopener">GDL wiki</a> provides further material.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changes_since_gdl_version_1_gdl"><a class="anchor" href="#_changes_since_gdl_version_1_gdl"></a>1.7. Changes since GDL version 1 ('GDL')</h3>
+<div class="paragraph">
+<p>GDL2 introduces the following changes with respect to the original release of GDL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Data binding agnostic to EHR data models (e.g. openEHR / ISO13606 / FHIR);</p>
+</li>
+<li>
+<p>Template definition for output objects with new <code>use_template</code> statement with template-level variables; this enables, for example CDS-Hooks Cards &amp; Suggestions as result of rule executions;</p>
+</li>
+<li>
+<p>Individual references and ability to reference to specific items in the rules;</p>
+</li>
+<li>
+<p>More math functions support.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Migration of GDL1 to GDL2 guidelines is described on the <a href="https://gdl-lang.org//the-project/guides-tutorials/gdl2-guideline-migration-tutorial" target="_blank" rel="noopener">gdl-lang site</a>.</p>
 </div>
 </div>
 </div>
