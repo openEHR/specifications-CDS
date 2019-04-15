@@ -21,7 +21,7 @@ The use cases of GDL2 include, but are not limited to:
 
 The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation.
 
-NOTE: GDL Guidelines are expressed in either the {openehr_odin}[openEHR ODIN^] or JSON formats, such that a GDL source is a serialised instance of the, GDL2 Object Model, described below in <<_gdl2_object_model>>. The example here uses ODIN.
+NOTE: GDL Guidelines are expressed in either the {openehr_odin}[openEHR ODIN^] or JSON formats, such that a GDL source is a serialised instance of the GDL2 Object Model, described below in <<_gdl2_object_model>>. The example here uses ODIN.
 
 [source, odin]
 ----
