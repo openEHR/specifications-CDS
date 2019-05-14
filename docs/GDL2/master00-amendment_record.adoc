@@ -4,10 +4,17 @@
 |===
 |Issue|Details|Raiser|Completed
 
-|[[latest_issue]]2.0
+4+^h|*CDS Release 2.0.0*
+
+|[[latest_issue]]2.0.0
+|{spec_tickets}/SPECCDS-2[SPECCDS-2^]: Add GDL and GDL2 specifications to CDS release.
+|SEC
+|[[latest_issue_date]]20 May 2019
+
+|
 |Initial Writing.
 |R Chen, +
  T Beale
-|[[latest_issue_date]]12 Apr 2019
+|12 Apr 2019
 
 |===

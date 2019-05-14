@@ -4,10 +4,17 @@
 |===
 |Issue|Details|Raiser|Completed
 
-|[[latest_issue]]1.0
+4+^h|*CDS Release 2.0.0*
+
+|[[latest_issue]]2.0.0
+|{spec_tickets}/SPECCDS-2[SPECCDS-2^]: Add GDL and GDL2 specifications to CDS release.
+|SEC
+|[[latest_issue_date]]20 May 2019
+
+|1.0.0
 |Initial Writing.
 |Rong Chen +
  Iago Corbal
-|[[latest_issue_date]]29 July 2015
+|29 July 2015
 
 |===
