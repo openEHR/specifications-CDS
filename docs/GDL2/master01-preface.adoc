@@ -40,7 +40,7 @@ The {gdl_lang_site}[GDL-lang site^] is a useful location for GDL-related researc
 
 GDL2 introduces the following changes with respect to the original release of GDL:
 
-* Data binding agnostic to EHR data models (e.g. openEHR / ISO13606 / FHIR);
+* Data binding agnostic to EHR data models (e.g. openEHR / {iso_13606}[ISO 13606^] / {hl7_fhir}[HL7 FHIR^]);
 * Template definition for output objects with new `use_template` statement with template-level variables; this enables, for example CDS-Hooks Cards & Suggestions as result of rule executions;
 * Individual references and ability to reference to specific items in the rules;
 * More math functions support.
