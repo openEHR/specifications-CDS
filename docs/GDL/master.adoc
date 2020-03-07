@@ -3,16 +3,8 @@
 //
 include::{ref_dir}/docs/boilerplate/book_style_settings.adoc[]
 
-//
-// Document-specific attributes
-//
 :copyright_year: 2013
 :spec_status: STABLE
-
-//
-// HTML-only attributes
-//
-:linkcss:
 :keywords: decision support, GDL, archetype
 :description: openEHR Guideline Definition Language (GDL)
 
@@ -60,7 +52,7 @@ The work reported in this paper has been funded in by the following organisation
 //
 // --------------------------------------------- CHAPTERS -----------------------------------------------
 //
-:numbered:
+:sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-design.adoc[leveloffset=+1]

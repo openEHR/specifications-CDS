@@ -3,16 +3,8 @@
 //
 include::{ref_dir}/docs/boilerplate/book_style_settings.adoc[]
 
-//
-// Document-specific attributes
-//
 :copyright_year: 2018
 :spec_status: TRIAL
-
-//
-// HTML-only attributes
-//
-:linkcss:
 :keywords: decision support, GDL, archetype
 :description: openEHR Guideline Definition Language v2 (GDL2)
 
@@ -72,7 +64,6 @@ The work to produce this specification was funded by the following organisations
 //
 // --------------------------------------------- CHAPTERS -----------------------------------------------
 //
-:sectanchors:
 :sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]

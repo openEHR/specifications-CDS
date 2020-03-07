@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="description" content="openEHR Guideline Definition Language (GDL)">
 <meta name="keywords" content="decision support, GDL, archetype">
 <title>Guideline Definition Language (GDL)</title>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -104,20 +103,20 @@
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="imageblock" style="text-align: center">
+<div class="imageblock text-center">
 <div class="content">
 <img src="https://specifications.openehr.org/images/openEHR_logo_RGB.svg" alt="openEHR logo">
 </div>
 </div>
 </div>
 </div>
-<h1 id="_guideline_definition_language_gdl" class="sect0">Guideline Definition Language (GDL)</h1>
+<h1 id="_guideline_definition_language_gdl" class="sect0"><a class="anchor" href="#_guideline_definition_language_gdl"></a>Guideline Definition Language (GDL)</h1>
 <div class="openblock partintro">
 <div class="content">
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all fit-content spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
@@ -138,19 +137,19 @@
 </tr>
 </tbody>
 </table>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock text-center">
 <div class="content">
 <object type="image/svg+xml" data="openehr_block_diagram.svg" width="60%"><span class="alt">openEHR components</span></object>
 </div>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2013 - 2019 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2013 - 2020 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -171,9 +170,9 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_amendment_record">Amendment Record</h2>
+<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>Amendment Record</h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 9.0909%;">
 <col style="width: 54.5454%;">
@@ -210,7 +209,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_acknowledgements">Acknowledgements</h2>
+<h2 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a>Acknowledgements</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The work reported in this paper has been funded in by the following organisations:</p>
@@ -223,7 +222,7 @@
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_trademarks">Trademarks</h3>
+<h3 id="_trademarks"><a class="anchor" href="#_trademarks"></a>Trademarks</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -241,16 +240,16 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_preface">1. Preface</h2>
+<h2 id="_preface"><a class="anchor" href="#_preface"></a>1. Preface</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_purpose">1.1. Purpose</h3>
+<h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
 <div class="paragraph">
 <p>This document contains the design specifications of the Guideline Definition Language (GDL). GDL is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_related_documents">1.2. Related Documents</h3>
+<h3 id="_related_documents"><a class="anchor" href="#_related_documents"></a>1.2. Related Documents</h3>
 <div class="paragraph">
 <p>Prerequisite documents for reading this document include:</p>
 </div>
@@ -263,7 +262,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_status">1.3. Status</h3>
+<h3 id="_status"><a class="anchor" href="#_status"></a>1.3. Status</h3>
 <div class="paragraph">
 <p>This specification is in the STABLE state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/CDS/latest/GDL.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/CDS/latest/GDL.html</a>.</p>
 </div>
@@ -275,9 +274,9 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_feedback">1.4. Feedback</h3>
+<h3 id="_feedback"><a class="anchor" href="#_feedback"></a>1.4. Feedback</h3>
 <div class="paragraph">
-<p>Feedback may be provided on the <a href="http://lists.openehr.org/mailman/listinfo/openehr-technical_lists.openehr.org" target="_blank" rel="noopener">technical mailing list</a>.</p>
+<p>Feedback may be provided on the <a href="https://forums.openehr.org/c/specifications" target="_blank" rel="noopener">technical mailing list</a>.</p>
 </div>
 <div class="paragraph">
 <p>Issues may be raised on the <a href="https://specifications.openehr.org/components/CDS/open_issues" target="_blank" rel="noopener">specifications Problem Report tracker</a>.</p>
@@ -289,22 +288,22 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_overview">2. Overview</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>2. Overview</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_background">2.1. Background</h3>
+<h3 id="_background"><a class="anchor" href="#_background"></a>2.1. Background</h3>
 <div class="paragraph">
 <p>Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_scope">2.2. Scope</h3>
+<h3 id="_scope"><a class="anchor" href="#_scope"></a>2.2. Scope</h3>
 <div class="paragraph">
 <p>The scope of the GDL is to express clinical logic as production rules. Discrete GDL rules, each containing if-then statements, can be combined together as building blocks to support single decision making and more complex decision making process. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_an_example">2.3. An Example</h3>
+<h3 id="_an_example"><a class="anchor" href="#_an_example"></a>2.3. An Example</h3>
 <div class="paragraph">
 <p>The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical instrument for stroke risk stratification in atrial fibrillation. The definitions for the GDL reserved words used here can be found on the later chapters. The meta-data in the GDL header is based on the openEHR’s ADL Description Section. The following GDL source code illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline.</p>
 </div>
@@ -313,7 +312,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-p">(</span><span class="tok-nc">GUIDE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">(</span><span class="tok-nc">GUIDE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">gdl_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;0.1&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2VASc_Score_calculation.v1-Revised function&quot;</span><span class="tok-p">&gt;</span>
     <span class="tok-nc">concept</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0036&quot;</span><span class="tok-p">&gt;</span>
@@ -347,7 +346,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ARCHETYPE_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
@@ -367,7 +366,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">GUIDE_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
     <span class="tok-nc">archetype_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
         <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">ARCHETYPE_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
             <span class="tok-nc">archetype_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
@@ -390,7 +389,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">RULE</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108!=null&quot;</span><span class="tok-p">,...&gt;</span>
         <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014=1|local::at0031|Present|&quot;</span><span class="tok-p">,...&gt;</span>
@@ -413,7 +412,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM_DEFINITION</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">terms</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;gt0003&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
@@ -447,7 +446,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
     <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">TERM_BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
         <span class="tok-nc">bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
             <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">(</span><span class="tok-nc">BINDING</span><span class="tok-p">)</span> <span class="tok-p">&lt;</span>
@@ -463,15 +462,15 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_design">3. Design</h2>
+<h2 id="_design"><a class="anchor" href="#_design"></a>3. Design</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_requirements">3.1. Requirements</h3>
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a>3.1. Requirements</h3>
 <div class="paragraph">
 <p>This chapter describes detailed formal requirements of the GDL.</p>
 </div>
 <div class="sect3">
-<h4 id="_clinical_information_models">3.1.1. Clinical information models</h4>
+<h4 id="_clinical_information_models"><a class="anchor" href="#_clinical_information_models"></a>3.1.1. Clinical information models</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -484,7 +483,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_natural_language_support">3.1.2. Natural language support</h4>
+<h4 id="_natural_language_support"><a class="anchor" href="#_natural_language_support"></a>3.1.2. Natural language support</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -503,7 +502,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reference_terminology_support">3.1.3. Reference terminology support</h4>
+<h4 id="_reference_terminology_support"><a class="anchor" href="#_reference_terminology_support"></a>3.1.3. Reference terminology support</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -519,7 +518,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_identification_and_meta_data">3.1.4. Identification and meta-data</h4>
+<h4 id="_identification_and_meta_data"><a class="anchor" href="#_identification_and_meta_data"></a>3.1.4. Identification and meta-data</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -535,7 +534,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rule_execution">3.1.5. Rule Execution</h4>
+<h4 id="_rule_execution"><a class="anchor" href="#_rule_execution"></a>3.1.5. Rule Execution</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -549,41 +548,41 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_guide_object_model">3.2. Guide Object Model</h3>
+<h3 id="_guide_object_model"><a class="anchor" href="#_guide_object_model"></a>3.2. Guide Object Model</h3>
 <div class="sect3">
-<h4 id="_design_background">3.2.1. Design background</h4>
+<h4 id="_design_background"><a class="anchor" href="#_design_background"></a>3.2.1. Design background</h4>
 <div class="paragraph">
 <p>openEHR archetypes are used both as input and output of GDL guidelines. This is the key to achieve natural language-independence and reference terminology-independence. Because of this design choice, openEHR specifications are reused substantially in the GDL design.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_packages_structure">3.2.2. Packages Structure</h4>
+<h4 id="_packages_structure"><a class="anchor" href="#_packages_structure"></a>3.2.2. Packages Structure</h4>
 <div class="paragraph">
 <p>The Guide Object Model, the object model of the GDL, consists of two packages, the guide package and the expressions package described in detail through the next two sections.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_guide_package">3.3. Guide Package</h3>
+<h3 id="_guide_package"><a class="anchor" href="#_guide_package"></a>3.3. Guide Package</h3>
 <div class="sect3">
-<h4 id="_overview_2">3.3.1. Overview</h4>
+<h4 id="_overview_2"><a class="anchor" href="#_overview_2"></a>3.3.1. Overview</h4>
 <div class="paragraph">
 <p>The overview of the guide package is illustrated in Figure 1. Note that classes in blue color are loosely based on the original design from the openEHR specifications.</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock text-center">
 <div class="content">
 <img src="GDL/diagrams/gdl-relational-model.png" alt="Figure 1 – The Guide Package">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_class_definitions">3.3.2. Class Definitions</h4>
+<h4 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a>3.3.2. Class Definitions</h4>
 <div class="sect4">
-<h5 id="_guide">3.3.2.1. GUIDE</h5>
+<h5 id="_guide"><a class="anchor" href="#_guide"></a>3.3.2.1. GUIDE</h5>
 <div class="paragraph">
 <p>Main class of a discrete guide, which defines archetype bindings, rules and meta-information.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -636,11 +635,11 @@
 </table>
 </div>
 <div class="sect4">
-<h5 id="_guide_definition">3.3.2.2. GUIDE_DEFINITION</h5>
+<h5 id="_guide_definition"><a class="anchor" href="#_guide_definition"></a>3.3.2.2. GUIDE_DEFINITION</h5>
 <div class="paragraph">
 <p>The definition of the guide includes a list of archetype bindings and a list of rule definitions.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -673,11 +672,11 @@
 </table>
 </div>
 <div class="sect4">
-<h5 id="_archetype_binding">3.3.2.3. ARCHETYPE_BINDING</h5>
+<h5 id="_archetype_binding"><a class="anchor" href="#_archetype_binding"></a>3.3.2.3. ARCHETYPE_BINDING</h5>
 <div class="paragraph">
 <p>The binding of list of elements from a selected archetype or template to local gt codes</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -720,11 +719,11 @@
 </table>
 </div>
 <div class="sect4">
-<h5 id="_element_binding">3.3.2.4. ELEMENT_BINDING</h5>
+<h5 id="_element_binding"><a class="anchor" href="#_element_binding"></a>3.3.2.4. ELEMENT_BINDING</h5>
 <div class="paragraph">
 <p>The binding between a specific element in an archetype and a local variable in the guide.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -752,11 +751,11 @@
 </table>
 </div>
 <div class="sect4">
-<h5 id="_rule">3.3.2.5. RULE</h5>
+<h5 id="_rule"><a class="anchor" href="#_rule"></a>3.3.2.5. RULE</h5>
 <div class="paragraph">
 <p>A single rule defined in a guide</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -790,40 +789,40 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_syntax_specification">3.3.3. Syntax Specification</h4>
+<h4 id="_syntax_specification"><a class="anchor" href="#_syntax_specification"></a>3.3.3. Syntax Specification</h4>
 <div class="paragraph">
 <p>The grammar and lexical specification for the standard GDL is entirely based on dADL and driven by the guide object model.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_expressions_package">3.4. Expressions Package</h3>
+<h3 id="_expressions_package"><a class="anchor" href="#_expressions_package"></a>3.4. Expressions Package</h3>
 <div class="sect3">
-<h4 id="_overview_3">3.4.1. Overview</h4>
+<h4 id="_overview_3"><a class="anchor" href="#_overview_3"></a>3.4.1. Overview</h4>
 <div class="paragraph">
 <p>The overview of the expressions package is illustrated by figure 2.</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock text-center">
 <div class="content">
 <img src="GDL/diagrams/expression-relational-model.png" alt="Figure 2 – The Expression Package">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_class_definitions_2">3.4.2. Class Definitions</h4>
+<h4 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>3.4.2. Class Definitions</h4>
 <div class="sect4">
-<h5 id="_expression_item">3.4.2.1. EXPRESSION_ITEM</h5>
+<h5 id="_expression_item"><a class="anchor" href="#_expression_item"></a>3.4.2.1. EXPRESSION_ITEM</h5>
 <div class="paragraph">
 <p>Abstract model of an expression item in the rule.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_unary_expression">3.4.2.2. UNARY_EXPRESSION</h5>
+<h5 id="_unary_expression"><a class="anchor" href="#_unary_expression"></a>3.4.2.2. UNARY_EXPRESSION</h5>
 <div class="paragraph">
 <p>Abstract model of an expression item in the rule.
 Inherit EXPRESSION_ITEM</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -851,12 +850,12 @@ Inherit EXPRESSION_ITEM</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_binary_expression">3.4.2.3. BINARY_EXPRESSION</h5>
+<h5 id="_binary_expression"><a class="anchor" href="#_binary_expression"></a>3.4.2.3. BINARY_EXPRESSION</h5>
 <div class="paragraph">
 <p>Concrete model of a binary expression item.
 Inherit EXPRESSION_ITEM</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -889,12 +888,12 @@ Inherit EXPRESSION_ITEM</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assignment_expression">3.4.2.4. ASSIGNMENT_EXPRESSION</h5>
+<h5 id="_assignment_expression"><a class="anchor" href="#_assignment_expression"></a>3.4.2.4. ASSIGNMENT_EXPRESSION</h5>
 <div class="paragraph">
 <p>Concrete model of an assignment expression.
 Inherit EXPRESSION_ITEM</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -922,12 +921,12 @@ Inherit EXPRESSION_ITEM</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_functional_expression">3.4.2.5. FUNCTIONAL_EXPRESSION</h5>
+<h5 id="_functional_expression"><a class="anchor" href="#_functional_expression"></a>3.4.2.5. FUNCTIONAL_EXPRESSION</h5>
 <div class="paragraph">
 <p>Concrete expression models a function.
 Inherit EXPRESSION_ITEM</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -955,11 +954,11 @@ Inherit EXPRESSION_ITEM</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_operator_kind">3.4.2.6. OPERATOR_KIND</h5>
+<h5 id="_operator_kind"><a class="anchor" href="#_operator_kind"></a>3.4.2.6. OPERATOR_KIND</h5>
 <div class="paragraph">
 <p>Enumeration containing all the operators used.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1063,7 +1062,7 @@ Inherit EXPRESSION_ITEM</p>
 <div class="paragraph">
 <p>FUNCTION_KIND</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1124,7 +1123,7 @@ Inherit EXPRESSION_ITEM</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_syntax_specification_2">3.4.3. Syntax Specification</h4>
+<h4 id="_syntax_specification_2"><a class="anchor" href="#_syntax_specification_2"></a>3.4.3. Syntax Specification</h4>
 <div class="paragraph">
 <p>The grammar and lexical specification for the expressions used by GDL is loosely based on the assertion syntax in the ADL specification. This grammar is implemented using javaCC specifications in the Java programming environment.
 The full source code of the java GDL parser can be found below.</p>
@@ -1134,10 +1133,10 @@ The full source code of the java GDL parser can be found below.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_implementation">4. Implementation</h2>
+<h2 id="_implementation"><a class="anchor" href="#_implementation"></a>4. Implementation</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_drools">4.1. Drools</h3>
+<h3 id="_drools"><a class="anchor" href="#_drools"></a>4.1. Drools</h3>
 <div class="paragraph">
 <p>GDL is technology independent, so it can be implemented using different rule engines. We’ve chosen JBoss Drools, an open source technology, to develop our first implementation of GDL execution engine. Drools allows us to refer directly to our Java objects inside the rules. It provides support for a powerful expression language (MVEL) and has proven robust and efficient enough for our purposes. Our drools module will be able to translate our GDL language into Drools Rule Language (DRL).</p>
 </div>
@@ -1175,7 +1174,7 @@ The full source code of the java GDL parser can be found below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_gdl_editor">4.2. GDL Editor</h3>
+<h3 id="_gdl_editor"><a class="anchor" href="#_gdl_editor"></a>4.2. GDL Editor</h3>
 <div class="paragraph">
 <p>An authoring tool for GDL is released as open-source software for the community.  The GDL editor is a multiplatform desktop application and will allow users to create, edit and run GDL files. We implemented in the editor a feature capable of generating forms based on the archetype elements defined in the GDL. These forms can be used to take input from the user and trigger the rules. More information about this tool can be found in the GDL Editor Manual.</p>
 </div>
@@ -1187,7 +1186,7 @@ The full source code of the java GDL parser can be found below.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_appendix_a_grammar">4.3. Appendix A: Grammar</h3>
+<h3 id="_appendix_a_grammar"><a class="anchor" href="#_appendix_a_grammar"></a>4.3. Appendix A: Grammar</h3>
 <div class="listingblock">
 <div class="content">
 <pre> /**
@@ -1969,8 +1968,9 @@ int integer() :
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-14 10:09:59 GMT
+Last updated 2020-03-04 21:23:54 UTC
 </div>
 </div>
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
 </body>
 </html>
