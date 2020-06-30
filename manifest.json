@@ -1,0 +1,59 @@
+{
+    "id": "CDS",
+    "title": "Clinical Decision Support",
+    "description": "openEHR Clinical Decision Support Specifications",
+    "keywords": "cds, decision support, clinical decision support",
+    "specifications": [
+        {
+            "id": "GDL",
+            "title": "Guideline Definition Language (GDL)",
+            "title_short": "GDL",
+            "description": "openEHR Guideline Definition Language (GDL) specification",
+            "summary": "Guideline Definition Language based on archetype/template paths.",
+            "micro_summary": "Guideline Definition Language v1",
+            "copyright_year": "2013",
+            "spec_status": "STABLE",
+            "keywords": "decision support, GDL, archetype"
+        },
+        {
+            "id": "GDL2",
+            "title": "Guideline Definition Language v2 (GDL2)",
+            "title_short": "GDL2",
+            "description": "openEHR Guideline Definition Language v2 (GDL2) specification",
+            "summary": "An improved variant of Guideline Definition Language, known as GDL2, based on archetype/template paths.",
+            "micro_summary": "Guideline Definition Language v2",
+            "copyright_year": "2018",
+            "spec_status": "TRIAL",
+            "keywords": "decision support, GDL, GDL2, archetype"
+        }
+    ],
+    "expressions": [
+        {
+            "id": "GDL-JavaCC",
+            "type": "file",
+            "title": "GDL JavaCC file",
+            "description": "JavaCC rules for GDL.",
+            "link": "GDL/javacc/expression.jj"
+        },
+        {
+            "id": "openEHR_UML-CDS.mdzip",
+            "type": "uml",
+            "title": "CDS UML",
+            "description": "UML file for openEHR CDS classes, as MagicDraw 19. Contains UML 2.5 standard XMI file."
+        }
+    ],
+    "jira": {
+        "open_issues": "11107",
+        "roadmap": "SPECCDS"
+    },
+    "releases": [
+        {
+            "id": "2.0.0",
+            "date": "",
+            "jira": {
+                "crs": "SPECCDS/versions/12526",
+                "prs": "SPECPR/versions/11575"
+            }
+        }
+    ]
+}
