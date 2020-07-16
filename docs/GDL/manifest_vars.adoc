@@ -1,0 +1,5 @@
+:spec_title: Guideline Definition Language (GDL)
+:copyright_year: 2013
+:spec_status: STABLE
+:keywords: decision support, GDL, archetype
+:description: openEHR Guideline Definition Language (GDL) specification
