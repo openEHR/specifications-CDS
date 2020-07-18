@@ -9,17 +9,17 @@ h|*Description*
 2+a|Concrete model of a binary operator in the rule.
 
 h|*Inherit*
-2+|`OPERATOR`
+2+|`<<_operator_class,OPERATOR>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*left*: `EXPRESSION_ITEM`
+|*left*: `<<_expression_item_class,EXPRESSION_ITEM>>`
 a|Left operand.
 
 h|*1..1*
-|*right*: `EXPRESSION_ITEM`
+|*right*: `<<_expression_item_class,EXPRESSION_ITEM>>`
 a|Right operand.
 |===

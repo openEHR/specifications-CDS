@@ -13,22 +13,22 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*id*: `String`
+|*id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|The gt-code of this output template.
 
 h|*1..1*
-|*name*: `String`
+|*name*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|Name of this template.
 
 h|*1..1*
-|*model_id*: `String`
+|*model_id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|Identifier of a model that defines the structure of the `_object_`.
 
 h|*0..1*
-|*template_id*: `String`
+|*template_id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|The identifier of a template based on the model identified by `_model_id_` defining the attached `_object_`.
 
 h|*1..1*
-|*object*: `String`
+|*object*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|Detailed output report structure as an object that may be defined by a published model.
 |===

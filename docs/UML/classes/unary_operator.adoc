@@ -9,13 +9,13 @@ h|*Description*
 2+a|Concrete model of a unary operator in the rule.
 
 h|*Inherit*
-2+|`OPERATOR`
+2+|`<<_operator_class,OPERATOR>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `EXPRESSION_ITEM`
+|*operand*: `<<_expression_item_class,EXPRESSION_ITEM>>`
 a|The operand.
 |===

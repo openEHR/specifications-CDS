@@ -9,17 +9,17 @@ h|*Description*
 2+a|Concrete expression in the form of a function.
 
 h|*Inherit*
-2+|`EXPRESSION_ITEM`
+2+|`<<_expression_item_class,EXPRESSION_ITEM>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*items*: `List<EXPRESSION_ITEM>`
+|*items*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<<<_expression_item_class,EXPRESSION_ITEM>>>`
 a|Function arguments.
 
 h|*1..1*
-|*function*: `FUNCTION_KIND`
+|*function*: `<<_function_kind_enumeration,FUNCTION_KIND>>`
 a|The specific function.
 |===

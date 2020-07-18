@@ -9,17 +9,17 @@ h|*Description*
 2+a|A statement assigning an expression result to a variable.
 
 h|*Inherit*
-2+|`STATEMENT`
+2+|`<<_statement_class,STATEMENT>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*variable*: `VARIABLE`
+|*variable*: `<<_variable_class,VARIABLE>>`
 a|Variable that is the target of the assignment.
 
 h|*1..1*
-|*expression*: `EXPRESSION_ITEM`
+|*expression*: `<<_expression_item_class,EXPRESSION_ITEM>>`
 a|Expression that is the source of the assignment.
 |===

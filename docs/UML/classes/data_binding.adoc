@@ -13,23 +13,23 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*model_id*: `String`
+|*model_id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|The identifier of the data-set model (i.e. archetype or other) from which the list of elements is selected.
 
 h|*0..1*
-|*template_id*: `String`
+|*template_id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|The ID of an optional template to be used for selecting elements.
 
 h|*0..1*
-|*bindings*: `Hash<String,ELEMENT>`
+|*bindings*: `link:/releases/BASE/{cds_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^],<<_element_class,ELEMENT>>>`
 a|Map of variable binding indexed by identifying gt-code of the variable.
 
 h|*0..1*
-|*predicates*: `List<ASSERTION>`
+|*predicates*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assertion_class[ASSERTION^]>`
 a|Predicates (constraints) that need to be satisfied before rule execution can occur. Generally speaking, predicates are constraints on variable values, and can only mention gt-codes of variables.
 
 h|*1..1*
-|*type*: `String`
+|*type*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|Marker to indicate whether variable is an input or output variable in the data-set. The value can either be:
 
 * `"INPUT"`: input data to the guideline, e.g. values retrieved from the EHR;

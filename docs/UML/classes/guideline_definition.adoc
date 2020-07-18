@@ -18,26 +18,26 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*data_bindings*: `Hash<String,DATA_BINDING>`
+|*data_bindings*: `link:/releases/BASE/{cds_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^],<<_data_binding_class,DATA_BINDING>>>`
 a|List of archetype/template bindings, which define specific elements to be used by rules in this guideline.
 
 h|*0..1*
-|*pre_conditions*: `List<ASSERTION>`
+|*pre_conditions*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assertion_class[ASSERTION^]>`
 a|Pre-conditions to be met before the guideline can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.
 
 h|*0..1*
-|*rules*: `Hash<String,RULE>`
+|*rules*: `link:/releases/BASE/{cds_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^],<<_rule_class,RULE>>>`
 a|Map of rules indexed by local gt codes.
 
 h|*0..1*
-|*default_actions*: `List<ASSIGNMENT>`
+|*default_actions*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assignment_class[ASSIGNMENT^]>`
 a|Actions that will always be performed, whenever the `_when_` conditions are evaluated, regardless of the result.
 
 h|*0..1*
-|*templates*: `Hash<String,OUTPUT_TEMPLATE>`
+|*templates*: `link:/releases/BASE/{cds_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^],<<_output_template_class,OUTPUT_TEMPLATE>>>`
 a|One or more output termplates that define how to represent output reporting structure.
 
 h|*0..1*
-|*internal_variables*: `List<VARIABLE>`
+|*internal_variables*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_variable_class[VARIABLE^]>`
 a|Variables used internally to a GDL guideline, i.e. not bound to external data entities. These are generated during parsing of expressions and used to track interim state.
 |===

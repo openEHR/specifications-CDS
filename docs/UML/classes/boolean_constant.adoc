@@ -9,7 +9,7 @@ h|*Description*
 2+a|
 
 h|*Inherit*
-2+|`CONSTANT`
+2+|`<<_constant_class,CONSTANT>>`
 
 h|*Attributes*
 ^h|*Signature*
@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*value*: `Boolean`
+|*value*: `link:/releases/BASE/{cds_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Value of constant, redefined to specific types in descendants.
 |===

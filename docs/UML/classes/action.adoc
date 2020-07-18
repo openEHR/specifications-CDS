@@ -13,18 +13,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*description*: `String`
+|*description*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1*
-|*resource*: `Any`
+|*resource*: `link:/releases/BASE/{cds_release}/foundation_types.html#_any_class[Any^]`
 a|
 
 h|*0..1*
-|*resource_template*: 
+|*resource_template*: `@@`
 a|
 
 h|*1..1*
-|*type*: `ACTION_TYPE`
+|*type*: `<<_action_type_enumeration,ACTION_TYPE>>`
 a|
 |===

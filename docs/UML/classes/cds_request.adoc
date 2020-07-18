@@ -13,26 +13,26 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*hook_instance*: `String`
+|*hook_instance*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*fhir_srever*: `String`
+|*fhir_srever*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*hook*: `String`
+|*hook*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*user*: `String`
+|*user*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*patient*: `String`
+|*patient*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1*
-|*context*: `List<>`
+|*context*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<@@>`
 a|
 |===
