@@ -21,6 +21,13 @@
             "title_short": "GDL2",
             "description": "openEHR Guideline Definition Language v2 (GDL2) specification",
             "summary": "An improved variant of Guideline Definition Language, known as GDL2, based on archetype/template paths.",
+            "classes": [
+                "GUIDELINE",
+                "GUIDELINE_DEFINITION",
+                "RULE",
+                "OUTPUT_TEMPLATE",
+                "DATA_BINDING"
+            ],
             "micro_summary": "Guideline Definition Language v2",
             "copyright_year": "2018",
             "spec_status": "TRIAL",
