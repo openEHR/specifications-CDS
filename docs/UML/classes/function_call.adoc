@@ -16,7 +16,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*items*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<<<_expression_item_class,EXPRESSION_ITEM>>>`
+|*items*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_expression_item_class,EXPRESSION_ITEM>>>`
 a|Function arguments.
 
 h|*1..1*

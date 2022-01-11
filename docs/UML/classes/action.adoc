@@ -13,11 +13,11 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*description*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*description*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1*
-|*resource*: `link:/releases/BASE/{cds_release}/foundation_types.html#_any_class[Any^]`
+|*resource*: `link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]`
 a|
 
 h|*0..1*

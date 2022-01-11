@@ -104,15 +104,16 @@
 <li><a href="#_constant_class">5.3.2.8. CONSTANT Class</a></li>
 <li><a href="#_string_constant_class">5.3.2.9. STRING_CONSTANT Class</a></li>
 <li><a href="#_integer_constant_class">5.3.2.10. INTEGER_CONSTANT Class</a></li>
-<li><a href="#_date_time_constant_class">5.3.2.11. DATE_TIME_CONSTANT Class</a></li>
-<li><a href="#_code_phrase_constant_class">5.3.2.12. CODE_PHRASE_CONSTANT Class</a></li>
-<li><a href="#_coded_text_constant_class">5.3.2.13. CODED_TEXT_CONSTANT Class</a></li>
-<li><a href="#_ordinal_constant_class">5.3.2.14. ORDINAL_CONSTANT Class</a></li>
-<li><a href="#_quantity_constant_class">5.3.2.15. QUANTITY_CONSTANT Class</a></li>
-<li><a href="#_variable_class">5.3.2.16. VARIABLE Class</a></li>
-<li><a href="#_statement_class">5.3.2.17. STATEMENT Class</a></li>
-<li><a href="#_assignment_class">5.3.2.18. ASSIGNMENT Class</a></li>
-<li><a href="#_assertion_class">5.3.2.19. ASSERTION Class</a></li>
+<li><a href="#_boolean_constant_class">5.3.2.11. BOOLEAN_CONSTANT Class</a></li>
+<li><a href="#_date_time_constant_class">5.3.2.12. DATE_TIME_CONSTANT Class</a></li>
+<li><a href="#_code_phrase_constant_class">5.3.2.13. CODE_PHRASE_CONSTANT Class</a></li>
+<li><a href="#_coded_text_constant_class">5.3.2.14. CODED_TEXT_CONSTANT Class</a></li>
+<li><a href="#_ordinal_constant_class">5.3.2.15. ORDINAL_CONSTANT Class</a></li>
+<li><a href="#_quantity_constant_class">5.3.2.16. QUANTITY_CONSTANT Class</a></li>
+<li><a href="#_variable_class">5.3.2.17. VARIABLE Class</a></li>
+<li><a href="#_statement_class">5.3.2.18. STATEMENT Class</a></li>
+<li><a href="#_assignment_class">5.3.2.19. ASSIGNMENT Class</a></li>
+<li><a href="#_assertion_class">5.3.2.20. ASSERTION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -190,7 +191,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2018 - 2020 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2018 - 2022 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -367,7 +368,7 @@
 <div class="sect2">
 <h3 id="_resources"><a class="anchor" href="#_resources"></a>1.6. Resources</h3>
 <div class="paragraph">
-<p>The <a href="https://gdl-lang.org" target="_blank" rel="noopener">GDL-lang site</a> is a useful location for GDL-related research material. The <a href="https://github.com/gdl-lang/common-clinical-models/tree/master/gdl2" target="_blank" rel="noopener">GDL Github repository</a> contains published GDLguidelines. The <a href="https://github.com/gdl-lang/common-clinical-models/wiki" target="_blank" rel="noopener">GDL wiki</a> provides further material.</p>
+<p>The <a href="https://gdl-lang.org" target="_blank" rel="noopener">GDL-lang site</a> is a useful location for GDL-related research material. The <a href="https://github.com/gdl-lang/common-clinical-models/blob/master/README.md" target="_blank" rel="noopener">GDL Github repository</a> contains published GDLguidelines. The <a href="https://github.com/gdl-lang/common-clinical-models/wiki" target="_blank" rel="noopener">GDL wiki</a> provides further material.</p>
 </div>
 </div>
 <div class="sect2">
@@ -378,7 +379,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Data binding agnostic to EHR data models (e.g. openEHR / <a href="https://www.iso.org/standard/40784.html" target="_blank" rel="noopener">ISO 13606</a> / <a href="https://www.hl7.org/fhir/" target="_blank" rel="noopener">HL7 FHIR</a>);</p>
+<p>Data binding agnostic to EHR data models (e.g. openEHR / <a href="https://www.iso.org/standard/40784.html" target="_blank" rel="noopener">ISO 13606</a> / <a href="https://www.hl7.org/fhir" target="_blank" rel="noopener">HL7 FHIR</a>);</p>
 </li>
 <li>
 <p>Template definition for output objects with new <code>use_template</code> statement with template-level variables; this enables, for example CDS-Hooks Cards &amp; Suggestions as result of rule executions;</p>
@@ -2075,7 +2076,44 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_date_time_constant_class"><a class="anchor" href="#_date_time_constant_class"></a>5.3.2.11. DATE_TIME_CONSTANT Class</h5>
+<h5 id="_boolean_constant_class"><a class="anchor" href="#_boolean_constant_class"></a>5.3.2.11. BOOLEAN_CONSTANT Class</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>BOOLEAN_CONSTANT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_constant_class">CONSTANT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value of constant, redefined to specific types in descendants.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_date_time_constant_class"><a class="anchor" href="#_date_time_constant_class"></a>5.3.2.12. DATE_TIME_CONSTANT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2114,7 +2152,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_code_phrase_constant_class"><a class="anchor" href="#_code_phrase_constant_class"></a>5.3.2.12. CODE_PHRASE_CONSTANT Class</h5>
+<h5 id="_code_phrase_constant_class"><a class="anchor" href="#_code_phrase_constant_class"></a>5.3.2.13. CODE_PHRASE_CONSTANT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2153,7 +2191,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_coded_text_constant_class"><a class="anchor" href="#_coded_text_constant_class"></a>5.3.2.13. CODED_TEXT_CONSTANT Class</h5>
+<h5 id="_coded_text_constant_class"><a class="anchor" href="#_coded_text_constant_class"></a>5.3.2.14. CODED_TEXT_CONSTANT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2192,7 +2230,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_ordinal_constant_class"><a class="anchor" href="#_ordinal_constant_class"></a>5.3.2.14. ORDINAL_CONSTANT Class</h5>
+<h5 id="_ordinal_constant_class"><a class="anchor" href="#_ordinal_constant_class"></a>5.3.2.15. ORDINAL_CONSTANT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2231,7 +2269,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_quantity_constant_class"><a class="anchor" href="#_quantity_constant_class"></a>5.3.2.15. QUANTITY_CONSTANT Class</h5>
+<h5 id="_quantity_constant_class"><a class="anchor" href="#_quantity_constant_class"></a>5.3.2.16. QUANTITY_CONSTANT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2270,7 +2308,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_variable_class"><a class="anchor" href="#_variable_class"></a>5.3.2.16. VARIABLE Class</h5>
+<h5 id="_variable_class"><a class="anchor" href="#_variable_class"></a>5.3.2.17. VARIABLE Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2315,7 +2353,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_statement_class"><a class="anchor" href="#_statement_class"></a>5.3.2.17. STATEMENT Class</h5>
+<h5 id="_statement_class"><a class="anchor" href="#_statement_class"></a>5.3.2.18. STATEMENT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2337,7 +2375,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.3.2.18. ASSIGNMENT Class</h5>
+<h5 id="_assignment_class"><a class="anchor" href="#_assignment_class"></a>5.3.2.19. ASSIGNMENT Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2382,7 +2420,7 @@ $gt0107|index diagnosis| != null
 </table>
 </div>
 <div class="sect4">
-<h5 id="_assertion_class"><a class="anchor" href="#_assertion_class"></a>5.3.2.19. ASSERTION Class</h5>
+<h5 id="_assertion_class"><a class="anchor" href="#_assertion_class"></a>5.3.2.20. ASSERTION Class</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -2719,7 +2757,7 @@ Hash of keys ("text", "description" etc) and corresponding values.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-16 15:35:24 +0100
+Last updated 2020-07-27 10:35:31 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

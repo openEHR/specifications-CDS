@@ -13,10 +13,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|The gt-code of this element.
 
 h|*1..1*
-|*path*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*path*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|The path within archetype to reach this element.
 |===

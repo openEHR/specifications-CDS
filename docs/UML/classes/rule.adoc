@@ -17,18 +17,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|The gt-code of this rule.
 
 h|*0..1*
-|*when*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assertion_class[ASSERTION^]>`
+|*when*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assertion_class[ASSERTION^]>`
 a|List of assertions that when evaluated to `True` cause the rule to be fired. The `_when_` assertions may only mention 'input' type variables.
 
 h|*0..1*
-|*then*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assignment_class[ASSIGNMENT^]>`
+|*then*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assignment_class[ASSIGNMENT^]>`
 a|List of actions if the rule is fired. Each action is in the form of an assignment to an 'output' type variable.
 
 h|*1..1*
-|*priority*: `link:/releases/BASE/{cds_release}/foundation_types.html#_integer_class[Integer^]`
+|*priority*: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^]`
 a|Indicates the evaluation order of Rules within a Guideline. Rules with a _higher_ priority value are executed first.
 |===

@@ -13,11 +13,11 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*summary*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*summary*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1*
-|*detail*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*detail*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
@@ -29,10 +29,10 @@ h|*0..1*
 a|
 
 h|*0..1*
-|*suggestions*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<<<_suggestion_class,SUGGESTION>>>`
+|*suggestions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_suggestion_class,SUGGESTION>>>`
 a|
 
 h|*0..1*
-|*links*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<@@>`
+|*links*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<@@>`
 a|
 |===

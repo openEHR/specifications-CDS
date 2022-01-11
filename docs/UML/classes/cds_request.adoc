@@ -13,26 +13,26 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*hook_instance*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*hook_instance*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*fhir_srever*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*fhir_srever*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*hook*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*hook*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*user*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*user*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*1..1*
-|*patient*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*patient*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 
 h|*0..1*
-|*context*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<@@>`
+|*context*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<@@>`
 a|
 |===

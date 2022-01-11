@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*value*: `link:/releases/RM/{cds_release}/data_types.html#_dv_coded_text_class[DV_CODED_TEXT^]`
+|*value*: `link:/releases/RM/{rm_release}/data_types.html#_dv_coded_text_class[DV_CODED_TEXT^]`
 a|Value of constant, redefined to specific types in descendants.
 |===

@@ -9,14 +9,14 @@ h|*Description*
 2+a|Representation of a discrete guideline, which defines archetype bindings, rules and descriptive meta-data.
 
 h|*Inherit*
-2+|`link:/releases/BASE/{cds_release}/resource.html#_authored_resource_class[AUTHORED_RESOURCE^]`
+2+|`link:/releases/BASE/{base_release}/resource.html#_authored_resource_class[AUTHORED_RESOURCE^]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*id*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Identification of this guideline. Syntax is a string of format:
 
 * `concept_name '.v' [N[.M.P]]`
@@ -24,7 +24,7 @@ a|Identification of this guideline. Syntax is a string of format:
 For example: `calculate_bmi.v1`.
 
 h|*0..1*
-|*gdl_version*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*gdl_version*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|The version of the GDL the guide is written in, in a string of format:
 
 * `N.M[.P]`
@@ -32,7 +32,7 @@ a|The version of the GDL the guide is written in, in a string of format:
 i.e. a 2- or 3-number form of version, e.g. "1.0", "2.0", etc.
 
 h|*1..1*
-|*concept*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*concept*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|The normative meaning of the guideline as whole. Expressed as a gt-code.
 
 h|*1..1*

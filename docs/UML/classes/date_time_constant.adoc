@@ -17,6 +17,6 @@ h|*Attributes*
 
 h|*1..1 +
 (redefined)*
-|*value*: `link:/releases/BASE/{cds_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]`
+|*value*: `link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]`
 a|Value of constant, redefined to specific types in descendants.
 |===

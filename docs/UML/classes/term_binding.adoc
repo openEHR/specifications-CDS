@@ -13,10 +13,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*bindings*: `link:/releases/BASE/{cds_release}/foundation_types.html#_list_class[List^]<<<_term_class,TERM>>>`
+|*bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_term_class,TERM>>>`
 a|List of external codes, typically parsed in either URI form or openEHR standard form namespace '::' code.
 
 h|*1..1*
-|*code*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*code*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Local gt-code to which external terms are bound.
 |===

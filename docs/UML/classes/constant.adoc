@@ -16,10 +16,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `link:/releases/BASE/{cds_release}/foundation_types.html#_string_class[String^]`
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Symbolic name of constant.
 
 h|*1..1*
-|*value*: `link:/releases/BASE/{cds_release}/foundation_types.html#_any_class[Any^]`
+|*value*: `link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]`
 a|Value of constant, redefined to specific types in descendants.
 |===
