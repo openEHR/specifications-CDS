@@ -30,7 +30,7 @@
             ],
             "micro_summary": "Guideline Definition Language v2",
             "copyright_year": "2018",
-            "spec_status": "TRIAL",
+            "spec_status": "STABLE",
             "keywords": "decision support, GDL, GDL2, archetype"
         }
     ],
@@ -56,7 +56,7 @@
     "releases": [
         {
             "id": "2.0.0",
-            "date": "",
+            "date": "2023-08-17",
             "jira": {
                 "crs": "SPECCDS/versions/12526",
                 "prs": "SPECPR/versions/11575"
