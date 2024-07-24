@@ -12,7 +12,7 @@
             "summary": "Guideline Definition Language based on archetype/template paths.",
             "micro_summary": "Guideline Definition Language v1",
             "copyright_year": "2013",
-            "spec_status": "STABLE",
+            "spec_status": "RETIRED",
             "keywords": "decision support, GDL, archetype"
         },
         {
@@ -54,6 +54,14 @@
         "roadmap": "SPECCDS"
     },
     "releases": [
+        {
+            "id": "2.1.0",
+            "date": "2024-08-01",
+            "jira": {
+                "crs": "SPECCDS/versions/12526-",
+                "prs": "SPECPR/versions/11575-"
+            }
+        },
         {
             "id": "2.0.0",
             "date": "2023-08-17",
