@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="description" content="openEHR Guideline Definition Language v2 (GDL2) specification">
 <meta name="keywords" content="decision support, GDL, GDL2, archetype">
 <title>Guideline Definition Language v2 (GDL2)</title>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/asciidoctor-tabs.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -17,7 +19,6 @@
 <ul class="sectlevel0">
 <li><a href="#_guideline_definition_language_v2_gdl2">Guideline Definition Language v2 (GDL2)</a>
 <ul class="sectlevel1">
-<li><a href="#_amendment_record">Amendment Record</a></li>
 <li><a href="#_acknowledgements">Acknowledgements</a>
 <ul class="sectlevel2">
 <li><a href="#_primary_author">Primary Author</a></li>
@@ -137,6 +138,7 @@
 <li><a href="#_syntax_specification_2">6.1. Syntax Specification</a></li>
 </ul>
 </li>
+<li><a href="#_amendment_record">7. Amendment Record</a></li>
 </ul>
 </li>
 </ul>
@@ -167,8 +169,8 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: CDS latest</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: TRIAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: CDS Release-2.0.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: STABLE</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Revision</strong>: <a href="#latest_issue">[latest_issue]</a></p></td>
@@ -191,7 +193,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2018 - 2022 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2018 - 2024 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -206,45 +208,6 @@
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Issues: <a href="https://specifications.openehr.org/components/CDS/open_issues" target="_blank" rel="noopener">Problem Reports</a><br>
  Web: <a href="https://specifications.openehr.org" target="_blank" rel="noopener">specifications.openEHR.org</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>Amendment Record</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 54.5454%;">
-<col style="width: 18.1818%;">
-<col style="width: 18.1819%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Issue</th>
-<th class="tableblock halign-left valign-top">Details</th>
-<th class="tableblock halign-left valign-top">Raiser</th>
-<th class="tableblock halign-left valign-top">Completed</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>CDS Release 2.0.0</strong></p></th>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.0.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECCDS-2" target="_blank" rel="noopener">SPECCDS-2</a>: Add GDL and GDL2 specifications to CDS release.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>20 May 2019</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Initial Writing.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">R Chen,<br>
- T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12 Apr 2019</p></td>
 </tr>
 </tbody>
 </table>
@@ -313,7 +276,7 @@
 <div class="sect2">
 <h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
 <div class="paragraph">
-<p>This document contains the design specifications of the Guideline Definition Language version 2 (GDL2). GDL2 is a formal language for expressing decision support logic. It is designed to be agnostic to languages, reference terminologies and standard EHR models. GDL2 is a major evolution from <a href="https://specifications.openehr.org/releases/CDS/latest/GDL.html" target="_blank" rel="noopener">GDL version 1</a> ('GDL').</p>
+<p>This document contains the design specifications of the Guideline Definition Language version 2 (GDL2). GDL2 is a formal language for expressing decision support logic. It is designed to be agnostic to languages, reference terminologies and standard EHR models. GDL2 is a major evolution from <a href="https://specifications.openehr.org/releases/CDS/Release-2.0.1/GDL.html" target="_blank" rel="noopener">GDL version 1</a> ('GDL').</p>
 </div>
 </div>
 <div class="sect2">
@@ -330,7 +293,7 @@
 <p><a href="https://specifications.openehr.org/releases/RM/latest/index" target="_blank" rel="noopener">openEHR Reference Model specifications</a>.</p>
 </li>
 <li>
-<p><a href="https://specifications.openehr.org/releases/CDS/latest/GDL.html" target="_blank" rel="noopener">GDL version 1</a>.</p>
+<p><a href="https://specifications.openehr.org/releases/CDS/Release-2.0.1/GDL.html" target="_blank" rel="noopener">GDL version 1</a>.</p>
 </li>
 </ul>
 </div>
@@ -338,7 +301,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.3. Status</h3>
 <div class="paragraph">
-<p>This specification is in the TRIAL state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/CDS/latest/GDL2.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/CDS/latest/GDL2.html</a>.</p>
+<p>This specification is in the STABLE state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/CDS/latest/GDL2.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/CDS/latest/GDL2.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -458,57 +421,57 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-p">&lt;</span>
-    <span class="tok-nc">gdl_version</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2.0&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2-VASc.v1&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">concept</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0001&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">original_language</span> <span class="tok-o">=</span> <span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
-    <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">details</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">copyright</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">keywords</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial Fibrillation&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;Stroke&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;CHA2DS2-VASc&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">misuse</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Do not use in patients with no diagnosis of atrial fibrillation.&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">purpose</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">use</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-nc">lifecycle_state</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;in_review&quot;</span><span class="tok-p">&gt;</span>
-        <span class="tok-nc">original_author</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;date&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;2016-12-16&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;email&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;rong.chen@cambio.se&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;name&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Rong Chen&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;organisation&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-nc">other_contributors</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Carlos Valladares&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
-    <span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-        <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-             <span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-             <span class="tok-p">[</span><span class="tok-s">&quot;gt0007&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-             <span class="tok-p">...</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-             <span class="tok-p">[</span><span class="tok-s">&quot;gt0024&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-             <span class="tok-p">[</span><span class="tok-s">&quot;gt0025&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;...&gt;</span>
-             <span class="tok-p">...</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
-    <span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt123&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;some text&quot;</span><span class="tok-p">&gt;</span>
-                    <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-s">&quot;some description&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-nc">term_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt123&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-l">http://who.int/icd10/id/xxxx</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">gdl_version</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;2.0&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">id</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;CHA2DS2-VASc.v1&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">concept</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;gt0001&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">original_language</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;[</span><span class="tok-nd">ISO_639-1</span><span class="tok-p">::</span><span class="tok-nd">en</span><span class="tok-p">]&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">description</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-nc">details</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">copyright</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-nc">keywords</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial Fibrillation&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;Stroke&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;CHA2DS2-VASc&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-nc">misuse</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Do not use in patients with no diagnosis of atrial fibrillation.&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-nc">purpose</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-nc">use</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score.&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-nc">lifecycle_state</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;in_review&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-nc">original_author</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;date&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;2016-12-16&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;email&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;rong.chen@cambio.se&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;name&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Rong Chen&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;organisation&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Cambio Healthcare Systems&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-nc">other_contributors</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Carlos Valladares&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">definition</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-nc">pre_conditions</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;...&gt;</span>
+<span class="tok-w">        </span><span class="tok-nc">data_bindings</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">             </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;...&gt;</span>
+<span class="tok-w">             </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0007&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;...&gt;</span>
+<span class="tok-w">             </span><span class="tok-p">...</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-nc">rules</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">             </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0024&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;...&gt;</span>
+<span class="tok-w">             </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0025&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;...&gt;</span>
+<span class="tok-w">             </span><span class="tok-p">...</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">terminology</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-nc">term_definitions</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-p">[</span><span class="tok-s">&quot;gt123&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                    </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;some text&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                    </span><span class="tok-nc">description</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-s">&quot;some description&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-nc">term_bindings</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-p">[</span><span class="tok-s">&quot;gt123&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-l">http://who.int/icd10/id/xxxx</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -520,18 +483,18 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">    </span><span class="tok-nc">data_bindings</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0006&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-nc">model_id</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">type</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">elements</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                    </span><span class="tok-nc">path</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -540,21 +503,21 @@ GDL Guidelines are expressed in either the <a href="https://specifications.opene
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107|index diagnosis| != null&quot;</span><span class="tok-p">&gt;</span>
-    <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-nc">predicates</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">template_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;diagnosis_chadvas_icd10&quot;</span><span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">    </span><span class="tok-nc">pre_conditions</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0107|index diagnosis| != null&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">data_bindings</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-nc">model_id</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.problem-diagnosis.v1&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">type</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">elements</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0107&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                    </span><span class="tok-nc">path</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1]&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">predicates</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">template_id</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;diagnosis_chadvas_icd10&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -578,23 +541,23 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">rules</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108 != null&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014 = 1|local::at0031|Present|&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(11)</b>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">when</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109 != null&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0010 = 1|local::at0034|Present|&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(9)</b>
-        <span class="tok-p">&gt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">then</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0016.magnitude = gt0009.value + $gt0010.value + $gt0011.value + $gt0015.value + $gt0012.value + $gt0013.value + $gt0014.value&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">priority</span> <span class="tok-o">=</span> <b class="conum">(1)</b>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">    </span><span class="tok-nc">rules</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-nc">when</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0108 != null&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">then</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0014 = 1|local::at0031|Present|&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">priority</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><b class="conum">(11)</b>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-nc">when</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0109 != null&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">then</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0010 = 1|local::at0034|Present|&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">priority</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><b class="conum">(9)</b>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-nc">then</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0016.magnitude = gt0009.value + $gt0010.value + $gt0011.value + $gt0015.value + $gt0012.value + $gt0013.value + $gt0014.value&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">priority</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><b class="conum">(1)</b>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -603,32 +566,32 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0003&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Diagnosis&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0014&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Hypertension&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0102&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Diabetes&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial fibrillation&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Set hypertension&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Set diabetes&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculate total score&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">terminology</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">    </span><span class="tok-nc">term_definitions</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0003&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Diagnosis&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0014&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Hypertension&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0102&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Diabetes&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial fibrillation&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0018&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Set hypertension&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0019&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Set diabetes&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0026&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Calculate total score&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -637,12 +600,12 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">term_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;ICD10::I48&quot;</span><span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
-    <span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">terminology</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">    </span><span class="tok-nc">term_bindings</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;ICD10&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0105&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;ICD10::I48&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-p">&gt;</span>
 <span class="tok-p">&gt;</span></code></pre>
 </div>
 </div>
@@ -814,28 +777,28 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-	<span class="tok-nc">pre_conditions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0121 == 1|local::at0051|Present|&quot;</span><span class="tok-p">&gt;</span>
+<pre class="pygments highlight"><code data-lang="odin"><span></span><span class="tok-nc">definition</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">	</span><span class="tok-nc">pre_conditions</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;$gt0121 == 1|local::at0051|Present|&quot;</span><span class="tok-p">&gt;</span>
 
-    <span class="tok-nc">data_bindings</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;gt0122&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-nc">model_id</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">type</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-nc">elements</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-p">[</span><span class="tok-s">&quot;gt0121&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                    <span class="tok-nc">path</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0035]&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-        <span class="tok-p">&gt;</span>
+<span class="tok-w">    </span><span class="tok-nc">data_bindings</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0122&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-nc">model_id</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">type</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;INPUT&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-nc">elements</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0121&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                    </span><span class="tok-nc">path</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;/data[at0001]/items[at0035]&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">        </span><span class="tok-p">&gt;</span>
 
-<span class="tok-nc">terminology</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-    <span class="tok-nc">term_definitions</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-        <span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-            <span class="tok-p">[</span><span class="tok-s">&quot;gt0121&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span>
-                <span class="tok-nc">text</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial fibrillation&quot;</span><span class="tok-p">&gt;</span>
-                <span class="tok-nc">description</span> <span class="tok-o">=</span> <span class="tok-p">&lt;</span><span class="tok-s">&quot;*&quot;</span><span class="tok-p">&gt;</span>
-            <span class="tok-p">&gt;</span>
-            <span class="tok-p">...</span></code></pre>
+<span class="tok-nc">terminology</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">    </span><span class="tok-nc">term_definitions</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">        </span><span class="tok-p">[</span><span class="tok-s">&quot;en&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">            </span><span class="tok-p">[</span><span class="tok-s">&quot;gt0121&quot;</span><span class="tok-p">]</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span>
+<span class="tok-w">                </span><span class="tok-nc">text</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;Atrial fibrillation&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">                </span><span class="tok-nc">description</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-p">&lt;</span><span class="tok-s">&quot;*&quot;</span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">&gt;</span>
+<span class="tok-w">            </span><span class="tok-p">...</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -843,9 +806,9 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span>    <span class="tok-s2">&quot;pre_conditions&quot;</span><span class="tok-err">:</span> <span class="tok-p">[</span>
-      <span class="tok-s2">&quot;$gt0015|Coeliac disease diagnosis| == null&quot;</span>
-    <span class="tok-p">]</span><span class="tok-err">,</span></code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-w">    </span><span class="tok-nt">&quot;pre_conditions&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0015|Coeliac disease diagnosis| == null&quot;</span>
+<span class="tok-w">    </span><span class="tok-p">],</span></code></pre>
 </div>
 </div>
 </div>
@@ -872,20 +835,20 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span>  <span class="tok-s2">&quot;gt0007&quot;</span><span class="tok-err">:</span> <span class="tok-p">{</span>
-    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;gt0007&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;when&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-      <span class="tok-s2">&quot;$gt0025|Type 1 diabetes| == true ||</span>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-w">  </span><span class="tok-nt">&quot;gt0007&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;gt0007&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;when&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0025|Type 1 diabetes| == true ||</span>
 <span class="tok-s2">       $gt0029|Irritable bowel syndrome| == true ||</span>
 <span class="tok-s2">       $gt0028|(Unexplained) B12, iron or folate deficiency (and relevant medicines)| == true ||</span>
 <span class="tok-s2">       $gt0026|Autoimmune thyroid disease (and relevant medicines)| == true&quot;</span>
-    <span class="tok-p">],</span>
-    <span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-      <span class="tok-s2">&quot;$gt0009|card.summary| = &#39;tTG serological testing is recommended&#39;&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;use_template ($gt2022)&quot;</span>
-    <span class="tok-p">]</span>
-  <span class="tok-p">}</span></code></pre>
+<span class="tok-w">    </span><span class="tok-p">],</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0009|card.summary| = &#39;tTG serological testing is recommended&#39;&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;use_template ($gt2022)&quot;</span>
+<span class="tok-w">    </span><span class="tok-p">]</span>
+<span class="tok-w">  </span><span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -893,17 +856,17 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span>    <span class="tok-s2">&quot;rules&quot;</span><span class="tok-err">:</span> <span class="tok-p">{</span>
-      <span class="tok-nt">&quot;gt0012&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;gt0012&quot;</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-          <span class="tok-s2">&quot;$gt0003|BMI|.unit = &#39;kg/m2&#39;&quot;</span><span class="tok-p">,</span>
-          <span class="tok-s2">&quot;$gt0003|BMI|.precision = 1&quot;</span><span class="tok-p">,</span>
-          <span class="tok-s2">&quot;$gt0003|BMI|.magnitude = $gt0007.magnitude/($gt0005.magnitude/100)^2&quot;</span>
-        <span class="tok-p">]</span>
-      <span class="tok-p">}</span>
-    <span class="tok-p">}</span></code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-w">    </span><span class="tok-nt">&quot;rules&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">      </span><span class="tok-nt">&quot;gt0012&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;gt0012&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">          </span><span class="tok-s2">&quot;$gt0003|BMI|.unit = &#39;kg/m2&#39;&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">          </span><span class="tok-s2">&quot;$gt0003|BMI|.precision = 1&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">          </span><span class="tok-s2">&quot;$gt0003|BMI|.magnitude = $gt0007.magnitude/($gt0005.magnitude/100)^2&quot;</span>
+<span class="tok-w">        </span><span class="tok-p">]</span>
+<span class="tok-w">      </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -911,47 +874,47 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span>  <span class="tok-s2">&quot;gt0025&quot;</span><span class="tok-err">:</span> <span class="tok-p">{</span>
-    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;gt0025&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;when&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-      <span class="tok-s2">&quot;$gt0026==&#39;female&#39;&quot;</span>
-    <span class="tok-p">],</span>
-    <span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-      <span class="tok-s2">&quot;$gt1000|dage|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1001|age_1|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1002|age_2|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1003|bmi|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1004|bmi_2|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1005|bmi_1|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1006|rati|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1007|sbp|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1008|town|.precision = 15&quot;</span><span class="tok-p">,</span>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-w">  </span><span class="tok-nt">&quot;gt0025&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;gt0025&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-mi">2</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;when&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0026==&#39;female&#39;&quot;</span>
+<span class="tok-w">    </span><span class="tok-p">],</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1000|dage|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1001|age_1|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1002|age_2|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1003|bmi|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1004|bmi_2|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1005|bmi_1|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1006|rati|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1007|sbp|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1008|town|.precision = 15&quot;</span><span class="tok-p">,</span>
 
-      <span class="tok-s2">&quot;$gt1000|dage|.magnitude = $gt0022|age|.magnitude&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1000|dage|.magnitude = $gt1000|dage|.magnitude / 10.0&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1001|age_1|.magnitude = $gt1000|dage|.magnitude ^ 0.5&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1002|age_2|.magnitude = $gt1000|dage|.magnitude&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1003|dbmi|.magnitude = $gt0024.magnitude&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1003|dbmi|.magnitude = $gt1003|dbmi|.magnitude / 10.0&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1004|bmi_2|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2) * log($gt1003|dbmi|.magnitude)&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1005|bmi_1|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2)&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1000|dage|.magnitude = $gt0022|age|.magnitude&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1000|dage|.magnitude = $gt1000|dage|.magnitude / 10.0&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1001|age_1|.magnitude = $gt1000|dage|.magnitude ^ 0.5&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1002|age_2|.magnitude = $gt1000|dage|.magnitude&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1003|dbmi|.magnitude = $gt0024.magnitude&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1003|dbmi|.magnitude = $gt1003|dbmi|.magnitude / 10.0&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1004|bmi_2|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2) * log($gt1003|dbmi|.magnitude)&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1005|bmi_1|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2)&quot;</span><span class="tok-p">,</span>
 
-      <span class="tok-s2">&quot;$gt1001|age_1|.magnitude = $gt1001|age_1|.magnitude - 2.086397409439087&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1002|age_2|.magnitude = $gt1002|age_2|.magnitude - 4.353054523468018&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1005|bmi_1|.magnitude = $gt1005|bmi_1|.magnitude - 0.152244374155998&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1004|bmi_2|.magnitude = $gt1004|bmi_2|.magnitude - 0.143282383680344&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1006|rati|.magnitude = $gt8005|Cholesterol/HDL ratio|.magnitude - 3.506655454635620&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1007|sbp|.magnitude = $gt0016|Systolic BP|.magnitude - 125.040039062500000&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt1008|town|.magnitude = (0-0.416743695735931)&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1001|age_1|.magnitude = $gt1001|age_1|.magnitude - 2.086397409439087&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1002|age_2|.magnitude = $gt1002|age_2|.magnitude - 4.353054523468018&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1005|bmi_1|.magnitude = $gt1005|bmi_1|.magnitude - 0.152244374155998&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1004|bmi_2|.magnitude = $gt1004|bmi_2|.magnitude - 0.143282383680344&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1006|rati|.magnitude = $gt8005|Cholesterol/HDL ratio|.magnitude - 3.506655454635620&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1007|sbp|.magnitude = $gt0016|Systolic BP|.magnitude - 125.040039062500000&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt1008|town|.magnitude = (0-0.416743695735931)&quot;</span><span class="tok-p">,</span>
 
-      <span class="tok-s2">&quot;$gt0030|QRISK2 score|.precision = 15&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt0030|QRISK2 score|.magnitude = 0&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0030|QRISK2 score|.precision = 15&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0030|QRISK2 score|.magnitude = 0&quot;</span><span class="tok-p">,</span>
 
-      <span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0004|Smoking category 1|.value * 0.2119377108760385200000000&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0005|Smoking category 2|.value * 0.6618634379685941500000000&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0006|Smoking category 3|.value * 0.7570714587132305600000000&quot;</span><span class="tok-p">,</span>
-      <span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0007|Smoking category 4|.value * 0.9496298251457036000000000&quot;</span><span class="tok-p">,</span></code></pre>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0004|Smoking category 1|.value * 0.2119377108760385200000000&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0005|Smoking category 2|.value * 0.6618634379685941500000000&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0006|Smoking category 3|.value * 0.7570714587132305600000000&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">      </span><span class="tok-s2">&quot;$gt0030.magnitude = $gt0030.magnitude + $gt0007|Smoking category 4|.value * 0.9496298251457036000000000&quot;</span><span class="tok-p">,</span></code></pre>
 </div>
 </div>
 </div>
@@ -978,38 +941,38 @@ $gt0107|index diagnosis| != null
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span>    <span class="tok-s2">&quot;rules&quot;</span><span class="tok-err">:</span> <span class="tok-p">{</span>
-      <span class="tok-nt">&quot;gt0007&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;gt0007&quot;</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;when&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span><span class="tok-err">...</span><span class="tok-p">],</span>
-        <span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-          <span class="tok-s2">&quot;$gt0009|card.summary|=&#39;tTG serological testing is recommended&#39;&quot;</span><span class="tok-p">,</span>
-          <span class="tok-s2">&quot;use_template($gt2022)&quot;</span>
-        <span class="tok-p">]</span>
-      <span class="tok-p">}</span>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-w">    </span><span class="tok-nt">&quot;rules&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">      </span><span class="tok-nt">&quot;gt0007&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;gt0007&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-mi">1</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;when&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span><span class="tok-err">...</span><span class="tok-p">],</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;then&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">          </span><span class="tok-s2">&quot;$gt0009|card.summary|=&#39;tTG serological testing is recommended&#39;&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">          </span><span class="tok-s2">&quot;use_template($gt2022)&quot;</span>
+<span class="tok-w">        </span><span class="tok-p">]</span>
+<span class="tok-w">      </span><span class="tok-p">}</span>
 
-    <span class="tok-s2">&quot;templates&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-      <span class="tok-nt">&quot;gt2022&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;gt2022&quot;</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;coeliac-disease-alert&quot;</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;model_id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;generic_model&quot;</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;template_id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;generic_model&quot;</span><span class="tok-p">,</span>
-        <span class="tok-nt">&quot;object&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-          <span class="tok-nt">&quot;cards&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
-            <span class="tok-p">{</span>
-              <span class="tok-nt">&quot;summary&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;{$gt0009}&quot;</span><span class="tok-p">,</span>
-              <span class="tok-nt">&quot;detail&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Found risk factor(s):{$gt0020}&quot;</span><span class="tok-p">,</span>
-              <span class="tok-nt">&quot;indicator&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;warning&quot;</span><span class="tok-p">,</span>
-              <span class="tok-nt">&quot;source&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;label&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;National Institute for Health and Care Excellence (NICE). Coeliac disease: recognition, assessment and management. 2015.&quot;</span><span class="tok-p">,</span>
-                <span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://www.nice.org.uk/guidance/ng20&quot;</span>
-              <span class="tok-p">}</span>
-            <span class="tok-p">}</span>
-          <span class="tok-p">]</span>
-        <span class="tok-p">}</span>
-      <span class="tok-p">}</span>
-    <span class="tok-p">},</span></code></pre>
+<span class="tok-w">    </span><span class="tok-nt">&quot;templates&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">      </span><span class="tok-nt">&quot;gt2022&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;gt2022&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;coeliac-disease-alert&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;model_id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;generic_model&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;template_id&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;generic_model&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;object&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">          </span><span class="tok-nt">&quot;cards&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">[</span>
+<span class="tok-w">            </span><span class="tok-p">{</span>
+<span class="tok-w">              </span><span class="tok-nt">&quot;summary&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;{$gt0009}&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">              </span><span class="tok-nt">&quot;detail&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;Found risk factor(s):{$gt0020}&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">              </span><span class="tok-nt">&quot;indicator&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;warning&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">              </span><span class="tok-nt">&quot;source&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;label&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;National Institute for Health and Care Excellence (NICE). Coeliac disease: recognition, assessment and management. 2015.&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;https://www.nice.org.uk/guidance/ng20&quot;</span>
+<span class="tok-w">              </span><span class="tok-p">}</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">          </span><span class="tok-p">]</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">      </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">},</span></code></pre>
 </div>
 </div>
 </div>
@@ -1124,7 +1087,7 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>terminology</strong>: <code><a href="/releases/CDS/latest/terminology.html#_terminology_class" target="_blank" rel="noopener">TERMINOLOGY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>terminology</strong>: <code><a href="/releases/CDS/Release-2.0.1/terminology.html#_terminology_class" target="_blank" rel="noopener">TERMINOLOGY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Terminology definitions of the guideline containing definitions and translations (if applicable) for every gt-code.</p>
 </div></div></td>
@@ -1181,7 +1144,7 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/latest/expression.html#_assertion_class">ASSERTION</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pre_conditions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/Release-2.0.1/expression.html#_assertion_class">ASSERTION</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Pre-conditions to be met before the guideline can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.</p>
 </div></div></td>
@@ -1195,7 +1158,7 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>default_actions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/latest/expression.html#_assignment_class">ASSIGNMENT</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>default_actions</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/Release-2.0.1/expression.html#_assignment_class">ASSIGNMENT</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Actions that will always be performed, whenever the <code><em>when</em></code> conditions are evaluated, regardless of the result.</p>
 </div></div></td>
@@ -1209,7 +1172,7 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/latest/expression.html#_variable_class">VARIABLE</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/Release-2.0.1/expression.html#_variable_class">VARIABLE</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Variables used internally to a GDL guideline, i.e. not bound to external data entities. These are generated during parsing of expressions and used to track interim state.</p>
 </div></div></td>
@@ -1256,14 +1219,14 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/latest/expression.html#_assertion_class">ASSERTION</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>when</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/Release-2.0.1/expression.html#_assertion_class">ASSERTION</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of assertions that when evaluated to <code>True</code> cause the rule to be fired. The <code><em>when</em></code> assertions may only mention 'input' type variables.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>then</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/latest/expression.html#_assignment_class">ASSIGNMENT</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>then</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/Release-2.0.1/expression.html#_assignment_class">ASSIGNMENT</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of actions if the rule is fired. Each action is in the form of an assignment to an 'output' type variable.</p>
 </div></div></td>
@@ -1325,7 +1288,7 @@ $gt0107|index diagnosis| != null
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicates</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/latest/expression.html#_assertion_class">ASSERTION</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>predicates</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/CDS/Release-2.0.1/expression.html#_assertion_class">ASSERTION</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Predicates (constraints) that need to be satisfied before rule execution can occur. Generally speaking, predicates are constraints on variable values, and can only mention gt-codes of variables.</p>
 </div></div></td>
@@ -2754,12 +2717,51 @@ Hash of keys ("text", "description" etc) and corresponding values.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>7. Amendment Record</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>CDS Release 2.0.0</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECCDS-2" target="_blank" rel="noopener">SPECCDS-2</a>: Add GDL and GDL2 specifications to CDS release.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SEC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>20 May 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial Writing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Chen,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Apr 2019</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-27 10:35:31 +0100
+Last updated 2024-07-31 09:52:11 UTC
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+<script src="https://specifications.openehr.org/js/asciidoctor-tabs.js"></script>
 </body>
 </html>
