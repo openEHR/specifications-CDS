@@ -57,7 +57,7 @@
     "releases": [
         {
             "id": "2.0.1",
-            "date": "2024-08-01",
+            "date": "2024-07-31",
             "jira": {
                 "crs": "SPECCDS/versions/12575",
                 "prs": "SPECPR/versions/11575"
