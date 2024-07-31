@@ -20,12 +20,9 @@ include::{ref_dir}/docs/references/reference_definitions.adoc[]
 // ============================================= Asciidoc BODY ===============================================
 //
 
-include::master00-amendment_record.adoc[leveloffset=+1]
-
 //
-// --------------------------------------------- Preface -----------------------------------------------
+// --------------------------------------------- Acknowledgements -----------------------------------------------
 //
-
 == Acknowledgements
 
 The work reported in this paper has been funded in by the following organisations:
@@ -57,6 +54,7 @@ include::master04-implementation.adoc[leveloffset=+1]
 // --------------------------------------------- REFERENCES -----------------------------------------------
 //
 
+include::master00-amendment_record.adoc[leveloffset=+1]
 
 //:numbered!:
 //== References

@@ -20,12 +20,9 @@ include::{ref_dir}/docs/references/reference_definitions.adoc[]
 // ============================================= Asciidoc BODY ===============================================
 //
 
-include::master00-amendment_record.adoc[leveloffset=+1]
-
 //
-// --------------------------------------------- Preface -----------------------------------------------
+// --------------------------------------------- Acknowledgements -----------------------------------------------
 //
-
 == Acknowledgements
 
 === Primary Author
@@ -71,6 +68,7 @@ include::master06-syntax.adoc[leveloffset=+1]
 // --------------------------------------------- REFERENCES -----------------------------------------------
 //
 
+include::master00-amendment_record.adoc[leveloffset=+1]
 
 //:sectnums!:
 //== References
