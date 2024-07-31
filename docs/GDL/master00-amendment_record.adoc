@@ -4,12 +4,19 @@
 |===
 |Issue|Details|Raiser|Completed
 
+4+^h|*CDS Release 2.0.1*
+
+|[[latest_issue]]2.0.1
+|{spec_tickets}/SPECCDS-6[SPECCDS-6^]: Retire GDL v1 specifications.
+|SEC
+|[[latest_issue_date]]31 Jul 2024
+
 4+^h|*CDS Release 2.0.0*
 
-|[[latest_issue]]2.0.0
+|2.0.0
 |{spec_tickets}/SPECCDS-2[SPECCDS-2^]: Add GDL and GDL2 specifications to CDS release.
 |SEC
-|[[latest_issue_date]]20 May 2019
+|20 May 2019
 
 |1.0.0
 |Initial Writing.

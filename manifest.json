@@ -3,6 +3,7 @@
     "title": "Clinical Decision Support",
     "description": "openEHR Clinical Decision Support Specifications",
     "keywords": "cds, decision support, clinical decision support",
+    "status": "STABLE",
     "specifications": [
         {
             "id": "GDL",
@@ -55,11 +56,11 @@
     },
     "releases": [
         {
-            "id": "2.1.0",
+            "id": "2.0.1",
             "date": "2024-08-01",
             "jira": {
-                "crs": "SPECCDS/versions/12526-",
-                "prs": "SPECPR/versions/11575-"
+                "crs": "SPECCDS/versions/12575",
+                "prs": "SPECPR/versions/11575"
             }
         },
         {

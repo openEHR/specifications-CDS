@@ -1,5 +1,5 @@
 :spec_title: Guideline Definition Language v2 (GDL2)
 :copyright_year: 2018
-:spec_status: TRIAL
+:spec_status: STABLE
 :keywords: decision support, GDL, GDL2, archetype
 :description: openEHR Guideline Definition Language v2 (GDL2) specification
