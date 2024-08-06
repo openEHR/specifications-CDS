@@ -19,14 +19,14 @@ image::openehr_block_diagram.svg["openEHR components",align="center",width="60%"
 :numbered!:
 = Clinical Decision Support (CDS) Component - {cds_release}
 
-// Use the following version for 'latest'
-ifeval::["{cds_release}" == "latest"]
+// Use the following version for 'development'
+ifeval::["{cds_release}" == "development"]
 [.title-para]
 {component_prs}[Open Issues^] | {component_roadmap}[Roadmap^] | {component_history}[Previous Releases^] 
 endif::[]
 
 // Use the following version for a named release
-ifeval::["{cds_release}" != "latest"]
+ifeval::["{cds_release}" != "development"]
 :cds_prs_fixed: {component_prs_fixed}{cds_release}/issues
 :cds_crs_done: {component_crs_done}{cds_release}/changes
 [.title-para]
