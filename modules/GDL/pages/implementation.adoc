@@ -24,5 +24,5 @@ The software binary download page is here: http://sourceforge.net/projects/gdl-e
 == Appendix A: Grammar
 
 ----
-include::javacc/expression.jj[]
+include::partial$javacc/expression.jj[]
 ----
