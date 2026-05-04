@@ -1,0 +1,7 @@
+name: CDS
+title: Clinical Decision Support
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/GDL/nav.adoc
+  - modules/GDL2/nav.adoc

@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Syntax Specification
 
 The grammar and lexical specification for the standard GDL is entirely based on {openehr_odin}[openEHR ODIN syntax^], with a JSON equivalent, and driven by the guideline object model defined in this specification.

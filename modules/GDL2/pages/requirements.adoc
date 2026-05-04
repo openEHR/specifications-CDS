@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = Requirements
 
 This section describes detailed formal requirements of the GDL2 language.

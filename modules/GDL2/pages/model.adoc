@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 = GDL2 Object Model
 
 == Package Structure
@@ -6,7 +8,7 @@ The Guideline Object Model, the object model of GDL2 consists of three packages,
 
 [.text-center]
 .`cds` Package
-image::{uml_diagrams_uri}/CDS-cds-packages.svg[id=cds_packages, align="center"]
+image::ROOT:uml/CDS-cds-packages.svg[id=cds_packages, align="center"]
 
 == Guideline Package
 
@@ -16,16 +18,16 @@ The following UML diagram shows the `guideline` and `terminology` packages.
 
 [.text-center]
 .`cds.guideline` Package
-image::{uml_diagrams_uri}/CDS-cds.guideline.svg[id=guideline, align="center"]
+image::ROOT:uml/CDS-cds.guideline.svg[id=guideline, align="center"]
 
 === Class Definitions
 
-include::{uml_export_dir}/classes/guideline.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/guideline_definition.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/rule.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/data_binding.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/element.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/output_template.adoc[leveloffset=+1]
+include::ROOT:partial$classes/guideline.adoc[leveloffset=+1]
+include::ROOT:partial$classes/guideline_definition.adoc[leveloffset=+1]
+include::ROOT:partial$classes/rule.adoc[leveloffset=+1]
+include::ROOT:partial$classes/data_binding.adoc[leveloffset=+1]
+include::ROOT:partial$classes/element.adoc[leveloffset=+1]
+include::ROOT:partial$classes/output_template.adoc[leveloffset=+1]
 
 == Expressions Package
 
@@ -35,34 +37,34 @@ The `expression` package is illustrated below.
 
 [.text-center]
 .`cds.expression` Package
-image::{uml_diagrams_uri}/CDS-cds.expression.svg[id=expression, align="center"]
+image::ROOT:uml/CDS-cds.expression.svg[id=expression, align="center"]
 
 === Class Definitions
 
-include::{uml_export_dir}/classes/expression_item.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/unary_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/binary_operator.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/operator_kind.adoc[leveloffset=+1]
+include::ROOT:partial$classes/expression_item.adoc[leveloffset=+1]
+include::ROOT:partial$classes/operator.adoc[leveloffset=+1]
+include::ROOT:partial$classes/unary_operator.adoc[leveloffset=+1]
+include::ROOT:partial$classes/binary_operator.adoc[leveloffset=+1]
+include::ROOT:partial$classes/operator_kind.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/function_call.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/function_kind.adoc[leveloffset=+1]
+include::ROOT:partial$classes/function_call.adoc[leveloffset=+1]
+include::ROOT:partial$classes/function_kind.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/string_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/integer_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/boolean_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/date_time_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/code_phrase_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/coded_text_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/ordinal_constant.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/quantity_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/string_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/integer_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/boolean_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/date_time_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/code_phrase_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/coded_text_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/ordinal_constant.adoc[leveloffset=+1]
+include::ROOT:partial$classes/quantity_constant.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/variable.adoc[leveloffset=+1]
+include::ROOT:partial$classes/variable.adoc[leveloffset=+1]
 
-include::{uml_export_dir}/classes/statement.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/assignment.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/assertion.adoc[leveloffset=+1]
+include::ROOT:partial$classes/statement.adoc[leveloffset=+1]
+include::ROOT:partial$classes/assignment.adoc[leveloffset=+1]
+include::ROOT:partial$classes/assertion.adoc[leveloffset=+1]
 
 == Terminology Package
 
@@ -72,6 +74,6 @@ The `terminology` package is illustrated earlier. The `TERMINOLOGY` and `TERM` c
 
 === Class Definitions
 
-include::{uml_export_dir}/classes/terminology.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/term.adoc[leveloffset=+1]
-include::{uml_export_dir}/classes/term_binding.adoc[leveloffset=+1]
+include::ROOT:partial$classes/terminology.adoc[leveloffset=+1]
+include::ROOT:partial$classes/term.adoc[leveloffset=+1]
+include::ROOT:partial$classes/term_binding.adoc[leveloffset=+1]
