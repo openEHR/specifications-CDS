@@ -6,7 +6,7 @@ The following diagram illustrates the structure of a GDL2 guideline. The central
 
 [.text-center]
 .GDL2 guideline structure
-image::{diagrams_uri}/gdl2_guideline_structure.svg[id=gdl2_guideline_structure, align="center"]
+image::diagrams/gdl2_guideline_structure.svg[id=gdl2_guideline_structure, align="center"]
 
 == Execution Model
 
@@ -14,7 +14,7 @@ The following diagram illustrates the execution model of a rule in a GDL2 guidel
 
 [.text-center]
 .GDL2 execution model
-image::{diagrams_uri}/gdl2_execution_model.svg[id=gdl2_execution_model, align="center", width=70%]
+image::diagrams/gdl2_execution_model.svg[id=gdl2_execution_model, align="center", width=70%]
 
 == GDL2 Language Elements
 
