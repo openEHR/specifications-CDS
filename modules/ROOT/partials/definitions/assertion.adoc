@@ -7,14 +7,14 @@ h|*Description*
 2+a|A statement of the logical form `assert(cond)` that asserts the truth of a Boolean expression, which if not true, generates an exception at runtime.
 
 h|*Inherit*
-2+|`<<_statement_class,STATEMENT>>`
+2+|`xref:GDL2:model.adoc#_statement_class[STATEMENT]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*expression*: `<<_expression_item_class,EXPRESSION_ITEM>>`
+|*expression*: `xref:GDL2:model.adoc#_expression_item_class[EXPRESSION_ITEM]`
 a|Expression that is the subject of the assertion.
 
 h|*Invariants*

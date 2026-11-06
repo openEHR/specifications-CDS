@@ -1,0 +1,15 @@
+= Clinical Decision Support
+
+[.spec-meta-line]
+Status: [.spec-status.spec-status-stable]#STABLE#  Release: [.release-tag]#{page-component-version}#
+
+
+Guideline Definition Language (GDL2) for encoding computable clinical guidelines and decision rules. GDL rules operate on openEHR archetypes and can be evaluated at the point of care to drive clinical decision support.
+
+.Specification Component Overview
+image::openehr_block_diagram.svg[openEHR Clinical Decision Support block diagram,role=block-diagram]
+
+== Specifications
+
+* xref:GDL:index.adoc[Guideline Definition Language (GDL)] [.spec-status.spec-status-retired]#RETIRED# — Guideline Definition Language v1 -- Language for encoding computable clinical guidelines operating on archetypes
+* xref:GDL2:index.adoc[Guideline Definition Language v2 (GDL2)] [.spec-status.spec-status-stable]#STABLE# — Guideline Definition Language v2 -- Improved guideline language with enhanced expression power and platform integration

@@ -1,0 +1,8 @@
+* xref:index.adoc[Guideline Definition Language v2 (GDL2)]
+** xref:overview.adoc[Overview]
+** xref:requirements.adoc[Requirements]
+** xref:language.adoc[GDL2 Semantics]
+** xref:model.adoc[GDL2 Object Model]
+** xref:syntax.adoc[Syntax Specification]
+** xref:appendix.adoc[Appendix]
+

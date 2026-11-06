@@ -1,3 +1,5 @@
+include::partial$module_vars.adoc[]
+
 //
 // ============================================ Asciidoc HEADER =============================================
 //
@@ -7,7 +9,22 @@
 //
 
 
-= {spec_title}
+= {spec_title} [.spec-status.spec-status-retired]#{spec_status}#
+
+The language used to encode computable clinical guidelines that operate on openEHR archetypes for point-of-care decision support. GDL rules express conditions and actions over archetype data elements, enabling guideline engines to evaluate and apply clinical recommendations at runtime. GDL2 is the successor with improved expression power and platform integration. A GDL guideline consists of a data bindings section mapping archetype elements to rule variables, and a rules section defining when-then condition-action pairs.
+
+== Purpose
+
+This document contains the design specifications of the Guideline Definition Language (GDL). GDL is a formal language for expressing decision support logic. It is designed to be agnostic to natural languages and reference terminologies by leveraging the designs of openEHR Reference Model and Archetype Model.
+
+== Related Documents
+
+Prerequisite documents for reading this document include:
+
+* {openehr_rm}[openEHR Reference Model specifications^].
+
+
+
 
 
 //
@@ -17,33 +34,13 @@
 //
 // --------------------------------------------- Acknowledgements -----------------------------------------------
 //
-== Acknowledgements
 
-The work reported in this paper has been funded in by the following organisations:
+== Feedback
 
-* Cambio Healthcare Systems, Sweden.
+Feedback may be provided on the {openehr_technical_list}[technical mailing list^].
 
-=== Trademarks
+Issues may be raised on the {component_prs}[specifications Problem Report tracker^].
 
-* 'openEHR' is a trademark of the openEHR Foundation
-* 'Java' is a registered trademark of Oracle Corporation
-* 'Microsoft' and '.Net' are trademarks of the Microsoft Corporation
+To see changes made due to previously reported issues, see the {component_history}[{component} component Change Request tracker^].
 
-
-//
-// --------------------------------------------- TOC -----------------------------------------------
-//
-//toc::[left]
-
-//
-// --------------------------------------------- CHAPTERS -----------------------------------------------
-//
-
-//
-// --------------------------------------------- REFERENCES -----------------------------------------------
-//
-
-
-//:numbered!:
-//== References
 

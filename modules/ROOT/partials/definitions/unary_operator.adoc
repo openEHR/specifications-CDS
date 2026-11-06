@@ -7,13 +7,13 @@ h|*Description*
 2+a|Concrete model of a unary operator in the rule.
 
 h|*Inherit*
-2+|`<<_operator_class,OPERATOR>>`
+2+|`xref:GDL2:model.adoc#_operator_class[OPERATOR]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*operand*: `<<_expression_item_class,EXPRESSION_ITEM>>`
+|*operand*: `xref:GDL2:model.adoc#_expression_item_class[EXPRESSION_ITEM]`
 a|The operand.
 |===

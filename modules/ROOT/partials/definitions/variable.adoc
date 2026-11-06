@@ -7,17 +7,17 @@ h|*Description*
 2+a|Terminal expression element representing a named variable with a definition provided by the `_code_` attribute, containing a gt-code.
 
 h|*Inherit*
-2+|`<<_expression_item_class,EXPRESSION_ITEM>>`
+2+|`xref:GDL2:model.adoc#_expression_item_class[EXPRESSION_ITEM]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*name*: `xref:{class_string}[String]`
 a|Variable symbolic name.
 
 h|*1..1*
-|*code*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*code*: `xref:{class_string}[String]`
 a|Internal gt-code defining the meaning of this variable.
 |===

@@ -11,6 +11,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*cards*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_card_class,CARD>>>`
+|*cards*: `xref:{class_list}[List]<xref:{class_card}[CARD]>`
 a|
 |===

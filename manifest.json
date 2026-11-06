@@ -1,75 +1,75 @@
 {
-    "id": "CDS",
-    "title": "Clinical Decision Support",
-    "description": "openEHR Clinical Decision Support Specifications",
-    "keywords": "cds, decision support, clinical decision support",
-    "status": "STABLE",
-    "specifications": [
-        {
-            "id": "GDL",
-            "title": "Guideline Definition Language (GDL)",
-            "title_short": "GDL",
-            "description": "openEHR Guideline Definition Language (GDL) specification",
-            "summary": "Guideline Definition Language based on archetype/template paths.",
-            "micro_summary": "Guideline Definition Language v1",
-            "copyright_year": "2013",
-            "spec_status": "RETIRED",
-            "keywords": "decision support, GDL, archetype"
-        },
-        {
-            "id": "GDL2",
-            "title": "Guideline Definition Language v2 (GDL2)",
-            "title_short": "GDL2",
-            "description": "openEHR Guideline Definition Language v2 (GDL2) specification",
-            "summary": "An improved variant of Guideline Definition Language, known as GDL2, based on archetype/template paths.",
-            "classes": [
-                "GUIDELINE",
-                "GUIDELINE_DEFINITION",
-                "RULE",
-                "OUTPUT_TEMPLATE",
-                "DATA_BINDING"
-            ],
-            "micro_summary": "Guideline Definition Language v2",
-            "copyright_year": "2018",
-            "spec_status": "STABLE",
-            "keywords": "decision support, GDL, GDL2, archetype"
-        }
-    ],
-    "expressions": [
-        {
-            "id": "GDL-JavaCC",
-            "type": "file",
-            "title": "GDL JavaCC file",
-            "description": "JavaCC rules for GDL.",
-            "link": "GDL/javacc/expression.jj"
-        },
-        {
-            "id": "openEHR_UML-CDS.mdzip",
-            "type": "uml",
-            "title": "CDS UML",
-            "description": "UML file for openEHR CDS classes, as MagicDraw 19. Contains UML 2.5 standard XMI file."
-        }
-    ],
-    "jira": {
-        "open_issues": "11107",
-        "roadmap": "SPECCDS"
+  "id": "CDS",
+  "title": "Clinical Decision Support",
+  "description": "openEHR Clinical Decision Support Specifications",
+  "keywords": "cds, decision support, clinical decision support",
+  "status": "STABLE",
+  "specifications": [
+    {
+      "id": "GDL",
+      "title": "Guideline Definition Language (GDL)",
+      "title_short": "GDL",
+      "description": "openEHR Guideline Definition Language (GDL) specification",
+      "summary": "The language used to encode computable clinical guidelines that operate on openEHR archetypes for point-of-care decision support. GDL rules express conditions and actions over archetype data elements, enabling guideline engines to evaluate and apply clinical recommendations at runtime. GDL2 is the successor with improved expression power and platform integration. A GDL guideline consists of a data bindings section mapping archetype elements to rule variables, and a rules section defining when-then condition-action pairs.",
+      "micro_summary": "Guideline Definition Language v1",
+      "copyright_year": "2013",
+      "spec_status": "RETIRED",
+      "keywords": "decision support, GDL, archetype"
     },
-    "releases": [
-        {
-            "id": "2.0.1",
-            "date": "2024-07-31",
-            "jira": {
-                "crs": "SPECCDS/versions/12575",
-                "prs": "SPECPR/versions/11575"
-            }
-        },
-        {
-            "id": "2.0.0",
-            "date": "2023-08-17",
-            "jira": {
-                "crs": "SPECCDS/versions/12526",
-                "prs": "SPECPR/versions/11575"
-            }
-        }
-    ]
+    {
+      "id": "GDL2",
+      "title": "Guideline Definition Language v2 (GDL2)",
+      "title_short": "GDL2",
+      "description": "openEHR Guideline Definition Language v2 (GDL2) specification",
+      "summary": "The language used to encode computable clinical guidelines operating on openEHR archetypes, with improved expression power, terminology binding, and integration with the openEHR Decision Language and Task Planning. GDL2 enables guideline engines to evaluate complex multi-variable clinical rules and drive decision support at the point of care. GDL is the predecessor version. GDL2 adds support for multiple archetype bindings per rule, richer expression syntax using EL, and integration with Task Planning for guideline-driven workflow automation.",
+      "classes": [
+        "GUIDELINE",
+        "GUIDELINE_DEFINITION",
+        "RULE",
+        "OUTPUT_TEMPLATE",
+        "DATA_BINDING"
+      ],
+      "micro_summary": "Guideline Definition Language v2",
+      "copyright_year": "2018",
+      "spec_status": "STABLE",
+      "keywords": "decision support, GDL, GDL2, archetype"
+    }
+  ],
+  "expressions": [
+    {
+      "id": "GDL-JavaCC",
+      "type": "file",
+      "title": "GDL JavaCC file",
+      "description": "JavaCC rules for GDL.",
+      "link": "GDL/javacc/expression.jj"
+    },
+    {
+      "id": "openEHR_UML-CDS.mdzip",
+      "type": "uml",
+      "title": "CDS UML",
+      "description": "UML file for openEHR CDS classes, as MagicDraw 19. Contains UML 2.5 standard XMI file."
+    }
+  ],
+  "jira": {
+    "open_issues": "11107",
+    "roadmap": "SPECCDS"
+  },
+  "releases": [
+    {
+      "id": "2.0.1",
+      "date": "2024-07-31",
+      "jira": {
+        "crs": "SPECCDS/versions/12575",
+        "prs": "SPECPR/versions/11575"
+      }
+    },
+    {
+      "id": "2.0.0",
+      "date": "2023-08-17",
+      "jira": {
+        "crs": "SPECCDS/versions/12526",
+        "prs": "SPECPR/versions/11575"
+      }
+    }
+  ]
 }

@@ -1,0 +1,6 @@
+* xref:index.adoc[Guideline Definition Language (GDL)]
+** xref:overview.adoc[Overview]
+** xref:design.adoc[Design]
+** xref:implementation.adoc[Implementation]
+** xref:appendix.adoc[Appendix]
+

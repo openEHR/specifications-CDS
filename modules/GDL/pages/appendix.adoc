@@ -1,0 +1,20 @@
+include::partial$module_vars.adoc[]
+
+= Appendix
+
+
+== Acknowledgements
+
+The work reported in this paper has been funded in by the following organisations:
+
+* Cambio Healthcare Systems, Sweden.
+
+=== Trademarks
+
+* 'openEHR' is a trademark of the openEHR Foundation
+* 'Java' is a registered trademark of Oracle Corporation
+* 'Microsoft' and '.Net' are trademarks of the Microsoft Corporation
+
+:sectnums!:
+
+include::partial$amendment_record.adoc[]

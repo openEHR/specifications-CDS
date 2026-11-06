@@ -11,11 +11,11 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*description*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*description*: `xref:{class_string}[String]`
 a|
 
 h|*0..1*
-|*resource*: `link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]`
+|*resource*: `xref:{class_any}[Any]`
 a|
 
 h|*0..1*
@@ -23,6 +23,6 @@ h|*0..1*
 a|
 
 h|*1..1*
-|*type*: `<<_action_type_enumeration,ACTION_TYPE>>`
+|*type*: `xref:{class_action_type}[ACTION_TYPE]`
 a|
 |===

@@ -1,8 +1,10 @@
+include::partial$module_vars.adoc[]
+
 = GDL2 Semantics
 
 == Rule Structure
 
-The following diagram illustrates the structure of a GDL2 guideline. The central rules defining the semantics of the guideline are defined in terms of the formal rule definitions (when/then structures) coupled with 'rule execution filters', consisting of pre-conditions and predicates, that decide which rules are executed. If a rule is executed, its `when` conditions will be evaluated, and if all satisfied, its `then` actions performed. The data-bindings and terminology parts of structure define respectively, the mappings of the gt-codes used in the rules to nodes in input or output data sets (archetypes and/or templates); and the definitions of the gt-codes as terms, for human use. Finally, the optional `templates` provide a way of reporting generated results to downstream consumers. These are described in more detail in the <<Reporting>> section below.
+The following diagram illustrates the structure of a GDL2 guideline. The central rules defining the semantics of the guideline are defined in terms of the formal rule definitions (when/then structures) coupled with 'rule execution filters', consisting of pre-conditions and predicates, that decide which rules are executed. If a rule is executed, its `when` conditions will be evaluated, and if all satisfied, its `then` actions performed. The data-bindings and terminology parts of structure define respectively, the mappings of the gt-codes used in the rules to nodes in input or output data sets (archetypes and/or templates); and the definitions of the gt-codes as terms, for human use. Finally, the optional `templates` provide a way of reporting generated results to downstream consumers. These are described in more detail in the <<_reporting,Reporting>> section below.
 
 [.text-center]
 .GDL2 guideline structure
@@ -20,7 +22,7 @@ image::diagrams/gdl2_execution_model.svg[id=gdl2_execution_model, align="center"
 
 === Syntax
 
-Because GDL2 guidelines are machine serialisations of the <<GDL2 Object Model>>, the syntax is mostly a direct consequence of the structure. Currently, either {openehr_odin}[openEHR ODIN^] or {json}[JSON^] syntax may be used. The exception is where expressions appear, which is within Assertion and Assignment statements, which as per the model, occur in `/pre_conditions`, `data_bindings[id]/predicates`, `rules[id]/when` statements, `rules[id]/then` actions, and Guideline `default_actions`.
+Because GDL2 guidelines are machine serialisations of the xref:model.adoc[GDL2 Object Model], the syntax is mostly a direct consequence of the structure. Currently, either {openehr_odin}[openEHR ODIN^] or {json}[JSON^] syntax may be used. The exception is where expressions appear, which is within Assertion and Assignment statements, which as per the model, occur in `/pre_conditions`, `data_bindings[id]/predicates`, `rules[id]/when` statements, `rules[id]/then` actions, and Guideline `default_actions`.
 
 The following subsections describe the expressions occurring in Assertion and Assignment statements. The former is a kind of statement that asserts the truth of a Boolean expression, while the latter is a programming-style assignment of an expression of any type to a variable of that type.
 
@@ -160,7 +162,7 @@ Rule-set action lists may be of any size, as shown by the following extract, fro
 
 === Expression Elements
 
-Most expression terminal elements shown in the <<Expressions Package>> below are generated during the process of parsing larger expressions and statements found within guidelines, as per the above examples. Consequently, some properties, such as types of constants and variables are inferred and generated on the fly, rather than being stated literally within a guideline.
+Most expression terminal elements shown in the <<model.adoc#{underscore}expressions_package,Expressions Package>> below are generated during the process of parsing larger expressions and statements found within guidelines, as per the above examples. Consequently, some properties, such as types of constants and variables are inferred and generated on the fly, rather than being stated literally within a guideline.
 
 === Local Variables
 

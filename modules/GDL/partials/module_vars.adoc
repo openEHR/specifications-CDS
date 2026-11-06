@@ -1,5 +1,10 @@
+include::ROOT:partial$component_vars.adoc[]
+
 :spec_title: Guideline Definition Language (GDL)
 :copyright_year: 2013
 :spec_status: RETIRED
 :keywords: decision support, GDL, archetype
 :description: openEHR Guideline Definition Language (GDL) specification
+
+:latest_issue: 2.0.1
+:latest_issue_date: 31 Jul 2024

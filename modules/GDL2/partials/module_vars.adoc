@@ -1,5 +1,10 @@
+include::ROOT:partial$component_vars.adoc[]
+
 :spec_title: Guideline Definition Language v2 (GDL2)
 :copyright_year: 2018
 :spec_status: STABLE
 :keywords: decision support, GDL, GDL2, archetype
 :description: openEHR Guideline Definition Language v2 (GDL2) specification
+
+:latest_issue: 2.0.0
+:latest_issue_date: 20 May 2019

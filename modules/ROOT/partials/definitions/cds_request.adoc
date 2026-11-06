@@ -11,26 +11,26 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*hook_instance*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*hook_instance*: `xref:{class_string}[String]`
 a|
 
 h|*1..1*
-|*fhir_srever*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*fhir_srever*: `xref:{class_string}[String]`
 a|
 
 h|*1..1*
-|*hook*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*hook*: `xref:{class_string}[String]`
 a|
 
 h|*1..1*
-|*user*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*user*: `xref:{class_string}[String]`
 a|
 
 h|*1..1*
-|*patient*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+|*patient*: `xref:{class_string}[String]`
 a|
 
 h|*0..1*
-|*context*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<@@>`
+|*context*: `xref:{class_list}[List]<@@>`
 a|
 |===
