@@ -1,0 +1,9 @@
+=== TERM_BINDING Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/term_binding.adoc[]
+
+====

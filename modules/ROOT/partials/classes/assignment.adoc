@@ -1,0 +1,9 @@
+=== ASSIGNMENT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/assignment.adoc[]
+
+====

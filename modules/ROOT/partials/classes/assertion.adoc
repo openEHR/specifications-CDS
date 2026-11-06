@@ -1,0 +1,9 @@
+=== ASSERTION Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/assertion.adoc[]
+
+====

@@ -1,0 +1,9 @@
+=== RULE Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/rule.adoc[]
+
+====

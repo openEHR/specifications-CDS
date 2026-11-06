@@ -1,0 +1,23 @@
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*BINARY_OPERATOR*
+
+h|*Description*
+2+a|Concrete model of a binary operator in the rule.
+
+h|*Inherit*
+2+|`<<_operator_class,OPERATOR>>`
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*left*: `<<_expression_item_class,EXPRESSION_ITEM>>`
+a|Left operand.
+
+h|*1..1*
+|*right*: `<<_expression_item_class,EXPRESSION_ITEM>>`
+a|Right operand.
+|===

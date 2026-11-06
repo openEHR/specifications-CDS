@@ -1,0 +1,9 @@
+=== STRING_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/string_constant.adoc[]
+
+====

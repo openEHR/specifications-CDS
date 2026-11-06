@@ -1,0 +1,9 @@
+=== OUTPUT_TEMPLATE Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/output_template.adoc[]
+
+====

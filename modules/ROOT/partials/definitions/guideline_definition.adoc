@@ -1,0 +1,41 @@
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*GUIDELINE_DEFINITION*
+
+h|*Description*
+2+a|The definition of the guideline includes:
+
+* `_pre_conditions_`: conditions defining the applicability of this guideline to a subject;
+* `_data bindings_`: bindings to to archetypes and other sources;
+* `_rules_`: define the logic of the guideline;
+* `_template_`: defines the output reporting structure.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*data_bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_data_binding_class,DATA_BINDING>>>`
+a|List of archetype/template bindings, which define specific elements to be used by rules in this guideline.
+
+h|*0..1*
+|*pre_conditions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assertion_class[ASSERTION^]>`
+a|Pre-conditions to be met before the guideline can be selected for execution. Pre-conditions constitute the definition of the guideline 'entry point', i.e. the match to a patient type to which the guideline may apply.
+
+h|*0..1*
+|*rules*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_rule_class,RULE>>>`
+a|Map of rules indexed by local gt codes.
+
+h|*0..1*
+|*default_actions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_assignment_class[ASSIGNMENT^]>`
+a|Actions that will always be performed, whenever the `_when_` conditions are evaluated, regardless of the result.
+
+h|*0..1*
+|*templates*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_output_template_class,OUTPUT_TEMPLATE>>>`
+a|One or more output termplates that define how to represent output reporting structure.
+
+h|*0..1*
+|*internal_variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/CDS/{cds_release}/expression.html#_variable_class[VARIABLE^]>`
+a|Variables used internally to a GDL guideline, i.e. not bound to external data entities. These are generated during parsing of expressions and used to track interim state.
+|===

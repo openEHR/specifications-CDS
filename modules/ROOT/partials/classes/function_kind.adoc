@@ -1,0 +1,9 @@
+=== FUNCTION_KIND Enumeration
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/function_kind.adoc[]
+
+====

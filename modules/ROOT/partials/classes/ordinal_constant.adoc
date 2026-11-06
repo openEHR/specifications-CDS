@@ -1,0 +1,9 @@
+=== ORDINAL_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/ordinal_constant.adoc[]
+
+====

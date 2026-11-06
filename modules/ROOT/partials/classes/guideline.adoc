@@ -1,0 +1,9 @@
+=== GUIDELINE Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/guideline.adoc[]
+
+====

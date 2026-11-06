@@ -1,0 +1,36 @@
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*CARD*
+
+h|*Description*
+2+a|
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*summary*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|
+
+h|*0..1*
+|*detail*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|
+
+h|*1..1*
+|*indicator*: `<<_indicator_type_enumeration,INDICATOR_TYPE>>`
+a|
+
+h|*0..1*
+|*source*: `<<_source_class,SOURCE>>`
+a|
+
+h|*0..1*
+|*suggestions*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_suggestion_class,SUGGESTION>>>`
+a|
+
+h|*0..1*
+|*links*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<@@>`
+a|
+|===

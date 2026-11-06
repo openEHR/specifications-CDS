@@ -1,0 +1,9 @@
+=== CODED_TEXT_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/coded_text_constant.adoc[]
+
+====

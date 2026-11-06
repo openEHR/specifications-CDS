@@ -1,0 +1,9 @@
+=== BINARY_OPERATOR Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/binary_operator.adoc[]
+
+====
