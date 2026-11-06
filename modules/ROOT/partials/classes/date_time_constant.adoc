@@ -1,0 +1,9 @@
+=== DATE_TIME_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/date_time_constant.adoc[]
+
+====

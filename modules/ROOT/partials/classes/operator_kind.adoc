@@ -1,0 +1,9 @@
+=== OPERATOR_KIND Enumeration
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/operator_kind.adoc[]
+
+====

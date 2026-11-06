@@ -1,0 +1,9 @@
+=== CARD Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/card.adoc[]
+
+====

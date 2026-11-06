@@ -1,0 +1,9 @@
+=== VARIABLE Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/variable.adoc[]
+
+====

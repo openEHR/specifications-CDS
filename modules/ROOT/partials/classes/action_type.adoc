@@ -1,0 +1,9 @@
+=== ACTION_TYPE Enumeration
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/action_type.adoc[]
+
+====

@@ -1,0 +1,9 @@
+=== INDICATOR_TYPE Enumeration
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/indicator_type.adoc[]
+
+====

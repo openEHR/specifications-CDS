@@ -1,0 +1,9 @@
+=== STATEMENT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/statement.adoc[]
+
+====

@@ -1,0 +1,9 @@
+=== SUGGESTION Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/suggestion.adoc[]
+
+====

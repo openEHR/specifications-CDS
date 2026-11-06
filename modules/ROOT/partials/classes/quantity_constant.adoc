@@ -1,0 +1,9 @@
+=== QUANTITY_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/quantity_constant.adoc[]
+
+====

@@ -1,0 +1,9 @@
+=== INTEGER_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/integer_constant.adoc[]
+
+====

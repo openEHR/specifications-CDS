@@ -1,0 +1,9 @@
+=== CDS_REQUEST Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/cds_request.adoc[]
+
+====

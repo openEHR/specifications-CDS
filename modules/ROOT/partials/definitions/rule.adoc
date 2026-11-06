@@ -1,0 +1,32 @@
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*RULE*
+
+h|*Description*
+2+a|A single rule defined in a guideline, of the logical form
+
+`when` conditions `then` actions.
+
+Conditions are assertions based on input and/or environment variables (e.g.time, date etc). Actions take the form of assignments to output variables.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*id*: `xref:{class_string}[String]`
+a|The gt-code of this rule.
+
+h|*0..1*
+|*when*: `xref:{class_list}[List]<xref:GDL2:model.adoc#_assertion_class[ASSERTION]>`
+a|List of assertions that when evaluated to `True` cause the rule to be fired. The `_when_` assertions may only mention 'input' type variables.
+
+h|*0..1*
+|*then*: `xref:{class_list}[List]<xref:GDL2:model.adoc#_assignment_class[ASSIGNMENT]>`
+a|List of actions if the rule is fired. Each action is in the form of an assignment to an 'output' type variable.
+
+h|*1..1*
+|*priority*: `xref:{class_integer}[Integer]`
+a|Indicates the evaluation order of Rules within a Guideline. Rules with a _higher_ priority value are executed first.
+|===

@@ -1,0 +1,80 @@
+[cols="^1,3,5"]
+|===
+h|*Enumeration*
+2+^h|*OPERATOR_KIND*
+
+h|*Description*
+2+a|Enumeration of operator types.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|ADDITION
+a|Addition ('+') operation.
+
+h|
+|SUBTRACTION
+a|Subtraction ('-') operation.
+
+h|
+|MULTIPLICATION
+a|Multiplication ('*') operation.
+
+h|
+|DIVISION
+a|Division ('/') operation.
+
+h|
+|EXPONENT
+a|Exponent ('^') operation.
+
+h|
+|AND
+a|Logical and ('&&') operation.
+
+h|
+|OR
+a|Logical or ('&#124;&#124;') operation.
+
+h|
+|NOT
+a|Logical negation ('!') operation.
+
+h|
+|EQUALITY
+a|Relational equality ('==') operation.
+
+h|
+|INEQUALITY
+a|Relational inequality ('!=') operation.
+
+h|
+|LESS_THAN
+a|Relational less-than ('<') operation.
+
+h|
+|GREATER_THAN
+a|Relational greater-than ('>') operation.
+
+h|
+|LESS_THAN_OR_EQUAL
+a|Relational less-than-or-equal ('\<=') operation.
+
+h|
+|GREATER_THAN_OR_EQUAL
+a|Relational greater-than-or-equal ('>=') operation.
+
+h|
+|IS_A
+a|Subsumption operator ('is_a').
+
+h|
+|IS_NOT_A
+a|Negated subsumption operator ('!is_a').
+
+h|
+|FOR_ALL
+a|Universal quantifier operator ('∀').
+|===

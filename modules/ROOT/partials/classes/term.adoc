@@ -1,0 +1,9 @@
+=== TERM Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/term.adoc[]
+
+====

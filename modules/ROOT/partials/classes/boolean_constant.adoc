@@ -1,0 +1,9 @@
+=== BOOLEAN_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/boolean_constant.adoc[]
+
+====

@@ -1,0 +1,9 @@
+=== OPERATOR Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/operator.adoc[]
+
+====

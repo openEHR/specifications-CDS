@@ -1,0 +1,9 @@
+=== TERMINOLOGY Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/terminology.adoc[]
+
+====

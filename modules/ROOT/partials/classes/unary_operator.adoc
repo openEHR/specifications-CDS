@@ -1,0 +1,9 @@
+=== UNARY_OPERATOR Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/unary_operator.adoc[]
+
+====

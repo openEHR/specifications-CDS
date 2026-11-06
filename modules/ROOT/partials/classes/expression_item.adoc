@@ -1,0 +1,9 @@
+=== EXPRESSION_ITEM Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/expression_item.adoc[]
+
+====

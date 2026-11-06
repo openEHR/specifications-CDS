@@ -1,0 +1,36 @@
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*CDS_REQUEST*
+
+h|*Description*
+2+a|
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*hook_instance*: `xref:{class_string}[String]`
+a|
+
+h|*1..1*
+|*fhir_srever*: `xref:{class_string}[String]`
+a|
+
+h|*1..1*
+|*hook*: `xref:{class_string}[String]`
+a|
+
+h|*1..1*
+|*user*: `xref:{class_string}[String]`
+a|
+
+h|*1..1*
+|*patient*: `xref:{class_string}[String]`
+a|
+
+h|*0..1*
+|*context*: `xref:{class_list}[List]<@@>`
+a|
+|===

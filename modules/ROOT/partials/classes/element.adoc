@@ -1,0 +1,9 @@
+=== ELEMENT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/element.adoc[]
+
+====

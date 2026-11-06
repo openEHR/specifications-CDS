@@ -1,0 +1,9 @@
+=== FUNCTION_CALL Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/function_call.adoc[]
+
+====

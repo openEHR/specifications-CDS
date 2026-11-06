@@ -1,0 +1,9 @@
+=== CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/constant.adoc[]
+
+====

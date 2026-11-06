@@ -1,0 +1,9 @@
+=== CODE_PHRASE_CONSTANT Class
+
+[tabs]
+====
+Definition::
++
+include::ROOT:partial$definitions/code_phrase_constant.adoc[]
+
+====
